@@ -16,7 +16,9 @@
 - 完了: ローカル簡易バリデータ（`scripts/validate-entries.mjs`）
 - 完了: GitHub Actions でバリデーション自動実行
 - 完了: リリース手順（バージョン更新 + validate + commit/push）スクリプト追加（`scripts/release.mjs`）
-- 完了: GitHub Pages デプロイワークフロー追加
+- 完了: Vercel デプロイ設定（`vercel.json` / `.vercelignore`）
+- 完了: 日次自動実行ワークフロー（1日1回, `automation-daily.yml`）
+- 完了: 自動化ポリシー設定（遅延・robots順守・閾値）を `automation.config.json` に集約
 - 完了: 収集元定義（`sources.json`）の自動生成
 - 完了: Fetcher 雛形（`scripts/fetch-sources.mjs` / dry-run 対応）
 - 完了: スナップショット抽出（Extractor）雛形とレビューキュー生成（`scripts/extract-snapshots.mjs`）
@@ -50,7 +52,7 @@
 6. 公開（Publisher）
 - 検証通過データをサイト用データへ反映
 - バージョン番号を更新
-- コミット / push / GitHub Pages 反映
+- コミット / push / Vercel 反映（Git連携）
 
 ## 段階的実装プラン
 

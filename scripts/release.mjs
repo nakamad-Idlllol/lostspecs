@@ -41,6 +41,9 @@ function main() {
   console.log("[release] check app.js syntax");
   run("node", ["--check", "app.js"]);
 
+  console.log("[release] validate automation.config.json");
+  run("node", ["scripts/validate-automation-config.mjs"]);
+
   console.log("[release] validate entries.json");
   run("node", ["scripts/validate-entries.mjs"]);
 
@@ -56,11 +59,13 @@ function main() {
   run("git", [
     "add",
     "app.js",
+    "automation.config.json",
     "entries.json",
     "sources.json",
     "index.html",
     "styles.css",
     "package.json",
+    "vercel.json",
     "scripts",
     ".github",
     "data",

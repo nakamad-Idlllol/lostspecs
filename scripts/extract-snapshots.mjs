@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { loadAutomationConfig } from "./lib/automation-config.mjs";
 
 const SNAPSHOT_ROOT = path.resolve(process.cwd(), "data", "snapshots");
 const EXTRACTED_ROOT = path.resolve(process.cwd(), "data", "extracted");
@@ -119,8 +120,25 @@ function extractRecord(record) {
   };
 }
 
+function classifyDecision(confidence, config) {
+  const thresholds = config.scoring?.thresholds ?? {};
+  const labels = config.scoring?.defaults ?? {};
+  const candidateReadyMin = thresholds.candidateReadyMin ?? 85;
+  const needsReviewMin = thresholds.needsReviewMin ?? 55;
+
+  if (confidence >= candidateReadyMin) {
+    return { key: "candidate_ready", label: labels.labelHigh ?? "掲載候補" };
+  }
+  if (confidence >= needsReviewMin) {
+    return { key: "needs_review", label: labels.labelMedium ?? "要レビュー" };
+  }
+  return { key: "hold", label: labels.labelLow ?? "保留" };
+}
+
 function main() {
   const options = parseArgs(process.argv.slice(2));
+  const config = loadAutomationConfig();
+  const needsReviewMin = config.scoring?.thresholds?.needsReviewMin ?? 55;
   const batch = chooseBatch(options.batch);
   if (!batch) {
     console.log("[extract] スナップショットバッチがありません（data/snapshots 配下が空です）");
@@ -158,6 +176,7 @@ function main() {
       sourceId: extracted.sourceId,
       url: extracted.url,
       confidence: extracted.confidence,
+      decision: classifyDecision(extracted.confidence, config),
       reviewReasons: extracted.reviewReasons,
       title: extracted.extracted.title || extracted.extracted.ogTitle || extracted.extracted.h1 || ""
     });
@@ -173,7 +192,10 @@ function main() {
       {
         batch,
         processed,
-        lowConfidenceCount: queue.filter((q) => q.confidence < 60).length,
+        thresholds: config.scoring?.thresholds ?? null,
+        holdCount: queue.filter((q) => q.confidence < needsReviewMin).length,
+        candidateReadyCount: queue.filter((q) => q.decision?.key === "candidate_ready").length,
+        needsReviewCount: queue.filter((q) => q.decision?.key === "needs_review").length,
         generatedAt: new Date().toISOString()
       },
       null,

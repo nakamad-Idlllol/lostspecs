@@ -1,0 +1,7 @@
+.github
+scripts
+data
+.git
+AUTOMATION_ROADMAP.md
+automation.config.json
+package.json

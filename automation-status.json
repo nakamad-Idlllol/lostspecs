@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-02-23T08:43:47.912Z",
+  "generatedAt": "2026-02-23T10:06:16.450Z",
   "site": {
-    "version": "0.4.3",
+    "version": "0.4.5",
     "updatedAt": "2026-02-23"
   },
   "deployment": {
@@ -25,9 +25,9 @@
     }
   },
   "latest": {
-    "extractedBatch": "20260223-083517",
+    "extractedBatch": "20260223-095746",
     "extractedSummary": {
-      "batch": "20260223-083517",
+      "batch": "20260223-095746",
       "processed": 16,
       "thresholds": {
         "candidateReadyMin": 85,
@@ -36,12 +36,12 @@
       "holdCount": 3,
       "candidateReadyCount": 13,
       "needsReviewCount": 0,
-      "generatedAt": "2026-02-23T08:43:47.835Z"
+      "generatedAt": "2026-02-23T10:06:16.337Z"
     },
-    "candidatesBatch": "20260223-083517",
+    "candidatesBatch": "20260223-095746",
     "candidatesSummary": {
-      "batch": "20260223-083517",
-      "generatedAt": "2026-02-23T08:43:47.882Z",
+      "batch": "20260223-095746",
+      "generatedAt": "2026-02-23T10:06:16.385Z",
       "total": 16,
       "candidateReadyCount": 0,
       "needsReviewCount": 16,
@@ -49,6 +49,26 @@
       "autoEligibleCount": 0,
       "evidenceUpdateCount": 16,
       "newEntryCount": 0
+    },
+    "publisherBatch": "20260223-095746",
+    "publisherSummary": {
+      "batch": "20260223-095746",
+      "generatedAt": "2026-02-23T10:06:16.419Z",
+      "requestedApply": true,
+      "autoApplyEnabled": true,
+      "totalCandidates": 16,
+      "publishableCount": 0,
+      "appliedCount": 0,
+      "rejectedCount": 16,
+      "reasonsHistogram": {
+        "decision_not_candidate_ready": 16,
+        "candidate_type_not_auto_publishable": 16,
+        "source_url_already_used": 16,
+        "linked_existing_entry": 16,
+        "suggested_entry_incomplete": 16,
+        "entry_source_url_already_exists": 16,
+        "confidence_too_low": 10
+      }
     }
   }
 }

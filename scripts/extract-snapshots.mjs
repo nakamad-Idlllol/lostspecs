@@ -50,6 +50,17 @@ function extractTagText(html, tagName) {
   return match ? stripHtml(match[1]).slice(0, 500) : "";
 }
 
+function extractTagTexts(html, tagName, limit = 5) {
+  const re = new RegExp(`<${tagName}[^>]*>([\\s\\S]*?)<\\/${tagName}>`, "gi");
+  const out = [];
+  let match;
+  while ((match = re.exec(html)) && out.length < limit) {
+    const text = stripHtml(match[1]).slice(0, 300);
+    if (text) out.push(text);
+  }
+  return out;
+}
+
 function extractMetaContent(html, attrName, attrValue) {
   const escapedAttrName = attrName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const escapedAttrValue = attrValue.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -63,6 +74,28 @@ function extractMetaContent(html, attrName, attrValue) {
   );
   const match = html.match(re) ?? html.match(reSwap);
   return match ? match[1].trim() : "";
+}
+
+function detectChallengeOrGate({ title, h1, textSample, body }) {
+  const haystack = [title, h1, textSample].join(" \n ").toLowerCase();
+  const signals = [
+    "just a moment",
+    "cloudflare",
+    "attention required",
+    "verify you are human",
+    "captcha",
+    "access denied"
+  ];
+  const matched = signals.filter((s) => haystack.includes(s));
+
+  if (/cf-browser-verification|challenge-form|__cf_chl_/i.test(body)) {
+    matched.push("cloudflare_challenge_markup");
+  }
+
+  return {
+    challengeLikely: matched.length > 0,
+    signals: [...new Set(matched)]
+  };
 }
 
 function scoreExtraction(record, extracted) {
@@ -83,8 +116,15 @@ function scoreExtraction(record, extracted) {
 
   if (extracted.ogTitle) score += 10;
   if (extracted.h1) score += 10;
+  if (extracted.description) score += 5;
+  if (extracted.ogDescription) score += 5;
   if (extracted.textSample.length >= 80) score += 5;
   else reasons.push("short_text");
+
+  if (extracted.challenge?.challengeLikely) {
+    score -= 45;
+    reasons.push("bot_challenge_or_gate");
+  }
 
   return {
     confidence: Math.max(0, Math.min(100, score)),
@@ -96,10 +136,23 @@ function extractRecord(record) {
   const body = typeof record.body === "string" ? record.body : "";
   const title = extractTagText(body, "title");
   const h1 = extractTagText(body, "h1");
+  const h2List = extractTagTexts(body, "h2", 6);
   const ogTitle = extractMetaContent(body, "property", "og:title");
+  const ogDescription = extractMetaContent(body, "property", "og:description");
+  const description =
+    extractMetaContent(body, "name", "description") || extractMetaContent(body, "property", "description");
   const text = stripHtml(body);
   const textSample = text.slice(0, 1200);
-  const scored = scoreExtraction(record, { title, h1, ogTitle, textSample });
+  const challenge = detectChallengeOrGate({ title, h1, textSample, body });
+  const scored = scoreExtraction(record, {
+    title,
+    h1,
+    ogTitle,
+    description,
+    ogDescription,
+    textSample,
+    challenge
+  });
 
   return {
     sourceId: record.sourceId ?? "",
@@ -111,9 +164,14 @@ function extractRecord(record) {
     extracted: {
       title,
       h1,
+      h2List,
       ogTitle,
+      description,
+      ogDescription,
       textSample,
-      textLength: text.length
+      textLength: text.length,
+      challengeLikely: challenge.challengeLikely,
+      challengeSignals: challenge.signals
     },
     confidence: scored.confidence,
     reviewReasons: scored.reviewReasons

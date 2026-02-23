@@ -42,6 +42,7 @@
   "publisher": {
     "autoApplyEnabled": true,
     "allowEvidenceUpdateAutoApply": false,
+    "allowTemplateFilledAutoApply": false,
     "minConfidence": 95,
     "requireCompleteSuggestedEntry": true
   }

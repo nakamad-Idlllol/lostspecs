@@ -101,6 +101,7 @@ function evaluateCandidate(candidate, context, config) {
   const reasons = [];
   const publisher = config.publisher ?? {};
   const minConfidence = publisher.minConfidence ?? 95;
+  const allowTemplateFilledAutoApply = publisher.allowTemplateFilledAutoApply ?? false;
 
   if (candidate.decision?.key !== "candidate_ready") reasons.push("decision_not_candidate_ready");
   if (typeof candidate.confidence !== "number" || candidate.confidence < minConfidence) reasons.push("confidence_too_low");
@@ -120,6 +121,9 @@ function evaluateCandidate(candidate, context, config) {
 
   if (publisher.requireCompleteSuggestedEntry && !completeSuggestedEntry(candidate.suggestedEntry)) {
     reasons.push("suggested_entry_incomplete");
+  }
+  if (candidate.suggestedEntryMeta?.templateFilled && !allowTemplateFilledAutoApply) {
+    reasons.push("template_filled_entry_blocked");
   }
 
   const normalized = { ...(candidate.suggestedEntry ?? {}) };
@@ -189,6 +193,7 @@ function main() {
       confidence: candidate.confidence ?? null,
       decision: candidate.decision ?? null,
       candidateType: candidate.candidateType ?? null,
+      templateFilled: Boolean(candidate.suggestedEntryMeta?.templateFilled),
       publishable: result.publishable,
       reasons: result.reasons
     };

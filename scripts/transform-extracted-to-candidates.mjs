@@ -94,6 +94,124 @@ function inferStatus(decisionKey) {
   return "保留";
 }
 
+function cleanText(value) {
+  return String(value ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function splitSentences(text) {
+  return cleanText(text)
+    .split(/(?<=[。.!?！？])\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+function clipText(text, max = 180) {
+  const s = cleanText(text);
+  if (s.length <= max) return s;
+  return `${s.slice(0, max)}…`;
+}
+
+function choosePrimaryDescription(extracted) {
+  return (
+    cleanText(extracted.extracted?.ogDescription) ||
+    cleanText(extracted.extracted?.description) ||
+    ""
+  );
+}
+
+function chooseFactSentence(extracted) {
+  const candidates = [
+    choosePrimaryDescription(extracted),
+    ...splitSentences(extracted.extracted?.textSample || "")
+  ];
+  const picked = candidates.find((s) => s && s.length >= 20);
+  return picked ? clipText(picked, 220) : "";
+}
+
+function hasChallengeSignal(extracted) {
+  return Boolean(extracted.extracted?.challengeLikely);
+}
+
+function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, classificationHint, decision, sourceLinkedExisting }) {
+  const primaryTitle = pickTitle(extracted) || sourceMeta?.label || extracted.sourceId || "要確認タイトル";
+  const description = choosePrimaryDescription(extracted);
+  const factSeed = chooseFactSentence(extracted);
+  const h2List = Array.isArray(extracted.extracted?.h2List) ? extracted.extracted.h2List : [];
+
+  const templateFields = [];
+  const setTemplate = (key, value) => {
+    templateFields.push(key);
+    return value;
+  };
+
+  const work = workRefs[0] ?? setTemplate("work", "要確認（作品名未推定）");
+  const medium = mediumHint ?? setTemplate("medium", "要確認");
+  const classification = classificationHint ?? setTemplate("classification", "作中要素");
+  const status = inferStatus(decision.key);
+
+  const tags = [status, "自動抽出候補"];
+  if (hasChallengeSignal(extracted)) tags.push("アクセス制限/要再取得");
+  if (sourceLinkedExisting) tags.push("既存エントリ関連");
+
+  const firstAppearance = sourceLinkedExisting
+    ? setTemplate("firstAppearance", "既存エントリの追補候補（初出は既存記事を参照）")
+    : setTemplate("firstAppearance", "要確認（本文・見出しから初出情報を抽出予定）");
+
+  const factShown =
+    factSeed ||
+    setTemplate("factShown", `要確認（${clipText(primaryTitle, 80)} に関する本文抽出に失敗または不足）`);
+
+  const factAfter = sourceLinkedExisting
+    ? setTemplate("factAfter", "既存エントリへの出典追加・補強候補。本文差分確認後に反映。")
+    : setTemplate("factAfter", "自動抽出段階では後続の扱いを確定できないため、要レビュー。");
+
+  const evaluation = hasChallengeSignal(extracted)
+    ? setTemplate("evaluation", "アクセス制限/認証ページの可能性があり、再取得または別ソース確認が必要。")
+    : setTemplate(
+        "evaluation",
+        `自動抽出候補（信頼度 ${extracted.confidence ?? "-"}）。判定=${decision.label}。人手レビューで文章整形・事実確認を行う。`
+      );
+
+  const noteParts = [
+    `自動抽出候補（${new Date().toISOString()}）`,
+    `sourceId=${extracted.sourceId}`,
+    description ? "description抽出あり" : "description抽出なし",
+    h2List.length ? `h2=${h2List.slice(0, 3).join(" / ")}` : "h2なし"
+  ];
+
+  return {
+    entry: {
+      id: null,
+      work,
+      medium,
+      itemTitle: primaryTitle,
+      classification,
+      status,
+      tags,
+      firstAppearance,
+      factShown,
+      factAfter,
+      evaluation,
+      note: noteParts.join(" | "),
+      sources: [
+        {
+          label: sourceMeta?.label ?? extracted.url,
+          url: extracted.url
+        }
+      ]
+    },
+    meta: {
+      templateFilled: templateFields.length > 0,
+      templateFields,
+      hasChallengeSignal: hasChallengeSignal(extracted),
+      hasDescription: Boolean(description),
+      extractedH2Count: h2List.length
+    }
+  };
+}
+
 function buildCandidate(extracted, sourceMeta, indexes, batch, config) {
   const title = pickTitle(extracted);
   const workRefs = sourceMeta?.workRefs ?? [];
@@ -108,6 +226,13 @@ function buildCandidate(extracted, sourceMeta, indexes, batch, config) {
 
   const candidateType = sourceLinkedExisting ? "evidence_update" : "new_entry";
   const autoEligible = decision.key === "candidate_ready" && candidateType === "new_entry" && !sourceAlreadyUsed;
+  const suggested = buildSuggestedEntry(extracted, sourceMeta, {
+    workRefs,
+    mediumHint,
+    classificationHint,
+    decision,
+    sourceLinkedExisting
+  });
 
   return {
     candidateId,
@@ -131,30 +256,17 @@ function buildCandidate(extracted, sourceMeta, indexes, batch, config) {
     extracted: {
       title: extracted.extracted?.title ?? "",
       h1: extracted.extracted?.h1 ?? "",
+      h2List: extracted.extracted?.h2List ?? [],
       ogTitle: extracted.extracted?.ogTitle ?? "",
+      description: extracted.extracted?.description ?? "",
+      ogDescription: extracted.extracted?.ogDescription ?? "",
       textSample: extracted.extracted?.textSample ?? "",
-      textLength: extracted.extracted?.textLength ?? 0
+      textLength: extracted.extracted?.textLength ?? 0,
+      challengeLikely: Boolean(extracted.extracted?.challengeLikely),
+      challengeSignals: extracted.extracted?.challengeSignals ?? []
     },
-    suggestedEntry: {
-      id: null,
-      work: workRefs[0] ?? null,
-      medium: mediumHint,
-      itemTitle: title || null,
-      classification: classificationHint,
-      status: inferStatus(decision.key),
-      tags: [inferStatus(decision.key)],
-      firstAppearance: null,
-      factShown: null,
-      factAfter: null,
-      evaluation: null,
-      note: `自動抽出候補（${new Date().toISOString()}） sourceId=${extracted.sourceId}`,
-      sources: [
-        {
-          label: sourceMeta?.label ?? extracted.url,
-          url: extracted.url
-        }
-      ]
-    },
+    suggestedEntry: suggested.entry,
+    suggestedEntryMeta: suggested.meta,
     reviewReasons: extracted.reviewReasons ?? [],
     generatedAt: new Date().toISOString()
   };
@@ -218,6 +330,7 @@ function main() {
       confidence: c.confidence,
       candidateType: c.candidateType,
       autoEligible: c.autoEligible,
+      templateFilled: Boolean(c.suggestedEntryMeta?.templateFilled),
       duplicateSignals: c.duplicateSignals,
       workRefs: c.workRefs,
       entryRefs: c.entryRefs,
@@ -232,6 +345,7 @@ function main() {
     needsReviewCount: candidates.filter((c) => c.decision?.key === "needs_review").length,
     holdCount: candidates.filter((c) => c.decision?.key === "hold").length,
     autoEligibleCount: candidates.filter((c) => c.autoEligible).length,
+    templateFilledCount: candidates.filter((c) => c.suggestedEntryMeta?.templateFilled).length,
     evidenceUpdateCount: candidates.filter((c) => c.candidateType === "evidence_update").length,
     newEntryCount: candidates.filter((c) => c.candidateType === "new_entry").length
   };

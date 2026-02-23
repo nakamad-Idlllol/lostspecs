@@ -1,5 +1,5 @@
 ﻿const SITE_META = {
-  version: "0.4.5",
+  version: "0.4.6",
   updatedAt: "2026-02-23"
 };
 

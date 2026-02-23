@@ -65,6 +65,10 @@ function main() {
     fail("publisher.allowEvidenceUpdateAutoApply は boolean である必要があります");
     errorCount += 1;
   }
+  if (typeof publisher.allowTemplateFilledAutoApply !== "boolean") {
+    fail("publisher.allowTemplateFilledAutoApply は boolean である必要があります");
+    errorCount += 1;
+  }
   if (!Number.isInteger(publisher.minConfidence) || publisher.minConfidence < 0 || publisher.minConfidence > 100) {
     fail("publisher.minConfidence は 0..100 の整数である必要があります");
     errorCount += 1;

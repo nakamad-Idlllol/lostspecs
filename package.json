@@ -10,6 +10,8 @@
     "sources:generate": "node scripts/generate-sources-from-entries.mjs",
     "sources:fetch:dry": "node scripts/fetch-sources.mjs --dry-run",
     "extract:latest": "node scripts/extract-snapshots.mjs",
+    "transform:latest": "node scripts/transform-extracted-to-candidates.mjs",
+    "publish:automation-status": "node scripts/publish-automation-status.mjs",
     "automation:daily": "node scripts/run-daily-automation.mjs",
     "automation:daily:dry": "node scripts/run-daily-automation.mjs --dry-run --fetch-limit 5",
     "bump:patch": "node scripts/bump-version.mjs patch",

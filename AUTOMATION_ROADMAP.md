@@ -22,7 +22,10 @@
 - 完了: 収集元定義（`sources.json`）の自動生成
 - 完了: Fetcher 雛形（`scripts/fetch-sources.mjs` / dry-run 対応）
 - 完了: スナップショット抽出（Extractor）雛形とレビューキュー生成（`scripts/extract-snapshots.mjs`）
-- 次: 抽出結果からエントリ候補JSONを作る変換器（Transformer）雛形
+- 完了: 抽出結果からエントリ候補JSONを作る変換器（Transformer）雛形
+- 完了: 公開用ステータス/レビューFeed生成（`automation-status.json` / `automation-review-feed.json`）
+- 完了: 日次ジョブの自動コミット（Vercel Git連携で自動反映）
+- 次: 候補JSONから `entries.json` へ昇格する Publisher（自動/半自動）実装
 
 ## 自動化の全体構成（目標アーキテクチャ）
 1. ソース登録

@@ -50,6 +50,9 @@ function main() {
   console.log("[release] validate sources.json");
   run("node", ["scripts/validate-sources.mjs"]);
 
+  console.log("[release] publish automation status feed");
+  run("node", ["scripts/publish-automation-status.mjs"]);
+
   if (!git) {
     console.log("[release] 完了（git 操作なし）");
     return;
@@ -62,6 +65,8 @@ function main() {
     "automation.config.json",
     "entries.json",
     "sources.json",
+    "automation-status.json",
+    "automation-review-feed.json",
     "index.html",
     "styles.css",
     "package.json",

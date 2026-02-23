@@ -1,0 +1,350 @@
+[
+  {
+    "candidateId": "cand-20260223-200854-src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+    "title": "Error 503 Backend fetch failed",
+    "confidence": 50,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+    "title": "Error 503 Backend fetch failed",
+    "confidence": 50,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-bulbapedia-bulbagarden-net-wiki-gs-ball",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-gs-ball",
+    "title": "GS Ball",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-jojo-fandom-com-wiki-pannacotta-fugo",
+    "sourceId": "src-jojo-fandom-com-wiki-pannacotta-fugo",
+    "title": "Pannacotta Fugo",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-jojo-fandom-com-wiki-unnamed-characters",
+    "sourceId": "src-jojo-fandom-com-wiki-unnamed-characters",
+    "title": "Unnamed Characters",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-jojowiki-com-jjl-chapter-83",
+    "sourceId": "src-jojowiki-com-jjl-chapter-83",
+    "title": "JoJo's Bizarre Encyclopedia: JJL Chapter 83",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-wikimon-net-bakumon-28adventure-29",
+    "sourceId": "src-wikimon-net-bakumon-28adventure-29",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-wikimon-net-dagomon",
+    "sourceId": "src-wikimon-net-dagomon",
+    "title": "Dagomon",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-wikimon-net-digimon-adventure-02-episode-13",
+    "sourceId": "src-wikimon-net-digimon-adventure-02-episode-13",
+    "title": "Digimon Adventure 02 - Episode 13",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-wikimon-net-digimon-adventure-02-episode-43",
+    "sourceId": "src-wikimon-net-digimon-adventure-02-episode-43",
+    "title": "Digimon Adventure 02 - Episode 43",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-wikimon-net-digimon-adventure-02",
+    "sourceId": "src-wikimon-net-digimon-adventure-02",
+    "title": "Digimon Adventure 02",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-wikimon-net-digimon-adventure-tri",
+    "sourceId": "src-wikimon-net-digimon-adventure-tri",
+    "title": "Digimon Adventure tri.",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-wikimon-net-mysterious-man",
+    "sourceId": "src-wikimon-net-mysterious-man",
+    "title": "Mysterious Man",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-wikimon-net-world-of-darkness",
+    "sourceId": "src-wikimon-net-world-of-darkness",
+    "title": "World of Darkness",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
+    "sourceId": "src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
+    "title": "A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260223-200854-src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-man",
+    "sourceId": "src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-many-in",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  }
+]

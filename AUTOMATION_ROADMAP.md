@@ -25,7 +25,9 @@
 - 完了: 抽出結果からエントリ候補JSONを作る変換器（Transformer）雛形
 - 完了: 公開用ステータス/レビューFeed生成（`automation-status.json` / `automation-review-feed.json`）
 - 完了: 日次ジョブの自動コミット（Vercel Git連携で自動反映）
-- 次: 候補JSONから `entries.json` へ昇格する Publisher（自動/半自動）実装
+- 完了: 候補JSONから `entries.json` へ昇格する Publisher（厳格自動 / `scripts/publish-candidates-to-entries.mjs`）
+- 完了: 自動運営ステータスをサイトUIで可視化（運用監視導線）
+- 次: Extractor/Transformer の精度向上（`suggestedEntry` 必須項目の自動充填率を上げる）
 
 ## 自動化の全体構成（目標アーキテクチャ）
 1. ソース登録

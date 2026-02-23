@@ -56,6 +56,24 @@ function main() {
     errorCount += 1;
   }
 
+  const publisher = config.publisher ?? {};
+  if (typeof publisher.autoApplyEnabled !== "boolean") {
+    fail("publisher.autoApplyEnabled は boolean である必要があります");
+    errorCount += 1;
+  }
+  if (typeof publisher.allowEvidenceUpdateAutoApply !== "boolean") {
+    fail("publisher.allowEvidenceUpdateAutoApply は boolean である必要があります");
+    errorCount += 1;
+  }
+  if (!Number.isInteger(publisher.minConfidence) || publisher.minConfidence < 0 || publisher.minConfidence > 100) {
+    fail("publisher.minConfidence は 0..100 の整数である必要があります");
+    errorCount += 1;
+  }
+  if (typeof publisher.requireCompleteSuggestedEntry !== "boolean") {
+    fail("publisher.requireCompleteSuggestedEntry は boolean である必要があります");
+    errorCount += 1;
+  }
+
   if (errorCount > 0) {
     console.error(`[FAIL] ${errorCount} 件の問題を検出しました`);
     process.exit(1);

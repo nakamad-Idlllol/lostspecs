@@ -4,6 +4,7 @@ import { loadAutomationConfig } from "./lib/automation-config.mjs";
 
 const EXTRACTED_ROOT = path.resolve(process.cwd(), "data", "extracted");
 const CANDIDATES_ROOT = path.resolve(process.cwd(), "data", "candidates");
+const PUBLISHER_ROOT = path.resolve(process.cwd(), "data", "publisher");
 const STATUS_PATH = path.resolve(process.cwd(), "automation-status.json");
 const REVIEW_FEED_PATH = path.resolve(process.cwd(), "automation-review-feed.json");
 const APP_PATH = path.resolve(process.cwd(), "app.js");
@@ -37,11 +38,15 @@ function main() {
   const config = loadAutomationConfig();
   const extractedBatch = latestBatch(EXTRACTED_ROOT);
   const candidatesBatch = latestBatch(CANDIDATES_ROOT);
+  const publisherBatch = latestBatch(PUBLISHER_ROOT);
   const extractedSummary = extractedBatch
     ? readJsonIfExists(path.join(EXTRACTED_ROOT, extractedBatch, "_summary.json"))
     : null;
   const candidatesSummary = candidatesBatch
     ? readJsonIfExists(path.join(CANDIDATES_ROOT, candidatesBatch, "_summary.json"))
+    : null;
+  const publisherSummary = publisherBatch
+    ? readJsonIfExists(path.join(PUBLISHER_ROOT, publisherBatch, "_summary.json"))
     : null;
   const reviewQueue = candidatesBatch
     ? readJsonIfExists(path.join(CANDIDATES_ROOT, candidatesBatch, "_review-queue.json"), [])
@@ -58,7 +63,9 @@ function main() {
       extractedBatch,
       extractedSummary,
       candidatesBatch,
-      candidatesSummary
+      candidatesSummary,
+      publisherBatch,
+      publisherSummary
     }
   };
 

@@ -1,5 +1,5 @@
 ﻿const SITE_META = {
-  version: "0.4.3",
+  version: "0.4.5",
   updatedAt: "2026-02-23"
 };
 
@@ -29,7 +29,15 @@ const els = {
   siteVersionCompact: document.getElementById("siteVersionCompact"),
   siteVersionSpec: document.getElementById("siteVersionSpec"),
   siteVersionText: document.getElementById("siteVersionText"),
-  siteUpdatedAt: document.getElementById("siteUpdatedAt")
+  siteUpdatedAt: document.getElementById("siteUpdatedAt"),
+  automationDeployProvider: document.getElementById("automationDeployProvider"),
+  automationSchedule: document.getElementById("automationSchedule"),
+  automationExtractedBatch: document.getElementById("automationExtractedBatch"),
+  automationCandidatesBatch: document.getElementById("automationCandidatesBatch"),
+  automationPublisherSummary: document.getElementById("automationPublisherSummary"),
+  automationReviewFeedSummary: document.getElementById("automationReviewFeedSummary"),
+  automationMetaLine: document.getElementById("automationMetaLine"),
+  automationFeedList: document.getElementById("automationFeedList")
 };
 
 function classificationKey(label) {
@@ -239,6 +247,138 @@ function renderSiteMeta() {
   if (els.siteUpdatedAt) {
     els.siteUpdatedAt.dateTime = SITE_META.updatedAt;
     els.siteUpdatedAt.textContent = SITE_META.updatedAt;
+  }
+}
+
+function setText(el, value) {
+  if (el) el.textContent = value;
+}
+
+function renderAutomationPanelLoading() {
+  setText(els.automationDeployProvider, "読込中");
+  setText(els.automationSchedule, "読込中");
+  setText(els.automationExtractedBatch, "読込中");
+  setText(els.automationCandidatesBatch, "読込中");
+  setText(els.automationPublisherSummary, "読込中");
+  setText(els.automationReviewFeedSummary, "読込中");
+  setText(els.automationMetaLine, "自動運営ステータスを読み込んでいます...");
+}
+
+function renderAutomationPanelError(message) {
+  setText(els.automationDeployProvider, "取得失敗");
+  setText(els.automationSchedule, "-");
+  setText(els.automationExtractedBatch, "-");
+  setText(els.automationCandidatesBatch, "-");
+  setText(els.automationPublisherSummary, "-");
+  setText(els.automationReviewFeedSummary, "-");
+  setText(els.automationMetaLine, `自動運営ステータスを取得できませんでした: ${message}`);
+  if (els.automationFeedList) {
+    els.automationFeedList.innerHTML = "";
+    const box = document.createElement("div");
+    box.className = "empty-list";
+    box.textContent = "automation-review-feed.json の読込に失敗しました。";
+    els.automationFeedList.append(box);
+  }
+}
+
+function decisionLabel(item) {
+  return item?.decision?.label || item?.decision?.key || "未判定";
+}
+
+function renderAutomationFeedList(feed) {
+  if (!els.automationFeedList) return;
+  els.automationFeedList.innerHTML = "";
+
+  const items = Array.isArray(feed?.items) ? feed.items : [];
+  if (!items.length) {
+    const box = document.createElement("div");
+    box.className = "empty-list";
+    box.textContent = "レビュー対象の候補はまだありません。";
+    els.automationFeedList.append(box);
+    return;
+  }
+
+  items.slice(0, 8).forEach((item) => {
+    const row = document.createElement("div");
+    row.className = "automation-feed-item";
+
+    const top = document.createElement("div");
+    top.className = "automation-feed-top";
+
+    const badge = document.createElement("span");
+    badge.className = "automation-badge";
+    badge.dataset.kind = item?.decision?.key || "";
+    badge.textContent = decisionLabel(item);
+    top.append(badge);
+
+    const score = document.createElement("span");
+    score.className = "automation-badge";
+    score.textContent = `信頼度 ${item.confidence ?? "-"}`;
+    top.append(score);
+
+    const title = document.createElement("div");
+    title.className = "automation-feed-title";
+    title.textContent = item.title || item.sourceId || "(タイトル未抽出)";
+
+    const meta = document.createElement("div");
+    meta.className = "automation-feed-meta";
+    const reasons = Array.isArray(item.reviewReasons) && item.reviewReasons.length ? item.reviewReasons.join(", ") : "-";
+    meta.textContent = `${item.candidateType || "-"} / ${item.sourceId || "-"} / reasons: ${reasons}`;
+
+    row.append(top, title, meta);
+    els.automationFeedList.append(row);
+  });
+}
+
+function renderAutomationPanel(status, feed) {
+  setText(els.automationDeployProvider, status?.deployment?.provider || "-");
+  setText(
+    els.automationSchedule,
+    status?.schedule?.dailyCron ? `${status.schedule.dailyCron} (${status.schedule.timezone || "UTC"})` : "-"
+  );
+  setText(els.automationExtractedBatch, status?.latest?.extractedBatch || "-");
+  setText(els.automationCandidatesBatch, status?.latest?.candidatesBatch || "-");
+
+  const pub = status?.latest?.publisherSummary;
+  if (pub) {
+    setText(
+      els.automationPublisherSummary,
+      `publishable ${pub.publishableCount ?? 0} / applied ${pub.appliedCount ?? 0}`
+    );
+  } else {
+    setText(els.automationPublisherSummary, "-");
+  }
+
+  const feedTotal = Array.isArray(feed?.items) ? feed.items.length : 0;
+  setText(
+    els.automationReviewFeedSummary,
+    `${feed?.total ?? feedTotal ?? 0}件（表示 ${Math.min(feedTotal, 8)}件）`
+  );
+
+  const generatedAt = status?.generatedAt || feed?.generatedAt || "-";
+  const siteVersion = status?.site?.version ? ` / site v${status.site.version}` : "";
+  setText(els.automationMetaLine, `status generated: ${generatedAt}${siteVersion}`);
+
+  renderAutomationFeedList(feed);
+}
+
+async function loadJsonFile(url) {
+  const response = await fetch(url, { cache: "no-store" });
+  if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+  return response.json();
+}
+
+async function initAutomationPanel() {
+  renderAutomationPanelLoading();
+  try {
+    const [status, feed] = await Promise.all([
+      loadJsonFile("automation-status.json"),
+      loadJsonFile("automation-review-feed.json")
+    ]);
+    renderAutomationPanel(status, feed);
+  } catch (error) {
+    console.error(error);
+    renderAutomationPanelError(error instanceof Error ? error.message : String(error));
   }
 }
 
@@ -452,6 +592,7 @@ function initEvents() {
 
 async function init() {
   renderSiteMeta();
+  void initAutomationPanel();
   renderLoadMessage("データを読み込んでいます...");
 
   try {

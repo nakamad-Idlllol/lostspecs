@@ -50,6 +50,9 @@ function main() {
   console.log("[release] validate sources.json");
   run("node", ["scripts/validate-sources.mjs"]);
 
+  console.log("[release] run publisher (plan-only)");
+  run("node", ["scripts/publish-candidates-to-entries.mjs"]);
+
   console.log("[release] publish automation status feed");
   run("node", ["scripts/publish-automation-status.mjs"]);
 

@@ -11,6 +11,7 @@
     "sources:fetch:dry": "node scripts/fetch-sources.mjs --dry-run",
     "extract:latest": "node scripts/extract-snapshots.mjs",
     "transform:latest": "node scripts/transform-extracted-to-candidates.mjs",
+    "publisher:latest": "node scripts/publish-candidates-to-entries.mjs",
     "publish:automation-status": "node scripts/publish-automation-status.mjs",
     "automation:daily": "node scripts/run-daily-automation.mjs",
     "automation:daily:dry": "node scripts/run-daily-automation.mjs --dry-run --fetch-limit 5",

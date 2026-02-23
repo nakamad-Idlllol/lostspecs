@@ -45,6 +45,9 @@ function main() {
   console.log("[daily] transform extracted to candidates");
   run("node", ["scripts/transform-extracted-to-candidates.mjs"]);
 
+  console.log("[daily] publish candidates to entries (strict auto)");
+  run("node", ["scripts/publish-candidates-to-entries.mjs", "--apply"]);
+
   console.log("[daily] publish automation status feed");
   run("node", ["scripts/publish-automation-status.mjs"]);
 

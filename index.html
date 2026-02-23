@@ -232,6 +232,48 @@
 
         <div class="wiki-sep">* * *</div>
 
+        <section id="automation" class="article-section">
+          <h3>自動運営ステータス</h3>
+          <div class="automation-panel">
+            <div class="automation-summary-grid">
+              <div class="automation-card">
+                <div class="automation-key">デプロイ</div>
+                <div class="automation-value" id="automationDeployProvider">-</div>
+              </div>
+              <div class="automation-card">
+                <div class="automation-key">日次スケジュール</div>
+                <div class="automation-value" id="automationSchedule">-</div>
+              </div>
+              <div class="automation-card">
+                <div class="automation-key">最新抽出バッチ</div>
+                <div class="automation-value" id="automationExtractedBatch">-</div>
+              </div>
+              <div class="automation-card">
+                <div class="automation-key">最新候補バッチ</div>
+                <div class="automation-value" id="automationCandidatesBatch">-</div>
+              </div>
+              <div class="automation-card">
+                <div class="automation-key">Publisher</div>
+                <div class="automation-value" id="automationPublisherSummary">-</div>
+              </div>
+              <div class="automation-card">
+                <div class="automation-key">レビューFeed</div>
+                <div class="automation-value" id="automationReviewFeedSummary">-</div>
+              </div>
+            </div>
+            <p id="automationMetaLine" class="muted">読込前</p>
+            <div class="automation-links">
+              <a href="automation-status.json" target="_blank" rel="noreferrer">automation-status.json</a>
+              <a href="automation-review-feed.json" target="_blank" rel="noreferrer">automation-review-feed.json</a>
+            </div>
+            <div id="automationFeedList" class="automation-feed-list">
+              <div class="empty-list">自動レビューFeedの読込前です。</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="wiki-sep">* * *</div>
+
         <section id="notes" class="article-section">
           <h3>運用メモ</h3>
           <ul>

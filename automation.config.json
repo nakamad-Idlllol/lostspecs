@@ -38,5 +38,11 @@
       "labelMedium": "要レビュー",
       "labelLow": "保留"
     }
+  },
+  "publisher": {
+    "autoApplyEnabled": true,
+    "allowEvidenceUpdateAutoApply": false,
+    "minConfidence": 95,
+    "requireCompleteSuggestedEntry": true
   }
 }

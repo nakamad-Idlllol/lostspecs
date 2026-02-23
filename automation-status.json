@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-23T08:14:59.393Z",
+  "generatedAt": "2026-02-23T08:43:47.912Z",
   "site": {
     "version": "0.4.3",
     "updatedAt": "2026-02-23"
@@ -25,9 +25,30 @@
     }
   },
   "latest": {
-    "extractedBatch": null,
-    "extractedSummary": null,
-    "candidatesBatch": null,
-    "candidatesSummary": null
+    "extractedBatch": "20260223-083517",
+    "extractedSummary": {
+      "batch": "20260223-083517",
+      "processed": 16,
+      "thresholds": {
+        "candidateReadyMin": 85,
+        "needsReviewMin": 55
+      },
+      "holdCount": 3,
+      "candidateReadyCount": 13,
+      "needsReviewCount": 0,
+      "generatedAt": "2026-02-23T08:43:47.835Z"
+    },
+    "candidatesBatch": "20260223-083517",
+    "candidatesSummary": {
+      "batch": "20260223-083517",
+      "generatedAt": "2026-02-23T08:43:47.882Z",
+      "total": 16,
+      "candidateReadyCount": 0,
+      "needsReviewCount": 16,
+      "holdCount": 0,
+      "autoEligibleCount": 0,
+      "evidenceUpdateCount": 16,
+      "newEntryCount": 0
+    }
   }
 }

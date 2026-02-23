@@ -1,0 +1,19 @@
+{
+  "name": "lostspecs",
+  "private": true,
+  "scripts": {
+    "validate:app": "node --check app.js",
+    "validate:data": "node scripts/validate-entries.mjs",
+    "validate:sources": "node scripts/validate-sources.mjs",
+    "validate": "node --check app.js && node scripts/validate-entries.mjs && node scripts/validate-sources.mjs",
+    "sources:generate": "node scripts/generate-sources-from-entries.mjs",
+    "sources:fetch:dry": "node scripts/fetch-sources.mjs --dry-run",
+    "extract:latest": "node scripts/extract-snapshots.mjs",
+    "bump:patch": "node scripts/bump-version.mjs patch",
+    "bump:minor": "node scripts/bump-version.mjs minor",
+    "bump:major": "node scripts/bump-version.mjs major",
+    "release:patch": "node scripts/release.mjs patch",
+    "release:minor": "node scripts/release.mjs minor",
+    "release:major": "node scripts/release.mjs major"
+  }
+}

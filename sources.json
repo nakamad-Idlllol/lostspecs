@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-02-23",
+  "items": [
+    {
+      "id": "src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+      "label": "Bulbapedia: BW023 (unaired)",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/BW023_%28unaired%29",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ポケットモンスター ベストウイッシュ"
+      ],
+      "entryRefs": [
+        "pkmn-bw-unaired-plasma"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+      "label": "Bulbapedia: BW024 (unaired)",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/BW024_%28unaired%29",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ポケットモンスター ベストウイッシュ"
+      ],
+      "entryRefs": [
+        "pkmn-bw-unaired-plasma"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-bulbapedia-bulbagarden-net-wiki-gs-ball",
+      "label": "Bulbapedia: GS Ball",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/GS_Ball",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ポケットモンスター（アニメ・ジョウト編）"
+      ],
+      "entryRefs": [
+        "pkmn-gs-ball"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-jojo-fandom-com-wiki-pannacotta-fugo",
+      "label": "JoJo Wiki (Fandom): Pannacotta Fugo",
+      "url": "https://jojo.fandom.com/wiki/Pannacotta_Fugo",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ジョジョの奇妙な冒険 第5部 黄金の風"
+      ],
+      "entryRefs": [
+        "jojo5-fugo"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-jojo-fandom-com-wiki-unnamed-characters",
+      "label": "JoJo Wiki (Fandom): Unnamed Characters",
+      "url": "https://jojo.fandom.com/wiki/Unnamed_Characters",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ジョジョの奇妙な冒険 第8部 ジョジョリオン"
+      ],
+      "entryRefs": [
+        "jojolion-flashback-man"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-jojowiki-com-jjl-chapter-83",
+      "label": "JoJo's Bizarre Encyclopedia: JJL Chapter 83",
+      "url": "https://jojowiki.com/JJL_Chapter_83",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ジョジョの奇妙な冒険 第8部 ジョジョリオン"
+      ],
+      "entryRefs": [
+        "jojolion-ch83-flashforward"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-wikimon-net-bakumon-28adventure-29",
+      "label": "Wikimon: Bakumon (Adventure)",
+      "url": "https://wikimon.net/Bakumon_%28Adventure%29",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "デジモンアドベンチャー tri."
+      ],
+      "entryRefs": [
+        "digimon-tri-himekawa"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-wikimon-net-dagomon",
+      "label": "Wikimon: Dagomon",
+      "url": "https://wikimon.net/Dagomon",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "デジモンアドベンチャー02"
+      ],
+      "entryRefs": [
+        "digimon02-dark-ocean-dagomon"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-wikimon-net-digimon-adventure-02",
+      "label": "Wikimon: Digimon Adventure 02",
+      "url": "https://wikimon.net/Digimon_Adventure_02",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "デジモンアドベンチャー02"
+      ],
+      "entryRefs": [
+        "digimon02-dark-ocean-dagomon"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-wikimon-net-digimon-adventure-02-episode-13",
+      "label": "Wikimon: Episode 13",
+      "url": "https://wikimon.net/Digimon_Adventure_02_-_Episode_13",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "デジモンアドベンチャー02"
+      ],
+      "entryRefs": [
+        "digimon02-dark-ocean-dagomon"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-wikimon-net-digimon-adventure-02-episode-43",
+      "label": "Wikimon: Episode 43",
+      "url": "https://wikimon.net/Digimon_Adventure_02_-_Episode_43",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "デジモンアドベンチャー02"
+      ],
+      "entryRefs": [
+        "digimon02-daemon-dark-ocean"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-wikimon-net-digimon-adventure-tri",
+      "label": "Wikimon: Digimon Adventure tri.",
+      "url": "https://wikimon.net/Digimon_Adventure_tri.",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "デジモンアドベンチャー tri."
+      ],
+      "entryRefs": [
+        "digimon-tri-dark-gennai",
+        "digimon-tri-himekawa"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-wikimon-net-mysterious-man",
+      "label": "Wikimon: Mysterious Man",
+      "url": "https://wikimon.net/Mysterious_Man",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "デジモンアドベンチャー tri."
+      ],
+      "entryRefs": [
+        "digimon-tri-dark-gennai"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-wikimon-net-world-of-darkness",
+      "label": "Wikimon: World of Darkness / Dark Ocean",
+      "url": "https://wikimon.net/World_of_Darkness",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "デジモンアドベンチャー02"
+      ],
+      "entryRefs": [
+        "digimon02-daemon-dark-ocean"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
+      "label": "CBR: What Happened to Launch?",
+      "url": "https://www.cbr.com/dbz-what-happened-to-dragon-ball-launch/",
+      "sourceType": "secondary",
+      "priority": 3,
+      "enabled": true,
+      "workRefs": [
+        "ドラゴンボール（原作 / アニメ）"
+      ],
+      "entryRefs": [
+        "dragonball-launch"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-many-in",
+      "label": "PokeBeach interview (Masamitsu Hidaka)",
+      "url": "https://www.pokebeach.com/2008/07/second-pokemon-interview-with-masamitsu-hidaka-many-interesting-points",
+      "sourceType": "secondary",
+      "priority": 3,
+      "enabled": true,
+      "workRefs": [
+        "ポケットモンスター（アニメ・ジョウト編）"
+      ],
+      "entryRefs": [
+        "pkmn-gs-ball"
+      ],
+      "notes": ""
+    }
+  ]
+}

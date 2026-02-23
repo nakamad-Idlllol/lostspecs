@@ -59,6 +59,11 @@ a:visited {
   opacity: 0.7;
 }
 
+.utility-version {
+  font-family: Consolas, "Courier New", monospace;
+  color: #d8e4f7;
+}
+
 .wiki-header {
   background: #fff;
   border-bottom: 1px solid var(--line-strong);
@@ -646,6 +651,10 @@ a:visited {
 
 .tag-line {
   margin-bottom: 4px;
+}
+
+.update-line time {
+  color: inherit;
 }
 
 @media (max-width: 1200px) {

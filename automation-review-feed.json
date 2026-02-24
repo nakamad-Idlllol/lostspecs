@@ -1,10 +1,60 @@
 {
-  "generatedAt": "2026-02-23T20:17:25.158Z",
-  "batch": "20260223-200854",
+  "generatedAt": "2026-02-24T20:06:22.432Z",
+  "batch": "20260224-195720",
   "total": 16,
   "items": [
     {
-      "candidateId": "cand-20260223-200854-src-bulbapedia-bulbagarden-net-wiki-gs-ball",
+      "candidateId": "cand-20260224-195720-src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+      "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/BW023_%28unaired%29",
+      "title": "BW023 (unaired)",
+      "decision": {
+        "key": "needs_review",
+        "label": "要レビュー"
+      },
+      "confidence": 100,
+      "candidateType": "evidence_update",
+      "autoEligible": false,
+      "templateFilled": true,
+      "duplicateSignals": {
+        "sourceUrlAlreadyUsed": true,
+        "linkedExistingEntries": true
+      },
+      "workRefs": [
+        "ポケットモンスター ベストウイッシュ"
+      ],
+      "entryRefs": [
+        "pkmn-bw-unaired-plasma"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "candidateId": "cand-20260224-195720-src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+      "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/BW024_%28unaired%29",
+      "title": "BW024 (unaired)",
+      "decision": {
+        "key": "needs_review",
+        "label": "要レビュー"
+      },
+      "confidence": 100,
+      "candidateType": "evidence_update",
+      "autoEligible": false,
+      "templateFilled": true,
+      "duplicateSignals": {
+        "sourceUrlAlreadyUsed": true,
+        "linkedExistingEntries": true
+      },
+      "workRefs": [
+        "ポケットモンスター ベストウイッシュ"
+      ],
+      "entryRefs": [
+        "pkmn-bw-unaired-plasma"
+      ],
+      "reviewReasons": []
+    },
+    {
+      "candidateId": "cand-20260224-195720-src-bulbapedia-bulbagarden-net-wiki-gs-ball",
       "sourceId": "src-bulbapedia-bulbagarden-net-wiki-gs-ball",
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/GS_Ball",
       "title": "GS Ball",
@@ -29,7 +79,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260223-200854-src-jojo-fandom-com-wiki-pannacotta-fugo",
+      "candidateId": "cand-20260224-195720-src-jojo-fandom-com-wiki-pannacotta-fugo",
       "sourceId": "src-jojo-fandom-com-wiki-pannacotta-fugo",
       "sourceUrl": "https://jojo.fandom.com/wiki/Pannacotta_Fugo",
       "title": "Pannacotta Fugo",
@@ -54,7 +104,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260223-200854-src-jojo-fandom-com-wiki-unnamed-characters",
+      "candidateId": "cand-20260224-195720-src-jojo-fandom-com-wiki-unnamed-characters",
       "sourceId": "src-jojo-fandom-com-wiki-unnamed-characters",
       "sourceUrl": "https://jojo.fandom.com/wiki/Unnamed_Characters",
       "title": "Unnamed Characters",
@@ -79,7 +129,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260223-200854-src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
+      "candidateId": "cand-20260224-195720-src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
       "sourceId": "src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
       "sourceUrl": "https://www.cbr.com/dbz-what-happened-to-dragon-ball-launch/",
       "title": "A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago",
@@ -104,7 +154,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260223-200854-src-wikimon-net-dagomon",
+      "candidateId": "cand-20260224-195720-src-wikimon-net-dagomon",
       "sourceId": "src-wikimon-net-dagomon",
       "sourceUrl": "https://wikimon.net/Dagomon",
       "title": "Dagomon",
@@ -129,7 +179,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260223-200854-src-wikimon-net-digimon-adventure-02",
+      "candidateId": "cand-20260224-195720-src-wikimon-net-digimon-adventure-02",
       "sourceId": "src-wikimon-net-digimon-adventure-02",
       "sourceUrl": "https://wikimon.net/Digimon_Adventure_02",
       "title": "Digimon Adventure 02",
@@ -154,57 +204,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260223-200854-src-wikimon-net-digimon-adventure-02-episode-13",
-      "sourceId": "src-wikimon-net-digimon-adventure-02-episode-13",
-      "sourceUrl": "https://wikimon.net/Digimon_Adventure_02_-_Episode_13",
-      "title": "Digimon Adventure 02 - Episode 13",
-      "decision": {
-        "key": "needs_review",
-        "label": "要レビュー"
-      },
-      "confidence": 90,
-      "candidateType": "evidence_update",
-      "autoEligible": false,
-      "templateFilled": true,
-      "duplicateSignals": {
-        "sourceUrlAlreadyUsed": true,
-        "linkedExistingEntries": true
-      },
-      "workRefs": [
-        "デジモンアドベンチャー02"
-      ],
-      "entryRefs": [
-        "digimon02-dark-ocean-dagomon"
-      ],
-      "reviewReasons": []
-    },
-    {
-      "candidateId": "cand-20260223-200854-src-wikimon-net-digimon-adventure-02-episode-43",
-      "sourceId": "src-wikimon-net-digimon-adventure-02-episode-43",
-      "sourceUrl": "https://wikimon.net/Digimon_Adventure_02_-_Episode_43",
-      "title": "Digimon Adventure 02 - Episode 43",
-      "decision": {
-        "key": "needs_review",
-        "label": "要レビュー"
-      },
-      "confidence": 90,
-      "candidateType": "evidence_update",
-      "autoEligible": false,
-      "templateFilled": true,
-      "duplicateSignals": {
-        "sourceUrlAlreadyUsed": true,
-        "linkedExistingEntries": true
-      },
-      "workRefs": [
-        "デジモンアドベンチャー02"
-      ],
-      "entryRefs": [
-        "digimon02-daemon-dark-ocean"
-      ],
-      "reviewReasons": []
-    },
-    {
-      "candidateId": "cand-20260223-200854-src-wikimon-net-digimon-adventure-tri",
+      "candidateId": "cand-20260224-195720-src-wikimon-net-digimon-adventure-tri",
       "sourceId": "src-wikimon-net-digimon-adventure-tri",
       "sourceUrl": "https://wikimon.net/Digimon_Adventure_tri.",
       "title": "Digimon Adventure tri.",
@@ -230,7 +230,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260223-200854-src-wikimon-net-mysterious-man",
+      "candidateId": "cand-20260224-195720-src-wikimon-net-mysterious-man",
       "sourceId": "src-wikimon-net-mysterious-man",
       "sourceUrl": "https://wikimon.net/Mysterious_Man",
       "title": "Mysterious Man",
@@ -255,7 +255,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260223-200854-src-wikimon-net-world-of-darkness",
+      "candidateId": "cand-20260224-195720-src-wikimon-net-world-of-darkness",
       "sourceId": "src-wikimon-net-world-of-darkness",
       "sourceUrl": "https://wikimon.net/World_of_Darkness",
       "title": "World of Darkness",
@@ -280,63 +280,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260223-200854-src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
-      "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
-      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/BW023_%28unaired%29",
-      "title": "Error 503 Backend fetch failed",
-      "decision": {
-        "key": "needs_review",
-        "label": "要レビュー"
-      },
-      "confidence": 50,
-      "candidateType": "evidence_update",
-      "autoEligible": false,
-      "templateFilled": true,
-      "duplicateSignals": {
-        "sourceUrlAlreadyUsed": true,
-        "linkedExistingEntries": true
-      },
-      "workRefs": [
-        "ポケットモンスター ベストウイッシュ"
-      ],
-      "entryRefs": [
-        "pkmn-bw-unaired-plasma"
-      ],
-      "reviewReasons": [
-        "fetch_failed",
-        "non_2xx"
-      ]
-    },
-    {
-      "candidateId": "cand-20260223-200854-src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
-      "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
-      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/BW024_%28unaired%29",
-      "title": "Error 503 Backend fetch failed",
-      "decision": {
-        "key": "needs_review",
-        "label": "要レビュー"
-      },
-      "confidence": 50,
-      "candidateType": "evidence_update",
-      "autoEligible": false,
-      "templateFilled": true,
-      "duplicateSignals": {
-        "sourceUrlAlreadyUsed": true,
-        "linkedExistingEntries": true
-      },
-      "workRefs": [
-        "ポケットモンスター ベストウイッシュ"
-      ],
-      "entryRefs": [
-        "pkmn-bw-unaired-plasma"
-      ],
-      "reviewReasons": [
-        "fetch_failed",
-        "non_2xx"
-      ]
-    },
-    {
-      "candidateId": "cand-20260223-200854-src-jojowiki-com-jjl-chapter-83",
+      "candidateId": "cand-20260224-195720-src-jojowiki-com-jjl-chapter-83",
       "sourceId": "src-jojowiki-com-jjl-chapter-83",
       "sourceUrl": "https://jojowiki.com/JJL_Chapter_83",
       "title": "JoJo's Bizarre Encyclopedia: JJL Chapter 83",
@@ -367,7 +311,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260223-200854-src-wikimon-net-bakumon-28adventure-29",
+      "candidateId": "cand-20260224-195720-src-wikimon-net-bakumon-28adventure-29",
       "sourceId": "src-wikimon-net-bakumon-28adventure-29",
       "sourceUrl": "https://wikimon.net/Bakumon_%28Adventure%29",
       "title": "Just a moment...",
@@ -397,7 +341,69 @@
       ]
     },
     {
-      "candidateId": "cand-20260223-200854-src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-man",
+      "candidateId": "cand-20260224-195720-src-wikimon-net-digimon-adventure-02-episode-13",
+      "sourceId": "src-wikimon-net-digimon-adventure-02-episode-13",
+      "sourceUrl": "https://wikimon.net/Digimon_Adventure_02_-_Episode_13",
+      "title": "Wikimon: Episode 13",
+      "decision": {
+        "key": "needs_review",
+        "label": "要レビュー"
+      },
+      "confidence": 0,
+      "candidateType": "evidence_update",
+      "autoEligible": false,
+      "templateFilled": true,
+      "duplicateSignals": {
+        "sourceUrlAlreadyUsed": true,
+        "linkedExistingEntries": true
+      },
+      "workRefs": [
+        "デジモンアドベンチャー02"
+      ],
+      "entryRefs": [
+        "digimon02-dark-ocean-dagomon"
+      ],
+      "reviewReasons": [
+        "fetch_failed",
+        "non_2xx",
+        "non_html",
+        "missing_title",
+        "short_text"
+      ]
+    },
+    {
+      "candidateId": "cand-20260224-195720-src-wikimon-net-digimon-adventure-02-episode-43",
+      "sourceId": "src-wikimon-net-digimon-adventure-02-episode-43",
+      "sourceUrl": "https://wikimon.net/Digimon_Adventure_02_-_Episode_43",
+      "title": "Wikimon: Episode 43",
+      "decision": {
+        "key": "needs_review",
+        "label": "要レビュー"
+      },
+      "confidence": 0,
+      "candidateType": "evidence_update",
+      "autoEligible": false,
+      "templateFilled": true,
+      "duplicateSignals": {
+        "sourceUrlAlreadyUsed": true,
+        "linkedExistingEntries": true
+      },
+      "workRefs": [
+        "デジモンアドベンチャー02"
+      ],
+      "entryRefs": [
+        "digimon02-daemon-dark-ocean"
+      ],
+      "reviewReasons": [
+        "fetch_failed",
+        "non_2xx",
+        "non_html",
+        "missing_title",
+        "short_text"
+      ]
+    },
+    {
+      "candidateId": "cand-20260224-195720-src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-man",
       "sourceId": "src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-many-in",
       "sourceUrl": "https://www.pokebeach.com/2008/07/second-pokemon-interview-with-masamitsu-hidaka-many-interesting-points",
       "title": "Just a moment...",

@@ -1,0 +1,1377 @@
+[
+  {
+    "candidateId": "cand-20260226-200455-src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+    "batch": "20260226-200455",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+    "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/BW023_%28unaired%29",
+    "sourceLabel": "Bulbapedia: BW023 (unaired)",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "ポケットモンスター ベストウイッシュ"
+    ],
+    "entryRefs": [
+      "pkmn-bw-unaired-plasma"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "BW023 (unaired) - Rocket-dan VS Plasma-dan! (Part 1)",
+      "h1": "BW023 (unaired)",
+      "h2List": [
+        "Contents",
+        "Plot",
+        "Major events",
+        "Characters",
+        "Trivia",
+        "References"
+      ],
+      "ogTitle": "Rocket-dan VS Plasma-dan! (Part 1)",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "BW023 (unaired) - Rocket-dan VS Plasma-dan! (Part 1) News Bulbapedia Bulbapedia main page Pokémon National Pokédex By Name Legendary Pokémon Mythical Pokémon Event Pokémon Terastal Noble Pokémon Alpha Pokémon Gigantamax Dynamax more... Mechanics Types Type chart Abilities Nature Status conditions Moves Items more... Games Video Games Portal Walkthroughs Pokémon Scarlet and Violet Pokémon Legends: Arceus Pokémon Brilliant Diamond and Shining Pearl Pokémon Sword and Shield Spin-offs Pokémon GO all games... TCG TCG Portal About How to play Rotation Promotional cards Surging Sparks Stellar Crown Shrouded Fable Twilight Masquerade all expansions... Animation & Manga Animation Portal Manga Portal Pokémon Horizons Liko Pokémon the Series Ash Ketchum Animated series characters Movies Manga Pokémon Adventures Forums Discord More Social Youtube Twitch X (Twitter) Facebook Instagram Tumblr Mastodon Apps Android iOS Editors Bulbapedia Getting Started Bulletin Board Help FAQ Bulbawiki forum Recent changes Random Page Special pages Archives Main Page FAQ To-do list Upload file Recent Changes Recent Uploads Random File Account Bulbapedia login Forum login New Accounts Create Bulbapedia Account Cr",
+      "textLength": 10383,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "ポケットモンスター ベストウイッシュ",
+      "medium": "アニメ",
+      "itemTitle": "BW023 (unaired)",
+      "classification": "制作都合",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "BW023 (unaired) - Rocket-dan VS Plasma-dan!",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 100）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.202Z） | sourceId=src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29 | description抽出なし | h2=Contents / Plot / Major events",
+      "sources": [
+        {
+          "label": "Bulbapedia: BW023 (unaired)",
+          "url": "https://bulbapedia.bulbagarden.net/wiki/BW023_%28unaired%29"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.202Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+    "batch": "20260226-200455",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+    "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/BW024_%28unaired%29",
+    "sourceLabel": "Bulbapedia: BW024 (unaired)",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "ポケットモンスター ベストウイッシュ"
+    ],
+    "entryRefs": [
+      "pkmn-bw-unaired-plasma"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "BW024 (unaired) - Rocket-dan VS Plasma-dan! (Part 2)",
+      "h1": "BW024 (unaired)",
+      "h2List": [
+        "Contents",
+        "Plot",
+        "Major events",
+        "Characters",
+        "Trivia",
+        "References"
+      ],
+      "ogTitle": "Rocket-dan VS Plasma-dan! (Part 2)",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "BW024 (unaired) - Rocket-dan VS Plasma-dan! (Part 2) News Bulbapedia Bulbapedia main page Pokémon National Pokédex By Name Legendary Pokémon Mythical Pokémon Event Pokémon Terastal Noble Pokémon Alpha Pokémon Gigantamax Dynamax more... Mechanics Types Type chart Abilities Nature Status conditions Moves Items more... Games Video Games Portal Walkthroughs Pokémon Scarlet and Violet Pokémon Legends: Arceus Pokémon Brilliant Diamond and Shining Pearl Pokémon Sword and Shield Spin-offs Pokémon GO all games... TCG TCG Portal About How to play Rotation Promotional cards Surging Sparks Stellar Crown Shrouded Fable Twilight Masquerade all expansions... Animation & Manga Animation Portal Manga Portal Pokémon Horizons Liko Pokémon the Series Ash Ketchum Animated series characters Movies Manga Pokémon Adventures Forums Discord More Social Youtube Twitch X (Twitter) Facebook Instagram Tumblr Mastodon Apps Android iOS Editors Bulbapedia Getting Started Bulletin Board Help FAQ Bulbawiki forum Recent changes Random Page Special pages Archives Main Page FAQ To-do list Upload file Recent Changes Recent Uploads Random File Account Bulbapedia login Forum login New Accounts Create Bulbapedia Account Cr",
+      "textLength": 12002,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "ポケットモンスター ベストウイッシュ",
+      "medium": "アニメ",
+      "itemTitle": "BW024 (unaired)",
+      "classification": "制作都合",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "BW024 (unaired) - Rocket-dan VS Plasma-dan!",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 100）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.202Z） | sourceId=src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29 | description抽出なし | h2=Contents / Plot / Major events",
+      "sources": [
+        {
+          "label": "Bulbapedia: BW024 (unaired)",
+          "url": "https://bulbapedia.bulbagarden.net/wiki/BW024_%28unaired%29"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.202Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-bulbapedia-bulbagarden-net-wiki-gs-ball",
+    "batch": "20260226-200455",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-gs-ball",
+    "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/GS_Ball",
+    "sourceLabel": "Bulbapedia: GS Ball",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "ポケットモンスター（アニメ・ジョウト編）"
+    ],
+    "entryRefs": [
+      "pkmn-gs-ball"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "GS Ball - Bulbapedia, the community-driven Pokémon encyclopedia",
+      "h1": "GS Ball",
+      "h2List": [
+        "Contents",
+        "In the games",
+        "In animation",
+        "In the manga",
+        "Trivia",
+        "In other languages"
+      ],
+      "ogTitle": "GS Ball",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "GS Ball - Bulbapedia, the community-driven Pokémon encyclopedia News Bulbapedia Bulbapedia main page Pokémon National Pokédex By Name Legendary Pokémon Mythical Pokémon Event Pokémon Terastal Noble Pokémon Alpha Pokémon Gigantamax Dynamax more... Mechanics Types Type chart Abilities Nature Status conditions Moves Items more... Games Video Games Portal Walkthroughs Pokémon Scarlet and Violet Pokémon Legends: Arceus Pokémon Brilliant Diamond and Shining Pearl Pokémon Sword and Shield Spin-offs Pokémon GO all games... TCG TCG Portal About How to play Rotation Promotional cards Surging Sparks Stellar Crown Shrouded Fable Twilight Masquerade all expansions... Animation & Manga Animation Portal Manga Portal Pokémon Horizons Liko Pokémon the Series Ash Ketchum Animated series characters Movies Manga Pokémon Adventures Forums Discord More Social Youtube Twitch X (Twitter) Facebook Instagram Tumblr Mastodon Apps Android iOS Editors Bulbapedia Getting Started Bulletin Board Help FAQ Bulbawiki forum Recent changes Random Page Special pages Archives Main Page FAQ To-do list Upload file Recent Changes Recent Uploads Random File Account Bulbapedia login Forum login New Accounts Create Bulbapedia",
+      "textLength": 10326,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "ポケットモンスター（アニメ・ジョウト編）",
+      "medium": "アニメ",
+      "itemTitle": "GS Ball",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "GS Ball - Bulbapedia, the community-driven Pokémon encyclopedia News Bulbapedia Bulbapedia main page Pokémon National Pokédex By Name Legendary Pokémon Mythical Pokémon Event Pokémon Terastal Noble Pokémon Alpha Pokémon …",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 100）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.203Z） | sourceId=src-bulbapedia-bulbagarden-net-wiki-gs-ball | description抽出なし | h2=Contents / In the games / In animation",
+      "sources": [
+        {
+          "label": "Bulbapedia: GS Ball",
+          "url": "https://bulbapedia.bulbagarden.net/wiki/GS_Ball"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.203Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-jojo-fandom-com-wiki-pannacotta-fugo",
+    "batch": "20260226-200455",
+    "sourceId": "src-jojo-fandom-com-wiki-pannacotta-fugo",
+    "sourceUrl": "https://jojo.fandom.com/wiki/Pannacotta_Fugo",
+    "sourceLabel": "JoJo Wiki (Fandom): Pannacotta Fugo",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "ジョジョの奇妙な冒険 第5部 黄金の風"
+    ],
+    "entryRefs": [
+      "jojo5-fugo"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Pannacotta Fugo | JoJo's Bizarre Wiki | Fandom",
+      "h1": "Pannacotta Fugo",
+      "h2List": [
+        "Pannacotta Fugo",
+        "Profile",
+        "Favorites",
+        "Other Information",
+        "Status",
+        "Media"
+      ],
+      "ogTitle": "Pannacotta Fugo",
+      "description": "Pannacotta Fugo (パンナコッタ・フーゴ, Pannakotta Fūgo) is a side character and former ally featured in Vento Aureo, and the main protagonist in the Light Novel, Purple Haze Feedback. A young and quick-tempered strategist, Fugo is a member of Bucciarati&#039;s team and, by extension, Passione. He follows...",
+      "ogDescription": "Pannacotta Fugo (パンナコッタ・フーゴ, Pannakotta Fūgo) is a side character and former ally featured in Vento Aureo, and the main protagonist in the Light Novel, Purple Haze Feedback. A young and quick-tempered strategist, Fugo is a member of Bucciarati&#039;s team and, by extension, Passione. He follows Giorno and Bucciarati in their mission to protect Trish Una. In addition to being one of the more calculated members on the team, he possesses the insanely deadly Stand, Purple Haze. Pannacotta Fugo is a...",
+      "textSample": "Pannacotta Fugo | JoJo's Bizarre Wiki | Fandom Sign In Want fewer ads? JoJo&#039;s Bizarre Wiki Explore Main Page Discuss All Pages Community Interactive Maps Recent Blog Posts Manga Chapter List List of Volumes English Volumes French Volumes JoJonium Bunko Edition Author's Note Parts Phantom Blood Battle Tendency Stardust Crusaders Diamond is Unbreakable Vento Aureo Stone Ocean Steel Ball Run JoJolion The JOJOLands One-Shots Thus Spoke Kishibe Rohan Under Execution Under Jailbreak Dead Man's Questions Dolce and His Master Rohan at the Louvre Rohan Kishibe Goes to Gucci Jolyne, Fly High with GUCCI Artbooks JoJo 6251 JOJO A-GO!GO! JOJOVELLER JOJOmenon HIROHIKO ARAKI WORKS Shueisha Hirohiko Araki Lucky Land Communications Weekly Shonen Jump Ultra Jump VIZ Media Spin-offs Crazy Diamond's Demonic Heartbreak Story Arcs Media Anime Episodes Phantom Blood & Battle Tendency (S1) Stardust Crusaders (S2) Diamond is Unbreakable (S3) Golden Wind (S4) Stone Ocean (S5) Stardust Crusaders (OVA) Blu-Ray/DVD Releases Video Games JoJo's Bizarre Adventure (SFC) Heritage for the Future (Arcade/DC/PS1) GioGio's Bizarre Adventure (PS2) Phantom Blood (PS2) All Star Battle (PS3) Eyes of Heaven (PS3/PS4) L",
+      "textLength": 55340,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "ジョジョの奇妙な冒険 第5部 黄金の風",
+      "medium": "漫画",
+      "itemTitle": "Pannacotta Fugo",
+      "classification": "制作都合",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Pannacotta Fugo (パンナコッタ・フーゴ, Pannakotta Fūgo) is a side character and former ally featured in Vento Aureo, and the main protagonist in the Light Novel, Purple Haze Feedback. A young and quick-tempered strategist, Fugo is…",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 100）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.203Z） | sourceId=src-jojo-fandom-com-wiki-pannacotta-fugo | description抽出あり | h2=Pannacotta Fugo / Profile / Favorites",
+      "sources": [
+        {
+          "label": "JoJo Wiki (Fandom): Pannacotta Fugo",
+          "url": "https://jojo.fandom.com/wiki/Pannacotta_Fugo"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": true,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.203Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-jojo-fandom-com-wiki-unnamed-characters",
+    "batch": "20260226-200455",
+    "sourceId": "src-jojo-fandom-com-wiki-unnamed-characters",
+    "sourceUrl": "https://jojo.fandom.com/wiki/Unnamed_Characters",
+    "sourceLabel": "JoJo Wiki (Fandom): Unnamed Characters",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "ジョジョの奇妙な冒険 第8部 ジョジョリオン"
+    ],
+    "entryRefs": [
+      "jojolion-flashback-man"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Unnamed Characters | JoJo's Bizarre Wiki | Fandom",
+      "h1": "Unnamed Characters",
+      "h2List": [
+        "Contents",
+        "Phantom Blood",
+        "Battle Tendency",
+        "Stardust Crusaders",
+        "Diamond is Unbreakable",
+        "Vento Aureo"
+      ],
+      "ogTitle": "Unnamed Characters",
+      "description": "This page features nameless minor characters found in the JoJo&#039;s Bizarre Adventure series. These characters played fairly minor but varying roles throughout the storyline. Most of the titles from earlier parts were translated from the encyclopedia found in JoJo6251. See Also Minor Characters",
+      "ogDescription": "This page features nameless minor characters found in the JoJo&#039;s Bizarre Adventure series. These characters played fairly minor but varying roles throughout the storyline. Most of the titles from earlier parts were translated from the encyclopedia found in JoJo6251. See Also Minor Characters",
+      "textSample": "Unnamed Characters | JoJo's Bizarre Wiki | Fandom Sign In Want fewer ads? JoJo&#039;s Bizarre Wiki Explore Main Page Discuss All Pages Community Interactive Maps Recent Blog Posts Manga Chapter List List of Volumes English Volumes French Volumes JoJonium Bunko Edition Author's Note Parts Phantom Blood Battle Tendency Stardust Crusaders Diamond is Unbreakable Vento Aureo Stone Ocean Steel Ball Run JoJolion The JOJOLands One-Shots Thus Spoke Kishibe Rohan Under Execution Under Jailbreak Dead Man's Questions Dolce and His Master Rohan at the Louvre Rohan Kishibe Goes to Gucci Jolyne, Fly High with GUCCI Artbooks JoJo 6251 JOJO A-GO!GO! JOJOVELLER JOJOmenon HIROHIKO ARAKI WORKS Shueisha Hirohiko Araki Lucky Land Communications Weekly Shonen Jump Ultra Jump VIZ Media Spin-offs Crazy Diamond's Demonic Heartbreak Story Arcs Media Anime Episodes Phantom Blood & Battle Tendency (S1) Stardust Crusaders (S2) Diamond is Unbreakable (S3) Golden Wind (S4) Stone Ocean (S5) Stardust Crusaders (OVA) Blu-Ray/DVD Releases Video Games JoJo's Bizarre Adventure (SFC) Heritage for the Future (Arcade/DC/PS1) GioGio's Bizarre Adventure (PS2) Phantom Blood (PS2) All Star Battle (PS3) Eyes of Heaven (PS3/PS4",
+      "textLength": 148422,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "ジョジョの奇妙な冒険 第8部 ジョジョリオン",
+      "medium": "漫画",
+      "itemTitle": "Unnamed Characters",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "This page features nameless minor characters found in the JoJo&#039;s Bizarre Adventure series. These characters played fairly minor but varying roles throughout the storyline. Most of the titles from earlier parts were …",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 100）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.203Z） | sourceId=src-jojo-fandom-com-wiki-unnamed-characters | description抽出あり | h2=Contents / Phantom Blood / Battle Tendency",
+      "sources": [
+        {
+          "label": "JoJo Wiki (Fandom): Unnamed Characters",
+          "url": "https://jojo.fandom.com/wiki/Unnamed_Characters"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": true,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.203Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-jojowiki-com-jjl-chapter-83",
+    "batch": "20260226-200455",
+    "sourceId": "src-jojowiki-com-jjl-chapter-83",
+    "sourceUrl": "https://jojowiki.com/JJL_Chapter_83",
+    "sourceLabel": "JoJo's Bizarre Encyclopedia: JJL Chapter 83",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "ジョジョの奇妙な冒険 第8部 ジョジョリオン"
+    ],
+    "entryRefs": [
+      "jojolion-ch83-flashforward"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "",
+      "h1": "",
+      "h2List": [],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "",
+      "textLength": 0,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "ジョジョの奇妙な冒険 第8部 ジョジョリオン",
+      "medium": "漫画",
+      "itemTitle": "JoJo's Bizarre Encyclopedia: JJL Chapter 83",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "要確認（JoJo's Bizarre Encyclopedia: JJL Chapter 83 に関する本文抽出に失敗または不足）",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 0）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.203Z） | sourceId=src-jojowiki-com-jjl-chapter-83 | description抽出なし | h2なし",
+      "sources": [
+        {
+          "label": "JoJo's Bizarre Encyclopedia: JJL Chapter 83",
+          "url": "https://jojowiki.com/JJL_Chapter_83"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factShown",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 0
+    },
+    "reviewReasons": [
+      "fetch_failed",
+      "non_2xx",
+      "non_html",
+      "missing_title",
+      "short_text"
+    ],
+    "generatedAt": "2026-02-26T20:13:27.203Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-wikimon-net-bakumon-28adventure-29",
+    "batch": "20260226-200455",
+    "sourceId": "src-wikimon-net-bakumon-28adventure-29",
+    "sourceUrl": "https://wikimon.net/Bakumon_%28Adventure%29",
+    "sourceLabel": "Wikimon: Bakumon (Adventure)",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "デジモンアドベンチャー tri."
+    ],
+    "entryRefs": [
+      "digimon-tri-himekawa"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Just a moment...",
+      "h1": "",
+      "h2List": [],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "Just a moment... Enable JavaScript and cookies to continue",
+      "textLength": 58,
+      "challengeLikely": true,
+      "challengeSignals": [
+        "just a moment",
+        "cloudflare_challenge_markup"
+      ]
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "デジモンアドベンチャー tri.",
+      "medium": "アニメ",
+      "itemTitle": "Just a moment...",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "アクセス制限/要再取得",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Enable JavaScript and cookies to continue",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "アクセス制限/認証ページの可能性があり、再取得または別ソース確認が必要。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.203Z） | sourceId=src-wikimon-net-bakumon-28adventure-29 | description抽出なし | h2なし",
+      "sources": [
+        {
+          "label": "Wikimon: Bakumon (Adventure)",
+          "url": "https://wikimon.net/Bakumon_%28Adventure%29"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": true,
+      "hasDescription": false,
+      "extractedH2Count": 0
+    },
+    "reviewReasons": [
+      "fetch_failed",
+      "non_2xx",
+      "short_text",
+      "bot_challenge_or_gate"
+    ],
+    "generatedAt": "2026-02-26T20:13:27.203Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-wikimon-net-dagomon",
+    "batch": "20260226-200455",
+    "sourceId": "src-wikimon-net-dagomon",
+    "sourceUrl": "https://wikimon.net/Dagomon",
+    "sourceLabel": "Wikimon: Dagomon",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "デジモンアドベンチャー02"
+    ],
+    "entryRefs": [
+      "digimon02-dark-ocean-dagomon"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Dagomon - Wikimon - The #1 Digimon wiki",
+      "h1": "Dagomon",
+      "h2List": [
+        "Contents",
+        "Evolves From [ edit ]",
+        "Evolves To [ edit ]",
+        "Anime [ edit ]",
+        "Manga [ edit ]",
+        "Video Games [ edit ]"
+      ],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "Dagomon - Wikimon - The #1 Digimon wiki Dagomon From Wikimon Profile Name & Etymology Debut Design & Analysis Digimon Reference Book Digimon Life Virtual Pets Anime & Manga Video Games Misc ⇨ Japanese An evil god Digimon called the \" Sinful Priest of the Ocean Floor \". It is thought to have evolved from a computer virus that would infect the computers aboard ships and the like, then knock their direction and course out of order. It bundles up its innumerable, multiplying tentacles and takes on a humanoid appearance, but its natural shape is a strange evolution of a Mollusk Digimon. Its Special Move is throwing its trident, with tremendous physical strength ( Forbidden Trident ). For its defeated opponents, it holds the rosary around its neck, and adopts a pose similar to mourning. Digimon Reference Book ⇨ English 「 海底の破戒僧 」と呼ばれる邪神デジモン。船舶などのコンピュータに感染して、方位や航路を狂わせていたコンピュータウィルスが進化したと考えられている。無数に増える触手を束ね、人型に姿を変えているが、その正体は奇怪な軟体型デジモンの進化型である。必殺技は凄まじい腕力で、三つ又の鉾を投げつける『 フォービドゥントライデント 』。倒した相手には、首の数珠を持ち、弔うようなポーズをとる。 デジモン図鑑 This profile matches its partner in the Digimon Reference Book . Digimon Life ⇨ English デジモン生活 Pendulum Accel ⇨ Japanese An evil god Digimon feared by everyone as the \" Sinful ",
+      "textLength": 26456,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "デジモンアドベンチャー02",
+      "medium": "アニメ",
+      "itemTitle": "Dagomon",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Dagomon - Wikimon - The #1 Digimon wiki Dagomon From Wikimon Profile Name & Etymology Debut Design & Analysis Digimon Reference Book Digimon Life Virtual Pets Anime & Manga Video Games Misc ⇨ Japanese An evil god Digimon…",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 90）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.203Z） | sourceId=src-wikimon-net-dagomon | description抽出なし | h2=Contents / Evolves From [ edit ] / Evolves To [ edit ]",
+      "sources": [
+        {
+          "label": "Wikimon: Dagomon",
+          "url": "https://wikimon.net/Dagomon"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.204Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-wikimon-net-digimon-adventure-02-episode-13",
+    "batch": "20260226-200455",
+    "sourceId": "src-wikimon-net-digimon-adventure-02-episode-13",
+    "sourceUrl": "https://wikimon.net/Digimon_Adventure_02_-_Episode_13",
+    "sourceLabel": "Wikimon: Episode 13",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "デジモンアドベンチャー02"
+    ],
+    "entryRefs": [
+      "digimon02-dark-ocean-dagomon"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Digimon Adventure 02 - Episode 13 - Wikimon - The #1 Digimon wiki",
+      "h1": "Digimon Adventure 02 - Episode 13",
+      "h2List": [
+        "Contents",
+        "Evolution [ edit ]",
+        "Interlude [ edit ]",
+        "English [ edit ]",
+        "German [ edit ]",
+        "Spanish [ edit ]"
+      ],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "Digimon Adventure 02 - Episode 13 - Wikimon - The #1 Digimon wiki Digimon Adventure 02 - Episode 13 From Wikimon ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title ダゴモンの呼び声 Translation \" The Call of Dagomon \" Romanization Dagomon no Yobigoe Airdate June 25, 2000 (9:00AM UTC +9) Duration 23:06 TV Network Fuji TV Music Opening ターゲット～赤い衝撃～ Ending アシタハアタシノカゼガフク Subtitle Background Episode List ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title His Master's Voice Airdate October 21, 2000 Duration TV Network Fox Kids Theme Songs Opening Ending Episode List ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title Rufe aus einer anderen Welt Translation Calls from Another World Airdate Duration TV Network RTL II Opening Ich werde da sein Ending Episode List (\"\") ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title ' Translation Airdate Duration TV Network Theme Songs Opening Ending Episode List {{{tpt}}} (\"{{{trpt}}}\") ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title {{{tpt}}} Translation {{{trpt}}} Airdate {{{apt}}} Durati",
+      "textLength": 5455,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "デジモンアドベンチャー02",
+      "medium": "アニメ",
+      "itemTitle": "Digimon Adventure 02 - Episode 13",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Digimon Adventure 02 - Episode 13 - Wikimon - The #1 Digimon wiki Digimon Adventure 02 - Episode 13 From Wikimon ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title ダゴモンの呼び声 Translation …",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 90）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.204Z） | sourceId=src-wikimon-net-digimon-adventure-02-episode-13 | description抽出なし | h2=Contents / Evolution [ edit ] / Interlude [ edit ]",
+      "sources": [
+        {
+          "label": "Wikimon: Episode 13",
+          "url": "https://wikimon.net/Digimon_Adventure_02_-_Episode_13"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.204Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-wikimon-net-digimon-adventure-02-episode-43",
+    "batch": "20260226-200455",
+    "sourceId": "src-wikimon-net-digimon-adventure-02-episode-43",
+    "sourceUrl": "https://wikimon.net/Digimon_Adventure_02_-_Episode_43",
+    "sourceLabel": "Wikimon: Episode 43",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "デジモンアドベンチャー02"
+    ],
+    "entryRefs": [
+      "digimon02-daemon-dark-ocean"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Digimon Adventure 02 - Episode 43 - Wikimon - The #1 Digimon wiki",
+      "h1": "Digimon Adventure 02 - Episode 43",
+      "h2List": [
+        "Contents",
+        "Human [ edit ]",
+        "Digimon [ edit ]",
+        "Evolution [ edit ]",
+        "Interlude [ edit ]",
+        "English [ edit ]"
+      ],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "Digimon Adventure 02 - Episode 43 - Wikimon - The #1 Digimon wiki Digimon Adventure 02 - Episode 43 From Wikimon ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title デーモン軍団の襲来 Translation \" Invasion of the Demon Army \" Romanization Dēmon Gundan no Shūrai Airdate February 4, 2001 (9:00AM UTC +9) Duration 23:07 TV Network Fuji TV Music Opening ターゲット～赤い衝撃～ Ending いつもいつでも Subtitle Background Episode List ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title Invasion of the Daemon Corps Airdate April 28, 2001 Duration TV Network Fox Kids Theme Songs Opening Ending Episode List ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title Entführung der Kinder Translation Abduction of the Children Airdate Duration TV Network RTL II Opening Ich werde da sein Ending Episode List El Ataque de Deemon (\"The Daemon Attack\") ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title El Ataque de Deemon Translation The Daemon Attack Airdate Duration TV Network Theme Songs Opening Ending Episode List {{{tpt}}} (\"{{{trpt}}}\") ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;",
+      "textLength": 6118,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "デジモンアドベンチャー02",
+      "medium": "アニメ",
+      "itemTitle": "Digimon Adventure 02 - Episode 43",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Digimon Adventure 02 - Episode 43 - Wikimon - The #1 Digimon wiki Digimon Adventure 02 - Episode 43 From Wikimon ◀ &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; ▶ Title デーモン軍団の襲来 Translation…",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 90）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.204Z） | sourceId=src-wikimon-net-digimon-adventure-02-episode-43 | description抽出なし | h2=Contents / Human [ edit ] / Digimon [ edit ]",
+      "sources": [
+        {
+          "label": "Wikimon: Episode 43",
+          "url": "https://wikimon.net/Digimon_Adventure_02_-_Episode_43"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.204Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-wikimon-net-digimon-adventure-02",
+    "batch": "20260226-200455",
+    "sourceId": "src-wikimon-net-digimon-adventure-02",
+    "sourceUrl": "https://wikimon.net/Digimon_Adventure_02",
+    "sourceLabel": "Wikimon: Digimon Adventure 02",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "デジモンアドベンチャー02"
+    ],
+    "entryRefs": [
+      "digimon02-dark-ocean-dagomon"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Digimon Adventure 02 - Wikimon - The #1 Digimon wiki",
+      "h1": "Digimon Adventure 02",
+      "h2List": [
+        "Contents",
+        "Overview [ edit ]",
+        "Main Characters [ edit ]",
+        "Other Characters [ edit ]",
+        "VHS/DVD Box Art [ edit ]",
+        "DVD Box Art [ edit ]"
+      ],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "Digimon Adventure 02 - Wikimon - The #1 Digimon wiki Digimon Adventure 02 From Wikimon Director Yukio Kaizawa Kakudou Hiroyuki Screenwriter Maekawa Atsushi Yoshimura Genki Character Design Animator Character Designer Nakatsuru Katsuyoshi Animation Director Nobuzane Setsuko Producer Seki Hiromi Planning Assistant Composer Arisawa Takanori Studio Toei Animation Network Fuji TV Duration April 2, 2000 - March 25, 2001 August 19, 2000 - May 19, 2001 Official Site Digimon Adventure 02 Official Site Next Series Digimon Tamers Previous Series Digimon Adventure Episodes Digimon Adventure 02 (デジモンアドベンチャー 02 Dejimon Adobanchaa 02 ) is the second anime series of the Digimon franchise . It is part of the Digimon Adventure continuity . This season aired on Sundays at 9:00 AM UTC+9 on Fuji TV, replacing Digimon Adventure (デジモンアドベンチャー) commencing on April 2, 2000 and ending on March 25, 2001. The Digimon storyline was remodeled after its departing and was succeeded by the third Digimon series Digimon Tamers (デジモンテイマーズ) in the early spring of 2001, one year after Digimon 02's airing date. (still under construction) Contents 1 Story 1.1 Overview 1.1.1 Digimon Kaiser Arc (Episodes 1-23) 1.1.2 Jogress",
+      "textLength": 23268,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "デジモンアドベンチャー02",
+      "medium": "アニメ",
+      "itemTitle": "Digimon Adventure 02",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Digimon Adventure 02 - Wikimon - The #1 Digimon wiki Digimon Adventure 02 From Wikimon Director Yukio Kaizawa Kakudou Hiroyuki Screenwriter Maekawa Atsushi Yoshimura Genki Character Design Animator Character Designer Nak…",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 90）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.204Z） | sourceId=src-wikimon-net-digimon-adventure-02 | description抽出なし | h2=Contents / Overview [ edit ] / Main Characters [ edit ]",
+      "sources": [
+        {
+          "label": "Wikimon: Digimon Adventure 02",
+          "url": "https://wikimon.net/Digimon_Adventure_02"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.204Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-wikimon-net-digimon-adventure-tri",
+    "batch": "20260226-200455",
+    "sourceId": "src-wikimon-net-digimon-adventure-tri",
+    "sourceUrl": "https://wikimon.net/Digimon_Adventure_tri.",
+    "sourceLabel": "Wikimon: Digimon Adventure tri.",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "デジモンアドベンチャー tri."
+    ],
+    "entryRefs": [
+      "digimon-tri-dark-gennai",
+      "digimon-tri-himekawa"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Digimon Adventure tri. - Wikimon - The #1 Digimon wiki",
+      "h1": "Digimon Adventure tri.",
+      "h2List": [
+        "Contents",
+        "History [ edit ]",
+        "Story [ edit ]",
+        "Main Characters [ edit ]",
+        "Enemies [ edit ]",
+        "Other characters [ edit ]"
+      ],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "Digimon Adventure tri. - Wikimon - The #1 Digimon wiki Digimon Adventure tri. From Wikimon Under Construction Sorry for our appearance, but this article currently needs a lot of work. Director Motonaga Keitarō Screenwriter Kakihara Yuuko Character Design Animator Shino Masanori Character Designer Uki Atsuya Animation Director Itou Kouji Komaru Toshiyuki Takada Haruhito Watanabe Kouji Producer Kinoshita Yōsuke Planning Assistant Composer Sakabe Gou Studio Toei Animation Network N/A Duration November 21, 2015 - May 5, 2018 September 15, 2016 - September 20, 2018 Official Site Digimon Adventure tri. Official Site Next Series Digimon Adventure: Last Evolution Kizuna Previous Series Digimon Savers The Movie: Ultimate Power! Activate Burst Mode!! Episodes Digimon Adventure tri. (デジモンアドベンチャー ｔｒｉ ( トライ ) ．, Dejimon Adobenchā torai ), often shortened as Digimon tri. (デジモン ｔｒｉ ( トライ ) ．, Dejimon torai ) &#91;1&#93; , is the 9th animated movie of the Digimon franchise . It was released as six separate films. This series is part of the Digimon Adventure 15th Anniversary . &#91;N 1&#93; Contents 1 History 2 Story 2.1 Digimon Adventure tri. Chapter 1 \"Reunion\" 2.2 Digimon Adventure tri. Chapter ",
+      "textLength": 30543,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "デジモンアドベンチャー tri.",
+      "medium": "アニメ",
+      "itemTitle": "Digimon Adventure tri.",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Digimon Adventure tri.",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 90）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.204Z） | sourceId=src-wikimon-net-digimon-adventure-tri | description抽出なし | h2=Contents / History [ edit ] / Story [ edit ]",
+      "sources": [
+        {
+          "label": "Wikimon: Digimon Adventure tri.",
+          "url": "https://wikimon.net/Digimon_Adventure_tri."
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.204Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-wikimon-net-mysterious-man",
+    "batch": "20260226-200455",
+    "sourceId": "src-wikimon-net-mysterious-man",
+    "sourceUrl": "https://wikimon.net/Mysterious_Man",
+    "sourceLabel": "Wikimon: Mysterious Man",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "デジモンアドベンチャー tri."
+    ],
+    "entryRefs": [
+      "digimon-tri-dark-gennai"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Mysterious Man - Wikimon - The #1 Digimon wiki",
+      "h1": "Mysterious Man",
+      "h2List": [
+        "Contents",
+        "Anime [ edit ]",
+        "Artwork [ edit ]",
+        "Navigation menu"
+      ],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "Mysterious Man - Wikimon - The #1 Digimon wiki Mysterious Man From Wikimon Mysterious Man Kanji/Kana 謎の男 Dub Name Dark Gennai Digimon Used Imperialdramon: Dragon Mode > Imperialdramon Fighter Mode , Mugendramon , Metal Seadramon , Devimon Master Yggdrasill Voice Actor Hirata Hiroaki (平田 広明) Jeff Nimoy / Todd Haberkorn (Digimon Emperor) The Mysterious Man (謎の男, Nazo no Otoko ) is a Digital Lifeform who acts as a servant of Yggdrasill in Digimon Adventure tri. , taking the guises of Gennai and the Digimon Kaiser . Contents 1 Profile 2 Appearances 2.1 Anime 2.1.1 Digimon Adventure tri. 3 Image Gallery 3.1 Artwork Profile [ edit ] He is psychotic, cruel, always laughing hysterically and likes to do evil as a joke for his own entertainment. Similar to Yggdrasil, it wants a world where Digimon and Humans do not coexist. Has the form of Gennai who once helped the “Chosen Children” in the Digital World, but has no direct connection with Gennai himself. After Ordinemon was defeated, it disappeared into a “distortion”. Appearances [ edit ] Anime [ edit ] Digimon Adventure tri. [ edit ] The Mysterious Man is a villain who disguises himself to deceive the Chosen Children . He makes his first a",
+      "textLength": 3643,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "デジモンアドベンチャー tri.",
+      "medium": "アニメ",
+      "itemTitle": "Mysterious Man",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Mysterious Man - Wikimon - The #1 Digimon wiki Mysterious Man From Wikimon Mysterious Man Kanji/Kana 謎の男 Dub Name Dark Gennai Digimon Used Imperialdramon: Dragon Mode > Imperialdramon Fighter Mode , Mugendramon , Metal S…",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 90）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.205Z） | sourceId=src-wikimon-net-mysterious-man | description抽出なし | h2=Contents / Anime [ edit ] / Artwork [ edit ]",
+      "sources": [
+        {
+          "label": "Wikimon: Mysterious Man",
+          "url": "https://wikimon.net/Mysterious_Man"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 4
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.205Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-wikimon-net-world-of-darkness",
+    "batch": "20260226-200455",
+    "sourceId": "src-wikimon-net-world-of-darkness",
+    "sourceUrl": "https://wikimon.net/World_of_Darkness",
+    "sourceLabel": "Wikimon: World of Darkness / Dark Ocean",
+    "sourceType": "fan-wiki",
+    "priority": 2,
+    "workRefs": [
+      "デジモンアドベンチャー02"
+    ],
+    "entryRefs": [
+      "digimon02-daemon-dark-ocean"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "World of Darkness - Wikimon - The #1 Digimon wiki",
+      "h1": "World of Darkness",
+      "h2List": [
+        "Contents",
+        "Digimon Adventure [ edit ]",
+        "Digimon Adventure 02 [ edit ]",
+        "Digimon Adventure tri. [ edit ]",
+        "Super Evolution Stage \"Digimon Adventure tri. ~Adventure of August 1~\" [ edit ]",
+        "To Our Future! [ edit ]"
+      ],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "World of Darkness - Wikimon - The #1 Digimon wiki World of Darkness From Wikimon The World of Darkness (暗黒の世界 Ankoku no Sekai , 闇の世界 Yami no Sekai ) is seen primarily in Digimon Adventure 02 . However, we get a glimpse of what might be a part of it near the end of Digimon Adventure , when Yamato and Sora fall into Dark Caves. Contents 1 Digimon Adventure 2 Digimon Adventure 02 3 Digimon Adventure tri. 4 Super Evolution Stage \"Digimon Adventure tri. ~Adventure of August 1~\" 5 To Our Future! Digimon Adventure [ edit ] Digimon Adventure 02 [ edit ] At some point between Digimon Adventure and Digimon Adventure 02, Ken was transported into this world. When he submerged his Digivice into the Dagomon's Ocean, it changed into a black D-3 and he began his change into the Digimon Kaiser. In Digimon Adventure 02 - Episode 13 , Hikari was transported there. She encountered what first appeared to be Hangyomon lacking diving gear, with Evil Spirals on their person. However, the Evil Spirals did not seem to be controlling them, but instead sapped their energy. They said the god they worshiped had done this to them. Hikari tried removing them, but an Airdramon with an Evil Ring on it attacked the ",
+      "textLength": 2964,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "デジモンアドベンチャー02",
+      "medium": "アニメ",
+      "itemTitle": "World of Darkness",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "World of Darkness - Wikimon - The #1 Digimon wiki World of Darkness From Wikimon The World of Darkness (暗黒の世界 Ankoku no Sekai , 闇の世界 Yami no Sekai ) is seen primarily in Digimon Adventure 02 .",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 90）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.205Z） | sourceId=src-wikimon-net-world-of-darkness | description抽出なし | h2=Contents / Digimon Adventure [ edit ] / Digimon Adventure 02 [ edit ]",
+      "sources": [
+        {
+          "label": "Wikimon: World of Darkness / Dark Ocean",
+          "url": "https://wikimon.net/World_of_Darkness"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": false,
+      "extractedH2Count": 6
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.205Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
+    "batch": "20260226-200455",
+    "sourceId": "src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
+    "sourceUrl": "https://www.cbr.com/dbz-what-happened-to-dragon-ball-launch/",
+    "sourceLabel": "CBR: What Happened to Launch?",
+    "sourceType": "secondary",
+    "priority": 3,
+    "workRefs": [
+      "ドラゴンボール（原作 / アニメ）"
+    ],
+    "entryRefs": [
+      "dragonball-launch"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago",
+      "h1": "A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago",
+      "h2List": [
+        "Launch is Arguably the First Example of Dragon Ball Introducing a Character Only to Ditch Them Immediately",
+        "Akira Toriyama Came Up With Launch&#39;s Trip To Korin&#39;s Tower"
+      ],
+      "ogTitle": "A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago",
+      "description": "Launch&#039;s disappearance has been a meme in the Dragon Ball fandom for years, but a forgotten DBZ episode already explained her absence 3 decades ago.",
+      "ogDescription": "Launch&#039;s disappearance has been a meme in the Dragon Ball fandom for years, but a forgotten DBZ episode already explained her absence 3 decades ago.",
+      "textSample": "A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago Menu Sign in Sign in now Close Movies Submenu Movie News Movie Features Movie Lists Movie Reviews TV Submenu TV News TV Features TV Lists TV Reviews Comics Submenu Comics News Comics Features Comics Lists Comics Previews Comics Reviews Anime Submenu Anime News Anime Features Anime Lists Games Submenu Game News Game Features Game Lists Game Guides Videos More Submenu Lists Interviews Community Upgrade to Premium Sign in Newsletter Array Copyright &copy; 2026 www.cbr.com --> Menu Follow Followed Like Threads More Action Sign in Sign in now Horror Week MCU, DCU & More Dragon Ball Lord of the Rings Procedurals & Dramas Westerns Zelda Upgrade to Premium Close A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago Image by Renan Fontes By Jonathon Greenall Published Apr 8, 2025, 2:45 PM EDT Jonathon Greenall is a writer, TTRPG designer, artist, and content creator based in Vancouver, Canada. Their writing has appeared on websites like Polygon, The Gamer, CBR, Nintendo Life, Gayley Dreadful, We Got This Covered, Retro Dodo, and many",
+      "textLength": 17141,
+      "challengeLikely": false,
+      "challengeSignals": []
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "ドラゴンボール（原作 / アニメ）",
+      "medium": "漫画/アニメ",
+      "itemTitle": "A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago",
+      "classification": "人物要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Launch&#039;s disappearance has been a meme in the Dragon Ball fandom for years, but a forgotten DBZ episode already explained her absence 3 decades ago.",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "自動抽出候補（信頼度 100）。判定=要レビュー。人手レビューで文章整形・事実確認を行う。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.205Z） | sourceId=src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch | description抽出あり | h2=Launch is Arguably the First Example of Dragon Ball Introducing a Character Only to Ditch Them Immediately / Akira Toriyama Came Up With Launch&#39;s Trip To Korin&#39;s Tower",
+      "sources": [
+        {
+          "label": "CBR: What Happened to Launch?",
+          "url": "https://www.cbr.com/dbz-what-happened-to-dragon-ball-launch/"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": false,
+      "hasDescription": true,
+      "extractedH2Count": 2
+    },
+    "reviewReasons": [],
+    "generatedAt": "2026-02-26T20:13:27.205Z"
+  },
+  {
+    "candidateId": "cand-20260226-200455-src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-man",
+    "batch": "20260226-200455",
+    "sourceId": "src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-many-in",
+    "sourceUrl": "https://www.pokebeach.com/2008/07/second-pokemon-interview-with-masamitsu-hidaka-many-interesting-points",
+    "sourceLabel": "PokeBeach interview (Masamitsu Hidaka)",
+    "sourceType": "secondary",
+    "priority": 3,
+    "workRefs": [
+      "ポケットモンスター（アニメ・ジョウト編）"
+    ],
+    "entryRefs": [
+      "pkmn-gs-ball"
+    ],
+    "candidateType": "evidence_update",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "autoEligible": false,
+    "duplicateSignals": {
+      "sourceUrlAlreadyUsed": true,
+      "linkedExistingEntries": true
+    },
+    "thresholdsSnapshot": {
+      "candidateReadyMin": 85,
+      "needsReviewMin": 55
+    },
+    "extracted": {
+      "title": "Just a moment...",
+      "h1": "",
+      "h2List": [],
+      "ogTitle": "",
+      "description": "",
+      "ogDescription": "",
+      "textSample": "Just a moment... Enable JavaScript and cookies to continue",
+      "textLength": 58,
+      "challengeLikely": true,
+      "challengeSignals": [
+        "just a moment",
+        "cloudflare_challenge_markup"
+      ]
+    },
+    "suggestedEntry": {
+      "id": null,
+      "work": "ポケットモンスター（アニメ・ジョウト編）",
+      "medium": "アニメ",
+      "itemTitle": "Just a moment...",
+      "classification": "作中要素",
+      "status": "要レビュー",
+      "tags": [
+        "要レビュー",
+        "自動抽出候補",
+        "アクセス制限/要再取得",
+        "既存エントリ関連"
+      ],
+      "firstAppearance": "既存エントリの追補候補（初出は既存記事を参照）",
+      "factShown": "Enable JavaScript and cookies to continue",
+      "factAfter": "既存エントリへの出典追加・補強候補。本文差分確認後に反映。",
+      "evaluation": "アクセス制限/認証ページの可能性があり、再取得または別ソース確認が必要。",
+      "note": "自動抽出候補（2026-02-26T20:13:27.205Z） | sourceId=src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-many-in | description抽出なし | h2なし",
+      "sources": [
+        {
+          "label": "PokeBeach interview (Masamitsu Hidaka)",
+          "url": "https://www.pokebeach.com/2008/07/second-pokemon-interview-with-masamitsu-hidaka-many-interesting-points"
+        }
+      ]
+    },
+    "suggestedEntryMeta": {
+      "templateFilled": true,
+      "templateFields": [
+        "firstAppearance",
+        "factAfter",
+        "evaluation"
+      ],
+      "hasChallengeSignal": true,
+      "hasDescription": false,
+      "extractedH2Count": 0
+    },
+    "reviewReasons": [
+      "fetch_failed",
+      "non_2xx",
+      "short_text",
+      "bot_challenge_or_gate"
+    ],
+    "generatedAt": "2026-02-26T20:13:27.205Z"
+  }
+]

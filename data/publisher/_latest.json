@@ -1,9 +1,9 @@
 {
-  "batch": "20260302-195541",
-  "path": "data/publisher/20260302-195541",
+  "batch": "20260303-195642",
+  "path": "data/publisher/20260303-195642",
   "summary": {
-    "batch": "20260302-195541",
-    "generatedAt": "2026-03-02T20:04:37.186Z",
+    "batch": "20260303-195642",
+    "generatedAt": "2026-03-03T20:05:12.758Z",
     "requestedApply": true,
     "autoApplyEnabled": true,
     "totalCandidates": 16,
@@ -17,7 +17,7 @@
       "linked_existing_entry": 16,
       "template_filled_entry_blocked": 16,
       "entry_source_url_already_exists": 16,
-      "confidence_too_low": 10
+      "confidence_too_low": 12
     }
   }
 }

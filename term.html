@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>用語詳細 | 未回収設定WEB辞典</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/term.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-head-inner">
+      <a class="brand-link" href="index.html">
+        <p class="brand-kicker">Lore Index</p>
+        <h1 class="brand-title">未回収設定WEB辞典</h1>
+      </a>
+      <nav class="site-nav" aria-label="グローバルナビ">
+        <a class="nav-link" href="index.html">トップ</a>
+        <a class="nav-link" href="entries.html">用語一覧</a>
+        <a class="nav-link" href="categories.html">分類一覧</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container page-stack">
+      <nav class="breadcrumb panel" aria-label="パンくず">
+        <a href="index.html">トップ</a>
+        <span class="crumb-sep">/</span>
+        <a href="entries.html">用語一覧</a>
+        <span class="crumb-sep">/</span>
+        <span id="breadcrumbCurrent">読み込み中</span>
+      </nav>
+
+      <div id="termError" class="panel alert hidden"></div>
+
+      <div class="term-layout">
+        <article id="termArticle" class="panel term-article">
+          <p class="empty-state">用語情報を読み込んでいます...</p>
+        </article>
+
+        <aside class="panel related-panel">
+          <h2>関連エントリ</h2>
+          <ul id="relatedList" class="related-list">
+            <li class="empty-state">読み込み中...</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        バージョン:
+        <strong id="siteVersion">-</strong>
+        /
+        更新日:
+        <time id="siteUpdatedAt" datetime="">-</time>
+      </p>
+      <p>未回収設定WEB辞典（用語詳細）</p>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/term.js"></script>
+</body>
+</html>

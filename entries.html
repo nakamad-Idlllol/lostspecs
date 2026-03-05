@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>用語一覧 | 未回収設定WEB辞典</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/list.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-head-inner">
+      <a class="brand-link" href="index.html">
+        <p class="brand-kicker">Lore Index</p>
+        <h1 class="brand-title">未回収設定WEB辞典</h1>
+      </a>
+      <nav class="site-nav" aria-label="グローバルナビ">
+        <a class="nav-link" href="index.html">トップ</a>
+        <a class="nav-link active" href="entries.html">用語一覧</a>
+        <a class="nav-link" href="categories.html">分類一覧</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container page-stack">
+      <section class="panel section-panel">
+        <div class="section-head">
+          <h2>用語一覧</h2>
+        </div>
+        <p class="section-description">
+          作品名・用語名・タグを横断して検索できます。詳細は各用語ページへ遷移します。
+        </p>
+
+        <div class="filters-grid">
+          <label class="field">
+            <span>キーワード</span>
+            <input id="searchInput" class="input" type="search" placeholder="作品名 / 用語名 / メモ">
+          </label>
+
+          <label class="field">
+            <span>媒体</span>
+            <select id="mediumSelect" class="select">
+              <option value="all">すべて</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>分類</span>
+            <select id="classSelect" class="select">
+              <option value="all">すべて</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>タグ</span>
+            <select id="tagSelect" class="select">
+              <option value="all">すべて</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="toolbar">
+          <p id="resultSummary" class="muted">読み込み中...</p>
+          <button id="resetBtn" class="button ghost" type="button">絞り込み解除</button>
+        </div>
+      </section>
+
+      <section class="panel section-panel">
+        <div id="entryList" class="entry-list" aria-live="polite">
+          <p class="empty-state">エントリを読み込んでいます...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        バージョン:
+        <strong id="siteVersion">-</strong>
+        /
+        更新日:
+        <time id="siteUpdatedAt" datetime="">-</time>
+      </p>
+      <p>未回収設定WEB辞典（用語一覧）</p>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/list.js"></script>
+</body>
+</html>

@@ -38,7 +38,9 @@ function parseState(mediumOptions, classOptions, tagOptions) {
 
 function fillSelect(select, values, selected) {
   if (!select) return;
+
   select.innerHTML = "";
+
   const all = document.createElement("option");
   all.value = "all";
   all.textContent = "すべて";
@@ -50,11 +52,13 @@ function fillSelect(select, values, selected) {
     option.textContent = value;
     select.append(option);
   });
+
   select.value = selected;
 }
 
 function matchesSearch(entry, query) {
   if (!query) return true;
+
   const haystack = [
     entry.work,
     entry.itemTitle,
@@ -69,29 +73,32 @@ function matchesSearch(entry, query) {
   ]
     .join(" ")
     .toLowerCase();
+
   return haystack.includes(query.toLowerCase());
 }
 
 function getFilteredEntries() {
   return entries.filter((entry) => {
-    const mOk = state.m === "all" || entry.medium === state.m;
-    const cOk = state.c === "all" || entry.classification === state.c;
-    const tOk = state.t === "all" || entry.tags.includes(state.t);
-    const qOk = matchesSearch(entry, state.q);
-    return mOk && cOk && tOk && qOk;
+    const matchMedium = state.m === "all" || entry.medium === state.m;
+    const matchClass = state.c === "all" || entry.classification === state.c;
+    const matchTag = state.t === "all" || entry.tags.includes(state.t);
+    const matchQuery = matchesSearch(entry, state.q);
+    return matchMedium && matchClass && matchTag && matchQuery;
   });
 }
 
 function renderSummary(filtered) {
   if (!els.resultSummary) return;
+
   const works = new Set(filtered.map((entry) => entry.work));
   els.resultSummary.textContent = `${filtered.length}件 / ${works.size}作品`;
 }
 
 function renderList(filtered) {
   if (!els.entryList) return;
+
   if (!filtered.length) {
-    els.entryList.innerHTML = `<p class="empty-state">条件に一致するエントリはありません。絞り込み条件を調整してください。</p>`;
+    els.entryList.innerHTML = `<p class="empty-state">条件に一致する項目はありません。検索語か絞り込み条件を調整してください。</p>`;
     return;
   }
 
@@ -104,11 +111,11 @@ function renderList(filtered) {
             <span class="tag-pill">${escapeHtml(entry.classification)}</span>
           </div>
           <p class="entry-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)} / ${escapeHtml(entry.status)}</p>
-          <p class="entry-summary">${escapeHtml(shorten(entry.evaluation, 115))}</p>
+          <p class="entry-summary">${escapeHtml(shorten(entry.evaluation, 120))}</p>
           <div class="entry-tags">
             ${entry.tags.map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("")}
           </div>
-          <a class="button ghost entry-card-link" href="${buildTermUrl(entry.id)}">詳細ページへ</a>
+          <a class="button ghost entry-card-link" href="${buildTermUrl(entry.id)}">記事詳細へ</a>
         </article>
       `
     )
@@ -136,10 +143,12 @@ function resetFilters() {
   state.m = "all";
   state.c = "all";
   state.t = "all";
+
   if (els.searchInput) els.searchInput.value = "";
   if (els.mediumSelect) els.mediumSelect.value = "all";
   if (els.classSelect) els.classSelect.value = "all";
   if (els.tagSelect) els.tagSelect.value = "all";
+
   rerender();
 }
 
@@ -150,24 +159,28 @@ function initEvents() {
       rerender();
     });
   }
+
   if (els.mediumSelect) {
     els.mediumSelect.addEventListener("change", (event) => {
       state.m = event.target.value;
       rerender();
     });
   }
+
   if (els.classSelect) {
     els.classSelect.addEventListener("change", (event) => {
       state.c = event.target.value;
       rerender();
     });
   }
+
   if (els.tagSelect) {
     els.tagSelect.addEventListener("change", (event) => {
       state.t = event.target.value;
       rerender();
     });
   }
+
   if (els.resetBtn) {
     els.resetBtn.addEventListener("click", resetFilters);
   }
@@ -184,6 +197,7 @@ function renderLoadError(message) {
 
 async function init() {
   syncFooterMeta();
+
   try {
     entries = await loadEntries();
   } catch (error) {
@@ -200,6 +214,7 @@ async function init() {
   fillSelect(els.mediumSelect, mediumOptions.slice(1), state.m);
   fillSelect(els.classSelect, classOptions.slice(1), state.c);
   fillSelect(els.tagSelect, tagOptions.slice(1), state.t);
+
   if (els.searchInput) {
     els.searchInput.value = state.q;
   }

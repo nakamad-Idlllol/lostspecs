@@ -36,7 +36,7 @@ function renderCategoryGrid(groups, selectedCategory) {
   if (!els.categoryGrid) return;
 
   if (!groups.length) {
-    els.categoryGrid.innerHTML = `<p class="empty-state">分類データがありません。</p>`;
+    els.categoryGrid.innerHTML = `<p class="empty-state">カテゴリデータがありません。</p>`;
     return;
   }
 
@@ -50,9 +50,9 @@ function renderCategoryGrid(groups, selectedCategory) {
         <article class="category-card${activeClass}">
           <h3>${escapeHtml(classification)}</h3>
           <p class="category-count">${items.length}件</p>
-          <p class="muted">代表: ${escapeHtml(items[0].itemTitle)}</p>
+          <p class="muted">代表例: ${escapeHtml(items[0].itemTitle)}</p>
           <div class="category-actions">
-            <a class="button ghost" href="${openThis}">この分類を表示</a>
+            <a class="button ghost" href="${openThis}">このカテゴリを見る</a>
             <a class="button ghost" href="${openEntries}">一覧で開く</a>
           </div>
         </article>
@@ -63,21 +63,22 @@ function renderCategoryGrid(groups, selectedCategory) {
 
 function renderCategoryEntries(entries, selectedCategory) {
   if (!els.categoryEntries || !els.categoryEntriesTitle || !els.openEntriesLink) return;
+
   const filtered =
     selectedCategory === "all"
       ? entries
       : entries.filter((entry) => entry.classification === selectedCategory);
 
   if (selectedCategory === "all") {
-    els.categoryEntriesTitle.textContent = "分類別エントリ（全件）";
+    els.categoryEntriesTitle.textContent = "カテゴリ別の項目";
     els.openEntriesLink.href = "entries.html";
   } else {
-    els.categoryEntriesTitle.textContent = `分類別エントリ（${selectedCategory}）`;
+    els.categoryEntriesTitle.textContent = `カテゴリ別の項目: ${selectedCategory}`;
     els.openEntriesLink.href = buildEntriesUrl({ c: selectedCategory });
   }
 
   if (!filtered.length) {
-    els.categoryEntries.innerHTML = `<p class="empty-state">該当エントリはありません。</p>`;
+    els.categoryEntries.innerHTML = `<p class="empty-state">該当する項目はありません。</p>`;
     return;
   }
 
@@ -91,7 +92,7 @@ function renderCategoryEntries(entries, selectedCategory) {
           </div>
           <p class="entry-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
           <p class="entry-summary">${escapeHtml(entry.status)}</p>
-          <a class="button ghost" href="${buildTermUrl(entry.id)}">詳細ページへ</a>
+          <a class="button ghost" href="${buildTermUrl(entry.id)}">記事詳細へ</a>
         </article>
       `
     )
@@ -100,15 +101,16 @@ function renderCategoryEntries(entries, selectedCategory) {
 
 function renderError(message) {
   if (els.categoryGrid) {
-    els.categoryGrid.innerHTML = `<p class="empty-state">分類の読み込みに失敗しました: ${escapeHtml(message)}</p>`;
+    els.categoryGrid.innerHTML = `<p class="empty-state">カテゴリの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
   }
   if (els.categoryEntries) {
-    els.categoryEntries.innerHTML = `<p class="empty-state">エントリの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
+    els.categoryEntries.innerHTML = `<p class="empty-state">項目の読み込みに失敗しました: ${escapeHtml(message)}</p>`;
   }
 }
 
 async function init() {
   syncFooterMeta();
+
   let entries = [];
   try {
     entries = await loadEntries();

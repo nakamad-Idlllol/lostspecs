@@ -3,51 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>分類一覧 | 未回収設定WEB辞典</title>
+  <title>カテゴリ一覧 | 未回収設定・没設定大百科</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/categories.css">
 </head>
 <body>
   <header class="site-header">
+    <div class="utility-bar">
+      <div class="container utility-inner">
+        <p>架空設定・未回収要素を整理するロアアーカイブ</p>
+        <p>カテゴリから記事の束を辿れます</p>
+      </div>
+    </div>
     <div class="container site-head-inner">
       <a class="brand-link" href="index.html">
-        <p class="brand-kicker">Lore Index</p>
-        <h1 class="brand-title">未回収設定WEB辞典</h1>
+        <p class="brand-kicker">Lore Archive</p>
+        <h1 class="brand-title">未回収設定・没設定大百科</h1>
       </a>
-      <nav class="site-nav" aria-label="グローバルナビ">
+      <p class="head-note">読み方に近い分類で記事群を整理しています。</p>
+    </div>
+    <div class="site-nav-wrap">
+      <nav class="container site-nav" aria-label="グローバルナビゲーション">
         <a class="nav-link" href="index.html">トップ</a>
         <a class="nav-link" href="entries.html">用語一覧</a>
-        <a class="nav-link active" href="categories.html">分類一覧</a>
+        <a class="nav-link active" href="categories.html">カテゴリ一覧</a>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="container page-stack">
-      <section class="panel section-panel">
-        <div class="section-head">
-          <h2>分類一覧</h2>
-        </div>
-        <p class="section-description">
-          分類ごとの件数を確認し、各分類のエントリ一覧へ遷移できます。
+      <section class="panel page-intro">
+        <p class="page-intro-kicker">分類入口</p>
+        <h2>カテゴリ一覧</h2>
+        <p>
+          「未回収設定」「没設定の痕跡」など、読む観点ごとに記事を束ねています。選択したカテゴリの項目が下に表示されます。
         </p>
-        <div id="categoryGrid" class="category-grid">
-          <p class="empty-state">分類情報を読み込んでいます...</p>
-        </div>
       </section>
 
-      <section class="panel section-panel">
-        <div class="section-head">
-          <h2 id="categoryEntriesTitle">分類別エントリ</h2>
-          <a id="openEntriesLink" href="entries.html" class="button ghost">一覧ページで開く</a>
+      <div class="page-shell">
+        <div class="page-main">
+          <section class="panel section-panel">
+            <div class="section-titlebar">
+              <h2>カテゴリ</h2>
+            </div>
+            <div id="categoryGrid" class="category-grid">
+              <p class="empty-state">カテゴリを読み込み中です...</p>
+            </div>
+          </section>
+
+          <section class="panel section-panel">
+            <div class="section-titlebar">
+              <h2 id="categoryEntriesTitle">カテゴリ別の項目</h2>
+              <a id="openEntriesLink" href="entries.html" class="button ghost">一覧ページで開く</a>
+            </div>
+            <div id="categoryEntries" class="category-entries">
+              <p class="empty-state">カテゴリを選択すると項目が表示されます。</p>
+            </div>
+          </section>
         </div>
-        <div id="categoryEntries" class="category-entries">
-          <p class="empty-state">分類を読み込んでいます...</p>
-        </div>
-      </section>
+
+        <aside class="page-side">
+          <section class="panel sidebar-box">
+            <h2>分類の使い方</h2>
+            <p>
+              似た種類の保留設定をまとめて読みたいときはカテゴリから入る方が速いです。興味のある分類を選び、そのまま一覧か詳細へ進んでください。
+            </p>
+          </section>
+        </aside>
+      </div>
     </div>
   </main>
 
@@ -60,7 +87,7 @@
         更新日:
         <time id="siteUpdatedAt" datetime="">-</time>
       </p>
-      <p>未回収設定WEB辞典（分類一覧）</p>
+      <p>未回収設定・没設定を整理する非公式アーカイブです。</p>
     </div>
   </footer>
 

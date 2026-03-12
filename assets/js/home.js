@@ -20,10 +20,10 @@ const els = {
 
 function renderError(message) {
   if (els.classificationGrid) {
-    els.classificationGrid.innerHTML = `<p class="empty-state">分類情報の読み込みに失敗しました: ${escapeHtml(message)}</p>`;
+    els.classificationGrid.innerHTML = `<p class="empty-state">カテゴリの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
   }
   if (els.recentList) {
-    els.recentList.innerHTML = `<li class="empty-state">エントリの読み込みに失敗しました: ${escapeHtml(message)}</li>`;
+    els.recentList.innerHTML = `<li class="empty-state">項目の読み込みに失敗しました: ${escapeHtml(message)}</li>`;
   }
   if (els.metricCount) els.metricCount.textContent = "-";
   if (els.metricWorks) els.metricWorks.textContent = "-";
@@ -44,11 +44,12 @@ function renderMetrics(entries) {
 
 function renderClassificationCards(entries) {
   if (!els.classificationGrid) return;
+
   const grouped = new Map();
   entries.forEach((entry) => {
-    const current = grouped.get(entry.classification) || [];
-    current.push(entry);
-    grouped.set(entry.classification, current);
+    const items = grouped.get(entry.classification) || [];
+    items.push(entry);
+    grouped.set(entry.classification, items);
   });
 
   const cards = [...grouped.entries()]
@@ -60,23 +61,25 @@ function renderClassificationCards(entries) {
         <article class="class-card">
           <h3>${escapeHtml(classification)}</h3>
           <p class="class-count">${items.length}件</p>
+          <p class="muted">代表例: ${escapeHtml(items[0].itemTitle)}</p>
           <div class="class-actions">
-            <a href="${categoryUrl}" class="button ghost">分類ページ</a>
-            <a href="${entriesUrl}" class="button ghost">一覧で見る</a>
+            <a href="${categoryUrl}" class="button ghost">カテゴリを見る</a>
+            <a href="${entriesUrl}" class="button ghost">項目一覧へ</a>
           </div>
         </article>
       `;
     })
     .join("");
 
-  els.classificationGrid.innerHTML = cards || `<p class="empty-state">分類データがありません。</p>`;
+  els.classificationGrid.innerHTML = cards || `<p class="empty-state">カテゴリデータがありません。</p>`;
 }
 
 function renderRecentEntries(entries) {
   if (!els.recentList) return;
+
   const items = entries.slice(0, 8);
   if (!items.length) {
-    els.recentList.innerHTML = `<li class="empty-state">表示できるエントリがありません。</li>`;
+    els.recentList.innerHTML = `<li class="empty-state">表示できる項目がありません。</li>`;
     return;
   }
 

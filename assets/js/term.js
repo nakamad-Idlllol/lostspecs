@@ -9,6 +9,8 @@ import {
 const els = {
   breadcrumbCurrent: document.getElementById("breadcrumbCurrent"),
   termArticle: document.getElementById("termArticle"),
+  articleToc: document.getElementById("articleToc"),
+  infoFacts: document.getElementById("infoFacts"),
   relatedList: document.getElementById("relatedList"),
   termError: document.getElementById("termError")
 };
@@ -27,19 +29,72 @@ function renderError(message) {
 
 function renderNotFound() {
   if (els.breadcrumbCurrent) {
-    els.breadcrumbCurrent.textContent = "未登録の用語";
+    els.breadcrumbCurrent.textContent = "記事が見つかりません";
   }
+
   if (els.termArticle) {
     els.termArticle.innerHTML = `
       <p class="empty-state">
-        指定された用語は見つかりませんでした。<a href="entries.html">用語一覧</a>から再度選択してください。
+        指定された記事は見つかりませんでした。<a href="entries.html">用語一覧</a>から探し直してください。
       </p>
     `;
   }
-  if (els.relatedList) {
-    els.relatedList.innerHTML = `<li class="empty-state">関連エントリを表示できません。</li>`;
+
+  if (els.articleToc) {
+    els.articleToc.innerHTML = `<li class="empty-state">表示できる目次がありません。</li>`;
   }
-  document.title = "用語が見つかりません | 未回収設定WEB辞典";
+
+  if (els.infoFacts) {
+    els.infoFacts.innerHTML = `
+      <div class="info-row">
+        <dt>状態</dt>
+        <dd>記事未検出</dd>
+      </div>
+    `;
+  }
+
+  if (els.relatedList) {
+    els.relatedList.innerHTML = `<li class="empty-state">関連項目は表示できません。</li>`;
+  }
+
+  document.title = "記事が見つかりません | 未回収設定・没設定大百科";
+}
+
+function renderToc(sections) {
+  if (!els.articleToc) return;
+
+  els.articleToc.innerHTML = sections
+    .map(
+      (section) => `
+        <li>
+          <a class="toc-link" href="#${section.id}">${escapeHtml(section.title)}</a>
+        </li>
+      `
+    )
+    .join("");
+}
+
+function renderInfoFacts(entry) {
+  if (!els.infoFacts) return;
+
+  const rows = [
+    ["分類", entry.classification],
+    ["状態", entry.status],
+    ["初出", entry.firstAppearance],
+    ["媒体", entry.medium],
+    ["出典数", `${entry.sources.length}件`]
+  ];
+
+  els.infoFacts.innerHTML = rows
+    .map(
+      ([key, value]) => `
+        <div class="info-row">
+          <dt>${escapeHtml(key)}</dt>
+          <dd>${escapeHtml(value)}</dd>
+        </div>
+      `
+    )
+    .join("");
 }
 
 function renderTerm(entry) {
@@ -50,7 +105,7 @@ function renderTerm(entry) {
 
   const sourceHtml = entry.sources
     .map((source) => {
-      const label = escapeHtml(source.label || source.url || "参考リンク");
+      const label = escapeHtml(source.label || source.url || "出典リンク");
       const url = escapeHtml(source.url || "#");
       return `<li><a href="${url}" target="_blank" rel="noreferrer">${label}</a></li>`;
     })
@@ -58,21 +113,55 @@ function renderTerm(entry) {
 
   const tagHtml = entry.tags.map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("");
 
+  const sections = [
+    {
+      id: "overview",
+      title: "概要",
+      body: `
+        <p>${escapeHtml(entry.evaluation)}</p>
+        <p class="term-note">${escapeHtml(entry.note)}</p>
+      `
+    },
+    {
+      id: "appearance",
+      title: "本編で確認できる内容",
+      body: `<p>${escapeHtml(entry.factShown)}</p>`
+    },
+    {
+      id: "afterword",
+      title: "後続資料での補足",
+      body: `<p>${escapeHtml(entry.factAfter)}</p>`
+    },
+    {
+      id: "sources",
+      title: "出典",
+      body: `<ul class="source-list">${sourceHtml || "<li>出典は登録されていません。</li>"}</ul>`
+    }
+  ];
+
+  renderToc(sections);
+  renderInfoFacts(entry);
+
   els.termArticle.innerHTML = `
     <header class="term-head">
+      <p class="term-kicker">用語記事</p>
       <div class="entry-tags">${tagHtml}</div>
       <h2>${escapeHtml(entry.itemTitle)}</h2>
       <p class="term-workline">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
-      <a class="button ghost" href="${buildEntriesUrl({ c: entry.classification })}">同じ分類を一覧で見る</a>
+      <p class="term-summary">${escapeHtml(entry.status)}</p>
+      <div class="term-actions">
+        <a class="button ghost" href="${buildEntriesUrl({ c: entry.classification })}">同カテゴリの一覧へ</a>
+        <a class="button ghost" href="${buildEntriesUrl({ q: entry.work })}">同作品で探す</a>
+      </div>
     </header>
 
-    <section class="meta-grid">
+    <section class="meta-strip">
       <article class="meta-box">
         <p class="meta-key">分類</p>
         <p class="meta-value">${escapeHtml(entry.classification)}</p>
       </article>
       <article class="meta-box">
-        <p class="meta-key">現在タグ</p>
+        <p class="meta-key">状態</p>
         <p class="meta-value">${escapeHtml(entry.status)}</p>
       </article>
       <article class="meta-box">
@@ -80,48 +169,41 @@ function renderTerm(entry) {
         <p class="meta-value">${escapeHtml(entry.firstAppearance)}</p>
       </article>
       <article class="meta-box">
-        <p class="meta-key">運用メモ</p>
-        <p class="meta-value">${escapeHtml(entry.note)}</p>
+        <p class="meta-key">タグ</p>
+        <p class="meta-value">${escapeHtml(entry.tags.join(" / "))}</p>
       </article>
     </section>
 
-    <section class="term-block">
-      <h3>作中で示された事実</h3>
-      <p>${escapeHtml(entry.factShown)}</p>
-    </section>
-
-    <section class="term-block">
-      <h3>その後の扱い（事実ベース）</h3>
-      <p>${escapeHtml(entry.factAfter)}</p>
-    </section>
-
-    <section class="term-block">
-      <h3>評価 / 整理方針（解釈欄）</h3>
-      <p>${escapeHtml(entry.evaluation)}</p>
-    </section>
-
-    <section class="term-block">
-      <h3>参考リンク</h3>
-      <ul class="source-list">${sourceHtml || "<li>参考リンクは登録されていません。</li>"}</ul>
-    </section>
+    ${sections
+      .map(
+        (section) => `
+          <section id="${section.id}" class="term-section">
+            <h3>${escapeHtml(section.title)}</h3>
+            ${section.body}
+          </section>
+        `
+      )
+      .join("")}
   `;
 
-  document.title = `${entry.itemTitle} | 未回収設定WEB辞典`;
+  document.title = `${entry.itemTitle} | 未回収設定・没設定大百科`;
 }
 
 function renderRelated(entries, current) {
   if (!els.relatedList) return;
 
-  const related = entries
-    .filter(
-      (entry) =>
-        entry.id !== current.id &&
-        (entry.work === current.work || entry.classification === current.classification)
-    )
-    .slice(0, 8);
+  const sameWork = entries.filter((entry) => entry.id !== current.id && entry.work === current.work);
+  const sameClass = entries.filter(
+    (entry) =>
+      entry.id !== current.id &&
+      entry.work !== current.work &&
+      entry.classification === current.classification
+  );
+
+  const related = [...sameWork, ...sameClass].slice(0, 8);
 
   if (!related.length) {
-    els.relatedList.innerHTML = `<li class="empty-state">関連エントリはまだありません。</li>`;
+    els.relatedList.innerHTML = `<li class="empty-state">関連項目はまだありません。</li>`;
     return;
   }
 
@@ -144,7 +226,7 @@ async function init() {
 
   const id = getEntryIdFromUrl();
   if (!id) {
-    renderError("URLに用語IDが指定されていません。");
+    renderError("URL に記事IDがありません。");
     renderNotFound();
     return;
   }

@@ -1,26 +1,28 @@
 .category-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
 }
 
 .category-card {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 12px;
-  background: var(--surface-soft);
   display: grid;
-  gap: 8px;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-left: 4px solid transparent;
+  border-radius: 4px;
+  background: var(--bg-soft);
+  padding: 14px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .category-card-active {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(14, 111, 96, 0.15);
+  border-left-color: var(--accent);
+  background: #fff0f0;
 }
 
 .category-card h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .category-card p {
@@ -28,15 +30,16 @@
 }
 
 .category-count {
-  font-size: 22px;
-  line-height: 1.1;
   color: var(--accent-strong);
+  font-family: "Noto Serif JP", "Yu Mincho", serif;
+  font-size: 28px;
+  line-height: 1.1;
 }
 
 .category-actions {
   display: flex;
-  gap: 6px;
   flex-wrap: wrap;
+  gap: 8px;
 }
 
 .category-entries {
@@ -50,7 +53,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 700px) {
   .category-grid {
     grid-template-columns: 1fr;
   }

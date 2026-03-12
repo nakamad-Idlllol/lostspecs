@@ -3,24 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>用語詳細 | 未回収設定WEB辞典</title>
+  <title>用語詳細 | 未回収設定・没設定大百科</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/term.css">
 </head>
 <body>
   <header class="site-header">
+    <div class="utility-bar">
+      <div class="container utility-inner">
+        <p>架空設定・未回収要素を整理するロアアーカイブ</p>
+        <p>記事ページは概要と周辺情報を分けて表示します</p>
+      </div>
+    </div>
     <div class="container site-head-inner">
       <a class="brand-link" href="index.html">
-        <p class="brand-kicker">Lore Index</p>
-        <h1 class="brand-title">未回収設定WEB辞典</h1>
+        <p class="brand-kicker">Lore Archive</p>
+        <h1 class="brand-title">未回収設定・没設定大百科</h1>
       </a>
-      <nav class="site-nav" aria-label="グローバルナビ">
+      <p class="head-note">概要、本文、出典、関連項目を一画面で追える構成です。</p>
+    </div>
+    <div class="site-nav-wrap">
+      <nav class="container site-nav" aria-label="グローバルナビゲーション">
         <a class="nav-link" href="index.html">トップ</a>
         <a class="nav-link" href="entries.html">用語一覧</a>
-        <a class="nav-link" href="categories.html">分類一覧</a>
+        <a class="nav-link" href="categories.html">カテゴリ一覧</a>
       </nav>
     </div>
   </header>
@@ -39,14 +48,33 @@
 
       <div class="term-layout">
         <article id="termArticle" class="panel term-article">
-          <p class="empty-state">用語情報を読み込んでいます...</p>
+          <p class="empty-state">項目を読み込み中です...</p>
         </article>
 
-        <aside class="panel related-panel">
-          <h2>関連エントリ</h2>
-          <ul id="relatedList" class="related-list">
-            <li class="empty-state">読み込み中...</li>
-          </ul>
+        <aside class="term-sidebar">
+          <section class="panel side-box">
+            <h2>目次</h2>
+            <ol id="articleToc" class="toc-list">
+              <li class="empty-state">目次を準備中です...</li>
+            </ol>
+          </section>
+
+          <section class="panel side-box">
+            <h2>記事情報</h2>
+            <dl id="infoFacts" class="info-list">
+              <div class="info-row">
+                <dt>状態</dt>
+                <dd>読み込み中</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="panel side-box related-panel">
+            <h2>関連項目</h2>
+            <ul id="relatedList" class="related-list">
+              <li class="empty-state">関連項目を読み込み中です...</li>
+            </ul>
+          </section>
         </aside>
       </div>
     </div>
@@ -61,7 +89,7 @@
         更新日:
         <time id="siteUpdatedAt" datetime="">-</time>
       </p>
-      <p>未回収設定WEB辞典（用語詳細）</p>
+      <p>未回収設定・没設定を整理する非公式アーカイブです。</p>
     </div>
   </footer>
 

@@ -3,77 +3,104 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>用語一覧 | 未回収設定WEB辞典</title>
+  <title>用語一覧 | 未回収設定・没設定大百科</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/list.css">
 </head>
 <body>
   <header class="site-header">
+    <div class="utility-bar">
+      <div class="container utility-inner">
+        <p>架空設定・未回収要素を整理するロアアーカイブ</p>
+        <p>一覧から直接記事へ移動できます</p>
+      </div>
+    </div>
     <div class="container site-head-inner">
       <a class="brand-link" href="index.html">
-        <p class="brand-kicker">Lore Index</p>
-        <h1 class="brand-title">未回収設定WEB辞典</h1>
+        <p class="brand-kicker">Lore Archive</p>
+        <h1 class="brand-title">未回収設定・没設定大百科</h1>
       </a>
-      <nav class="site-nav" aria-label="グローバルナビ">
+      <p class="head-note">キーワード、媒体、カテゴリ、タグから絞り込めます。</p>
+    </div>
+    <div class="site-nav-wrap">
+      <nav class="container site-nav" aria-label="グローバルナビゲーション">
         <a class="nav-link" href="index.html">トップ</a>
         <a class="nav-link active" href="entries.html">用語一覧</a>
-        <a class="nav-link" href="categories.html">分類一覧</a>
+        <a class="nav-link" href="categories.html">カテゴリ一覧</a>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="container page-stack">
-      <section class="panel section-panel">
-        <div class="section-head">
-          <h2>用語一覧</h2>
-        </div>
-        <p class="section-description">
-          作品名・用語名・タグを横断して検索できます。詳細は各用語ページへ遷移します。
+      <section class="panel page-intro">
+        <p class="page-intro-kicker">記事検索</p>
+        <h2>用語一覧</h2>
+        <p>
+          記事カードからそのまま詳細へ進めます。検索は作品名、用語名、本文の要点、補足メモも対象です。
         </p>
-
-        <div class="filters-grid">
-          <label class="field">
-            <span>キーワード</span>
-            <input id="searchInput" class="input" type="search" placeholder="作品名 / 用語名 / メモ">
-          </label>
-
-          <label class="field">
-            <span>媒体</span>
-            <select id="mediumSelect" class="select">
-              <option value="all">すべて</option>
-            </select>
-          </label>
-
-          <label class="field">
-            <span>分類</span>
-            <select id="classSelect" class="select">
-              <option value="all">すべて</option>
-            </select>
-          </label>
-
-          <label class="field">
-            <span>タグ</span>
-            <select id="tagSelect" class="select">
-              <option value="all">すべて</option>
-            </select>
-          </label>
-        </div>
-
-        <div class="toolbar">
-          <p id="resultSummary" class="muted">読み込み中...</p>
-          <button id="resetBtn" class="button ghost" type="button">絞り込み解除</button>
-        </div>
       </section>
 
-      <section class="panel section-panel">
-        <div id="entryList" class="entry-list" aria-live="polite">
-          <p class="empty-state">エントリを読み込んでいます...</p>
+      <div class="page-shell">
+        <div class="page-main">
+          <section class="panel section-panel">
+            <div class="section-titlebar">
+              <h2>絞り込み</h2>
+            </div>
+
+            <div class="filters-grid">
+              <label class="field">
+                <span>キーワード</span>
+                <input id="searchInput" class="input" type="search" placeholder="作品名 / 用語名 / メモ">
+              </label>
+
+              <label class="field">
+                <span>媒体</span>
+                <select id="mediumSelect" class="select">
+                  <option value="all">すべて</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>カテゴリ</span>
+                <select id="classSelect" class="select">
+                  <option value="all">すべて</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>タグ</span>
+                <select id="tagSelect" class="select">
+                  <option value="all">すべて</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="toolbar">
+              <p id="resultSummary" class="muted">読み込み中...</p>
+              <button id="resetBtn" class="button ghost" type="button">条件をリセット</button>
+            </div>
+          </section>
+
+          <section class="panel section-panel">
+            <div id="entryList" class="entry-list" aria-live="polite">
+              <p class="empty-state">項目を読み込み中です...</p>
+            </div>
+          </section>
         </div>
-      </section>
+
+        <aside class="page-side">
+          <section class="panel sidebar-box">
+            <h2>一覧の見方</h2>
+            <p>
+              記事はカテゴリを強く出したカードで並べています。まず分類で当たりをつけてから、詳細ページで概要と出典を見る想定です。
+            </p>
+          </section>
+        </aside>
+      </div>
     </div>
   </main>
 
@@ -86,7 +113,7 @@
         更新日:
         <time id="siteUpdatedAt" datetime="">-</time>
       </p>
-      <p>未回収設定WEB辞典（用語一覧）</p>
+      <p>未回収設定・没設定を整理する非公式アーカイブです。</p>
     </div>
   </footer>
 

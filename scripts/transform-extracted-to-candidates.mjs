@@ -163,26 +163,36 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, clas
     ? setTemplate("firstAppearance", "既存エントリの追補候補（初出は既存記事を参照）")
     : setTemplate("firstAppearance", "要確認（本文・見出しから初出情報を抽出予定）");
 
-  const factShown =
+  const depiction =
     factSeed ||
-    setTemplate("factShown", `要確認（${clipText(primaryTitle, 80)} に関する本文抽出に失敗または不足）`);
+    setTemplate("depiction", `要確認（${clipText(primaryTitle, 80)} に関する本文抽出に失敗または不足）`);
 
-  const factAfter = sourceLinkedExisting
-    ? setTemplate("factAfter", "既存エントリへの出典追加・補強候補。本文差分確認後に反映。")
-    : setTemplate("factAfter", "自動抽出段階では後続の扱いを確定できないため、要レビュー。");
-
-  const evaluation = hasChallengeSignal(extracted)
-    ? setTemplate("evaluation", "アクセス制限/認証ページの可能性があり、再取得または別ソース確認が必要。")
+  const overview = hasChallengeSignal(extracted)
+    ? setTemplate("overview", "アクセス制限/認証ページの可能性があり、再取得または別ソース確認が必要。")
     : setTemplate(
-        "evaluation",
+        "overview",
         `自動抽出候補（信頼度 ${extracted.confidence ?? "-"}）。判定=${decision.label}。人手レビューで文章整形・事実確認を行う。`
       );
 
-  const noteParts = [
-    `自動抽出候補（${new Date().toISOString()}）`,
-    `sourceId=${extracted.sourceId}`,
-    description ? "description抽出あり" : "description抽出なし",
-    h2List.length ? `h2=${h2List.slice(0, 3).join(" / ")}` : "h2なし"
+  const externalContext = description
+    ? setTemplate("externalContext", `抽出元ページの説明文: ${clipText(description, 180)}`)
+    : setTemplate("externalContext", "自動抽出段階では外部資料の要点整理が未完了。原文確認が必要。");
+
+  const unresolvedPoints = sourceLinkedExisting
+    ? setTemplate("unresolvedPoints", "既存記事への追補候補として、どの点を補強するかを要確認。")
+    : setTemplate("unresolvedPoints", "何が未回収といえるか、どこまでを論点に含めるかを要レビュー。");
+
+  const reception = setTemplate("reception", "反応・受け止められ方は未整理。公開前にファン側の受け止め方を補記したい。");
+  const interpretation = setTemplate("interpretation", "複数の解釈がありうるため、断定せず整理する前提。");
+  const futurePossibility = setTemplate("futurePossibility", "続編・補足資料で扱いが変わる可能性があるため、現時点では保留。");
+  const discussionPoints = setTemplate("discussionPoints", "未回収と断定できるか、演出や構想変更として読むべきかが主論点。");
+  const timeline = [
+    {
+      label: "初期整理",
+      detail: sourceLinkedExisting
+        ? "既存記事の補強候補として抽出。公開前に記述位置の調整が必要。"
+        : "自動抽出候補として追加。本文確認後に年表を具体化する。"
+    }
   ];
 
   return {
@@ -195,10 +205,15 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, clas
       status,
       tags,
       firstAppearance,
-      factShown,
-      factAfter,
-      evaluation,
-      note: noteParts.join(" | "),
+      overview,
+      depiction,
+      unresolvedPoints,
+      reception,
+      externalContext,
+      interpretation,
+      futurePossibility,
+      discussionPoints,
+      timeline,
       sources: [
         {
           label: sourceMeta?.label ?? extracted.url,

@@ -84,7 +84,7 @@ function renderPopularEntries(entries) {
           <article class="featured-item">
             <p class="featured-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
             <h3><a href="${buildTermUrl(entry.id)}">${escapeHtml(entry.itemTitle)}</a></h3>
-            <p>${escapeHtml(shorten(entry.evaluation, 72))}</p>
+            <p>${escapeHtml(shorten(entry.overview, 72))}</p>
           </article>
         </li>
       `
@@ -108,7 +108,7 @@ function renderRecentEntries(entries) {
           <article class="recent-item">
             <h3><a href="${buildTermUrl(entry.id)}">${escapeHtml(entry.itemTitle)}</a></h3>
             <p>${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
-            <p>${escapeHtml(shorten(entry.evaluation, 88))}</p>
+            <p>${escapeHtml(shorten(entry.overview, 88))}</p>
           </article>
         </li>
       `

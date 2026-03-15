@@ -63,10 +63,14 @@ function completeSuggestedEntry(entry) {
     "classification",
     "status",
     "firstAppearance",
-    "factShown",
-    "factAfter",
-    "evaluation",
-    "note"
+    "overview",
+    "depiction",
+    "unresolvedPoints",
+    "reception",
+    "externalContext",
+    "interpretation",
+    "futurePossibility",
+    "discussionPoints"
   ];
 
   if (!entry || typeof entry !== "object" || Array.isArray(entry)) return false;
@@ -77,6 +81,13 @@ function completeSuggestedEntry(entry) {
     !Array.isArray(entry.sources) ||
     entry.sources.length === 0 ||
     entry.sources.some((s) => !s || !isNonEmptyString(s.label) || !isNonEmptyString(s.url))
+  ) {
+    return false;
+  }
+  if (
+    !Array.isArray(entry.timeline) ||
+    entry.timeline.length === 0 ||
+    entry.timeline.some((item) => !item || !isNonEmptyString(item.label) || !isNonEmptyString(item.detail))
   ) {
     return false;
   }

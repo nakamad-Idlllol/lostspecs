@@ -53,6 +53,20 @@
   gap: 8px;
 }
 
+.term-toc-box {
+  display: grid;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg-soft);
+}
+
+.term-toc-head h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
 .meta-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -94,12 +108,6 @@
   margin: 0;
 }
 
-.term-note {
-  padding: 12px 14px;
-  border-left: 3px solid var(--line-strong);
-  background: #fff3f3;
-}
-
 .source-list {
   margin: 0;
   padding-left: 20px;
@@ -132,6 +140,11 @@
   margin: 0;
 }
 
+.toc-list-inline {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
 .toc-link {
   display: block;
   padding: 8px 10px;
@@ -144,6 +157,31 @@
 .toc-link:hover {
   text-decoration: none;
   background: #fff0f0;
+}
+
+.timeline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.timeline-item {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg-soft);
+}
+
+.timeline-label {
+  margin: 0 0 4px;
+  color: var(--accent-strong);
+  font-size: 12px;
+}
+
+.timeline-detail {
+  margin: 0;
 }
 
 .info-list {
@@ -210,6 +248,10 @@
 
   .meta-strip {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .toc-list-inline {
+    grid-template-columns: 1fr;
   }
 }
 

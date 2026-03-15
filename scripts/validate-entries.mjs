@@ -13,10 +13,15 @@ const requiredFields = [
   "status",
   "tags",
   "firstAppearance",
-  "factShown",
-  "factAfter",
-  "evaluation",
-  "note",
+  "overview",
+  "depiction",
+  "unresolvedPoints",
+  "reception",
+  "externalContext",
+  "interpretation",
+  "futurePossibility",
+  "discussionPoints",
+  "timeline",
   "sources"
 ];
 
@@ -92,10 +97,14 @@ entries.forEach((entry, index) => {
     "classification",
     "status",
     "firstAppearance",
-    "factShown",
-    "factAfter",
-    "evaluation",
-    "note"
+    "overview",
+    "depiction",
+    "unresolvedPoints",
+    "reception",
+    "externalContext",
+    "interpretation",
+    "futurePossibility",
+    "discussionPoints"
   ]) {
     if (!isNonEmptyString(entry[field])) {
       fail(`${label}.${field} は空でない文字列である必要があります`);
@@ -109,6 +118,28 @@ entries.forEach((entry, index) => {
   } else if (entry.tags.some((tag) => !isNonEmptyString(tag))) {
     fail(`${label}.tags に空文字または非文字列があります`);
     errorCount += 1;
+  }
+
+  if (!Array.isArray(entry.timeline) || entry.timeline.length === 0) {
+    fail(`${label}.timeline は1件以上の配列である必要があります`);
+    errorCount += 1;
+  } else {
+    entry.timeline.forEach((item, itemIndex) => {
+      const itemLabel = `${label}.timeline[${itemIndex}]`;
+      if (!item || typeof item !== "object" || Array.isArray(item)) {
+        fail(`${itemLabel} はオブジェクトである必要があります`);
+        errorCount += 1;
+        return;
+      }
+      if (!isNonEmptyString(item.label)) {
+        fail(`${itemLabel}.label は空でない文字列である必要があります`);
+        errorCount += 1;
+      }
+      if (!isNonEmptyString(item.detail)) {
+        fail(`${itemLabel}.detail は空でない文字列である必要があります`);
+        errorCount += 1;
+      }
+    });
   }
 
   if (!Array.isArray(entry.sources) || entry.sources.length === 0) {

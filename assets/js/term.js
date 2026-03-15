@@ -9,7 +9,6 @@ import {
 const els = {
   breadcrumbCurrent: document.getElementById("breadcrumbCurrent"),
   termArticle: document.getElementById("termArticle"),
-  articleToc: document.getElementById("articleToc"),
   infoFacts: document.getElementById("infoFacts"),
   relatedList: document.getElementById("relatedList"),
   termError: document.getElementById("termError")
@@ -40,10 +39,6 @@ function renderNotFound() {
     `;
   }
 
-  if (els.articleToc) {
-    els.articleToc.innerHTML = `<li class="empty-state">表示できる目次がありません。</li>`;
-  }
-
   if (els.infoFacts) {
     els.infoFacts.innerHTML = `
       <div class="info-row">
@@ -60,10 +55,8 @@ function renderNotFound() {
   document.title = "記事が見つかりません | 未回収設定・没設定大百科";
 }
 
-function renderToc(sections) {
-  if (!els.articleToc) return;
-
-  els.articleToc.innerHTML = sections
+function buildTocHtml(sections) {
+  return sections
     .map(
       (section) => `
         <li>
@@ -97,6 +90,27 @@ function renderInfoFacts(entry) {
     .join("");
 }
 
+function renderTimeline(entry) {
+  if (!Array.isArray(entry.timeline) || !entry.timeline.length) {
+    return `<p>年表情報はまだ整理されていません。</p>`;
+  }
+
+  return `
+    <ol class="timeline-list">
+      ${entry.timeline
+        .map(
+          (item) => `
+            <li class="timeline-item">
+              <p class="timeline-label">${escapeHtml(item.label)}</p>
+              <p class="timeline-detail">${escapeHtml(item.detail)}</p>
+            </li>
+          `
+        )
+        .join("")}
+    </ol>
+  `;
+}
+
 function renderTerm(entry) {
   if (els.breadcrumbCurrent) {
     els.breadcrumbCurrent.textContent = entry.itemTitle;
@@ -117,20 +131,47 @@ function renderTerm(entry) {
     {
       id: "overview",
       title: "概要",
-      body: `
-        <p>${escapeHtml(entry.evaluation)}</p>
-        <p class="term-note">${escapeHtml(entry.note)}</p>
-      `
+      body: `<p>${escapeHtml(entry.overview)}</p>`
     },
     {
-      id: "appearance",
-      title: "本編で確認できる内容",
-      body: `<p>${escapeHtml(entry.factShown)}</p>`
+      id: "depiction",
+      title: "作中での描写",
+      body: `<p>${escapeHtml(entry.depiction)}</p>`
     },
     {
-      id: "afterword",
-      title: "後続資料での補足",
-      body: `<p>${escapeHtml(entry.factAfter)}</p>`
+      id: "unresolved",
+      title: "未回収とされるポイント",
+      body: `<p>${escapeHtml(entry.unresolvedPoints)}</p>`
+    },
+    {
+      id: "reception",
+      title: "反応・受け止められ方",
+      body: `<p>${escapeHtml(entry.reception)}</p>`
+    },
+    {
+      id: "external",
+      title: "外部資料・補足",
+      body: `<p>${escapeHtml(entry.externalContext)}</p>`
+    },
+    {
+      id: "interpretation",
+      title: "解釈・考察",
+      body: `<p>${escapeHtml(entry.interpretation)}</p>`
+    },
+    {
+      id: "future",
+      title: "今後の可能性",
+      body: `<p>${escapeHtml(entry.futurePossibility)}</p>`
+    },
+    {
+      id: "discussion",
+      title: "論点",
+      body: `<p>${escapeHtml(entry.discussionPoints)}</p>`
+    },
+    {
+      id: "timeline",
+      title: "年表",
+      body: renderTimeline(entry)
     },
     {
       id: "sources",
@@ -139,7 +180,6 @@ function renderTerm(entry) {
     }
   ];
 
-  renderToc(sections);
   renderInfoFacts(entry);
 
   els.termArticle.innerHTML = `
@@ -154,6 +194,15 @@ function renderTerm(entry) {
         <a class="button ghost" href="${buildEntriesUrl({ q: entry.work })}">同作品で探す</a>
       </div>
     </header>
+
+    <section class="term-toc-box" aria-labelledby="termTocTitle">
+      <div class="term-toc-head">
+        <h3 id="termTocTitle">目次</h3>
+      </div>
+      <ol class="toc-list toc-list-inline">
+        ${buildTocHtml(sections)}
+      </ol>
+    </section>
 
     <section class="meta-strip">
       <article class="meta-box">

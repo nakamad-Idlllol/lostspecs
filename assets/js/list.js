@@ -65,10 +65,15 @@ function matchesSearch(entry, query) {
     entry.classification,
     entry.status,
     entry.firstAppearance,
-    entry.factShown,
-    entry.factAfter,
-    entry.evaluation,
-    entry.note,
+    entry.overview,
+    entry.depiction,
+    entry.unresolvedPoints,
+    entry.reception,
+    entry.externalContext,
+    entry.interpretation,
+    entry.futurePossibility,
+    entry.discussionPoints,
+    ...entry.timeline.flatMap((item) => [item.label, item.detail]),
     ...entry.tags
   ]
     .join(" ")
@@ -111,7 +116,7 @@ function renderList(filtered) {
             <span class="tag-pill">${escapeHtml(entry.classification)}</span>
           </div>
           <p class="entry-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)} / ${escapeHtml(entry.status)}</p>
-          <p class="entry-summary">${escapeHtml(shorten(entry.evaluation, 120))}</p>
+          <p class="entry-summary">${escapeHtml(shorten(entry.overview, 120))}</p>
           <div class="entry-tags">
             ${entry.tags.map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("")}
           </div>

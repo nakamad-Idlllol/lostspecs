@@ -12,10 +12,15 @@ const REQUIRED_FIELDS = [
   "status",
   "tags",
   "firstAppearance",
-  "factShown",
-  "factAfter",
-  "evaluation",
-  "note",
+  "overview",
+  "depiction",
+  "unresolvedPoints",
+  "reception",
+  "externalContext",
+  "interpretation",
+  "futurePossibility",
+  "discussionPoints",
+  "timeline",
   "sources"
 ];
 
@@ -45,6 +50,9 @@ function validateEntriesShape(data) {
     seen.add(entry.id);
     if (!Array.isArray(entry.tags)) {
       throw new Error(`entries[${index}].tags は配列である必要があります。`);
+    }
+    if (!Array.isArray(entry.timeline)) {
+      throw new Error(`entries[${index}].timeline は配列である必要があります。`);
     }
     if (!Array.isArray(entry.sources)) {
       throw new Error(`entries[${index}].sources は配列である必要があります。`);

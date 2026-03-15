@@ -11,7 +11,6 @@ const els = {
   termArticle: document.getElementById("termArticle"),
   articleTocDesktop: document.getElementById("articleTocDesktop"),
   articleTocMobile: document.getElementById("articleTocMobile"),
-  infoFacts: document.getElementById("infoFacts"),
   relatedList: document.getElementById("relatedList"),
   termError: document.getElementById("termError")
 };
@@ -47,15 +46,6 @@ function renderNotFound() {
     `;
   }
 
-  if (els.infoFacts) {
-    els.infoFacts.innerHTML = `
-      <div class="info-row">
-        <dt>状態</dt>
-        <dd>記事未検出</dd>
-      </div>
-    `;
-  }
-
   if (els.relatedList) {
     els.relatedList.innerHTML = `<li class="empty-state">関連項目は表示できません。</li>`;
   }
@@ -85,29 +75,6 @@ function renderToc(sections) {
   if (els.articleTocMobile) {
     els.articleTocMobile.innerHTML = html || `<li class="empty-state">表示できる目次がありません。</li>`;
   }
-}
-
-function renderInfoFacts(entry) {
-  if (!els.infoFacts) return;
-
-  const rows = [
-    ["分類", entry.classification],
-    ["状態", entry.status],
-    ["初出", entry.firstAppearance],
-    ["媒体", entry.medium],
-    ["出典数", `${entry.sources.length}件`]
-  ];
-
-  els.infoFacts.innerHTML = rows
-    .map(
-      ([key, value]) => `
-        <div class="info-row">
-          <dt>${escapeHtml(key)}</dt>
-          <dd>${escapeHtml(value)}</dd>
-        </div>
-      `
-    )
-    .join("");
 }
 
 function renderTimeline(entry) {
@@ -201,8 +168,6 @@ function renderTerm(entry) {
   ];
 
   renderToc(sections);
-  renderInfoFacts(entry);
-
   els.termArticle.innerHTML = `
     <header class="term-head">
       <p class="term-kicker">用語記事</p>

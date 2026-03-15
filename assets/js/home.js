@@ -50,12 +50,10 @@ function renderClassificationCards(entries) {
       const entriesUrl = buildEntriesUrl({ c: classification });
       return `
         <article class="class-card">
-          <h3>${escapeHtml(classification)}</h3>
+          <h3><a class="class-title-link" href="${categoryUrl}">${escapeHtml(classification)}</a></h3>
           <p class="class-count">${items.length}件</p>
-          <p class="muted">代表例: ${escapeHtml(items[0].itemTitle)}</p>
           <div class="class-actions">
-            <a href="${categoryUrl}" class="button ghost">カテゴリを見る</a>
-            <a href="${entriesUrl}" class="button ghost">項目一覧へ</a>
+            <a href="${entriesUrl}" class="button ghost">このカテゴリの一覧へ</a>
           </div>
         </article>
       `;

@@ -2,43 +2,34 @@ import {
   buildCategoriesUrl,
   buildEntriesUrl,
   buildTermUrl,
-  countWorks,
   escapeHtml,
   loadEntries,
   shorten,
-  syncFooterMeta,
-  uniqueStrings
+  syncFooterMeta
 } from "./data.js";
 
+const POPULAR_ENTRY_IDS = [
+  "pkmn-gs-ball",
+  "digimon02-dark-ocean-dagomon",
+  "jojolion-flashback-man",
+  "jojo5-fugo"
+];
+
 const els = {
-  metricCount: document.getElementById("metricCount"),
-  metricWorks: document.getElementById("metricWorks"),
-  metricMedia: document.getElementById("metricMedia"),
+  popularList: document.getElementById("popularList"),
   classificationGrid: document.getElementById("classificationGrid"),
   recentList: document.getElementById("recentList")
 };
 
 function renderError(message) {
+  if (els.popularList) {
+    els.popularList.innerHTML = `<li class="empty-state">人気記事の読み込みに失敗しました: ${escapeHtml(message)}</li>`;
+  }
   if (els.classificationGrid) {
     els.classificationGrid.innerHTML = `<p class="empty-state">カテゴリの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
   }
   if (els.recentList) {
     els.recentList.innerHTML = `<li class="empty-state">項目の読み込みに失敗しました: ${escapeHtml(message)}</li>`;
-  }
-  if (els.metricCount) els.metricCount.textContent = "-";
-  if (els.metricWorks) els.metricWorks.textContent = "-";
-  if (els.metricMedia) els.metricMedia.textContent = "-";
-}
-
-function renderMetrics(entries) {
-  if (els.metricCount) {
-    els.metricCount.textContent = String(entries.length);
-  }
-  if (els.metricWorks) {
-    els.metricWorks.textContent = String(countWorks(entries));
-  }
-  if (els.metricMedia) {
-    els.metricMedia.textContent = String(uniqueStrings(entries.map((entry) => entry.medium)).length);
   }
 }
 
@@ -74,6 +65,35 @@ function renderClassificationCards(entries) {
   els.classificationGrid.innerHTML = cards || `<p class="empty-state">カテゴリデータがありません。</p>`;
 }
 
+function renderPopularEntries(entries) {
+  if (!els.popularList) return;
+
+  const byId = new Map(entries.map((entry) => [entry.id, entry]));
+  const items = POPULAR_ENTRY_IDS
+    .map((id) => byId.get(id))
+    .filter(Boolean)
+    .slice(0, 4);
+
+  if (!items.length) {
+    els.popularList.innerHTML = `<li class="empty-state">表示できる項目がありません。</li>`;
+    return;
+  }
+
+  els.popularList.innerHTML = items
+    .map(
+      (entry) => `
+        <li>
+          <article class="featured-item">
+            <p class="featured-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
+            <h3><a href="${buildTermUrl(entry.id)}">${escapeHtml(entry.itemTitle)}</a></h3>
+            <p>${escapeHtml(shorten(entry.evaluation, 72))}</p>
+          </article>
+        </li>
+      `
+    )
+    .join("");
+}
+
 function renderRecentEntries(entries) {
   if (!els.recentList) return;
 
@@ -102,7 +122,7 @@ async function init() {
   syncFooterMeta();
   try {
     const entries = await loadEntries();
-    renderMetrics(entries);
+    renderPopularEntries(entries);
     renderClassificationCards(entries);
     renderRecentEntries(entries);
   } catch (error) {

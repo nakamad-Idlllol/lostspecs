@@ -12,12 +12,6 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="utility-bar">
-      <div class="container utility-inner">
-        <p>架空設定・未回収要素を整理するロアアーカイブ</p>
-        <p>収録対象: アニメ / ゲーム / 特撮 / 漫画</p>
-      </div>
-    </div>
     <div class="container site-head-inner">
       <a class="brand-link" href="index.html">
         <p class="brand-kicker">Lore Archive</p>
@@ -40,10 +34,6 @@
         <div class="hero-copy">
           <p class="hero-kicker">記事ポータル</p>
           <h2>作品ごとに散らばった「語られたのに回収されない設定」を、百科事典風の構成で追えるようにしました。</h2>
-          <p class="hero-text">
-            ニコニコ大百科のように、まず概要をつかみ、その後で本文・関連項目へ移れる導線を意識しています。
-            気になる単語を検索して記事ページへ進んでください。
-          </p>
           <form class="quick-search" action="entries.html" method="get">
             <label for="quickSearchInput">キーワード検索</label>
             <div class="quick-search-row">
@@ -68,23 +58,18 @@
         </aside>
       </section>
 
-      <section class="metrics-grid" aria-label="サイト統計">
-        <article class="panel metric-card">
-          <div class="metric-label">収録項目数</div>
-          <div class="metric-value" id="metricCount">-</div>
-        </article>
-        <article class="panel metric-card">
-          <div class="metric-label">作品数</div>
-          <div class="metric-value" id="metricWorks">-</div>
-        </article>
-        <article class="panel metric-card">
-          <div class="metric-label">媒体数</div>
-          <div class="metric-value" id="metricMedia">-</div>
-        </article>
-      </section>
-
       <div class="portal-layout">
         <div class="portal-main">
+          <section class="panel section-panel">
+            <div class="section-titlebar">
+              <h2>人気記事</h2>
+              <a href="entries.html" class="button ghost">用語一覧へ</a>
+            </div>
+            <ul id="popularList" class="featured-list">
+              <li class="empty-state">項目を読み込み中です...</li>
+            </ul>
+          </section>
+
           <section class="panel section-panel">
             <div class="section-titlebar">
               <h2>カテゴリ別に見る</h2>

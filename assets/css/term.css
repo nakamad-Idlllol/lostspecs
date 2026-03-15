@@ -198,19 +198,23 @@
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .timeline-item {
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  background: var(--bg-soft);
+  padding: 0 0 8px 12px;
+  border-left: 2px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .timeline-label {
   margin: 0 0 4px;
-  color: var(--accent-strong);
+  color: var(--muted);
   font-size: 12px;
 }
 

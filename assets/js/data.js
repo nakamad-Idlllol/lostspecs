@@ -8,7 +8,6 @@ const REQUIRED_FIELDS = [
   "work",
   "medium",
   "itemTitle",
-  "classification",
   "status",
   "tags",
   "firstAppearance",
@@ -34,30 +33,37 @@ function validateEntriesShape(data) {
   const seen = new Set();
   data.forEach((entry, index) => {
     if (!entry || typeof entry !== "object") {
-      throw new Error(`entries[${index}] が不正です。`);
+      throw new Error(`entries[${index}] はオブジェクトである必要があります。`);
     }
+
     REQUIRED_FIELDS.forEach((field) => {
       if (!(field in entry)) {
-        throw new Error(`entries[${index}] に必須項目 ${field} がありません。`);
+        throw new Error(`entries[${index}] に必須フィールド ${field} がありません。`);
       }
     });
+
     if (!Number.isInteger(entry.id) || entry.id <= 0) {
-      throw new Error(`entries[${index}].id が不正です。`);
+      throw new Error(`entries[${index}].id は正の整数である必要があります。`);
     }
+
     if (seen.has(entry.id)) {
-      throw new Error(`重複IDを検出しました: ${entry.id}`);
+      throw new Error(`重複したIDがあります: ${entry.id}`);
     }
     seen.add(entry.id);
-    if (!Array.isArray(entry.tags)) {
-      throw new Error(`entries[${index}].tags は配列である必要があります。`);
+
+    if (!Array.isArray(entry.tags) || entry.tags.length === 0) {
+      throw new Error(`entries[${index}].tags は1件以上の配列である必要があります。`);
     }
+
     if (!Array.isArray(entry.timeline)) {
       throw new Error(`entries[${index}].timeline は配列である必要があります。`);
     }
+
     if (!Array.isArray(entry.sources)) {
       throw new Error(`entries[${index}].sources は配列である必要があります。`);
     }
   });
+
   return data;
 }
 
@@ -72,6 +78,7 @@ export async function loadEntries() {
       })
       .then((json) => validateEntriesShape(json));
   }
+
   return entriesPromise;
 }
 
@@ -94,6 +101,7 @@ export function buildEntriesUrl(params = {}) {
       search.set(key, value);
     }
   });
+
   const query = search.toString();
   return `entries.html${query ? `?${query}` : ""}`;
 }
@@ -105,6 +113,7 @@ export function buildCategoriesUrl(params = {}) {
       search.set(key, value);
     }
   });
+
   const query = search.toString();
   return `categories.html${query ? `?${query}` : ""}`;
 }
@@ -127,6 +136,7 @@ export function shorten(text, maxLength = 120) {
 export function syncFooterMeta() {
   const versionEl = document.getElementById("siteVersion");
   const updatedAtEl = document.getElementById("siteUpdatedAt");
+
   if (versionEl) versionEl.textContent = SITE_META.version;
   if (updatedAtEl) {
     updatedAtEl.dateTime = SITE_META.updatedAt;
@@ -145,8 +155,10 @@ export function updateUrlQuery(params) {
       search.set(key, value);
     }
   });
+
   const next = `${window.location.pathname}${search.toString() ? `?${search.toString()}` : ""}`;
   const current = `${window.location.pathname}${window.location.search}`;
+
   if (next !== current) {
     window.history.replaceState(null, "", next);
   }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>カテゴリ一覧 | 未回収設定・没設定大百科</title>
+  <title>タグ一覧 | 未回収設定・ロアアーカイブ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,21 +15,21 @@
     <div class="utility-bar">
       <div class="container utility-inner">
         <p>架空設定・未回収要素を整理するロアアーカイブ</p>
-        <p>カテゴリから記事の束を辿れます</p>
+        <p>タグから記事の傾向をたどれます</p>
       </div>
     </div>
     <div class="container site-head-inner">
       <a class="brand-link" href="index.html">
         <p class="brand-kicker">Lore Archive</p>
-        <h1 class="brand-title">未回収設定・没設定大百科</h1>
+        <h1 class="brand-title">未回収設定・ロアアーカイブ</h1>
       </a>
-      <p class="head-note">読み方に近い分類で記事群を整理しています。</p>
+      <p class="head-note">主タグと補助タグを起点に記事群を横断できます。</p>
     </div>
     <div class="site-nav-wrap">
       <nav class="container site-nav" aria-label="グローバルナビゲーション">
         <a class="nav-link" href="index.html">トップ</a>
-        <a class="nav-link" href="entries.html">用語一覧</a>
-        <a class="nav-link active" href="categories.html">カテゴリ一覧</a>
+        <a class="nav-link" href="entries.html">記事一覧</a>
+        <a class="nav-link active" href="categories.html">タグ一覧</a>
       </nav>
     </div>
   </header>
@@ -37,41 +37,37 @@
   <main>
     <div class="container page-stack">
       <section class="panel page-intro">
-        <p class="page-intro-kicker">分類入口</p>
-        <h2>カテゴリ一覧</h2>
-        <p>
-          「未回収設定」「没設定の痕跡」など、読む観点ごとに記事を束ねています。選択したカテゴリの項目が下に表示されます。
-        </p>
+        <p class="page-intro-kicker">タグ導線</p>
+        <h2>タグ一覧</h2>
+        <p>頻出タグから記事のまとまりを見つけ、そのまま記事一覧へ移れます。</p>
       </section>
 
       <div class="page-shell">
         <div class="page-main">
           <section class="panel section-panel">
             <div class="section-titlebar">
-              <h2>カテゴリ</h2>
+              <h2>タグ</h2>
             </div>
             <div id="categoryGrid" class="category-grid">
-              <p class="empty-state">カテゴリを読み込み中です...</p>
+              <p class="empty-state">タグを読み込み中です...</p>
             </div>
           </section>
 
           <section class="panel section-panel">
             <div class="section-titlebar">
-              <h2 id="categoryEntriesTitle">カテゴリ別の項目</h2>
+              <h2 id="categoryEntriesTitle">タグ別の記事</h2>
               <a id="openEntriesLink" href="entries.html" class="button ghost">一覧ページで開く</a>
             </div>
             <div id="categoryEntries" class="category-entries">
-              <p class="empty-state">カテゴリを選択すると項目が表示されます。</p>
+              <p class="empty-state">タグを選ぶと記事が表示されます。</p>
             </div>
           </section>
         </div>
 
         <aside class="page-side">
           <section class="panel sidebar-box">
-            <h2>分類の使い方</h2>
-            <p>
-              似た種類の保留設定をまとめて読みたいときはカテゴリから入る方が速いです。興味のある分類を選び、そのまま一覧か詳細へ進んでください。
-            </p>
+            <h2>タグ運用</h2>
+            <p>頻出タグは辞書で正規化しています。表記揺れは吸収し、主タグは先頭に固定しています。</p>
           </section>
         </aside>
       </div>
@@ -87,7 +83,7 @@
         更新日:
         <time id="siteUpdatedAt" datetime="">-</time>
       </p>
-      <p>未回収設定・没設定を整理する非公式アーカイブです。</p>
+      <p>未回収設定・ロアアーカイブを整理するための公開アーカイブです。</p>
     </div>
   </footer>
 

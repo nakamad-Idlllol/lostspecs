@@ -1,18 +1,20 @@
 import fs from "node:fs";
 import path from "node:path";
 import { loadAutomationConfig } from "./lib/automation-config.mjs";
+import { getPrimaryTag, loadTagCatalog, normalizeTags, sortTags } from "./lib/tag-catalog.mjs";
 
 const EXTRACTED_ROOT = path.resolve(process.cwd(), "data", "extracted");
 const CANDIDATES_ROOT = path.resolve(process.cwd(), "data", "candidates");
 const SOURCES_PATH = path.resolve(process.cwd(), "sources.json");
 const ENTRIES_PATH = path.resolve(process.cwd(), "entries.json");
+const tagCatalog = loadTagCatalog();
 
 function parseArgs(argv) {
   const options = { batch: null };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--batch") options.batch = argv[++i] ?? null;
-    else throw new Error(`未知の引数: ${arg}`);
+    else throw new Error(`未対応の引数: ${arg}`);
   }
   return options;
 }
@@ -54,7 +56,7 @@ function entryKey(value) {
 function buildIndexes(entries, sources) {
   const existingSourceUrls = new Set();
   const entryById = new Map();
-  const sourceById = new Map((sources.items ?? []).map((s) => [s.id, s]));
+  const sourceById = new Map((sources.items ?? []).map((source) => [source.id, source]));
   const entriesByWork = new Map();
 
   for (const entry of entries) {
@@ -62,7 +64,9 @@ function buildIndexes(entries, sources) {
     if (!entriesByWork.has(entry.work)) entriesByWork.set(entry.work, []);
     entriesByWork.get(entry.work).push(entry);
     for (const source of entry.sources ?? []) {
-      if (typeof source?.url === "string" && source.url) existingSourceUrls.add(source.url);
+      if (typeof source?.url === "string" && source.url) {
+        existingSourceUrls.add(source.url);
+      }
     }
   }
 
@@ -83,11 +87,12 @@ function inferMedium(workRefs, entriesByWork) {
   return media.size === 1 ? [...media][0] : null;
 }
 
-function inferClassification(entryRefs, entryById) {
+function inferPrimaryTag(entryRefs, entryById) {
   const labels = new Set();
   for (const id of entryRefs ?? []) {
     const entry = entryById.get(entryKey(id));
-    if (entry?.classification) labels.add(entry.classification);
+    const primaryTag = getPrimaryTag(entry?.tags ?? [], tagCatalog);
+    if (primaryTag) labels.add(primaryTag);
   }
   return labels.size === 1 ? [...labels][0] : null;
 }
@@ -106,23 +111,19 @@ function cleanText(value) {
 
 function splitSentences(text) {
   return cleanText(text)
-    .split(/(?<=[。.!?！？])\s+/)
-    .map((s) => s.trim())
+    .split(/(?<=[。!?])\s+/)
+    .map((sentence) => sentence.trim())
     .filter(Boolean);
 }
 
 function clipText(text, max = 180) {
-  const s = cleanText(text);
-  if (s.length <= max) return s;
-  return `${s.slice(0, max)}…`;
+  const value = cleanText(text);
+  if (value.length <= max) return value;
+  return `${value.slice(0, max)}…`;
 }
 
 function choosePrimaryDescription(extracted) {
-  return (
-    cleanText(extracted.extracted?.ogDescription) ||
-    cleanText(extracted.extracted?.description) ||
-    ""
-  );
+  return cleanText(extracted.extracted?.ogDescription) || cleanText(extracted.extracted?.description) || "";
 }
 
 function chooseFactSentence(extracted) {
@@ -130,7 +131,7 @@ function chooseFactSentence(extracted) {
     choosePrimaryDescription(extracted),
     ...splitSentences(extracted.extracted?.textSample || "")
   ];
-  const picked = candidates.find((s) => s && s.length >= 20);
+  const picked = candidates.find((sentence) => sentence && sentence.length >= 20);
   return picked ? clipText(picked, 220) : "";
 }
 
@@ -138,7 +139,21 @@ function hasChallengeSignal(extracted) {
   return Boolean(extracted.extracted?.challengeLikely);
 }
 
-function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, classificationHint, decision, sourceLinkedExisting }) {
+function buildTagSet(primaryTag, decision, extracted, sourceLinkedExisting) {
+  const tags = [
+    primaryTag,
+    inferStatus(decision.key),
+    "自動抽出候補"
+  ];
+
+  if (hasChallengeSignal(extracted)) tags.push("アクセス制限/要再取得");
+  if (sourceLinkedExisting) tags.push("既存エントリ関連");
+
+  const ordered = sortTags(normalizeTags(tags, tagCatalog).filter((tag) => tag !== primaryTag), tagCatalog);
+  return [primaryTag, ...ordered];
+}
+
+function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, primaryTagHint, decision, sourceLinkedExisting }) {
   const primaryTitle = pickTitle(extracted) || sourceMeta?.label || extracted.sourceId || "要確認タイトル";
   const description = choosePrimaryDescription(extracted);
   const factSeed = chooseFactSentence(extracted);
@@ -150,48 +165,42 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, clas
     return value;
   };
 
-  const work = workRefs[0] ?? setTemplate("work", "要確認（作品名未推定）");
+  const work = workRefs[0] ?? setTemplate("work", "要確認（作品未整理）");
   const medium = mediumHint ?? setTemplate("medium", "要確認");
-  const classification = classificationHint ?? setTemplate("classification", "作中要素");
+  const primaryTag = primaryTagHint ?? setTemplate("tags", "設定");
+  const tags = buildTagSet(primaryTag, decision, extracted, sourceLinkedExisting);
   const status = inferStatus(decision.key);
 
-  const tags = [status, "自動抽出候補"];
-  if (hasChallengeSignal(extracted)) tags.push("アクセス制限/要再取得");
-  if (sourceLinkedExisting) tags.push("既存エントリ関連");
-
   const firstAppearance = sourceLinkedExisting
-    ? setTemplate("firstAppearance", "既存エントリの追補候補（初出は既存記事を参照）")
-    : setTemplate("firstAppearance", "要確認（本文・見出しから初出情報を抽出予定）");
+    ? setTemplate("firstAppearance", "既存エントリに関連する補足情報。初出は既存記事を要確認。")
+    : setTemplate("firstAppearance", "要確認。出典記事の初出情報を確認して追記。");
 
   const depiction =
     factSeed ||
-    setTemplate("depiction", `要確認（${clipText(primaryTitle, 80)} に関する本文抽出に失敗または不足）`);
+    setTemplate("depiction", `出典ページ「${clipText(primaryTitle, 80)}」に関する記述をもとに整理予定。`);
 
   const overview = hasChallengeSignal(extracted)
-    ? setTemplate("overview", "アクセス制限/認証ページの可能性があり、再取得または別ソース確認が必要。")
-    : setTemplate(
-        "overview",
-        `自動抽出候補（信頼度 ${extracted.confidence ?? "-"}）。判定=${decision.label}。人手レビューで文章整形・事実確認を行う。`
-      );
+    ? setTemplate("overview", "アクセス制限や本文不足があり、一次情報の再確認が必要です。")
+    : setTemplate("overview", `自動抽出候補です。信頼度 ${extracted.confidence ?? "-"} をもとに下書きを生成しています。`);
 
   const externalContext = description
-    ? setTemplate("externalContext", `抽出元ページの説明文: ${clipText(description, 180)}`)
-    : setTemplate("externalContext", "自動抽出段階では外部資料の要点整理が未完了。原文確認が必要。");
+    ? setTemplate("externalContext", `抽出された説明文: ${clipText(description, 180)}`)
+    : setTemplate("externalContext", "現時点では外部資料の補足が不足しています。出典確認後に追記してください。");
 
   const unresolvedPoints = sourceLinkedExisting
-    ? setTemplate("unresolvedPoints", "既存記事への追補候補として、どの点を補強するかを要確認。")
-    : setTemplate("unresolvedPoints", "何が未回収といえるか、どこまでを論点に含めるかを要レビュー。");
+    ? setTemplate("unresolvedPoints", "既存記事に対して、どの論点を補強する情報かを整理してください。")
+    : setTemplate("unresolvedPoints", "何が未回収要素として扱えるか、要レビューです。");
 
-  const reception = setTemplate("reception", "反応・受け止められ方は未整理。公開前にファン側の受け止め方を補記したい。");
-  const interpretation = setTemplate("interpretation", "複数の解釈がありうるため、断定せず整理する前提。");
-  const futurePossibility = setTemplate("futurePossibility", "続編・補足資料で扱いが変わる可能性があるため、現時点では保留。");
-  const discussionPoints = setTemplate("discussionPoints", "未回収と断定できるか、演出や構想変更として読むべきかが主論点。");
+  const reception = setTemplate("reception", "反応・受け止められ方は未整理です。必要に応じて追記してください。");
+  const interpretation = setTemplate("interpretation", "解釈・考察は未整理です。複数説がある場合は分けて追記してください。");
+  const futurePossibility = setTemplate("futurePossibility", "続編・補足資料・再設定で拾われる余地があるかは未整理です。");
+  const discussionPoints = setTemplate("discussionPoints", "論点整理は未着手です。未回収か、演出か、設定変更かを確認してください。");
   const timeline = [
     {
       label: "初期整理",
       detail: sourceLinkedExisting
-        ? "既存記事の補強候補として抽出。公開前に記述位置の調整が必要。"
-        : "自動抽出候補として追加。本文確認後に年表を具体化する。"
+        ? "既存エントリ関連の候補として追加。どの記述に紐づくかの精査が必要。"
+        : "自動抽出候補として追加。出典本文を見ながら時系列を補う。"
     }
   ];
 
@@ -201,7 +210,6 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, clas
       work,
       medium,
       itemTitle: primaryTitle,
-      classification,
       status,
       tags,
       firstAppearance,
@@ -240,7 +248,7 @@ function buildCandidate(extracted, sourceMeta, indexes, batch, config) {
   const decision = extracted.decision ?? { key: "needs_review", label: "要レビュー" };
   const candidateId = `cand-${batch}-${slugify(extracted.sourceId || title || "unknown")}`;
   const mediumHint = inferMedium(workRefs, indexes.entriesByWork);
-  const classificationHint = inferClassification(entryRefs, indexes.entryById);
+  const primaryTagHint = inferPrimaryTag(entryRefs, indexes.entryById);
   const thresholds = config.scoring?.thresholds ?? {};
 
   const candidateType = sourceLinkedExisting ? "evidence_update" : "new_entry";
@@ -248,7 +256,7 @@ function buildCandidate(extracted, sourceMeta, indexes, batch, config) {
   const suggested = buildSuggestedEntry(extracted, sourceMeta, {
     workRefs,
     mediumHint,
-    classificationHint,
+    primaryTagHint,
     decision,
     sourceLinkedExisting
   });
@@ -297,7 +305,7 @@ function main() {
   const batch = chooseBatch(options.batch);
 
   if (!batch) {
-    console.log("[transform] 抽出バッチがありません（data/extracted 配下が空です）");
+    console.log("[transform] 抽出バッチがありません。data/extracted を確認してください。");
     return;
   }
 
@@ -315,12 +323,12 @@ function main() {
 
   const files = fs
     .readdirSync(inDir, { withFileTypes: true })
-    .filter((d) => d.isFile() && d.name.endsWith(".json") && !d.name.startsWith("_"))
-    .map((d) => d.name)
+    .filter((dirent) => dirent.isFile() && dirent.name.endsWith(".json") && !dirent.name.startsWith("_"))
+    .map((dirent) => dirent.name)
     .sort();
 
   if (files.length === 0) {
-    console.log(`[transform] 対象抽出ファイルがありません: data/extracted/${batch}`);
+    console.log(`[transform] 対象ファイルがありません: data/extracted/${batch}`);
     return;
   }
 
@@ -333,40 +341,36 @@ function main() {
 
   const reviewQueue = [...candidates]
     .sort((a, b) => {
-      const rank = (x) => (x.decision?.key === "candidate_ready" ? 0 : x.decision?.key === "needs_review" ? 1 : 2);
-      return (
-        rank(a) - rank(b) ||
-        b.confidence - a.confidence ||
-        String(a.candidateId).localeCompare(String(b.candidateId), "ja")
-      );
+      const rank = (item) => (item.decision?.key === "candidate_ready" ? 0 : item.decision?.key === "needs_review" ? 1 : 2);
+      return rank(a) - rank(b) || b.confidence - a.confidence || String(a.candidateId).localeCompare(String(b.candidateId), "ja");
     })
-    .map((c) => ({
-      candidateId: c.candidateId,
-      sourceId: c.sourceId,
-      sourceUrl: c.sourceUrl,
-      title: c.suggestedEntry.itemTitle,
-      decision: c.decision,
-      confidence: c.confidence,
-      candidateType: c.candidateType,
-      autoEligible: c.autoEligible,
-      templateFilled: Boolean(c.suggestedEntryMeta?.templateFilled),
-      duplicateSignals: c.duplicateSignals,
-      workRefs: c.workRefs,
-      entryRefs: c.entryRefs,
-      reviewReasons: c.reviewReasons
+    .map((candidate) => ({
+      candidateId: candidate.candidateId,
+      sourceId: candidate.sourceId,
+      sourceUrl: candidate.sourceUrl,
+      title: candidate.suggestedEntry.itemTitle,
+      decision: candidate.decision,
+      confidence: candidate.confidence,
+      candidateType: candidate.candidateType,
+      autoEligible: candidate.autoEligible,
+      templateFilled: Boolean(candidate.suggestedEntryMeta?.templateFilled),
+      duplicateSignals: candidate.duplicateSignals,
+      workRefs: candidate.workRefs,
+      entryRefs: candidate.entryRefs,
+      reviewReasons: candidate.reviewReasons
     }));
 
   const summary = {
     batch,
     generatedAt: new Date().toISOString(),
     total: candidates.length,
-    candidateReadyCount: candidates.filter((c) => c.decision?.key === "candidate_ready").length,
-    needsReviewCount: candidates.filter((c) => c.decision?.key === "needs_review").length,
-    holdCount: candidates.filter((c) => c.decision?.key === "hold").length,
-    autoEligibleCount: candidates.filter((c) => c.autoEligible).length,
-    templateFilledCount: candidates.filter((c) => c.suggestedEntryMeta?.templateFilled).length,
-    evidenceUpdateCount: candidates.filter((c) => c.candidateType === "evidence_update").length,
-    newEntryCount: candidates.filter((c) => c.candidateType === "new_entry").length
+    candidateReadyCount: candidates.filter((candidate) => candidate.decision?.key === "candidate_ready").length,
+    needsReviewCount: candidates.filter((candidate) => candidate.decision?.key === "needs_review").length,
+    holdCount: candidates.filter((candidate) => candidate.decision?.key === "hold").length,
+    autoEligibleCount: candidates.filter((candidate) => candidate.autoEligible).length,
+    templateFilledCount: candidates.filter((candidate) => candidate.suggestedEntryMeta?.templateFilled).length,
+    evidenceUpdateCount: candidates.filter((candidate) => candidate.candidateType === "evidence_update").length,
+    newEntryCount: candidates.filter((candidate) => candidate.candidateType === "new_entry").length
   };
 
   fs.writeFileSync(path.join(outDir, "candidates.json"), JSON.stringify(candidates, null, 2) + "\n", "utf8");

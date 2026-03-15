@@ -22,8 +22,8 @@
     <div class="site-nav-wrap">
       <nav class="container site-nav" aria-label="グローバルナビゲーション">
         <a class="nav-link active" href="index.html">トップ</a>
-        <a class="nav-link" href="entries.html">用語一覧</a>
-        <a class="nav-link" href="categories.html">カテゴリ一覧</a>
+        <a class="nav-link" href="entries.html">記事一覧</a>
+        <a class="nav-link" href="categories.html">タグ一覧</a>
       </nav>
     </div>
   </header>
@@ -41,7 +41,7 @@
                 id="quickSearchInput"
                 name="q"
                 type="search"
-                placeholder="例: GSボール / ダークオーシャン / プラズマ団"
+                placeholder=""
               >
               <button type="submit" class="button primary">記事を探す</button>
             </div>
@@ -51,66 +51,33 @@
         <aside class="hero-aside">
           <div class="hero-minihead">読み方</div>
           <ul class="hero-points">
-            <li>トップから分類別の入口へ移動</li>
+            <li>トップからタグ別の入口へ移動</li>
             <li>用語一覧でタグや媒体を絞り込み</li>
             <li>記事詳細で概要、本文、出典、関連項目を確認</li>
           </ul>
         </aside>
       </section>
 
-      <div class="portal-layout">
-        <div class="portal-main">
-          <section class="panel section-panel">
-            <div class="section-titlebar">
-              <h2>人気記事</h2>
-              <a href="entries.html" class="button ghost">用語一覧へ</a>
-            </div>
-            <ul id="popularList" class="featured-list">
-              <li class="empty-state">項目を読み込み中です...</li>
-            </ul>
-          </section>
+      <div class="home-feed">
+        <section class="home-block">
+          <div class="home-titlebar">
+            <h2>人気記事</h2>
+            <a href="entries.html" class="button ghost">記事一覧へ</a>
+          </div>
+          <ul id="popularList" class="featured-list">
+            <li class="empty-state">項目を読み込み中です...</li>
+          </ul>
+        </section>
 
-          <section class="panel section-panel">
-            <div class="section-titlebar">
-              <h2>カテゴリ別に見る</h2>
-              <a href="categories.html" class="button ghost">カテゴリ一覧へ</a>
-            </div>
-            <p class="section-description">
-              「未回収設定」「没設定の痕跡」「後年補完された要素」など、読み方に近い切り口でまとめています。
-            </p>
-            <div id="classificationGrid" class="class-grid">
-              <p class="empty-state">カテゴリを読み込み中です...</p>
-            </div>
-          </section>
-
-          <section class="panel section-panel">
-            <div class="section-titlebar">
-              <h2>最近追加した項目</h2>
-              <a href="entries.html" class="button ghost">すべての項目を見る</a>
-            </div>
-            <ul id="recentList" class="recent-list">
-              <li class="empty-state">項目を読み込み中です...</li>
-            </ul>
-          </section>
-        </div>
-
-        <aside class="portal-side">
-          <section class="panel sidebar-box">
-            <h2>このサイトについて</h2>
-            <p>
-              各記事は「概要」「本編で確認できる描写」「後続資料の補足」「出典」の順で整理しています。
-              まず要点をつかみ、必要に応じて出典まで遡れる構成です。
-            </p>
-          </section>
-
-          <section class="panel sidebar-box">
-            <h2>入口</h2>
-            <div class="link-stack">
-              <a class="simple-link" href="entries.html">用語一覧から探す</a>
-              <a class="simple-link" href="categories.html">カテゴリから探す</a>
-            </div>
-          </section>
-        </aside>
+        <section class="home-block">
+          <div class="home-titlebar">
+            <h2>最近追加した項目</h2>
+            <a href="entries.html" class="button ghost">すべての記事を見る</a>
+          </div>
+          <ul id="recentList" class="recent-list">
+            <li class="empty-state">項目を読み込み中です...</li>
+          </ul>
+        </section>
       </div>
     </div>
   </main>

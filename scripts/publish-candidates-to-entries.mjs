@@ -1,22 +1,26 @@
 import fs from "node:fs";
 import path from "node:path";
 import { loadAutomationConfig } from "./lib/automation-config.mjs";
+import { getPrimaryTag, loadTagCatalog, normalizeTags, sortTags } from "./lib/tag-catalog.mjs";
 
 const CANDIDATES_ROOT = path.resolve(process.cwd(), "data", "candidates");
 const PUBLISHER_ROOT = path.resolve(process.cwd(), "data", "publisher");
 const ENTRIES_PATH = path.resolve(process.cwd(), "entries.json");
+const tagCatalog = loadTagCatalog();
 
 function parseArgs(argv) {
   const options = {
     batch: null,
     apply: false
   };
+
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--batch") options.batch = argv[++i] ?? null;
     else if (arg === "--apply") options.apply = true;
-    else throw new Error(`未知の引数: ${arg}`);
+    else throw new Error(`未対応の引数: ${arg}`);
   }
+
   return options;
 }
 
@@ -55,12 +59,20 @@ function parseEntryId(value) {
   return null;
 }
 
+function normalizeEntryTags(entry) {
+  const baseTags = normalizeTags(entry.tags, tagCatalog);
+  const primaryTag = getPrimaryTag(baseTags, tagCatalog);
+  if (!primaryTag) return [];
+
+  const ordered = sortTags(baseTags.filter((tag) => tag !== primaryTag), tagCatalog);
+  return [primaryTag, ...ordered];
+}
+
 function completeSuggestedEntry(entry) {
   const requiredStringFields = [
     "work",
     "medium",
     "itemTitle",
-    "classification",
     "status",
     "firstAppearance",
     "overview",
@@ -74,9 +86,12 @@ function completeSuggestedEntry(entry) {
   ];
 
   if (!entry || typeof entry !== "object" || Array.isArray(entry)) return false;
-  if (!Array.isArray(entry.tags) || entry.tags.length === 0 || entry.tags.some((v) => !isNonEmptyString(v))) {
+
+  const normalizedTags = normalizeEntryTags(entry);
+  if (normalizedTags.length === 0) {
     return false;
   }
+
   if (
     !Array.isArray(entry.sources) ||
     entry.sources.length === 0 ||
@@ -84,6 +99,7 @@ function completeSuggestedEntry(entry) {
   ) {
     return false;
   }
+
   if (
     !Array.isArray(entry.timeline) ||
     entry.timeline.length === 0 ||
@@ -91,11 +107,19 @@ function completeSuggestedEntry(entry) {
   ) {
     return false;
   }
+
   return requiredStringFields.every((key) => isNonEmptyString(entry[key]));
 }
 
 function entrySourceUrls(entry) {
-  return new Set((entry.sources ?? []).map((s) => s?.url).filter(Boolean));
+  return new Set((entry.sources ?? []).map((source) => source?.url).filter(Boolean));
+}
+
+function normalizeSuggestedEntry(entry, context) {
+  const normalized = { ...(entry ?? {}) };
+  normalized.id = parseEntryId(normalized.id) ?? context.nextEntryId++;
+  normalized.tags = normalizeEntryTags(normalized);
+  return normalized;
 }
 
 function evaluateCandidate(candidate, context, config) {
@@ -127,9 +151,9 @@ function evaluateCandidate(candidate, context, config) {
     reasons.push("template_filled_entry_blocked");
   }
 
-  const normalized = { ...(candidate.suggestedEntry ?? {}) };
-  normalized.id = parseEntryId(normalized.id) ?? context.nextEntryId++;
+  const normalized = normalizeSuggestedEntry(candidate.suggestedEntry, context);
 
+  if (normalized.tags.length === 0) reasons.push("entry_tags_invalid");
   if (context.entryIds.has(normalized.id)) reasons.push("entry_id_already_exists");
 
   const sourceUrls = new Set((normalized.sources ?? []).map((s) => s?.url).filter(Boolean));
@@ -150,11 +174,13 @@ function evaluateCandidate(candidate, context, config) {
 }
 
 function buildContext(entries) {
-  const entryIds = new Set(entries.map((e) => e.id).filter(Boolean));
+  const entryIds = new Set(entries.map((entry) => entry.id).filter(Boolean));
   const knownSourceUrls = new Set();
+
   for (const entry of entries) {
     for (const url of entrySourceUrls(entry)) knownSourceUrls.add(url);
   }
+
   const nextEntryId = entries.reduce((maxId, entry) => Math.max(maxId, parseEntryId(entry.id) ?? 0), 0) + 1;
   return { entryIds, knownSourceUrls, nextEntryId };
 }
@@ -165,7 +191,7 @@ function main() {
   const batch = options.batch ?? latestBatch(CANDIDATES_ROOT);
 
   if (!batch) {
-    console.log("[publisher] 候補バッチがありません（data/candidates 配下が空です）");
+    console.log("[publisher] 候補バッチがありません。data/candidates を確認してください。");
     return;
   }
 
@@ -244,10 +270,7 @@ function main() {
   const outDir = path.join(PUBLISHER_ROOT, batch);
   writeJson(path.join(outDir, "evaluated-candidates.json"), evaluated);
   writeJson(path.join(outDir, "_summary.json"), summary);
-  writeJson(
-    path.join(PUBLISHER_ROOT, "_latest.json"),
-    { batch, path: `data/publisher/${batch}`, summary },
-  );
+  writeJson(path.join(PUBLISHER_ROOT, "_latest.json"), { batch, path: `data/publisher/${batch}`, summary });
 
   console.log(
     `[publisher] batch=${batch} total=${summary.totalCandidates} publishable=${summary.publishableCount} applied=${summary.appliedCount}`

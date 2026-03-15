@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>用語一覧 | 未回収設定・没設定大百科</title>
+  <title>記事一覧 | 未回収設定・ロアアーカイブ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,21 +15,21 @@
     <div class="utility-bar">
       <div class="container utility-inner">
         <p>架空設定・未回収要素を整理するロアアーカイブ</p>
-        <p>一覧から直接記事へ移動できます</p>
+        <p>一覧から記事詳細へ移動できます</p>
       </div>
     </div>
     <div class="container site-head-inner">
       <a class="brand-link" href="index.html">
         <p class="brand-kicker">Lore Archive</p>
-        <h1 class="brand-title">未回収設定・没設定大百科</h1>
+        <h1 class="brand-title">未回収設定・ロアアーカイブ</h1>
       </a>
-      <p class="head-note">キーワード、媒体、カテゴリ、タグから絞り込めます。</p>
+      <p class="head-note">キーワード、媒体、タグから気になる記事を探せます。</p>
     </div>
     <div class="site-nav-wrap">
       <nav class="container site-nav" aria-label="グローバルナビゲーション">
         <a class="nav-link" href="index.html">トップ</a>
-        <a class="nav-link active" href="entries.html">用語一覧</a>
-        <a class="nav-link" href="categories.html">カテゴリ一覧</a>
+        <a class="nav-link active" href="entries.html">記事一覧</a>
+        <a class="nav-link" href="categories.html">タグ一覧</a>
       </nav>
     </div>
   </header>
@@ -38,10 +38,8 @@
     <div class="container page-stack">
       <section class="panel page-intro">
         <p class="page-intro-kicker">記事検索</p>
-        <h2>用語一覧</h2>
-        <p>
-          記事カードからそのまま詳細へ進めます。検索は作品名、用語名、概要、論点、外部補足などの本文要素も対象です。
-        </p>
+        <h2>記事一覧</h2>
+        <p>検索語、媒体、タグで絞り込みながら記事を探せます。</p>
       </section>
 
       <div class="page-shell">
@@ -54,19 +52,12 @@
             <div class="filters-grid">
               <label class="field">
                 <span>キーワード</span>
-                <input id="searchInput" class="input" type="search" placeholder="作品名 / 用語名 / 概要 / 論点">
+                <input id="searchInput" class="input" type="search" placeholder="作品名 / 記事名 / 概要 / 論点">
               </label>
 
               <label class="field">
                 <span>媒体</span>
                 <select id="mediumSelect" class="select">
-                  <option value="all">すべて</option>
-                </select>
-              </label>
-
-              <label class="field">
-                <span>カテゴリ</span>
-                <select id="classSelect" class="select">
                   <option value="all">すべて</option>
                 </select>
               </label>
@@ -87,17 +78,15 @@
 
           <section class="panel section-panel">
             <div id="entryList" class="entry-list" aria-live="polite">
-              <p class="empty-state">項目を読み込み中です...</p>
+              <p class="empty-state">記事を読み込み中です...</p>
             </div>
           </section>
         </div>
 
         <aside class="page-side">
           <section class="panel sidebar-box">
-            <h2>一覧の見方</h2>
-            <p>
-              記事はカテゴリを強く出したカードで並べています。まず分類で当たりをつけてから、詳細ページで概要と出典を見る想定です。
-            </p>
+            <h2>一覧の使い方</h2>
+            <p>分類は廃止して、タグ中心で整理しています。主タグと補助タグを組み合わせて探してください。</p>
           </section>
         </aside>
       </div>
@@ -113,7 +102,7 @@
         更新日:
         <time id="siteUpdatedAt" datetime="">-</time>
       </p>
-      <p>未回収設定・没設定を整理する非公式アーカイブです。</p>
+      <p>未回収設定・ロアアーカイブを整理するための公開アーカイブです。</p>
     </div>
   </footer>
 

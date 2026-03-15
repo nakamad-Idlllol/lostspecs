@@ -41,18 +41,17 @@ function renderNotFound() {
   if (els.termArticle) {
     els.termArticle.innerHTML = `
       <p class="empty-state">
-        指定された記事は見つかりませんでした。<a href="entries.html">用語一覧</a>から探し直してください。
+        指定された記事は見つかりませんでした。<a href="entries.html">記事一覧</a>から探してください。
       </p>
     `;
   }
 
   if (els.relatedList) {
-    els.relatedList.innerHTML = `<li class="empty-state">関連項目は表示できません。</li>`;
+    els.relatedList.innerHTML = '<li class="empty-state">関連項目は表示できません。</li>';
   }
 
   renderTocFallback("表示できる目次がありません。");
-
-  document.title = "記事が見つかりません | 未回収設定・没設定大百科";
+  document.title = "記事が見つかりません | 未回収設定・ロアアーカイブ";
 }
 
 function buildTocHtml(sections) {
@@ -69,17 +68,19 @@ function buildTocHtml(sections) {
 
 function renderToc(sections) {
   const html = buildTocHtml(sections);
+  const fallback = '<li class="empty-state">表示できる目次がありません。</li>';
+
   if (els.articleTocDesktop) {
-    els.articleTocDesktop.innerHTML = html || `<li class="empty-state">表示できる目次がありません。</li>`;
+    els.articleTocDesktop.innerHTML = html || fallback;
   }
   if (els.articleTocMobile) {
-    els.articleTocMobile.innerHTML = html || `<li class="empty-state">表示できる目次がありません。</li>`;
+    els.articleTocMobile.innerHTML = html || fallback;
   }
 }
 
 function renderTimeline(entry) {
   if (!Array.isArray(entry.timeline) || !entry.timeline.length) {
-    return `<p>年表情報はまだ整理されていません。</p>`;
+    return "<p>年表情報はまだ整理されていません。</p>";
   }
 
   return `
@@ -98,12 +99,7 @@ function renderTimeline(entry) {
   `;
 }
 
-function renderTerm(entry) {
-  if (els.breadcrumbCurrent) {
-    els.breadcrumbCurrent.textContent = entry.itemTitle;
-  }
-  if (!els.termArticle) return;
-
+function buildSections(entry) {
   const sourceHtml = entry.sources
     .map((source) => {
       const label = escapeHtml(source.label || source.url || "出典リンク");
@@ -112,91 +108,53 @@ function renderTerm(entry) {
     })
     .join("");
 
-  const tagHtml = entry.tags.map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("");
-
-  const sections = [
-    {
-      id: "overview",
-      title: "概要",
-      body: `<p>${escapeHtml(entry.overview)}</p>`
-    },
-    {
-      id: "depiction",
-      title: "作中での描写",
-      body: `<p>${escapeHtml(entry.depiction)}</p>`
-    },
-    {
-      id: "unresolved",
-      title: "未回収とされるポイント",
-      body: `<p>${escapeHtml(entry.unresolvedPoints)}</p>`
-    },
-    {
-      id: "reception",
-      title: "反応・受け止められ方",
-      body: `<p>${escapeHtml(entry.reception)}</p>`
-    },
-    {
-      id: "external",
-      title: "外部資料・補足",
-      body: `<p>${escapeHtml(entry.externalContext)}</p>`
-    },
-    {
-      id: "interpretation",
-      title: "解釈・考察",
-      body: `<p>${escapeHtml(entry.interpretation)}</p>`
-    },
-    {
-      id: "future",
-      title: "今後の可能性",
-      body: `<p>${escapeHtml(entry.futurePossibility)}</p>`
-    },
-    {
-      id: "discussion",
-      title: "論点",
-      body: `<p>${escapeHtml(entry.discussionPoints)}</p>`
-    },
-    {
-      id: "timeline",
-      title: "年表",
-      body: renderTimeline(entry)
-    },
-    {
-      id: "sources",
-      title: "出典",
-      body: `<ul class="source-list">${sourceHtml || "<li>出典は登録されていません。</li>"}</ul>`
-    }
+  return [
+    { id: "overview", title: "概要", body: `<p>${escapeHtml(entry.overview)}</p>` },
+    { id: "depiction", title: "作中での描写", body: `<p>${escapeHtml(entry.depiction)}</p>` },
+    { id: "unresolved", title: "未回収とされるポイント", body: `<p>${escapeHtml(entry.unresolvedPoints)}</p>` },
+    { id: "reception", title: "反応・受け止められ方", body: `<p>${escapeHtml(entry.reception)}</p>` },
+    { id: "external", title: "外部資料・補足", body: `<p>${escapeHtml(entry.externalContext)}</p>` },
+    { id: "interpretation", title: "解釈・考察", body: `<p>${escapeHtml(entry.interpretation)}</p>` },
+    { id: "future", title: "今後の可能性", body: `<p>${escapeHtml(entry.futurePossibility)}</p>` },
+    { id: "discussion", title: "論点", body: `<p>${escapeHtml(entry.discussionPoints)}</p>` },
+    { id: "timeline", title: "年表", body: renderTimeline(entry) },
+    { id: "sources", title: "出典", body: `<ul class="source-list">${sourceHtml || "<li>出典は登録されていません。</li>"}</ul>` }
   ];
+}
+
+function renderTerm(entry) {
+  if (els.breadcrumbCurrent) {
+    els.breadcrumbCurrent.textContent = entry.itemTitle;
+  }
+  if (!els.termArticle) return;
+
+  const sections = buildSections(entry);
+  const tagHtml = entry.tags.map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("");
+  const primaryTag = entry.tags[0] ?? "";
 
   renderToc(sections);
+
   els.termArticle.innerHTML = `
     <header class="term-head">
-      <p class="term-kicker">用語記事</p>
+      <p class="term-kicker">記事ページ</p>
       <div class="entry-tags">${tagHtml}</div>
       <h2>${escapeHtml(entry.itemTitle)}</h2>
       <p class="term-workline">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
       <p class="term-summary">${escapeHtml(entry.status)}</p>
       <div class="term-actions">
-        <a class="button ghost" href="${buildEntriesUrl({ c: entry.classification })}">同カテゴリの一覧へ</a>
+        ${primaryTag ? `<a class="button ghost" href="${buildEntriesUrl({ t: primaryTag })}">同タグの記事一覧へ</a>` : ""}
         <a class="button ghost" href="${buildEntriesUrl({ q: entry.work })}">同作品で探す</a>
       </div>
     </header>
 
     <section class="meta-strip">
       <article class="meta-box">
-        <p class="meta-key">分類</p>
-        <p class="meta-value">${escapeHtml(entry.classification)}</p>
-      </article>
-      <article class="meta-box">
-        <p class="meta-key">状態</p>
-        <p class="meta-value">${escapeHtml(entry.status)}</p>
+        <p class="meta-key">主タグ</p>
+        <p class="meta-value">${escapeHtml(primaryTag || "未設定")}</p>
       </article>
       <article class="meta-box">
         <p class="meta-key">初出</p>
         <p class="meta-value">${escapeHtml(entry.firstAppearance)}</p>
-      </article>
-      <article class="meta-box">
-        <p class="meta-key">タグ</p>
-        <p class="meta-value">${escapeHtml(entry.tags.join(" / "))}</p>
       </article>
     </section>
 
@@ -212,38 +170,52 @@ function renderTerm(entry) {
       .join("")}
   `;
 
-  document.title = `${entry.itemTitle} | 未回収設定・没設定大百科`;
+  document.title = `${entry.itemTitle} | 未回収設定・ロアアーカイブ`;
+}
+
+function scoreRelated(entry, current) {
+  let score = 0;
+
+  if (entry.work === current.work) {
+    score += 10;
+  }
+
+  const sharedTags = entry.tags.filter((tag) => current.tags.includes(tag));
+  score += sharedTags.length * 3;
+
+  return { score, sharedTags };
 }
 
 function renderRelated(entries, current) {
   if (!els.relatedList) return;
 
-  const sameWork = entries.filter((entry) => entry.id !== current.id && entry.work === current.work);
-  const sameClass = entries.filter(
-    (entry) =>
-      entry.id !== current.id &&
-      entry.work !== current.work &&
-      entry.classification === current.classification
-  );
-
-  const related = [...sameWork, ...sameClass].slice(0, 8);
+  const related = entries
+    .filter((entry) => entry.id !== current.id)
+    .map((entry) => ({ entry, ...scoreRelated(entry, current) }))
+    .filter((item) => item.score > 0)
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return a.entry.itemTitle.localeCompare(b.entry.itemTitle, "ja");
+    })
+    .slice(0, 8);
 
   if (!related.length) {
-    els.relatedList.innerHTML = `<li class="empty-state">関連項目はまだありません。</li>`;
+    els.relatedList.innerHTML = '<li class="empty-state">関連項目はまだありません。</li>';
     return;
   }
 
   els.relatedList.innerHTML = related
-    .map(
-      (entry) => `
+    .map(({ entry, sharedTags }) => {
+      const sharedLabel = sharedTags.length ? `共通タグ: ${sharedTags.join(" / ")}` : entry.medium;
+      return `
         <li>
           <a class="related-link" href="${buildTermUrl(entry.id)}">
             <p class="related-link-title">${escapeHtml(entry.itemTitle)}</p>
-            <p class="related-link-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.classification)}</p>
+            <p class="related-link-meta">${escapeHtml(entry.work)} / ${escapeHtml(sharedLabel)}</p>
           </a>
         </li>
-      `
-    )
+      `;
+    })
     .join("");
 }
 

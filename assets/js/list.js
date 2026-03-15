@@ -12,7 +12,6 @@ import {
 const state = {
   q: "",
   m: "all",
-  c: "all",
   t: "all"
 };
 
@@ -21,18 +20,16 @@ let entries = [];
 const els = {
   searchInput: document.getElementById("searchInput"),
   mediumSelect: document.getElementById("mediumSelect"),
-  classSelect: document.getElementById("classSelect"),
   tagSelect: document.getElementById("tagSelect"),
   resultSummary: document.getElementById("resultSummary"),
   entryList: document.getElementById("entryList"),
   resetBtn: document.getElementById("resetBtn")
 };
 
-function parseState(mediumOptions, classOptions, tagOptions) {
+function parseState(mediumOptions, tagOptions) {
   const params = new URLSearchParams(window.location.search);
   state.q = (params.get("q") || "").trim();
   state.m = normalizeOption(params.get("m") || "all", mediumOptions);
-  state.c = normalizeOption(params.get("c") || "all", classOptions);
   state.t = normalizeOption(params.get("t") || "all", tagOptions);
 }
 
@@ -62,7 +59,6 @@ function matchesSearch(entry, query) {
   const haystack = [
     entry.work,
     entry.itemTitle,
-    entry.classification,
     entry.status,
     entry.firstAppearance,
     entry.overview,
@@ -85,10 +81,9 @@ function matchesSearch(entry, query) {
 function getFilteredEntries() {
   return entries.filter((entry) => {
     const matchMedium = state.m === "all" || entry.medium === state.m;
-    const matchClass = state.c === "all" || entry.classification === state.c;
     const matchTag = state.t === "all" || entry.tags.includes(state.t);
     const matchQuery = matchesSearch(entry, state.q);
-    return matchMedium && matchClass && matchTag && matchQuery;
+    return matchMedium && matchTag && matchQuery;
   });
 }
 
@@ -103,17 +98,18 @@ function renderList(filtered) {
   if (!els.entryList) return;
 
   if (!filtered.length) {
-    els.entryList.innerHTML = `<p class="empty-state">条件に一致する項目はありません。検索語か絞り込み条件を調整してください。</p>`;
+    els.entryList.innerHTML = '<p class="empty-state">条件に一致する記事はありません。検索語かタグを調整してください。</p>';
     return;
   }
 
   els.entryList.innerHTML = filtered
-    .map(
-      (entry) => `
+    .map((entry) => {
+      const primaryTag = entry.tags[0] ?? "";
+      return `
         <article class="entry-card">
           <div class="entry-head">
             <h3 class="entry-title"><a href="${buildTermUrl(entry.id)}">${escapeHtml(entry.itemTitle)}</a></h3>
-            <span class="tag-pill">${escapeHtml(entry.classification)}</span>
+            ${primaryTag ? `<span class="tag-pill">${escapeHtml(primaryTag)}</span>` : ""}
           </div>
           <p class="entry-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)} / ${escapeHtml(entry.status)}</p>
           <p class="entry-summary">${escapeHtml(shorten(entry.overview, 120))}</p>
@@ -122,8 +118,8 @@ function renderList(filtered) {
           </div>
           <a class="button ghost entry-card-link" href="${buildTermUrl(entry.id)}">記事詳細へ</a>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
@@ -131,7 +127,6 @@ function syncQuery() {
   updateUrlQuery({
     q: state.q,
     m: state.m,
-    c: state.c,
     t: state.t
   });
 }
@@ -146,12 +141,10 @@ function rerender() {
 function resetFilters() {
   state.q = "";
   state.m = "all";
-  state.c = "all";
   state.t = "all";
 
   if (els.searchInput) els.searchInput.value = "";
   if (els.mediumSelect) els.mediumSelect.value = "all";
-  if (els.classSelect) els.classSelect.value = "all";
   if (els.tagSelect) els.tagSelect.value = "all";
 
   rerender();
@@ -168,13 +161,6 @@ function initEvents() {
   if (els.mediumSelect) {
     els.mediumSelect.addEventListener("change", (event) => {
       state.m = event.target.value;
-      rerender();
-    });
-  }
-
-  if (els.classSelect) {
-    els.classSelect.addEventListener("change", (event) => {
-      state.c = event.target.value;
       rerender();
     });
   }
@@ -211,13 +197,11 @@ async function init() {
   }
 
   const mediumOptions = ["all", ...uniqueStrings(entries.map((entry) => entry.medium))];
-  const classOptions = ["all", ...uniqueStrings(entries.map((entry) => entry.classification))];
   const tagOptions = ["all", ...uniqueStrings(entries.flatMap((entry) => entry.tags))];
 
-  parseState(mediumOptions, classOptions, tagOptions);
+  parseState(mediumOptions, tagOptions);
 
   fillSelect(els.mediumSelect, mediumOptions.slice(1), state.m);
-  fillSelect(els.classSelect, classOptions.slice(1), state.c);
   fillSelect(els.tagSelect, tagOptions.slice(1), state.t);
 
   if (els.searchInput) {

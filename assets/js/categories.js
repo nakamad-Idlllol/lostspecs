@@ -48,12 +48,11 @@ function renderCategoryGrid(groups, selectedCategory) {
 
       return `
         <article class="category-card${activeClass}">
-          <h3>${escapeHtml(classification)}</h3>
+          <h3><a class="category-title-link" href="${openThis}">${escapeHtml(classification)}</a></h3>
           <p class="category-count">${items.length}件</p>
           <p class="muted">代表例: ${escapeHtml(items[0].itemTitle)}</p>
           <div class="category-actions">
-            <a class="button ghost" href="${openThis}">このカテゴリを見る</a>
-            <a class="button ghost" href="${openEntries}">一覧で開く</a>
+            <a class="button ghost" href="${openEntries}">このカテゴリの一覧へ</a>
           </div>
         </article>
       `;

@@ -29,6 +29,10 @@ function isNonEmptyString(value) {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+function isPositiveInteger(value) {
+  return Number.isInteger(value) && value > 0;
+}
+
 let raw;
 try {
   raw = fs.readFileSync(filePath, "utf8");
@@ -71,8 +75,8 @@ entries.forEach((entry, index) => {
     }
   }
 
-  if (!isNonEmptyString(entry.id)) {
-    fail(`${label}.id は空でない文字列である必要があります`);
+  if (!isPositiveInteger(entry.id)) {
+    fail(`${label}.id は 1 以上の整数である必要があります`);
     errorCount += 1;
   } else if (seenIds.has(entry.id)) {
     fail(`${label}.id が重複しています: ${entry.id}`);

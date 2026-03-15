@@ -46,6 +46,15 @@ function isNonEmptyString(value) {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+function parseEntryId(value) {
+  if (Number.isInteger(value) && value > 0) return value;
+  if (typeof value === "string" && /^\d+$/.test(value.trim())) {
+    const parsed = Number(value.trim());
+    if (Number.isSafeInteger(parsed) && parsed > 0) return parsed;
+  }
+  return null;
+}
+
 function completeSuggestedEntry(entry) {
   const requiredStringFields = [
     "work",
@@ -72,25 +81,6 @@ function completeSuggestedEntry(entry) {
     return false;
   }
   return requiredStringFields.every((key) => isNonEmptyString(entry[key]));
-}
-
-function slugify(value) {
-  return String(value)
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[^\w\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 80);
-}
-
-function buildEntryId(candidate) {
-  const work = candidate.suggestedEntry?.work ?? "";
-  const title = candidate.suggestedEntry?.itemTitle ?? "";
-  const base = `${slugify(work)}-${slugify(title)}`.replace(/^-+|-+$/g, "");
-  if (base) return base.slice(0, 96);
-  return `auto-${slugify(candidate.sourceId ?? candidate.candidateId ?? "candidate")}`;
 }
 
 function entrySourceUrls(entry) {
@@ -127,9 +117,7 @@ function evaluateCandidate(candidate, context, config) {
   }
 
   const normalized = { ...(candidate.suggestedEntry ?? {}) };
-  if (!isNonEmptyString(normalized.id)) {
-    normalized.id = buildEntryId(candidate);
-  }
+  normalized.id = parseEntryId(normalized.id) ?? context.nextEntryId++;
 
   if (context.entryIds.has(normalized.id)) reasons.push("entry_id_already_exists");
 
@@ -156,7 +144,8 @@ function buildContext(entries) {
   for (const entry of entries) {
     for (const url of entrySourceUrls(entry)) knownSourceUrls.add(url);
   }
-  return { entryIds, knownSourceUrls };
+  const nextEntryId = entries.reduce((maxId, entry) => Math.max(maxId, parseEntryId(entry.id) ?? 0), 0) + 1;
+  return { entryIds, knownSourceUrls, nextEntryId };
 }
 
 function main() {

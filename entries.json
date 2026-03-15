@@ -1,6 +1,6 @@
 [
   {
-    "id": "pkmn-gs-ball",
+    "id": 1,
     "work": "ポケットモンスター（アニメ・ジョウト編）",
     "medium": "アニメ",
     "itemTitle": "GSボール",
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "id": "pkmn-bw-unaired-plasma",
+    "id": 2,
     "work": "ポケットモンスター ベストウイッシュ",
     "medium": "アニメ",
     "itemTitle": "ロケット団VSプラズマ団（未放送2話）",
@@ -55,7 +55,7 @@
     ]
   },
   {
-    "id": "digimon02-dark-ocean-dagomon",
+    "id": 3,
     "work": "デジモンアドベンチャー02",
     "medium": "アニメ",
     "itemTitle": "ダゴモン／ダークオーシャン（ヒカリ周辺）",
@@ -86,7 +86,7 @@
     ]
   },
   {
-    "id": "digimon02-daemon-dark-ocean",
+    "id": 4,
     "work": "デジモンアドベンチャー02",
     "medium": "アニメ",
     "itemTitle": "デーモン軍団のダークオーシャン送り",
@@ -113,7 +113,7 @@
     ]
   },
   {
-    "id": "digimon-tri-dark-gennai",
+    "id": 5,
     "work": "デジモンアドベンチャー tri.",
     "medium": "アニメ",
     "itemTitle": "ダークジェンナイ（謎の男）の逃走・再利用示唆",
@@ -140,7 +140,7 @@
     ]
   },
   {
-    "id": "digimon-tri-himekawa",
+    "id": 6,
     "work": "デジモンアドベンチャー tri.",
     "medium": "アニメ",
     "itemTitle": "姫川マキ＋ダークオーシャン周辺の処理",
@@ -167,7 +167,7 @@
     ]
   },
   {
-    "id": "dragonball-launch",
+    "id": 7,
     "work": "ドラゴンボール（原作 / アニメ）",
     "medium": "漫画/アニメ",
     "itemTitle": "ランチの長期離脱（継続要素の消失）",
@@ -191,7 +191,7 @@
     ]
   },
   {
-    "id": "jojo5-fugo",
+    "id": 8,
     "work": "ジョジョの奇妙な冒険 第5部 黄金の風",
     "medium": "漫画",
     "itemTitle": "フーゴ離脱（構想変更の文脈で語られる例）",
@@ -214,7 +214,7 @@
     ]
   },
   {
-    "id": "jojolion-flashback-man",
+    "id": 9,
     "work": "ジョジョの奇妙な冒険 第8部 ジョジョリオン",
     "medium": "漫画",
     "itemTitle": "いわゆる Flashback Man（記憶の男）",
@@ -237,7 +237,7 @@
     ]
   },
   {
-    "id": "jojolion-ch83-flashforward",
+    "id": 10,
     "work": "ジョジョの奇妙な冒険 第8部 ジョジョリオン",
     "medium": "漫画",
     "itemTitle": "第83話フラッシュフォワードの扱い",

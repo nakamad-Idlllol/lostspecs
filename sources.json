@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-03-14",
+  "updatedAt": "2026-03-15",
   "items": [
     {
       "id": "src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
@@ -13,7 +13,7 @@
         "ポケットモンスター ベストウイッシュ"
       ],
       "entryRefs": [
-        "pkmn-bw-unaired-plasma"
+        2
       ],
       "notes": ""
     },
@@ -28,7 +28,7 @@
         "ポケットモンスター ベストウイッシュ"
       ],
       "entryRefs": [
-        "pkmn-bw-unaired-plasma"
+        2
       ],
       "notes": ""
     },
@@ -43,7 +43,7 @@
         "ポケットモンスター（アニメ・ジョウト編）"
       ],
       "entryRefs": [
-        "pkmn-gs-ball"
+        1
       ],
       "notes": ""
     },
@@ -58,7 +58,7 @@
         "ジョジョの奇妙な冒険 第5部 黄金の風"
       ],
       "entryRefs": [
-        "jojo5-fugo"
+        8
       ],
       "notes": ""
     },
@@ -73,7 +73,7 @@
         "ジョジョの奇妙な冒険 第8部 ジョジョリオン"
       ],
       "entryRefs": [
-        "jojolion-flashback-man"
+        9
       ],
       "notes": ""
     },
@@ -88,7 +88,7 @@
         "ジョジョの奇妙な冒険 第8部 ジョジョリオン"
       ],
       "entryRefs": [
-        "jojolion-ch83-flashforward"
+        10
       ],
       "notes": ""
     },
@@ -103,7 +103,7 @@
         "デジモンアドベンチャー tri."
       ],
       "entryRefs": [
-        "digimon-tri-himekawa"
+        6
       ],
       "notes": ""
     },
@@ -118,7 +118,7 @@
         "デジモンアドベンチャー02"
       ],
       "entryRefs": [
-        "digimon02-dark-ocean-dagomon"
+        3
       ],
       "notes": ""
     },
@@ -133,7 +133,7 @@
         "デジモンアドベンチャー02"
       ],
       "entryRefs": [
-        "digimon02-dark-ocean-dagomon"
+        3
       ],
       "notes": ""
     },
@@ -148,7 +148,7 @@
         "デジモンアドベンチャー02"
       ],
       "entryRefs": [
-        "digimon02-dark-ocean-dagomon"
+        3
       ],
       "notes": ""
     },
@@ -163,7 +163,7 @@
         "デジモンアドベンチャー02"
       ],
       "entryRefs": [
-        "digimon02-daemon-dark-ocean"
+        4
       ],
       "notes": ""
     },
@@ -178,8 +178,8 @@
         "デジモンアドベンチャー tri."
       ],
       "entryRefs": [
-        "digimon-tri-dark-gennai",
-        "digimon-tri-himekawa"
+        5,
+        6
       ],
       "notes": ""
     },
@@ -194,7 +194,7 @@
         "デジモンアドベンチャー tri."
       ],
       "entryRefs": [
-        "digimon-tri-dark-gennai"
+        5
       ],
       "notes": ""
     },
@@ -209,7 +209,7 @@
         "デジモンアドベンチャー02"
       ],
       "entryRefs": [
-        "digimon02-daemon-dark-ocean"
+        4
       ],
       "notes": ""
     },
@@ -224,7 +224,7 @@
         "ドラゴンボール（原作 / アニメ）"
       ],
       "entryRefs": [
-        "dragonball-launch"
+        7
       ],
       "notes": ""
     },
@@ -239,7 +239,7 @@
         "ポケットモンスター（アニメ・ジョウト編）"
       ],
       "entryRefs": [
-        "pkmn-gs-ball"
+        1
       ],
       "notes": ""
     }

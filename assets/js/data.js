@@ -36,7 +36,7 @@ function validateEntriesShape(data) {
         throw new Error(`entries[${index}] に必須項目 ${field} がありません。`);
       }
     });
-    if (typeof entry.id !== "string" || !entry.id.trim()) {
+    if (!Number.isInteger(entry.id) || entry.id <= 0) {
       throw new Error(`entries[${index}].id が不正です。`);
     }
     if (seen.has(entry.id)) {
@@ -76,7 +76,7 @@ export function countWorks(entries) {
 }
 
 export function buildTermUrl(id) {
-  return `term.html?id=${encodeURIComponent(id)}`;
+  return `term.html?id=${encodeURIComponent(String(id))}`;
 }
 
 export function buildEntriesUrl(params = {}) {

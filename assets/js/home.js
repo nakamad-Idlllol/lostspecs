@@ -9,10 +9,10 @@ import {
 } from "./data.js";
 
 const POPULAR_ENTRY_IDS = [
-  "pkmn-gs-ball",
-  "digimon02-dark-ocean-dagomon",
-  "jojolion-flashback-man",
-  "jojo5-fugo"
+  1,
+  3,
+  9,
+  8
 ];
 
 const els = {

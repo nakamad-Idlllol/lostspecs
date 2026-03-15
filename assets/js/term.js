@@ -240,7 +240,7 @@ async function init() {
     return;
   }
 
-  const current = entries.find((entry) => entry.id === id);
+  const current = entries.find((entry) => String(entry.id) === id);
   if (!current) {
     renderNotFound();
     return;

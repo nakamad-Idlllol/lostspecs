@@ -47,6 +47,10 @@ function slugify(value) {
     .slice(0, 80);
 }
 
+function entryKey(value) {
+  return String(value);
+}
+
 function buildIndexes(entries, sources) {
   const existingSourceUrls = new Set();
   const entryById = new Map();
@@ -54,7 +58,7 @@ function buildIndexes(entries, sources) {
   const entriesByWork = new Map();
 
   for (const entry of entries) {
-    entryById.set(entry.id, entry);
+    entryById.set(entryKey(entry.id), entry);
     if (!entriesByWork.has(entry.work)) entriesByWork.set(entry.work, []);
     entriesByWork.get(entry.work).push(entry);
     for (const source of entry.sources ?? []) {
@@ -82,7 +86,7 @@ function inferMedium(workRefs, entriesByWork) {
 function inferClassification(entryRefs, entryById) {
   const labels = new Set();
   for (const id of entryRefs ?? []) {
-    const entry = entryById.get(id);
+    const entry = entryById.get(entryKey(id));
     if (entry?.classification) labels.add(entry.classification);
   }
   return labels.size === 1 ? [...labels][0] : null;

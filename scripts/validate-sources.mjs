@@ -12,6 +12,10 @@ function isNonEmptyString(value) {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+function isPositiveInteger(value) {
+  return Number.isInteger(value) && value > 0;
+}
+
 let root;
 try {
   root = JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -108,8 +112,8 @@ root.items.forEach((item, index) => {
     errorCount += 1;
   }
 
-  if (!Array.isArray(item.entryRefs) || item.entryRefs.some((v) => !isNonEmptyString(v))) {
-    fail(`${label}.entryRefs は文字列配列である必要があります`);
+  if (!Array.isArray(item.entryRefs) || item.entryRefs.some((v) => !isPositiveInteger(v))) {
+    fail(`${label}.entryRefs は 1 以上の整数配列である必要があります`);
     errorCount += 1;
   }
 });

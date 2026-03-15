@@ -41,6 +41,10 @@ function slugify(value) {
     .slice(0, 80);
 }
 
+function compareEntryIds(a, b) {
+  return Number(a) - Number(b);
+}
+
 function buildSources(entries) {
   const byUrl = new Map();
 
@@ -82,7 +86,7 @@ function buildSources(entries) {
       priority: item.priority,
       enabled: item.enabled,
       workRefs: [...item.workRefs].sort(),
-      entryRefs: [...item.entryRefs].sort(),
+      entryRefs: [...item.entryRefs].sort(compareEntryIds),
       notes: item.notes
     }))
     .sort((a, b) => a.priority - b.priority || a.id.localeCompare(b.id, "ja"));

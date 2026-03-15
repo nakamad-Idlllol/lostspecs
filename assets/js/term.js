@@ -9,6 +9,8 @@ import {
 const els = {
   breadcrumbCurrent: document.getElementById("breadcrumbCurrent"),
   termArticle: document.getElementById("termArticle"),
+  articleTocDesktop: document.getElementById("articleTocDesktop"),
+  articleTocMobile: document.getElementById("articleTocMobile"),
   infoFacts: document.getElementById("infoFacts"),
   relatedList: document.getElementById("relatedList"),
   termError: document.getElementById("termError")
@@ -24,6 +26,12 @@ function renderError(message) {
     els.termError.textContent = message;
     els.termError.classList.remove("hidden");
   }
+}
+
+function renderTocFallback(message) {
+  const html = `<li class="empty-state">${escapeHtml(message)}</li>`;
+  if (els.articleTocDesktop) els.articleTocDesktop.innerHTML = html;
+  if (els.articleTocMobile) els.articleTocMobile.innerHTML = html;
 }
 
 function renderNotFound() {
@@ -52,6 +60,8 @@ function renderNotFound() {
     els.relatedList.innerHTML = `<li class="empty-state">関連項目は表示できません。</li>`;
   }
 
+  renderTocFallback("表示できる目次がありません。");
+
   document.title = "記事が見つかりません | 未回収設定・没設定大百科";
 }
 
@@ -65,6 +75,16 @@ function buildTocHtml(sections) {
       `
     )
     .join("");
+}
+
+function renderToc(sections) {
+  const html = buildTocHtml(sections);
+  if (els.articleTocDesktop) {
+    els.articleTocDesktop.innerHTML = html || `<li class="empty-state">表示できる目次がありません。</li>`;
+  }
+  if (els.articleTocMobile) {
+    els.articleTocMobile.innerHTML = html || `<li class="empty-state">表示できる目次がありません。</li>`;
+  }
 }
 
 function renderInfoFacts(entry) {
@@ -180,6 +200,7 @@ function renderTerm(entry) {
     }
   ];
 
+  renderToc(sections);
   renderInfoFacts(entry);
 
   els.termArticle.innerHTML = `
@@ -194,15 +215,6 @@ function renderTerm(entry) {
         <a class="button ghost" href="${buildEntriesUrl({ q: entry.work })}">同作品で探す</a>
       </div>
     </header>
-
-    <section class="term-toc-box" aria-labelledby="termTocTitle">
-      <div class="term-toc-head">
-        <h3 id="termTocTitle">目次</h3>
-      </div>
-      <ol class="toc-list toc-list-inline">
-        ${buildTocHtml(sections)}
-      </ol>
-    </section>
 
     <section class="meta-strip">
       <article class="meta-box">

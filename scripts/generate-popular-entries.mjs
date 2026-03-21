@@ -1,11 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import { enrichEntry } from "../assets/js/entry-taxonomy.mjs";
+import { enrichEntry } from "./lib/entry-taxonomy.mjs";
 import {
   buildEntryPagePath,
   selectFallbackPopularEntries,
   selectPopularEntriesFromMetrics
-} from "../assets/js/popularity.mjs";
+} from "./lib/popularity.mjs";
 
 const ENTRIES_PATH = path.resolve(process.cwd(), "entries.json");
 const OUTPUT_PATH = path.resolve(process.cwd(), "popular-entries.json");

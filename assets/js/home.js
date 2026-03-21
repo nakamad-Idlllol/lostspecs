@@ -5,7 +5,7 @@ import {
   shorten,
   syncFooterMeta
 } from "./data.js";
-import { selectFallbackPopularEntries } from "./popularity.mjs";
+import { selectFallbackPopularEntries } from "./popularity.js";
 
 const els = {
   popularList: document.getElementById("popularList"),

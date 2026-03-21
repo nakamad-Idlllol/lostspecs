@@ -4,7 +4,7 @@ export function buildEntryPagePath(id) {
   return `/term/${encodeURIComponent(String(id))}`;
 }
 
-export function parseEntryIdFromPath(path) {
+function parseEntryIdFromPath(path) {
   const value = String(path || "");
   const directMatch = value.match(/\/term\/(\d+)(?:\/)?$/);
   if (directMatch) return Number(directMatch[1]);
@@ -15,7 +15,7 @@ export function parseEntryIdFromPath(path) {
   return null;
 }
 
-export function getFallbackPopularityScore(entry) {
+function getFallbackPopularityScore(entry) {
   let score = 0;
 
   score += Math.min(entry.sources.length, 3) * 3;
@@ -67,7 +67,7 @@ export function selectFallbackPopularEntries(entries, limit = POPULAR_ENTRY_LIMI
   return selected;
 }
 
-export function scoreMetricRow(row) {
+function scoreMetricRow(row) {
   const pageviews = Number(row?.pageviews || 0);
   const visitors = Number(row?.visitors || 0);
   const visits = Number(row?.visits || 0);

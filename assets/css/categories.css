@@ -1,7 +1,21 @@
+.axis-sections {
+  display: grid;
+  gap: 20px;
+}
+
 .category-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+}
+
+.axis-block {
+  display: grid;
+  gap: 12px;
+}
+
+.axis-card-grid {
+  width: 100%;
 }
 
 .category-card {

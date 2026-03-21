@@ -1,99 +1,95 @@
 import {
+  DIVISION_OPTIONS,
+  JUDGEMENT_OPTIONS,
   buildTermUrl,
   escapeHtml,
+  getAxisOptions,
   loadEntries,
   normalizeOption,
   shorten,
   syncFooterMeta,
-  uniqueStrings,
   updateUrlQuery
 } from "./data.js";
 
 const state = {
   q: "",
   m: "all",
-  t: []
+  w: "all",
+  d: "all",
+  j: "all"
 };
 
-const KNOWN_MEDIA = ["アニメ", "漫画", "ゲーム"];
-const MAX_SUGGESTIONS = 8;
-
 let entries = [];
-let filterOptions = [];
+let workOptions = [];
 
 const els = {
   searchInput: document.getElementById("searchInput"),
-  selectedFilters: document.getElementById("selectedFilters"),
-  searchSuggestions: document.getElementById("searchSuggestions"),
+  workInput: document.getElementById("workInput"),
+  workOptions: document.getElementById("workOptions"),
+  mediumChips: document.getElementById("mediumChips"),
+  divisionChips: document.getElementById("divisionChips"),
+  judgementChips: document.getElementById("judgementChips"),
+  activeFilters: document.getElementById("activeFilters"),
   resultSummary: document.getElementById("resultSummary"),
   entryList: document.getElementById("entryList"),
   resetBtn: document.getElementById("resetBtn")
 };
 
-function sanitizeSelectedTags(value, options) {
-  const allowed = new Set(options);
-  const seen = new Set();
-  return String(value || "")
-    .split(",")
-    .map((tag) => tag.trim())
-    .filter((tag) => tag && allowed.has(tag) && !seen.has(tag) && seen.add(tag));
-}
-
-function parseState(mediumOptions, tagOptions) {
+function parseState(options) {
   const params = new URLSearchParams(window.location.search);
   state.q = (params.get("q") || "").trim();
-  state.m = normalizeOption(params.get("m") || "all", mediumOptions);
-  state.t = sanitizeSelectedTags(params.get("t"), tagOptions);
+  state.m = normalizeOption(params.get("m") || "all", options.mediumOptions);
+  state.w = normalizeOption(params.get("w") || "all", options.workOptions);
+  state.d = normalizeOption(params.get("d") || "all", options.divisionOptions);
+  state.j = normalizeOption(params.get("j") || "all", options.judgementOptions);
 }
 
-function createFilterOptions() {
-  const mediums = uniqueStrings([...KNOWN_MEDIA, ...entries.map((entry) => entry.medium)]);
-  const tags = uniqueStrings(entries.flatMap((entry) => entry.tags));
+function renderChipGroup(container, values, selected, onSelect) {
+  if (!container) return;
 
-  filterOptions = [
-    ...mediums.map((value) => ({
-      kind: "medium",
-      label: "媒体",
-      value
-    })),
-    ...tags.map((value) => ({
-      kind: "tag",
-      label: "タグ",
-      value
-    }))
-  ];
+  container.innerHTML = "";
 
-  return {
-    mediumOptions: ["all", ...mediums],
-    tagOptions: tags
-  };
-}
+  ["all", ...values].forEach((value) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "filter-chip";
+    button.dataset.value = value;
+    button.textContent = value === "all" ? "すべて" : value;
+    button.setAttribute("aria-pressed", String(selected === value));
 
-function getSelectedFilterItems() {
-  const selected = [];
+    if (selected === value) {
+      button.classList.add("filter-chip-active");
+    }
 
-  if (state.m !== "all") {
-    selected.push({ kind: "medium", label: "媒体", value: state.m });
-  }
-
-  state.t.forEach((tag) => {
-    selected.push({ kind: "tag", label: "タグ", value: tag });
+    button.addEventListener("click", () => onSelect(value));
+    container.append(button);
   });
-
-  return selected;
 }
 
-function renderSelectedFilters() {
-  if (!els.selectedFilters) return;
+function renderWorkOptions(values) {
+  if (!els.workOptions) return;
 
-  const selected = getSelectedFilterItems();
+  els.workOptions.innerHTML = values
+    .map((value) => `<option value="${escapeHtml(value)}"></option>`)
+    .join("");
+}
 
-  if (!selected.length) {
-    els.selectedFilters.innerHTML = '<span class="filter-chip filter-chip-subtle">追加した絞り込み条件はここに表示されます</span>';
+function renderActiveFilters() {
+  if (!els.activeFilters) return;
+
+  const active = [
+    state.m !== "all" ? { label: "媒体", value: state.m, key: "m" } : null,
+    state.w !== "all" ? { label: "作品", value: state.w, key: "w" } : null,
+    state.d !== "all" ? { label: "分別", value: state.d, key: "d" } : null,
+    state.j !== "all" ? { label: "判別", value: state.j, key: "j" } : null
+  ].filter(Boolean);
+
+  if (!active.length) {
+    els.activeFilters.innerHTML = '<span class="filter-chip filter-chip-subtle">4軸の条件を選ぶとここに表示されます</span>';
     return;
   }
 
-  els.selectedFilters.innerHTML = selected
+  els.activeFilters.innerHTML = active
     .map(
       (item) => `
         <span class="filter-chip filter-chip-active selected-filter-chip">
@@ -102,8 +98,7 @@ function renderSelectedFilters() {
           <button
             type="button"
             class="filter-chip-remove"
-            data-kind="${escapeHtml(item.kind)}"
-            data-value="${escapeHtml(item.value)}"
+            data-key="${escapeHtml(item.key)}"
             aria-label="${escapeHtml(`${item.label} ${item.value} を外す`)}"
           >
             ×
@@ -113,101 +108,38 @@ function renderSelectedFilters() {
     )
     .join("");
 
-  els.selectedFilters.querySelectorAll(".filter-chip-remove").forEach((button) => {
+  els.activeFilters.querySelectorAll(".filter-chip-remove").forEach((button) => {
     button.addEventListener("click", () => {
-      removeFilter(button.dataset.kind, button.dataset.value || "");
+      const key = button.dataset.key;
+      if (!key) return;
+      state[key] = "all";
+      if (key === "w" && els.workInput) {
+        els.workInput.value = "";
+      }
+      rerender();
     });
   });
 }
 
-function getMatchingFilters(query) {
-  const normalized = query.trim().toLowerCase();
-  if (!normalized) return [];
+function renderFilterControls() {
+  const options = getAxisOptions(entries);
 
-  return filterOptions
-    .filter((option) => {
-      if (option.kind === "medium" && state.m === option.value) return false;
-      if (option.kind === "tag" && state.t.includes(option.value)) return false;
-      return option.value.toLowerCase().includes(normalized);
-    })
-    .sort((a, b) => {
-      const aStarts = a.value.toLowerCase().startsWith(normalized) ? 0 : 1;
-      const bStarts = b.value.toLowerCase().startsWith(normalized) ? 0 : 1;
-      if (aStarts !== bStarts) return aStarts - bStarts;
-      return a.value.localeCompare(b.value, "ja");
-    })
-    .slice(0, MAX_SUGGESTIONS);
-}
-
-function renderSuggestions() {
-  if (!els.searchSuggestions) return;
-
-  const suggestions = getMatchingFilters(state.q);
-
-  if (!state.q) {
-    els.searchSuggestions.innerHTML = "";
-    return;
-  }
-
-  if (!suggestions.length) {
-    els.searchSuggestions.innerHTML = '<span class="filter-chip filter-chip-subtle">候補にない語はそのまま全文検索に使われます</span>';
-    return;
-  }
-
-  els.searchSuggestions.innerHTML = suggestions
-    .map(
-      (option) => `
-        <button
-          type="button"
-          class="filter-chip search-suggestion-chip"
-          data-kind="${escapeHtml(option.kind)}"
-          data-value="${escapeHtml(option.value)}"
-        >
-          <span class="filter-chip-kind">${escapeHtml(option.label)}</span>
-          <span>${escapeHtml(option.value)}</span>
-        </button>
-      `
-    )
-    .join("");
-
-  els.searchSuggestions.querySelectorAll(".search-suggestion-chip").forEach((button) => {
-    button.addEventListener("click", () => {
-      addFilter({
-        kind: button.dataset.kind,
-        value: button.dataset.value || ""
-      });
-    });
+  renderChipGroup(els.mediumChips, options.mediumOptions.slice(1), state.m, (value) => {
+    state.m = value;
+    rerender();
   });
-}
 
-function addFilter(option) {
-  if (!option?.value) return;
+  renderChipGroup(els.divisionChips, DIVISION_OPTIONS, state.d, (value) => {
+    state.d = value;
+    rerender();
+  });
 
-  if (option.kind === "medium") {
-    state.m = option.value;
-  } else if (option.kind === "tag" && !state.t.includes(option.value)) {
-    state.t = [...state.t, option.value];
-  }
+  renderChipGroup(els.judgementChips, JUDGEMENT_OPTIONS, state.j, (value) => {
+    state.j = value;
+    rerender();
+  });
 
-  state.q = "";
-  if (els.searchInput) {
-    els.searchInput.value = "";
-    els.searchInput.focus();
-  }
-
-  rerender();
-}
-
-function removeFilter(kind, value) {
-  if (kind === "medium" && state.m === value) {
-    state.m = "all";
-  }
-
-  if (kind === "tag") {
-    state.t = state.t.filter((tag) => tag !== value);
-  }
-
-  rerender();
+  renderActiveFilters();
 }
 
 function matchesSearch(entry, query) {
@@ -216,6 +148,8 @@ function matchesSearch(entry, query) {
   const haystack = [
     entry.work,
     entry.medium,
+    entry.division,
+    entry.judgement,
     entry.itemTitle,
     entry.status,
     entry.firstAppearance,
@@ -239,9 +173,11 @@ function matchesSearch(entry, query) {
 function getFilteredEntries() {
   return entries.filter((entry) => {
     const matchMedium = state.m === "all" || entry.medium === state.m;
-    const matchTags = state.t.every((tag) => entry.tags.includes(tag));
+    const matchWork = state.w === "all" || entry.work === state.w;
+    const matchDivision = state.d === "all" || entry.division === state.d;
+    const matchJudgement = state.j === "all" || entry.judgement === state.j;
     const matchQuery = matchesSearch(entry, state.q);
-    return matchMedium && matchTags && matchQuery;
+    return matchMedium && matchWork && matchDivision && matchJudgement && matchQuery;
   });
 }
 
@@ -256,28 +192,29 @@ function renderList(filtered) {
   if (!els.entryList) return;
 
   if (!filtered.length) {
-    els.entryList.innerHTML = '<p class="empty-state">条件に一致する記事はありません。検索語か絞り込み条件を調整してください。</p>';
+    els.entryList.innerHTML = '<p class="empty-state">条件に一致する記事はありません。4軸の条件か検索語を調整してください。</p>';
     return;
   }
 
   els.entryList.innerHTML = filtered
-    .map((entry) => {
-      const primaryTag = entry.tags[0] ?? "";
-      return `
+    .map(
+      (entry) => `
         <article class="entry-card">
           <div class="entry-head">
             <h3 class="entry-title"><a href="${buildTermUrl(entry.id)}">${escapeHtml(entry.itemTitle)}</a></h3>
-            ${primaryTag ? `<span class="tag-pill">${escapeHtml(primaryTag)}</span>` : ""}
+            <span class="tag-pill">${escapeHtml(entry.division)}</span>
           </div>
-          <p class="entry-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)} / ${escapeHtml(entry.status)}</p>
+          <p class="entry-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)} / ${escapeHtml(entry.judgement)}</p>
           <p class="entry-summary">${escapeHtml(shorten(entry.overview, 120))}</p>
           <div class="entry-tags">
-            ${entry.tags.map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("")}
+            <span class="tag-pill">${escapeHtml(entry.division)}</span>
+            <span class="tag-pill">${escapeHtml(entry.judgement)}</span>
+            ${entry.tags.slice(0, 3).map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("")}
           </div>
           <a class="button ghost entry-card-link" href="${buildTermUrl(entry.id)}">記事詳細へ</a>
         </article>
-      `;
-    })
+      `
+    )
     .join("");
 }
 
@@ -285,14 +222,15 @@ function syncQuery() {
   updateUrlQuery({
     q: state.q,
     m: state.m,
-    t: state.t.join(",")
+    w: state.w,
+    d: state.d,
+    j: state.j
   });
 }
 
 function rerender() {
   const filtered = getFilteredEntries();
-  renderSelectedFilters();
-  renderSuggestions();
+  renderFilterControls();
   renderSummary(filtered);
   renderList(filtered);
   syncQuery();
@@ -301,29 +239,22 @@ function rerender() {
 function resetFilters() {
   state.q = "";
   state.m = "all";
-  state.t = [];
+  state.w = "all";
+  state.d = "all";
+  state.j = "all";
 
-  if (els.searchInput) {
-    els.searchInput.value = "";
-  }
+  if (els.searchInput) els.searchInput.value = "";
+  if (els.workInput) els.workInput.value = "";
 
   rerender();
 }
 
-function handleSearchKeydown(event) {
-  if (event.key === "Enter") {
-    const [firstSuggestion] = getMatchingFilters(state.q);
-    if (firstSuggestion) {
-      event.preventDefault();
-      addFilter(firstSuggestion);
-    }
-    return;
-  }
+function handleWorkInput() {
+  if (!els.workInput) return;
 
-  if (event.key === "Backspace" && !state.q && state.t.length) {
-    state.t = state.t.slice(0, -1);
-    rerender();
-  }
+  const value = els.workInput.value.trim();
+  state.w = value ? normalizeOption(value, ["all", ...workOptions]) : "all";
+  rerender();
 }
 
 function initEvents() {
@@ -332,8 +263,11 @@ function initEvents() {
       state.q = event.target.value.trim();
       rerender();
     });
+  }
 
-    els.searchInput.addEventListener("keydown", handleSearchKeydown);
+  if (els.workInput) {
+    els.workInput.addEventListener("input", handleWorkInput);
+    els.workInput.addEventListener("change", handleWorkInput);
   }
 
   if (els.resetBtn) {
@@ -360,11 +294,17 @@ async function init() {
     return;
   }
 
-  const { mediumOptions, tagOptions } = createFilterOptions();
-  parseState(mediumOptions, tagOptions);
+  const options = getAxisOptions(entries);
+  workOptions = options.workOptions.slice(1);
+  parseState(options);
+  renderWorkOptions(workOptions);
 
   if (els.searchInput) {
     els.searchInput.value = state.q;
+  }
+
+  if (els.workInput && state.w !== "all") {
+    els.workInput.value = state.w;
   }
 
   initEvents();

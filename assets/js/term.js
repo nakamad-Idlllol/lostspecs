@@ -1,4 +1,5 @@
 import {
+  buildCategoriesUrl,
   buildEntriesUrl,
   buildTermUrl,
   escapeHtml,
@@ -130,7 +131,6 @@ function renderTerm(entry) {
 
   const sections = buildSections(entry);
   const tagHtml = entry.tags.map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("");
-  const primaryTag = entry.tags[0] ?? "";
 
   renderToc(sections);
 
@@ -142,15 +142,25 @@ function renderTerm(entry) {
       <p class="term-workline">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
       <p class="term-summary">${escapeHtml(entry.status)}</p>
       <div class="term-actions">
-        ${primaryTag ? `<a class="button ghost" href="${buildEntriesUrl({ t: primaryTag })}">同タグの記事一覧へ</a>` : ""}
         <a class="button ghost" href="${buildEntriesUrl({ q: entry.work })}">同作品で探す</a>
+        <a class="button ghost" href="${buildEntriesUrl({ d: entry.division })}">同じ分別で探す</a>
+        <a class="button ghost" href="${buildEntriesUrl({ j: entry.judgement })}">同じ判別で探す</a>
+        <a class="button ghost" href="${buildCategoriesUrl({ d: entry.division })}">軸一覧で見る</a>
       </div>
     </header>
 
     <section class="meta-strip">
       <article class="meta-box">
-        <p class="meta-key">主タグ</p>
-        <p class="meta-value">${escapeHtml(primaryTag || "未設定")}</p>
+        <p class="meta-key">媒体</p>
+        <p class="meta-value">${escapeHtml(entry.medium)}</p>
+      </article>
+      <article class="meta-box">
+        <p class="meta-key">分別</p>
+        <p class="meta-value">${escapeHtml(entry.division)}</p>
+      </article>
+      <article class="meta-box">
+        <p class="meta-key">判別</p>
+        <p class="meta-value">${escapeHtml(entry.judgement)}</p>
       </article>
       <article class="meta-box">
         <p class="meta-key">初出</p>
@@ -180,8 +190,16 @@ function scoreRelated(entry, current) {
     score += 10;
   }
 
+  if (entry.division === current.division) {
+    score += 4;
+  }
+
+  if (entry.judgement === current.judgement) {
+    score += 4;
+  }
+
   const sharedTags = entry.tags.filter((tag) => current.tags.includes(tag));
-  score += sharedTags.length * 3;
+  score += sharedTags.length;
 
   return { score, sharedTags };
 }
@@ -206,7 +224,14 @@ function renderRelated(entries, current) {
 
   els.relatedList.innerHTML = related
     .map(({ entry, sharedTags }) => {
-      const sharedLabel = sharedTags.length ? `共通タグ: ${sharedTags.join(" / ")}` : entry.medium;
+      const axisBits = [];
+      if (entry.work === current.work) axisBits.push("同作品");
+      if (entry.division === current.division) axisBits.push(`分別: ${entry.division}`);
+      if (entry.judgement === current.judgement) axisBits.push(`判別: ${entry.judgement}`);
+      if (!axisBits.length && sharedTags.length) {
+        axisBits.push(`補助タグ: ${sharedTags.join(" / ")}`);
+      }
+      const sharedLabel = axisBits.length ? axisBits.join(" / ") : entry.medium;
       return `
         <li>
           <a class="related-link" href="${buildTermUrl(entry.id)}">

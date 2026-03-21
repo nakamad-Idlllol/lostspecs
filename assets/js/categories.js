@@ -2,9 +2,17 @@ import {
   buildEntriesUrl,
   buildTermUrl,
   escapeHtml,
+  getAxisOptions,
   loadEntries,
   syncFooterMeta
 } from "./data.js";
+
+const AXES = [
+  { key: "medium", label: "媒体", param: "m" },
+  { key: "work", label: "作品", param: "w" },
+  { key: "division", label: "分別", param: "d" },
+  { key: "judgement", label: "判別", param: "j" }
+];
 
 const els = {
   categoryGrid: document.getElementById("categoryGrid"),
@@ -13,24 +21,28 @@ const els = {
   openEntriesLink: document.getElementById("openEntriesLink")
 };
 
-function getSelectedTag(allTags) {
+function getSelectedAxis(options) {
   const params = new URLSearchParams(window.location.search);
-  const selected = (params.get("t") || "").trim();
-  if (!selected || !allTags.includes(selected)) {
-    return "all";
+
+  for (const axis of AXES) {
+    const value = (params.get(axis.param) || "").trim();
+    const allowed = options[`${axis.key}Options`];
+    if (value && allowed.includes(value)) {
+      return { ...axis, value };
+    }
   }
-  return selected;
+
+  return null;
 }
 
-function groupByTag(entries) {
+function groupEntries(entries, axisKey) {
   const grouped = new Map();
 
   entries.forEach((entry) => {
-    entry.tags.forEach((tag) => {
-      const items = grouped.get(tag) || [];
-      items.push(entry);
-      grouped.set(tag, items);
-    });
+    const value = entry[axisKey];
+    const items = grouped.get(value) || [];
+    items.push(entry);
+    grouped.set(value, items);
   });
 
   return [...grouped.entries()].sort((a, b) => {
@@ -39,45 +51,58 @@ function groupByTag(entries) {
   });
 }
 
-function renderTagGrid(groups, selectedTag) {
+function renderAxisGrid(entries, selected) {
   if (!els.categoryGrid) return;
 
-  if (!groups.length) {
-    els.categoryGrid.innerHTML = '<p class="empty-state">タグがまだありません。</p>';
-    return;
-  }
+  els.categoryGrid.innerHTML = AXES
+    .map((axis) => {
+      const groups = groupEntries(entries, axis.key);
+      const cards = groups
+        .map(([value, items]) => {
+          const openThis = `categories.html?${axis.param}=${encodeURIComponent(value)}`;
+          const openEntries = buildEntriesUrl({ [axis.param]: value });
+          const activeClass =
+            selected && selected.param === axis.param && selected.value === value ? " category-card-active" : "";
+          const latest = [...items].sort((a, b) => b.id - a.id)[0];
 
-  els.categoryGrid.innerHTML = groups
-    .map(([tag, items]) => {
-      const openThis = `categories.html?t=${encodeURIComponent(tag)}`;
-      const openEntries = buildEntriesUrl({ t: tag });
-      const activeClass = selectedTag === tag ? " category-card-active" : "";
+          return `
+            <article class="category-card${activeClass}">
+              <h3><a class="category-title-link" href="${openThis}">${escapeHtml(value)}</a></h3>
+              <p class="category-count">${items.length}件</p>
+              <p class="muted">最新: ${escapeHtml(latest?.itemTitle || "-")}</p>
+              <div class="category-actions">
+                <a class="button ghost" href="${openEntries}">この条件で一覧へ</a>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
 
       return `
-        <article class="category-card${activeClass}">
-          <h3><a class="category-title-link" href="${openThis}">${escapeHtml(tag)}</a></h3>
-          <p class="category-count">${items.length}件</p>
-          <p class="muted">最新: ${escapeHtml(items[0].itemTitle)}</p>
-          <div class="category-actions">
-            <a class="button ghost" href="${openEntries}">このタグの記事一覧へ</a>
+        <section class="axis-block">
+          <div class="section-titlebar">
+            <h3>${escapeHtml(axis.label)}</h3>
           </div>
-        </article>
+          <div class="category-grid axis-card-grid">
+            ${cards || '<p class="empty-state">まだ項目がありません。</p>'}
+          </div>
+        </section>
       `;
     })
     .join("");
 }
 
-function renderTagEntries(entries, selectedTag) {
+function renderAxisEntries(entries, selected) {
   if (!els.categoryEntries || !els.categoryEntriesTitle || !els.openEntriesLink) return;
 
-  const filtered = selectedTag === "all" ? entries : entries.filter((entry) => entry.tags.includes(selectedTag));
+  const filtered = selected ? entries.filter((entry) => entry[selected.key] === selected.value) : [...entries].sort((a, b) => b.id - a.id).slice(0, 8);
 
-  if (selectedTag === "all") {
-    els.categoryEntriesTitle.textContent = "タグ別の記事";
+  if (!selected) {
+    els.categoryEntriesTitle.textContent = "軸別の記事";
     els.openEntriesLink.href = "entries.html";
   } else {
-    els.categoryEntriesTitle.textContent = `タグ別の記事: ${selectedTag}`;
-    els.openEntriesLink.href = buildEntriesUrl({ t: selectedTag });
+    els.categoryEntriesTitle.textContent = `${selected.label}別の記事: ${selected.value}`;
+    els.openEntriesLink.href = buildEntriesUrl({ [selected.param]: selected.value });
   }
 
   if (!filtered.length) {
@@ -86,26 +111,25 @@ function renderTagEntries(entries, selectedTag) {
   }
 
   els.categoryEntries.innerHTML = filtered
-    .map((entry) => {
-      const primaryTag = entry.tags[0] ?? "";
-      return `
+    .map(
+      (entry) => `
         <article class="entry-card">
           <div class="entry-head">
             <h3 class="entry-title"><a href="${buildTermUrl(entry.id)}">${escapeHtml(entry.itemTitle)}</a></h3>
-            ${primaryTag ? `<span class="tag-pill">${escapeHtml(primaryTag)}</span>` : ""}
+            <span class="tag-pill">${escapeHtml(entry.division)}</span>
           </div>
           <p class="entry-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
-          <p class="entry-summary">${escapeHtml(entry.status)}</p>
+          <p class="entry-summary">${escapeHtml(entry.judgement)}</p>
           <a class="button ghost" href="${buildTermUrl(entry.id)}">記事詳細へ</a>
         </article>
-      `;
-    })
+      `
+    )
     .join("");
 }
 
 function renderError(message) {
   if (els.categoryGrid) {
-    els.categoryGrid.innerHTML = `<p class="empty-state">タグの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
+    els.categoryGrid.innerHTML = `<p class="empty-state">軸データの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
   }
   if (els.categoryEntries) {
     els.categoryEntries.innerHTML = `<p class="empty-state">記事の読み込みに失敗しました: ${escapeHtml(message)}</p>`;
@@ -123,12 +147,11 @@ async function init() {
     return;
   }
 
-  const groups = groupByTag(entries);
-  const tags = groups.map(([tag]) => tag);
-  const selectedTag = getSelectedTag(tags);
+  const options = getAxisOptions(entries);
+  const selected = getSelectedAxis(options);
 
-  renderTagGrid(groups, selectedTag);
-  renderTagEntries(entries, selectedTag);
+  renderAxisGrid(entries, selected);
+  renderAxisEntries(entries, selected);
 }
 
 void init();

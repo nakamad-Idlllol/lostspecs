@@ -23,13 +23,13 @@
         <p class="brand-kicker">Lore Archive</p>
         <h1 class="brand-title">未回収設定・ロアアーカイブ</h1>
       </a>
-      <p class="head-note">キーワード、媒体、タグから気になる記事を探せます。</p>
+      <p class="head-note">媒体、作品、分別、判別の4軸から気になる記事を探せます。</p>
     </div>
     <div class="site-nav-wrap">
       <nav class="container site-nav" aria-label="グローバルナビゲーション">
         <a class="nav-link" href="index.html">トップ</a>
         <a class="nav-link active" href="entries.html">記事一覧</a>
-        <a class="nav-link" href="categories.html">タグ一覧</a>
+        <a class="nav-link" href="categories.html">軸一覧</a>
       </nav>
     </div>
   </header>
@@ -39,7 +39,7 @@
       <section class="panel page-intro">
         <p class="page-intro-kicker">記事検索</p>
         <h2>記事一覧</h2>
-        <p>検索語、媒体、タグで絞り込みながら記事を探せます。</p>
+        <p>4軸の条件をベースにしつつ、必要ならキーワード検索も併用できます。</p>
       </section>
 
       <div class="page-shell">
@@ -50,12 +50,36 @@
             </div>
 
             <div class="filters-grid">
-              <div class="field search-field">
-                <span>検索</span>
-                <input id="searchInput" class="input" type="search" placeholder="作品名 / 記事名 / 概要 / タグ名">
-                <p class="field-note">タグ名や媒体名が入ると候補が出ます。選ぶと絞り込み条件へ追加されます。</p>
-                <div id="selectedFilters" class="selected-filter-list" aria-live="polite"></div>
-                <div id="searchSuggestions" class="search-suggestion-list" aria-live="polite"></div>
+              <label class="field search-field">
+                <span>キーワード</span>
+                <input id="searchInput" class="input" type="search" placeholder="記事名 / 概要 / 補足情報">
+                <p class="field-note">まずは4軸で絞り、足りない時だけ本文検索を重ねる使い方を想定しています。</p>
+              </label>
+
+              <label class="field">
+                <span>作品</span>
+                <input id="workInput" class="input" type="search" list="workOptions" placeholder="作品名で絞る">
+                <datalist id="workOptions"></datalist>
+              </label>
+
+              <label class="field">
+                <span>媒体</span>
+                <div id="mediumChips" class="filter-chip-group" aria-label="媒体フィルター"></div>
+              </label>
+
+              <label class="field">
+                <span>分別</span>
+                <div id="divisionChips" class="filter-chip-group" aria-label="分別フィルター"></div>
+              </label>
+
+              <label class="field">
+                <span>判別</span>
+                <div id="judgementChips" class="filter-chip-group" aria-label="判別フィルター"></div>
+              </label>
+
+              <div class="field">
+                <span>選択中の条件</span>
+                <div id="activeFilters" class="selected-filter-list" aria-live="polite"></div>
               </div>
             </div>
 
@@ -75,7 +99,7 @@
         <aside class="page-side">
           <section class="panel sidebar-box">
             <h2>一覧の使い方</h2>
-            <p>検索欄にタグや媒体を入れると候補が出ます。選択済みの条件はチップで残るので、複数タグを重ねて絞り込めます。</p>
+            <p>タグ名を覚えていなくても探しやすいよう、媒体、作品、分別、判別の4軸を正面に出しています。タグは補助情報として記事側に残しています。</p>
           </section>
         </aside>
       </div>

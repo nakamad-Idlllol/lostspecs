@@ -1,11 +1,16 @@
 .filters-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .search-field {
   gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
 }
 
 .field-note {
@@ -14,6 +19,7 @@
   font-size: 0.93rem;
 }
 
+.filter-chip-group,
 .selected-filter-list,
 .search-suggestion-list {
   display: flex;
@@ -92,20 +98,6 @@
   border-radius: 999px;
 }
 
-.search-suggestion-list {
-  min-height: 24px;
-}
-
-.search-suggestion-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.search-suggestion-chip .filter-chip-kind {
-  background: rgba(111, 74, 58, 0.12);
-}
-
 .filter-chip-subtle {
   color: var(--muted);
   background: rgba(255, 252, 247, 0.66);
@@ -131,9 +123,14 @@
   justify-self: start;
 }
 
+@media (max-width: 920px) {
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 720px) {
-  .selected-filter-chip,
-  .search-suggestion-chip {
+  .selected-filter-chip {
     width: 100%;
     justify-content: space-between;
   }

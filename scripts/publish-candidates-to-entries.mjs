@@ -1,11 +1,19 @@
 import fs from "node:fs";
 import path from "node:path";
 import { loadAutomationConfig } from "./lib/automation-config.mjs";
+import {
+  closeContentDatabase,
+  ensureContentSeededFromJson,
+  exportEntriesFromDb,
+  exportPublicJsonFromDb,
+  exportSourcesFromDb,
+  openContentDatabase,
+  replaceContentFromData
+} from "./lib/content-store.mjs";
 import { getPrimaryTag, loadTagCatalog, normalizeTags, sortTags } from "./lib/tag-catalog.mjs";
 
 const CANDIDATES_ROOT = path.resolve(process.cwd(), "data", "candidates");
 const PUBLISHER_ROOT = path.resolve(process.cwd(), "data", "publisher");
-const ENTRIES_PATH = path.resolve(process.cwd(), "entries.json");
 const tagCatalog = loadTagCatalog();
 
 function parseArgs(argv) {
@@ -203,51 +211,64 @@ function main() {
   }
 
   const candidates = readJson(candidatesPath);
-  const entries = readJson(ENTRIES_PATH);
-  const context = buildContext(entries);
-
+  const db = openContentDatabase();
+  let appliedCount = 0;
   const evaluated = [];
   const toApply = [];
   const rejected = [];
 
-  for (const candidate of candidates) {
-    const result = evaluateCandidate(candidate, context, config);
-    const item = {
-      candidateId: candidate.candidateId,
-      sourceId: candidate.sourceId,
-      title: candidate.suggestedEntry?.itemTitle ?? null,
-      confidence: candidate.confidence ?? null,
-      decision: candidate.decision ?? null,
-      candidateType: candidate.candidateType ?? null,
-      templateFilled: Boolean(candidate.suggestedEntryMeta?.templateFilled),
-      publishable: result.publishable,
-      reasons: result.reasons
-    };
+  try {
+    ensureContentSeededFromJson(db);
+    const entries = exportEntriesFromDb(db);
+    const context = buildContext(entries);
 
-    evaluated.push(item);
-
-    if (result.publishable) {
-      toApply.push({
+    for (const candidate of candidates) {
+      const result = evaluateCandidate(candidate, context, config);
+      const item = {
         candidateId: candidate.candidateId,
-        entry: result.normalizedSuggestedEntry
-      });
-      context.entryIds.add(result.normalizedSuggestedEntry.id);
-      for (const url of (result.normalizedSuggestedEntry.sources ?? []).map((s) => s?.url).filter(Boolean)) {
-        context.knownSourceUrls.add(url);
-      }
-    } else {
-      rejected.push(item);
-    }
-  }
+        sourceId: candidate.sourceId,
+        title: candidate.suggestedEntry?.itemTitle ?? null,
+        confidence: candidate.confidence ?? null,
+        decision: candidate.decision ?? null,
+        candidateType: candidate.candidateType ?? null,
+        templateFilled: Boolean(candidate.suggestedEntryMeta?.templateFilled),
+        publishable: result.publishable,
+        reasons: result.reasons
+      };
 
-  let appliedCount = 0;
-  if (options.apply && toApply.length > 0) {
-    const nextEntries = [...entries];
-    for (const item of toApply) {
-      nextEntries.push(item.entry);
-      appliedCount += 1;
+      evaluated.push(item);
+
+      if (result.publishable) {
+        toApply.push({
+          candidateId: candidate.candidateId,
+          entry: result.normalizedSuggestedEntry
+        });
+        context.entryIds.add(result.normalizedSuggestedEntry.id);
+        for (const url of (result.normalizedSuggestedEntry.sources ?? []).map((s) => s?.url).filter(Boolean)) {
+          context.knownSourceUrls.add(url);
+        }
+      } else {
+        rejected.push(item);
+      }
     }
-    writeJson(ENTRIES_PATH, nextEntries);
+
+    if (options.apply && toApply.length > 0) {
+      const currentSources = exportSourcesFromDb(db);
+      const nextEntries = [...entries];
+
+      for (const item of toApply) {
+        nextEntries.push(item.entry);
+        appliedCount += 1;
+      }
+
+      replaceContentFromData(db, {
+        entries: nextEntries,
+        sourceRoot: currentSources
+      });
+      exportPublicJsonFromDb(db);
+    }
+  } finally {
+    closeContentDatabase(db);
   }
 
   const summary = {

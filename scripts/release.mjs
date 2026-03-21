@@ -44,6 +44,15 @@ function main() {
   console.log("[release] validate automation.config.json");
   run("node", ["scripts/validate-automation-config.mjs"]);
 
+  console.log("[release] ensure content DB");
+  run("node", ["scripts/sync-content-db-from-json.mjs", "--if-missing"]);
+
+  console.log("[release] export public JSON from content DB");
+  run("node", ["scripts/export-public-content-from-db.mjs"]);
+
+  console.log("[release] validate content DB");
+  run("node", ["scripts/validate-content-db.mjs"]);
+
   console.log("[release] validate entries.json");
   run("node", ["scripts/validate-entries.mjs"]);
 

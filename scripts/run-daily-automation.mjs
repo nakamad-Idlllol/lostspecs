@@ -26,10 +26,14 @@ function main() {
   console.log("[daily] validate config");
   run("node", ["scripts/validate-automation-config.mjs"]);
 
-  console.log("[daily] generate sources.json from entries.json");
-  run("node", ["scripts/generate-sources-from-entries.mjs"]);
+  console.log("[daily] ensure content DB");
+  run("node", ["scripts/sync-content-db-from-json.mjs", "--if-missing"]);
+
+  console.log("[daily] export public JSON from content DB");
+  run("node", ["scripts/export-public-content-from-db.mjs"]);
 
   console.log("[daily] validate data files");
+  run("node", ["scripts/validate-content-db.mjs"]);
   run("node", ["scripts/validate-entries.mjs"]);
   run("node", ["scripts/validate-sources.mjs"]);
 

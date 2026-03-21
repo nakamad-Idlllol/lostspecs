@@ -12,8 +12,8 @@ function main() {
 
   try {
     ensureContentSeededFromJson(db);
-    const { sources } = exportPublicJsonFromDb(db);
-    console.log(`[OK] generated public JSON from ${path.relative(process.cwd(), CONTENT_DB_PATH)} (${sources.items.length} sources)`);
+    exportPublicJsonFromDb(db);
+    console.log(`[OK] exported entries.json and sources.json from ${path.relative(process.cwd(), CONTENT_DB_PATH)}`);
   } finally {
     closeContentDatabase(db);
   }

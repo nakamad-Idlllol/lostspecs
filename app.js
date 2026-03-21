@@ -1,6 +1,6 @@
 ﻿const SITE_META = {
   version: "0.4.6",
-  updatedAt: "2026-02-23"
+  updatedAt: "2026-03-21"
 };
 
 let entries = [];

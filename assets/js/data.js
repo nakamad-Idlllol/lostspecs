@@ -1,6 +1,6 @@
 export const SITE_META = {
   version: "0.5.0",
-  updatedAt: "2026-03-20"
+  updatedAt: "2026-03-21"
 };
 
 const REQUIRED_FIELDS = [

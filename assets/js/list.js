@@ -1,202 +1,116 @@
 import {
-  DIVISION_OPTIONS,
-  JUDGEMENT_OPTIONS,
   buildTermUrl,
   escapeHtml,
-  getAxisOptions,
   loadEntries,
-  normalizeOption,
   shorten,
   syncFooterMeta,
   updateUrlQuery
 } from "./data.js?v=20260321b";
 
+const PAGE_SIZE = 10;
+
 const state = {
-  q: "",
-  m: "all",
-  w: "all",
-  d: "all",
-  j: "all"
+  page: 1
 };
 
 let entries = [];
-let workOptions = [];
 
 const els = {
-  searchInput: document.getElementById("searchInput"),
-  workInput: document.getElementById("workInput"),
-  workOptions: document.getElementById("workOptions"),
-  mediumChips: document.getElementById("mediumChips"),
-  divisionChips: document.getElementById("divisionChips"),
-  judgementChips: document.getElementById("judgementChips"),
-  activeFilters: document.getElementById("activeFilters"),
   resultSummary: document.getElementById("resultSummary"),
   entryList: document.getElementById("entryList"),
-  resetBtn: document.getElementById("resetBtn")
+  paginationTop: document.getElementById("paginationTop"),
+  paginationBottom: document.getElementById("paginationBottom")
 };
 
-function parseState(options) {
+function parseState() {
   const params = new URLSearchParams(window.location.search);
-  state.q = (params.get("q") || "").trim();
-  state.m = normalizeOption(params.get("m") || "all", options.mediumOptions);
-  state.w = normalizeOption(params.get("w") || "all", options.workOptions);
-  state.d = normalizeOption(params.get("d") || "all", options.divisionOptions);
-  state.j = normalizeOption(params.get("j") || "all", options.judgementOptions);
+  const page = Number.parseInt(params.get("page") || "1", 10);
+  state.page = Number.isInteger(page) && page > 0 ? page : 1;
 }
 
-function renderChipGroup(container, values, selected, onSelect) {
+function getSortedEntries() {
+  return [...entries].sort((a, b) => b.id - a.id);
+}
+
+function getPagedEntries() {
+  const sorted = getSortedEntries();
+  const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
+  const currentPage = Math.min(state.page, totalPages);
+  const start = (currentPage - 1) * PAGE_SIZE;
+
+  state.page = currentPage;
+
+  return {
+    items: sorted.slice(start, start + PAGE_SIZE),
+    total: sorted.length,
+    totalPages,
+    currentPage
+  };
+}
+
+function renderSummary(total, currentPage, totalPages) {
+  if (!els.resultSummary) return;
+
+  els.resultSummary.textContent = `${total}件 / ${currentPage} / ${totalPages}ページ`;
+}
+
+function renderPagination(container, currentPage, totalPages) {
   if (!container) return;
 
-  container.innerHTML = "";
-
-  ["all", ...values].forEach((value) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "filter-chip";
-    button.dataset.value = value;
-    button.textContent = value === "all" ? "すべて" : value;
-    button.setAttribute("aria-pressed", String(selected === value));
-
-    if (selected === value) {
-      button.classList.add("filter-chip-active");
-    }
-
-    button.addEventListener("click", () => onSelect(value));
-    container.append(button);
-  });
-}
-
-function renderWorkOptions(values) {
-  if (!els.workOptions) return;
-
-  els.workOptions.innerHTML = values
-    .map((value) => `<option value="${escapeHtml(value)}"></option>`)
-    .join("");
-}
-
-function renderActiveFilters() {
-  if (!els.activeFilters) return;
-
-  const active = [
-    state.m !== "all" ? { label: "媒体", value: state.m, key: "m" } : null,
-    state.w !== "all" ? { label: "作品", value: state.w, key: "w" } : null,
-    state.d !== "all" ? { label: "分別", value: state.d, key: "d" } : null,
-    state.j !== "all" ? { label: "判別", value: state.j, key: "j" } : null
-  ].filter(Boolean);
-
-  if (!active.length) {
-    els.activeFilters.innerHTML = '<span class="filter-chip filter-chip-subtle">4軸の条件を選ぶとここに表示されます</span>';
+  if (totalPages <= 1) {
+    container.innerHTML = "";
     return;
   }
 
-  els.activeFilters.innerHTML = active
-    .map(
-      (item) => `
-        <span class="filter-chip filter-chip-active selected-filter-chip">
-          <span class="filter-chip-kind">${escapeHtml(item.label)}</span>
-          <span>${escapeHtml(item.value)}</span>
-          <button
-            type="button"
-            class="filter-chip-remove"
-            data-key="${escapeHtml(item.key)}"
-            aria-label="${escapeHtml(`${item.label} ${item.value} を外す`)}"
-          >
-            ×
-          </button>
-        </span>
-      `
-    )
-    .join("");
+  const pageNumbers = [];
+  const start = Math.max(1, currentPage - 2);
+  const end = Math.min(totalPages, currentPage + 2);
 
-  els.activeFilters.querySelectorAll(".filter-chip-remove").forEach((button) => {
+  for (let page = start; page <= end; page += 1) {
+    pageNumbers.push(page);
+  }
+
+  container.innerHTML = `
+    <button type="button" class="button ghost pagination-button" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""}>前へ</button>
+    <div class="pagination-pages">
+      ${pageNumbers
+        .map(
+          (page) => `
+            <button
+              type="button"
+              class="button ghost pagination-button${page === currentPage ? " pagination-button-active" : ""}"
+              data-page="${page}"
+              ${page === currentPage ? 'aria-current="page"' : ""}
+            >
+              ${page}
+            </button>
+          `
+        )
+        .join("")}
+    </div>
+    <button type="button" class="button ghost pagination-button" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""}>次へ</button>
+  `;
+
+  container.querySelectorAll(".pagination-button").forEach((button) => {
     button.addEventListener("click", () => {
-      const key = button.dataset.key;
-      if (!key) return;
-      state[key] = "all";
-      if (key === "w" && els.workInput) {
-        els.workInput.value = "";
-      }
+      const page = Number.parseInt(button.dataset.page || "", 10);
+      if (!Number.isInteger(page) || page < 1 || page > totalPages || page === currentPage) return;
+      state.page = page;
       rerender();
+      window.scrollTo({ top: 0, behavior: "auto" });
     });
   });
 }
 
-function renderFilterControls() {
-  const options = getAxisOptions(entries);
-
-  renderChipGroup(els.mediumChips, options.mediumOptions.slice(1), state.m, (value) => {
-    state.m = value;
-    rerender();
-  });
-
-  renderChipGroup(els.divisionChips, DIVISION_OPTIONS, state.d, (value) => {
-    state.d = value;
-    rerender();
-  });
-
-  renderChipGroup(els.judgementChips, JUDGEMENT_OPTIONS, state.j, (value) => {
-    state.j = value;
-    rerender();
-  });
-
-  renderActiveFilters();
-}
-
-function matchesSearch(entry, query) {
-  if (!query) return true;
-
-  const haystack = [
-    entry.work,
-    entry.medium,
-    entry.division,
-    entry.judgement,
-    entry.itemTitle,
-    entry.status,
-    entry.firstAppearance,
-    entry.overview,
-    entry.depiction,
-    entry.unresolvedPoints,
-    entry.reception,
-    entry.externalContext,
-    entry.interpretation,
-    entry.futurePossibility,
-    entry.discussionPoints,
-    ...entry.timeline.flatMap((item) => [item.label, item.detail]),
-    ...entry.tags
-  ]
-    .join(" ")
-    .toLowerCase();
-
-  return haystack.includes(query.toLowerCase());
-}
-
-function getFilteredEntries() {
-  return entries.filter((entry) => {
-    const matchMedium = state.m === "all" || entry.medium === state.m;
-    const matchWork = state.w === "all" || entry.work === state.w;
-    const matchDivision = state.d === "all" || entry.division === state.d;
-    const matchJudgement = state.j === "all" || entry.judgement === state.j;
-    const matchQuery = matchesSearch(entry, state.q);
-    return matchMedium && matchWork && matchDivision && matchJudgement && matchQuery;
-  });
-}
-
-function renderSummary(filtered) {
-  if (!els.resultSummary) return;
-
-  const works = new Set(filtered.map((entry) => entry.work));
-  els.resultSummary.textContent = `${filtered.length}件 / ${works.size}作品`;
-}
-
-function renderList(filtered) {
+function renderList(items) {
   if (!els.entryList) return;
 
-  if (!filtered.length) {
-    els.entryList.innerHTML = '<p class="empty-state">条件に一致する記事はありません。4軸の条件か検索語を調整してください。</p>';
+  if (!items.length) {
+    els.entryList.innerHTML = '<p class="empty-state">表示できる記事はありません。</p>';
     return;
   }
 
-  els.entryList.innerHTML = filtered
+  els.entryList.innerHTML = items
     .map(
       (entry) => `
         <article class="entry-card">
@@ -209,7 +123,6 @@ function renderList(filtered) {
           <div class="entry-tags">
             <span class="tag-pill">${escapeHtml(entry.division)}</span>
             <span class="tag-pill">${escapeHtml(entry.judgement)}</span>
-            ${entry.tags.slice(0, 3).map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("")}
           </div>
           <a class="button ghost entry-card-link" href="${buildTermUrl(entry.id)}">記事詳細へ</a>
         </article>
@@ -220,59 +133,17 @@ function renderList(filtered) {
 
 function syncQuery() {
   updateUrlQuery({
-    q: state.q,
-    m: state.m,
-    w: state.w,
-    d: state.d,
-    j: state.j
+    page: state.page === 1 ? "" : String(state.page)
   });
 }
 
 function rerender() {
-  const filtered = getFilteredEntries();
-  renderFilterControls();
-  renderSummary(filtered);
-  renderList(filtered);
+  const { items, total, totalPages, currentPage } = getPagedEntries();
+  renderSummary(total, currentPage, totalPages);
+  renderList(items);
+  renderPagination(els.paginationTop, currentPage, totalPages);
+  renderPagination(els.paginationBottom, currentPage, totalPages);
   syncQuery();
-}
-
-function resetFilters() {
-  state.q = "";
-  state.m = "all";
-  state.w = "all";
-  state.d = "all";
-  state.j = "all";
-
-  if (els.searchInput) els.searchInput.value = "";
-  if (els.workInput) els.workInput.value = "";
-
-  rerender();
-}
-
-function handleWorkInput() {
-  if (!els.workInput) return;
-
-  const value = els.workInput.value.trim();
-  state.w = value ? normalizeOption(value, ["all", ...workOptions]) : "all";
-  rerender();
-}
-
-function initEvents() {
-  if (els.searchInput) {
-    els.searchInput.addEventListener("input", (event) => {
-      state.q = event.target.value.trim();
-      rerender();
-    });
-  }
-
-  if (els.workInput) {
-    els.workInput.addEventListener("input", handleWorkInput);
-    els.workInput.addEventListener("change", handleWorkInput);
-  }
-
-  if (els.resetBtn) {
-    els.resetBtn.addEventListener("click", resetFilters);
-  }
 }
 
 function renderLoadError(message) {
@@ -286,6 +157,7 @@ function renderLoadError(message) {
 
 async function init() {
   syncFooterMeta();
+  parseState();
 
   try {
     entries = await loadEntries();
@@ -294,20 +166,6 @@ async function init() {
     return;
   }
 
-  const options = getAxisOptions(entries);
-  workOptions = options.workOptions.slice(1);
-  parseState(options);
-  renderWorkOptions(workOptions);
-
-  if (els.searchInput) {
-    els.searchInput.value = state.q;
-  }
-
-  if (els.workInput && state.w !== "all") {
-    els.workInput.value = state.w;
-  }
-
-  initEvents();
   rerender();
 }
 

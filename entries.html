@@ -23,7 +23,7 @@
         <p class="brand-kicker">Lore Archive</p>
         <h1 class="brand-title">未回収設定・ロアアーカイブ</h1>
       </a>
-      <p class="head-note">媒体、作品、分別、判別の4つの分類から気になる記事を探せます。</p>
+      <p class="head-note">最新の記事から順に、一覧で確認できます。</p>
     </div>
     <div class="site-nav-wrap">
       <nav class="container site-nav" aria-label="グローバルナビゲーション">
@@ -37,55 +37,21 @@
   <main>
     <div class="container page-stack">
       <section class="panel page-intro">
-        <p class="page-intro-kicker">記事検索</p>
+        <p class="page-intro-kicker">記事一覧</p>
         <h2>記事一覧</h2>
-        <p>4つの分類で絞り込みながら、気になる記事を探せます。</p>
+        <p>新しく追加した記事から順に、1ページ10件ずつ表示します。</p>
       </section>
 
       <div class="page-shell">
         <div class="page-main">
           <section class="panel section-panel">
             <div class="section-titlebar">
-              <h2>絞り込み</h2>
-            </div>
-
-            <div class="filters-grid">
-              <div class="field search-field">
-                <label for="searchInput">キーワード</label>
-                <input id="searchInput" class="input" type="search" placeholder="記事名 / 概要 / 補足情報">
-                <p class="field-note">分類だけで足りない時は、キーワード検索も使えます。</p>
-              </div>
-
-              <div class="field">
-                <label for="workInput">作品</label>
-                <input id="workInput" class="input" type="search" list="workOptions" placeholder="作品名で絞る">
-                <datalist id="workOptions"></datalist>
-              </div>
-
-              <div class="field">
-                <span>媒体</span>
-                <div id="mediumChips" class="filter-chip-group" aria-label="媒体フィルター"></div>
-              </div>
-
-              <div class="field">
-                <span>分別</span>
-                <div id="divisionChips" class="filter-chip-group" aria-label="分別フィルター"></div>
-              </div>
-
-              <div class="field">
-                <span>判別</span>
-                <div id="judgementChips" class="filter-chip-group" aria-label="判別フィルター"></div>
-              </div>
-
-              <div class="field">
-                <span>選択中の条件</span>
-                <div id="activeFilters" class="selected-filter-list" aria-live="polite"></div>
-              </div>
+              <h2>最新順の一覧</h2>
             </div>
 
             <div class="toolbar">
               <p id="resultSummary" class="muted">読み込み中...</p>
-              <button id="resetBtn" class="button ghost" type="button">条件をリセット</button>
+              <div id="paginationTop" class="pagination" aria-label="ページ送り"></div>
             </div>
           </section>
 
@@ -93,13 +59,14 @@
             <div id="entryList" class="entry-list" aria-live="polite">
               <p class="empty-state">記事を読み込み中です...</p>
             </div>
+            <div id="paginationBottom" class="pagination pagination-bottom" aria-label="ページ送り"></div>
           </section>
         </div>
 
         <aside class="page-side">
           <section class="panel sidebar-box">
             <h2>一覧の使い方</h2>
-            <p>媒体、作品、分別、判別を組み合わせると、見たい記事を絞り込みやすくなります。</p>
+            <p>このページでは最新順に記事を追えます。分類から探したい時は「分類から探す」を使ってください。</p>
           </section>
         </aside>
       </div>

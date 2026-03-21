@@ -1,3 +1,20 @@
+.entries-header-block,
+.entries-list-block {
+  display: grid;
+  gap: 14px;
+}
+
+.entries-note-block {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+}
+
+.entries-note-block h2,
+.entries-note-block p {
+  margin: 0;
+}
+
 .toolbar {
   display: flex;
   justify-content: space-between;

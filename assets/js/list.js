@@ -15,6 +15,8 @@ const state = {
   t: "all"
 };
 
+const KNOWN_MEDIA = ["アニメ", "漫画", "ゲーム"];
+
 let entries = [];
 
 const els = {
@@ -196,7 +198,7 @@ async function init() {
     return;
   }
 
-  const mediumOptions = ["all", ...uniqueStrings(entries.map((entry) => entry.medium))];
+  const mediumOptions = ["all", ...uniqueStrings([...KNOWN_MEDIA, ...entries.map((entry) => entry.medium)])];
   const tagOptions = ["all", ...uniqueStrings(entries.flatMap((entry) => entry.tags))];
 
   parseState(mediumOptions, tagOptions);

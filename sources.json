@@ -242,6 +242,96 @@
         1
       ],
       "notes": ""
+    },
+    {
+      "id": "src-bulbapedia-bulbagarden-net-wiki-north-boulevard",
+      "label": "Bulbapedia: North Boulevard",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/North_Boulevard",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ポケットモンスター X・Y"
+      ],
+      "entryRefs": [
+        11
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-kotaku-com-almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
+      "label": "Kotaku: Almost A Year Later, Pokemon X & Y's Ghost Girl Is Still A Mystery",
+      "url": "https://kotaku.com/almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
+      "sourceType": "secondary",
+      "priority": 3,
+      "enabled": true,
+      "workRefs": [
+        "ポケットモンスター X・Y"
+      ],
+      "entryRefs": [
+        11
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-bulbapedia-bulbagarden-net-wiki-power-plant-28kalos-29",
+      "label": "Bulbapedia: Kalos Power Plant",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Power_Plant_%28Kalos%29",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ポケットモンスター X・Y"
+      ],
+      "entryRefs": [
+        12
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-www-thegamer-com-pokemon-x-y-follow-ups-canceled-plans",
+      "label": "TheGamer: What Did Game Freak Have Planned For The Canceled Pokemon X & Y Follow-Ups?",
+      "url": "https://www.thegamer.com/pokemon-x-y-follow-ups-canceled-plans/",
+      "sourceType": "secondary",
+      "priority": 3,
+      "enabled": true,
+      "workRefs": [
+        "ポケットモンスター X・Y"
+      ],
+      "entryRefs": [
+        12
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-metalgear-fandom-com-wiki-kingdom-of-the-flies",
+      "label": "Metal Gear Wiki: Kingdom of the Flies",
+      "url": "https://metalgear.fandom.com/wiki/Kingdom_of_the_Flies",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "METAL GEAR SOLID V: THE PHANTOM PAIN"
+      ],
+      "entryRefs": [
+        13
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-metalgear-fandom-com-wiki-phantom-pain-incident",
+      "label": "Metal Gear Wiki: Phantom Pain Incident",
+      "url": "https://metalgear.fandom.com/wiki/Phantom_Pain_Incident",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "METAL GEAR SOLID V: THE PHANTOM PAIN"
+      ],
+      "entryRefs": [
+        13
+      ],
+      "notes": ""
     }
   ]
 }

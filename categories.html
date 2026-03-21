@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>軸一覧 | 未回収設定・ロアアーカイブ</title>
+  <title>分類から探す | 未回収設定・ロアアーカイブ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     <div class="utility-bar">
       <div class="container utility-inner">
         <p>架空設定・未回収要素を整理するロアアーカイブ</p>
-        <p>4軸から記事の傾向をたどれます</p>
+        <p>4つの分類から記事の傾向をたどれます</p>
       </div>
     </div>
     <div class="container site-head-inner">
@@ -23,13 +23,13 @@
         <p class="brand-kicker">Lore Archive</p>
         <h1 class="brand-title">未回収設定・ロアアーカイブ</h1>
       </a>
-      <p class="head-note">媒体、作品、分別、判別の4軸から記事群を横断できます。</p>
+      <p class="head-note">媒体、作品、分別、判別の4つの分類から記事群を横断できます。</p>
     </div>
     <div class="site-nav-wrap">
       <nav class="container site-nav" aria-label="グローバルナビゲーション">
         <a class="nav-link" href="index.html">トップ</a>
         <a class="nav-link" href="entries.html">記事一覧</a>
-        <a class="nav-link active" href="categories.html">軸一覧</a>
+        <a class="nav-link active" href="categories.html">分類から探す</a>
       </nav>
     </div>
   </header>
@@ -38,36 +38,36 @@
     <div class="container page-stack">
       <section class="panel page-intro">
         <p class="page-intro-kicker">分類導線</p>
-        <h2>軸一覧</h2>
-        <p>4軸から入り口を選び、そのまま記事一覧へ移れます。</p>
+        <h2>分類から探す</h2>
+        <p>4つの分類から気になる入口を選んで、記事をたどれます。</p>
       </section>
 
       <div class="page-shell">
         <div class="page-main">
           <section class="panel section-panel">
             <div class="section-titlebar">
-              <h2>4軸の一覧</h2>
+              <h2>分類一覧</h2>
             </div>
             <div id="categoryGrid" class="axis-sections">
-              <p class="empty-state">軸データを読み込み中です...</p>
+              <p class="empty-state">分類データを読み込み中です...</p>
             </div>
           </section>
 
           <section class="panel section-panel">
             <div class="section-titlebar">
-              <h2 id="categoryEntriesTitle">軸別の記事</h2>
+              <h2 id="categoryEntriesTitle">分類別の記事</h2>
               <a id="openEntriesLink" href="entries.html" class="button ghost">一覧ページで開く</a>
             </div>
             <div id="categoryEntries" class="category-entries">
-              <p class="empty-state">軸を選ぶと記事が表示されます。</p>
+              <p class="empty-state">分類を選ぶと記事が表示されます。</p>
             </div>
           </section>
         </div>
 
         <aside class="page-side">
           <section class="panel sidebar-box">
-            <h2>軸の考え方</h2>
-            <p>タグは補助情報として残しつつ、探す時は媒体、作品、分別、判別の4軸を基準にします。判別は種類を増やしすぎず、迷いにくい構成を優先しています。</p>
+            <h2>使い方</h2>
+            <p>気になる分類を選ぶと、その条件に当てはまる記事をまとめて見られます。</p>
           </section>
         </aside>
       </div>

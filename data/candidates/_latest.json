@@ -1,16 +1,16 @@
 {
-  "batch": "20260320-190846",
-  "path": "data/candidates/20260320-190846",
+  "batch": "20260321-185630",
+  "path": "data/candidates/20260321-185630",
   "summary": {
-    "batch": "20260320-190846",
-    "generatedAt": "2026-03-20T19:17:15.709Z",
-    "total": 16,
+    "batch": "20260321-185630",
+    "generatedAt": "2026-03-21T19:07:03.546Z",
+    "total": 50,
     "candidateReadyCount": 0,
-    "needsReviewCount": 16,
+    "needsReviewCount": 50,
     "holdCount": 0,
     "autoEligibleCount": 0,
-    "templateFilledCount": 16,
-    "evidenceUpdateCount": 16,
+    "templateFilledCount": 50,
+    "evidenceUpdateCount": 50,
     "newEntryCount": 0
   }
 }

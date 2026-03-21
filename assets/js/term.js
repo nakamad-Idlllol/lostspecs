@@ -145,7 +145,7 @@ function renderTerm(entry) {
         <a class="button ghost" href="${buildEntriesUrl({ q: entry.work })}">同作品で探す</a>
         <a class="button ghost" href="${buildEntriesUrl({ d: entry.division })}">同じ分別で探す</a>
         <a class="button ghost" href="${buildEntriesUrl({ j: entry.judgement })}">同じ判別で探す</a>
-        <a class="button ghost" href="${buildCategoriesUrl({ d: entry.division })}">軸一覧で見る</a>
+        <a class="button ghost" href="${buildCategoriesUrl({ d: entry.division })}">分類ページで見る</a>
       </div>
     </header>
 

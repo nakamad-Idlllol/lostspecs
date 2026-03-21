@@ -5,6 +5,8 @@
     "db:sync": "node scripts/sync-content-db-from-json.mjs",
     "db:sync:if-missing": "node scripts/sync-content-db-from-json.mjs --if-missing",
     "content:export": "node scripts/export-public-content-from-db.mjs",
+    "analytics:config": "node scripts/generate-analytics-config.mjs",
+    "popular:generate": "node scripts/generate-popular-entries.mjs",
     "validate:app": "node --check app.js",
     "validate:config": "node scripts/validate-automation-config.mjs",
     "validate:db": "node scripts/validate-content-db.mjs",

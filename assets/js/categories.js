@@ -98,7 +98,7 @@ function renderAxisEntries(entries, selected) {
   const filtered = selected ? entries.filter((entry) => entry[selected.key] === selected.value) : [...entries].sort((a, b) => b.id - a.id).slice(0, 8);
 
   if (!selected) {
-    els.categoryEntriesTitle.textContent = "軸別の記事";
+    els.categoryEntriesTitle.textContent = "分類別の記事";
     els.openEntriesLink.href = "entries.html";
   } else {
     els.categoryEntriesTitle.textContent = `${selected.label}別の記事: ${selected.value}`;
@@ -129,7 +129,7 @@ function renderAxisEntries(entries, selected) {
 
 function renderError(message) {
   if (els.categoryGrid) {
-    els.categoryGrid.innerHTML = `<p class="empty-state">軸データの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
+    els.categoryGrid.innerHTML = `<p class="empty-state">分類データの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
   }
   if (els.categoryEntries) {
     els.categoryEntries.innerHTML = `<p class="empty-state">記事の読み込みに失敗しました: ${escapeHtml(message)}</p>`;

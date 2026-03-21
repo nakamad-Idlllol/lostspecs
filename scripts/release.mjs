@@ -50,6 +50,12 @@ function main() {
   console.log("[release] export public JSON from content DB");
   run("node", ["scripts/export-public-content-from-db.mjs"]);
 
+  console.log("[release] generate analytics config");
+  run("node", ["scripts/generate-analytics-config.mjs"]);
+
+  console.log("[release] generate popular entries");
+  run("node", ["scripts/generate-popular-entries.mjs"]);
+
   console.log("[release] validate content DB");
   run("node", ["scripts/validate-content-db.mjs"]);
 
@@ -79,6 +85,8 @@ function main() {
     "sources.json",
     "automation-status.json",
     "automation-review-feed.json",
+    "analytics-config.json",
+    "popular-entries.json",
     "index.html",
     "styles.css",
     "package.json",

@@ -1,6 +1,5 @@
 .page-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
   gap: 18px;
   padding: 22px;
   background:
@@ -37,27 +36,6 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 8px;
-}
-
-.hero-aside {
-  border-left: 1px solid var(--line);
-  padding-left: 18px;
-}
-
-.hero-minihead {
-  margin-bottom: 8px;
-  font-family: "Noto Serif JP", "Yu Mincho", serif;
-  font-size: 18px;
-}
-
-.hero-points {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-}
-
-.hero-points li + li {
-  margin-top: 8px;
 }
 
 .home-feed {
@@ -129,19 +107,6 @@
 .featured-meta {
   color: var(--accent-strong);
   font-size: 12px;
-}
-
-@media (max-width: 980px) {
-  .page-hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-aside {
-    border-left: 0;
-    border-top: 1px solid var(--line);
-    padding-left: 0;
-    padding-top: 16px;
-  }
 }
 
 @media (max-width: 840px) {

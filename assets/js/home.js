@@ -5,13 +5,7 @@ import {
   shorten,
   syncFooterMeta
 } from "./data.js";
-
-const POPULAR_ENTRY_IDS = [
-  1,
-  3,
-  9,
-  8
-];
+import { selectFallbackPopularEntries } from "./popularity.mjs";
 
 const els = {
   popularList: document.getElementById("popularList"),
@@ -27,14 +21,24 @@ function renderError(message) {
   }
 }
 
-function renderPopularEntries(entries) {
+async function loadPopularEntries() {
+  const response = await fetch("popular-entries.json", { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`popular-entries.json の取得に失敗しました (HTTP ${response.status})`);
+  }
+  return response.json();
+}
+
+function renderPopularEntries(entries, popularData) {
   if (!els.popularList) return;
 
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
-  const items = POPULAR_ENTRY_IDS
-    .map((id) => byId.get(id))
-    .filter(Boolean)
-    .slice(0, 4);
+  const items = Array.isArray(popularData?.items)
+    ? popularData.items
+        .map((item) => byId.get(item.id))
+        .filter(Boolean)
+        .slice(0, 4)
+    : selectFallbackPopularEntries(entries).map((item) => item.entry);
 
   if (!items.length) {
     els.popularList.innerHTML = `<li class="empty-state">表示できる項目がありません。</li>`;
@@ -85,8 +89,11 @@ function renderRecentEntries(entries) {
 async function init() {
   syncFooterMeta();
   try {
-    const entries = await loadEntries();
-    renderPopularEntries(entries);
+    const [entries, popularData] = await Promise.all([
+      loadEntries(),
+      loadPopularEntries().catch(() => null)
+    ]);
+    renderPopularEntries(entries, popularData);
     renderRecentEntries(entries);
   } catch (error) {
     renderError(error instanceof Error ? error.message : String(error));

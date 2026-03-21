@@ -32,6 +32,12 @@ function main() {
   console.log("[daily] export public JSON from content DB");
   run("node", ["scripts/export-public-content-from-db.mjs"]);
 
+  console.log("[daily] generate analytics config");
+  run("node", ["scripts/generate-analytics-config.mjs"]);
+
+  console.log("[daily] generate popular entries");
+  run("node", ["scripts/generate-popular-entries.mjs"]);
+
   console.log("[daily] validate data files");
   run("node", ["scripts/validate-content-db.mjs"]);
   run("node", ["scripts/validate-entries.mjs"]);

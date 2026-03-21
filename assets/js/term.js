@@ -3,7 +3,7 @@ import {
   escapeHtml,
   loadEntries,
   syncFooterMeta
-} from "./data.js";
+} from "./data.js?v=20260321b";
 
 const els = {
   breadcrumbCurrent: document.getElementById("breadcrumbCurrent"),

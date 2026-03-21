@@ -5,7 +5,7 @@ import {
   getAxisOptions,
   loadEntries,
   syncFooterMeta
-} from "./data.js";
+} from "./data.js?v=20260321b";
 
 const AXES = [
   { key: "medium", label: "媒体", param: "m" },

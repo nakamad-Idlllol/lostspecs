@@ -5,7 +5,7 @@ import {
   deriveJudgement,
   enrichEntry,
   getEntryAxes
-} from "./entry-taxonomy.js";
+} from "./entry-taxonomy.js?v=20260321b";
 
 export const SITE_META = {
   version: "0.5.0",

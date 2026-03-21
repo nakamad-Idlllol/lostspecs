@@ -21,8 +21,8 @@ let entries = [];
 
 const els = {
   searchInput: document.getElementById("searchInput"),
-  mediumSelect: document.getElementById("mediumSelect"),
-  tagSelect: document.getElementById("tagSelect"),
+  mediumChips: document.getElementById("mediumChips"),
+  tagChips: document.getElementById("tagChips"),
   resultSummary: document.getElementById("resultSummary"),
   entryList: document.getElementById("entryList"),
   resetBtn: document.getElementById("resetBtn")
@@ -35,24 +35,44 @@ function parseState(mediumOptions, tagOptions) {
   state.t = normalizeOption(params.get("t") || "all", tagOptions);
 }
 
-function fillSelect(select, values, selected) {
-  if (!select) return;
+function renderChipGroup(container, values, selected, onSelect) {
+  if (!container) return;
 
-  select.innerHTML = "";
+  container.innerHTML = "";
 
-  const all = document.createElement("option");
-  all.value = "all";
-  all.textContent = "すべて";
-  select.append(all);
+  ["all", ...values].forEach((value) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "filter-chip";
+    button.dataset.value = value;
+    button.textContent = value === "all" ? "すべて" : value;
+    button.setAttribute("aria-pressed", String(selected === value));
 
-  values.forEach((value) => {
-    const option = document.createElement("option");
-    option.value = value;
-    option.textContent = value;
-    select.append(option);
+    if (selected === value) {
+      button.classList.add("filter-chip-active");
+    }
+
+    button.addEventListener("click", () => {
+      onSelect(value);
+    });
+
+    container.append(button);
+  });
+}
+
+function renderFilterChips() {
+  const mediumValues = uniqueStrings([...KNOWN_MEDIA, ...entries.map((entry) => entry.medium)]);
+  const tagValues = uniqueStrings(entries.flatMap((entry) => entry.tags));
+
+  renderChipGroup(els.mediumChips, mediumValues, state.m, (value) => {
+    state.m = value;
+    rerender();
   });
 
-  select.value = selected;
+  renderChipGroup(els.tagChips, tagValues, state.t, (value) => {
+    state.t = value;
+    rerender();
+  });
 }
 
 function matchesSearch(entry, query) {
@@ -135,6 +155,7 @@ function syncQuery() {
 
 function rerender() {
   const filtered = getFilteredEntries();
+  renderFilterChips();
   renderSummary(filtered);
   renderList(filtered);
   syncQuery();
@@ -146,8 +167,6 @@ function resetFilters() {
   state.t = "all";
 
   if (els.searchInput) els.searchInput.value = "";
-  if (els.mediumSelect) els.mediumSelect.value = "all";
-  if (els.tagSelect) els.tagSelect.value = "all";
 
   rerender();
 }
@@ -156,20 +175,6 @@ function initEvents() {
   if (els.searchInput) {
     els.searchInput.addEventListener("input", (event) => {
       state.q = event.target.value.trim();
-      rerender();
-    });
-  }
-
-  if (els.mediumSelect) {
-    els.mediumSelect.addEventListener("change", (event) => {
-      state.m = event.target.value;
-      rerender();
-    });
-  }
-
-  if (els.tagSelect) {
-    els.tagSelect.addEventListener("change", (event) => {
-      state.t = event.target.value;
       rerender();
     });
   }
@@ -202,9 +207,6 @@ async function init() {
   const tagOptions = ["all", ...uniqueStrings(entries.flatMap((entry) => entry.tags))];
 
   parseState(mediumOptions, tagOptions);
-
-  fillSelect(els.mediumSelect, mediumOptions.slice(1), state.m);
-  fillSelect(els.tagSelect, tagOptions.slice(1), state.t);
 
   if (els.searchInput) {
     els.searchInput.value = state.q;

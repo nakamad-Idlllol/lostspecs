@@ -1,7 +1,51 @@
 .filters-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr) minmax(0, 1.2fr);
   gap: 10px;
+}
+
+.filter-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.filter-chip {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 252, 247, 0.88);
+  color: var(--ink);
+  padding: 9px 14px;
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.filter-chip:hover {
+  border-color: rgba(111, 74, 58, 0.45);
+  background: rgba(111, 74, 58, 0.08);
+  transform: translateY(-1px);
+}
+
+.filter-chip:focus-visible {
+  outline: 2px solid rgba(111, 74, 58, 0.38);
+  outline-offset: 2px;
+}
+
+.filter-chip-active {
+  border-color: rgba(111, 74, 58, 0.92);
+  background: linear-gradient(135deg, rgba(111, 74, 58, 0.96), rgba(79, 49, 39, 0.94));
+  color: #fff8ef;
+  box-shadow: 0 10px 22px rgba(79, 49, 39, 0.16);
 }
 
 .toolbar {
@@ -25,12 +69,6 @@
 }
 
 @media (max-width: 1040px) {
-  .filters-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 640px) {
   .filters-grid {
     grid-template-columns: 1fr;
   }

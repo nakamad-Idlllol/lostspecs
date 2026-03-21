@@ -59,7 +59,9 @@ function renderPopularEntries(entries) {
 function renderRecentEntries(entries) {
   if (!els.recentList) return;
 
-  const items = entries.slice(0, 8);
+  const items = [...entries]
+    .sort((a, b) => b.id - a.id)
+    .slice(0, 8);
   if (!items.length) {
     els.recentList.innerHTML = `<li class="empty-state">表示できる項目がありません。</li>`;
     return;

@@ -50,20 +50,13 @@
             </div>
 
             <div class="filters-grid">
-              <label class="field">
-                <span>キーワード</span>
-                <input id="searchInput" class="input" type="search" placeholder="作品名 / 記事名 / 概要 / 論点">
-              </label>
-
-              <label class="field">
-                <span>媒体</span>
-                <div id="mediumChips" class="filter-chip-group" aria-label="媒体フィルター"></div>
-              </label>
-
-              <label class="field">
-                <span>タグ</span>
-                <div id="tagChips" class="filter-chip-group" aria-label="タグフィルター"></div>
-              </label>
+              <div class="field search-field">
+                <span>検索</span>
+                <input id="searchInput" class="input" type="search" placeholder="作品名 / 記事名 / 概要 / タグ名">
+                <p class="field-note">タグ名や媒体名が入ると候補が出ます。選ぶと絞り込み条件へ追加されます。</p>
+                <div id="selectedFilters" class="selected-filter-list" aria-live="polite"></div>
+                <div id="searchSuggestions" class="search-suggestion-list" aria-live="polite"></div>
+              </div>
             </div>
 
             <div class="toolbar">
@@ -82,7 +75,7 @@
         <aside class="page-side">
           <section class="panel sidebar-box">
             <h2>一覧の使い方</h2>
-            <p>分類は廃止して、タグ中心で整理しています。主タグと補助タグを組み合わせて探してください。</p>
+            <p>検索欄にタグや媒体を入れると候補が出ます。選択済みの条件はチップで残るので、複数タグを重ねて絞り込めます。</p>
           </section>
         </aside>
       </div>

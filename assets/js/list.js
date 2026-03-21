@@ -12,67 +12,202 @@ import {
 const state = {
   q: "",
   m: "all",
-  t: "all"
+  t: []
 };
 
 const KNOWN_MEDIA = ["アニメ", "漫画", "ゲーム"];
+const MAX_SUGGESTIONS = 8;
 
 let entries = [];
+let filterOptions = [];
 
 const els = {
   searchInput: document.getElementById("searchInput"),
-  mediumChips: document.getElementById("mediumChips"),
-  tagChips: document.getElementById("tagChips"),
+  selectedFilters: document.getElementById("selectedFilters"),
+  searchSuggestions: document.getElementById("searchSuggestions"),
   resultSummary: document.getElementById("resultSummary"),
   entryList: document.getElementById("entryList"),
   resetBtn: document.getElementById("resetBtn")
 };
 
+function sanitizeSelectedTags(value, options) {
+  const allowed = new Set(options);
+  const seen = new Set();
+  return String(value || "")
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter((tag) => tag && allowed.has(tag) && !seen.has(tag) && seen.add(tag));
+}
+
 function parseState(mediumOptions, tagOptions) {
   const params = new URLSearchParams(window.location.search);
   state.q = (params.get("q") || "").trim();
   state.m = normalizeOption(params.get("m") || "all", mediumOptions);
-  state.t = normalizeOption(params.get("t") || "all", tagOptions);
+  state.t = sanitizeSelectedTags(params.get("t"), tagOptions);
 }
 
-function renderChipGroup(container, values, selected, onSelect) {
-  if (!container) return;
+function createFilterOptions() {
+  const mediums = uniqueStrings([...KNOWN_MEDIA, ...entries.map((entry) => entry.medium)]);
+  const tags = uniqueStrings(entries.flatMap((entry) => entry.tags));
 
-  container.innerHTML = "";
+  filterOptions = [
+    ...mediums.map((value) => ({
+      kind: "medium",
+      label: "媒体",
+      value
+    })),
+    ...tags.map((value) => ({
+      kind: "tag",
+      label: "タグ",
+      value
+    }))
+  ];
 
-  ["all", ...values].forEach((value) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "filter-chip";
-    button.dataset.value = value;
-    button.textContent = value === "all" ? "すべて" : value;
-    button.setAttribute("aria-pressed", String(selected === value));
+  return {
+    mediumOptions: ["all", ...mediums],
+    tagOptions: tags
+  };
+}
 
-    if (selected === value) {
-      button.classList.add("filter-chip-active");
-    }
+function getSelectedFilterItems() {
+  const selected = [];
 
+  if (state.m !== "all") {
+    selected.push({ kind: "medium", label: "媒体", value: state.m });
+  }
+
+  state.t.forEach((tag) => {
+    selected.push({ kind: "tag", label: "タグ", value: tag });
+  });
+
+  return selected;
+}
+
+function renderSelectedFilters() {
+  if (!els.selectedFilters) return;
+
+  const selected = getSelectedFilterItems();
+
+  if (!selected.length) {
+    els.selectedFilters.innerHTML = '<span class="filter-chip filter-chip-subtle">追加した絞り込み条件はここに表示されます</span>';
+    return;
+  }
+
+  els.selectedFilters.innerHTML = selected
+    .map(
+      (item) => `
+        <span class="filter-chip filter-chip-active selected-filter-chip">
+          <span class="filter-chip-kind">${escapeHtml(item.label)}</span>
+          <span>${escapeHtml(item.value)}</span>
+          <button
+            type="button"
+            class="filter-chip-remove"
+            data-kind="${escapeHtml(item.kind)}"
+            data-value="${escapeHtml(item.value)}"
+            aria-label="${escapeHtml(`${item.label} ${item.value} を外す`)}"
+          >
+            ×
+          </button>
+        </span>
+      `
+    )
+    .join("");
+
+  els.selectedFilters.querySelectorAll(".filter-chip-remove").forEach((button) => {
     button.addEventListener("click", () => {
-      onSelect(value);
+      removeFilter(button.dataset.kind, button.dataset.value || "");
     });
-
-    container.append(button);
   });
 }
 
-function renderFilterChips() {
-  const mediumValues = uniqueStrings([...KNOWN_MEDIA, ...entries.map((entry) => entry.medium)]);
-  const tagValues = uniqueStrings(entries.flatMap((entry) => entry.tags));
+function getMatchingFilters(query) {
+  const normalized = query.trim().toLowerCase();
+  if (!normalized) return [];
 
-  renderChipGroup(els.mediumChips, mediumValues, state.m, (value) => {
-    state.m = value;
-    rerender();
-  });
+  return filterOptions
+    .filter((option) => {
+      if (option.kind === "medium" && state.m === option.value) return false;
+      if (option.kind === "tag" && state.t.includes(option.value)) return false;
+      return option.value.toLowerCase().includes(normalized);
+    })
+    .sort((a, b) => {
+      const aStarts = a.value.toLowerCase().startsWith(normalized) ? 0 : 1;
+      const bStarts = b.value.toLowerCase().startsWith(normalized) ? 0 : 1;
+      if (aStarts !== bStarts) return aStarts - bStarts;
+      return a.value.localeCompare(b.value, "ja");
+    })
+    .slice(0, MAX_SUGGESTIONS);
+}
 
-  renderChipGroup(els.tagChips, tagValues, state.t, (value) => {
-    state.t = value;
-    rerender();
+function renderSuggestions() {
+  if (!els.searchSuggestions) return;
+
+  const suggestions = getMatchingFilters(state.q);
+
+  if (!state.q) {
+    els.searchSuggestions.innerHTML = "";
+    return;
+  }
+
+  if (!suggestions.length) {
+    els.searchSuggestions.innerHTML = '<span class="filter-chip filter-chip-subtle">候補にない語はそのまま全文検索に使われます</span>';
+    return;
+  }
+
+  els.searchSuggestions.innerHTML = suggestions
+    .map(
+      (option) => `
+        <button
+          type="button"
+          class="filter-chip search-suggestion-chip"
+          data-kind="${escapeHtml(option.kind)}"
+          data-value="${escapeHtml(option.value)}"
+        >
+          <span class="filter-chip-kind">${escapeHtml(option.label)}</span>
+          <span>${escapeHtml(option.value)}</span>
+        </button>
+      `
+    )
+    .join("");
+
+  els.searchSuggestions.querySelectorAll(".search-suggestion-chip").forEach((button) => {
+    button.addEventListener("click", () => {
+      addFilter({
+        kind: button.dataset.kind,
+        value: button.dataset.value || ""
+      });
+    });
   });
+}
+
+function addFilter(option) {
+  if (!option?.value) return;
+
+  if (option.kind === "medium") {
+    state.m = option.value;
+  } else if (option.kind === "tag" && !state.t.includes(option.value)) {
+    state.t = [...state.t, option.value];
+  }
+
+  state.q = "";
+  if (els.searchInput) {
+    els.searchInput.value = "";
+    els.searchInput.focus();
+  }
+
+  rerender();
+}
+
+function removeFilter(kind, value) {
+  if (kind === "medium" && state.m === value) {
+    state.m = "all";
+  }
+
+  if (kind === "tag") {
+    state.t = state.t.filter((tag) => tag !== value);
+  }
+
+  rerender();
 }
 
 function matchesSearch(entry, query) {
@@ -80,6 +215,7 @@ function matchesSearch(entry, query) {
 
   const haystack = [
     entry.work,
+    entry.medium,
     entry.itemTitle,
     entry.status,
     entry.firstAppearance,
@@ -103,9 +239,9 @@ function matchesSearch(entry, query) {
 function getFilteredEntries() {
   return entries.filter((entry) => {
     const matchMedium = state.m === "all" || entry.medium === state.m;
-    const matchTag = state.t === "all" || entry.tags.includes(state.t);
+    const matchTags = state.t.every((tag) => entry.tags.includes(tag));
     const matchQuery = matchesSearch(entry, state.q);
-    return matchMedium && matchTag && matchQuery;
+    return matchMedium && matchTags && matchQuery;
   });
 }
 
@@ -120,7 +256,7 @@ function renderList(filtered) {
   if (!els.entryList) return;
 
   if (!filtered.length) {
-    els.entryList.innerHTML = '<p class="empty-state">条件に一致する記事はありません。検索語かタグを調整してください。</p>';
+    els.entryList.innerHTML = '<p class="empty-state">条件に一致する記事はありません。検索語か絞り込み条件を調整してください。</p>';
     return;
   }
 
@@ -149,13 +285,14 @@ function syncQuery() {
   updateUrlQuery({
     q: state.q,
     m: state.m,
-    t: state.t
+    t: state.t.join(",")
   });
 }
 
 function rerender() {
   const filtered = getFilteredEntries();
-  renderFilterChips();
+  renderSelectedFilters();
+  renderSuggestions();
   renderSummary(filtered);
   renderList(filtered);
   syncQuery();
@@ -164,11 +301,29 @@ function rerender() {
 function resetFilters() {
   state.q = "";
   state.m = "all";
-  state.t = "all";
+  state.t = [];
 
-  if (els.searchInput) els.searchInput.value = "";
+  if (els.searchInput) {
+    els.searchInput.value = "";
+  }
 
   rerender();
+}
+
+function handleSearchKeydown(event) {
+  if (event.key === "Enter") {
+    const [firstSuggestion] = getMatchingFilters(state.q);
+    if (firstSuggestion) {
+      event.preventDefault();
+      addFilter(firstSuggestion);
+    }
+    return;
+  }
+
+  if (event.key === "Backspace" && !state.q && state.t.length) {
+    state.t = state.t.slice(0, -1);
+    rerender();
+  }
 }
 
 function initEvents() {
@@ -177,6 +332,8 @@ function initEvents() {
       state.q = event.target.value.trim();
       rerender();
     });
+
+    els.searchInput.addEventListener("keydown", handleSearchKeydown);
   }
 
   if (els.resetBtn) {
@@ -203,9 +360,7 @@ async function init() {
     return;
   }
 
-  const mediumOptions = ["all", ...uniqueStrings([...KNOWN_MEDIA, ...entries.map((entry) => entry.medium)])];
-  const tagOptions = ["all", ...uniqueStrings(entries.flatMap((entry) => entry.tags))];
-
+  const { mediumOptions, tagOptions } = createFilterOptions();
   parseState(mediumOptions, tagOptions);
 
   if (els.searchInput) {

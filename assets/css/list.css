@@ -1,14 +1,24 @@
 .filters-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
 }
 
-.filter-chip-group {
+.search-field {
+  gap: 12px;
+}
+
+.field-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.selected-filter-list,
+.search-suggestion-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 8px;
 }
 
 .filter-chip {
@@ -48,6 +58,59 @@
   box-shadow: 0 10px 22px rgba(79, 49, 39, 0.16);
 }
 
+.selected-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-chip-kind {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.1rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 248, 239, 0.2);
+  font-size: 0.75rem;
+}
+
+.filter-chip-remove {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.filter-chip-remove:focus-visible {
+  outline: 2px solid rgba(255, 248, 239, 0.72);
+  outline-offset: 2px;
+  border-radius: 999px;
+}
+
+.search-suggestion-list {
+  min-height: 24px;
+}
+
+.search-suggestion-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-suggestion-chip .filter-chip-kind {
+  background: rgba(111, 74, 58, 0.12);
+}
+
+.filter-chip-subtle {
+  color: var(--muted);
+  background: rgba(255, 252, 247, 0.66);
+}
+
 .toolbar {
   display: flex;
   justify-content: space-between;
@@ -68,8 +131,10 @@
   justify-self: start;
 }
 
-@media (max-width: 1040px) {
-  .filters-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 720px) {
+  .selected-filter-chip,
+  .search-suggestion-chip {
+    width: 100%;
+    justify-content: space-between;
   }
 }

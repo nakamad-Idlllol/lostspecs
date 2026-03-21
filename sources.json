@@ -3,6 +3,111 @@
   "updatedAt": "2026-03-21",
   "items": [
     {
+      "id": "src-attackontitan-fandom-com-wiki-hallucigenia",
+      "label": "Attack on Titan Wiki: Hallucigenia",
+      "url": "https://attackontitan.fandom.com/wiki/Hallucigenia",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "進撃の巨人"
+      ],
+      "entryRefs": [
+        27
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-berserk-fandom-com-wiki-gaiseric",
+      "label": "Berserk Wiki: Gaiseric",
+      "url": "https://berserk.fandom.com/wiki/Gaiseric",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ベルセルク"
+      ],
+      "entryRefs": [
+        29
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-berserk-fandom-com-wiki-skull-knight",
+      "label": "Berserk Wiki: Skull Knight",
+      "url": "https://berserk.fandom.com/wiki/Skull_Knight",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ベルセルク"
+      ],
+      "entryRefs": [
+        29
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-bleach-fandom-com-wiki-bleach-no-breaths-from-hell",
+      "label": "Bleach Wiki: Bleach: No Breaths From Hell",
+      "url": "https://bleach.fandom.com/wiki/Bleach:_No_Breaths_From_Hell",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "BLEACH"
+      ],
+      "entryRefs": [
+        26
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-bleach-fandom-com-wiki-hell",
+      "label": "Bleach Wiki: Hell",
+      "url": "https://bleach.fandom.com/wiki/Hell",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "BLEACH"
+      ],
+      "entryRefs": [
+        26
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-bloodborne-fandom-com-wiki-moon-presence",
+      "label": "Bloodborne Wiki: Moon Presence",
+      "url": "https://bloodborne.fandom.com/wiki/Moon_Presence",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "Bloodborne"
+      ],
+      "entryRefs": [
+        16
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-bloodborne-fandom-com-wiki-paleblood",
+      "label": "Bloodborne Wiki: Paleblood",
+      "url": "https://bloodborne.fandom.com/wiki/Paleblood",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "Bloodborne"
+      ],
+      "entryRefs": [
+        16
+      ],
+      "notes": ""
+    },
+    {
       "id": "src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
       "label": "Bulbapedia: BW023 (unaired)",
       "url": "https://bulbapedia.bulbagarden.net/wiki/BW023_%28unaired%29",
@@ -78,6 +183,156 @@
       "notes": ""
     },
     {
+      "id": "src-darksouls-fandom-com-wiki-sin",
+      "label": "Dark Souls Wiki: Sin",
+      "url": "https://darksouls.fandom.com/wiki/Sin",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "DARK SOULS"
+      ],
+      "entryRefs": [
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-darksouls-fandom-com-wiki-velka-goddess-of-sin",
+      "label": "Dark Souls Wiki: Velka, Goddess of Sin",
+      "url": "https://darksouls.fandom.com/wiki/Velka,_Goddess_of_Sin",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "DARK SOULS"
+      ],
+      "entryRefs": [
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-evangelion-fandom-com-wiki-lilith",
+      "label": "Evangelion Wiki: Lilith",
+      "url": "https://evangelion.fandom.com/wiki/Lilith",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "新世紀エヴァンゲリオン"
+      ],
+      "entryRefs": [
+        23
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-evangelion-fandom-com-wiki-ryoji-kaji",
+      "label": "Evangelion Wiki: Ryoji Kaji",
+      "url": "https://evangelion.fandom.com/wiki/Ryoji_Kaji",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "新世紀エヴァンゲリオン"
+      ],
+      "entryRefs": [
+        23
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-finalfantasy-fandom-com-wiki-episode-lunafreya",
+      "label": "Final Fantasy Wiki: Episode Lunafreya",
+      "url": "https://finalfantasy.fandom.com/wiki/Episode_Lunafreya",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "FINAL FANTASY XV"
+      ],
+      "entryRefs": [
+        20
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-finalfantasy-fandom-com-wiki-final-fantasy-xv-the-dawn-of-the-future",
+      "label": "Final Fantasy Wiki: Final Fantasy XV -The Dawn of the Future-",
+      "url": "https://finalfantasy.fandom.com/wiki/Final_Fantasy_XV_-The_Dawn_of_the_Future-",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "FINAL FANTASY XV"
+      ],
+      "entryRefs": [
+        20
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-hollowknight-fandom-com-wiki-lifeblood",
+      "label": "Hollow Knight Wiki: Lifeblood",
+      "url": "https://hollowknight.fandom.com/wiki/Lifeblood",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "Hollow Knight"
+      ],
+      "entryRefs": [
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-hollowknight-fandom-com-wiki-lifeblood-creature",
+      "label": "Hollow Knight Wiki: Lifeblood Creature",
+      "url": "https://hollowknight.fandom.com/wiki/Lifeblood_Creature",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "Hollow Knight"
+      ],
+      "entryRefs": [
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-hunterxhunter-fandom-com-wiki-gyro",
+      "label": "Hunterpedia: Gyro",
+      "url": "https://hunterxhunter.fandom.com/wiki/Gyro",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "HUNTER×HUNTER"
+      ],
+      "entryRefs": [
+        25
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-inscryption-fandom-com-wiki-old-data",
+      "label": "Inscryption Wiki: OLD_DATA",
+      "url": "https://inscryption.fandom.com/wiki/OLD_DATA",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "Inscryption"
+      ],
+      "entryRefs": [
+        18
+      ],
+      "notes": ""
+    },
+    {
       "id": "src-jojo-fandom-com-wiki-pannacotta-fugo",
       "label": "JoJo Wiki (Fandom): Pannacotta Fugo",
       "url": "https://jojo.fandom.com/wiki/Pannacotta_Fugo",
@@ -149,6 +404,96 @@
       ],
       "entryRefs": [
         13
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-naruto-fandom-com-wiki-tenten",
+      "label": "Narutopedia: Tenten",
+      "url": "https://naruto.fandom.com/wiki/Tenten",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "NARUTO"
+      ],
+      "entryRefs": [
+        28
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-naruto-fandom-com-wiki-treasured-tools-of-the-sage-of-six-paths",
+      "label": "Narutopedia: Treasured Tools of the Sage of Six Paths",
+      "url": "https://naruto.fandom.com/wiki/Treasured_Tools_of_the_Sage_of_Six_Paths",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "NARUTO"
+      ],
+      "entryRefs": [
+        28
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-onepunchman-fandom-com-wiki-god",
+      "label": "One-Punch Man Wiki: God",
+      "url": "https://onepunchman.fandom.com/wiki/God",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ワンパンマン"
+      ],
+      "entryRefs": [
+        30
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-onepunchman-fandom-com-wiki-shibabawa",
+      "label": "One-Punch Man Wiki: Shibabawa",
+      "url": "https://onepunchman.fandom.com/wiki/Shibabawa",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ワンパンマン"
+      ],
+      "entryRefs": [
+        30
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-undertale-fandom-com-wiki-entry-number-seventeen",
+      "label": "Undertale Wiki: Entry Number Seventeen",
+      "url": "https://undertale.fandom.com/wiki/Entry_Number_Seventeen",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "UNDERTALE"
+      ],
+      "entryRefs": [
+        15
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-undertale-fandom-com-wiki-w-d-gaster",
+      "label": "Undertale Wiki: W. D. Gaster",
+      "url": "https://undertale.fandom.com/wiki/W._D._Gaster",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "UNDERTALE"
+      ],
+      "entryRefs": [
+        15
       ],
       "notes": ""
     },
@@ -274,6 +619,51 @@
       "notes": ""
     },
     {
+      "id": "src-xenoblade-fandom-com-wiki-lifehold",
+      "label": "Xenoblade Wiki: Lifehold",
+      "url": "https://xenoblade.fandom.com/wiki/Lifehold",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ゼノブレイドクロス"
+      ],
+      "entryRefs": [
+        14
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-xenoblade-fandom-com-wiki-mira",
+      "label": "Xenoblade Wiki: Mira",
+      "url": "https://xenoblade.fandom.com/wiki/Mira",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ゼノブレイドクロス"
+      ],
+      "entryRefs": [
+        14
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-xenosaga-fandom-com-wiki-xenogears",
+      "label": "Xenosaga Wiki: Xenogears",
+      "url": "https://xenosaga.fandom.com/wiki/Xenogears",
+      "sourceType": "fan-wiki",
+      "priority": 2,
+      "enabled": true,
+      "workRefs": [
+        "ゼノギアス"
+      ],
+      "entryRefs": [
+        21
+      ],
+      "notes": ""
+    },
+    {
       "id": "src-kotaku-com-almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
       "label": "Kotaku: Almost A Year Later, Pokemon X & Y's Ghost Girl Is Still A Mystery",
       "url": "https://kotaku.com/almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
@@ -289,6 +679,21 @@
       "notes": ""
     },
     {
+      "id": "src-wiki-puella-magi-net-incubator",
+      "label": "Puella Magi Wiki: Incubator",
+      "url": "https://wiki.puella-magi.net/Incubator",
+      "sourceType": "secondary",
+      "priority": 3,
+      "enabled": true,
+      "workRefs": [
+        "魔法少女まどか☆マギカ"
+      ],
+      "entryRefs": [
+        24
+      ],
+      "notes": ""
+    },
+    {
       "id": "src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
       "label": "CBR: What Happened to Launch?",
       "url": "https://www.cbr.com/dbz-what-happened-to-dragon-ball-launch/",
@@ -300,6 +705,21 @@
       ],
       "entryRefs": [
         7
+      ],
+      "notes": ""
+    },
+    {
+      "id": "src-www-khwiki-com-black-box",
+      "label": "Kingdom Hearts Wiki: Black Box",
+      "url": "https://www.khwiki.com/Black_Box",
+      "sourceType": "secondary",
+      "priority": 3,
+      "enabled": true,
+      "workRefs": [
+        "KINGDOM HEARTS III"
+      ],
+      "entryRefs": [
+        19
       ],
       "notes": ""
     },

@@ -1,6 +1,4 @@
 import {
-  buildCategoriesUrl,
-  buildEntriesUrl,
   buildTermUrl,
   escapeHtml,
   loadEntries,
@@ -141,12 +139,6 @@ function renderTerm(entry) {
       <h2>${escapeHtml(entry.itemTitle)}</h2>
       <p class="term-workline">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
       <p class="term-summary">${escapeHtml(entry.status)}</p>
-      <div class="term-actions">
-        <a class="button ghost" href="${buildEntriesUrl({ q: entry.work })}">同作品で探す</a>
-        <a class="button ghost" href="${buildEntriesUrl({ d: entry.division })}">同じ分別で探す</a>
-        <a class="button ghost" href="${buildEntriesUrl({ j: entry.judgement })}">同じ判別で探す</a>
-        <a class="button ghost" href="${buildCategoriesUrl({ d: entry.division })}">分類ページで見る</a>
-      </div>
     </header>
 
     <section class="meta-strip">

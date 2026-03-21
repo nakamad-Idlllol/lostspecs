@@ -59,12 +59,6 @@
   color: var(--muted);
 }
 
-.term-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
 .meta-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

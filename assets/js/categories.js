@@ -1,6 +1,4 @@
 import {
-  buildEntriesUrl,
-  buildTermUrl,
   escapeHtml,
   getAxisOptions,
   loadEntries,
@@ -15,10 +13,7 @@ const AXES = [
 ];
 
 const els = {
-  categoryGrid: document.getElementById("categoryGrid"),
-  categoryEntriesTitle: document.getElementById("categoryEntriesTitle"),
-  categoryEntries: document.getElementById("categoryEntries"),
-  openEntriesLink: document.getElementById("openEntriesLink")
+  categoryGrid: document.getElementById("categoryGrid")
 };
 
 function getSelectedAxis(options) {
@@ -81,50 +76,10 @@ function renderAxisGrid(entries, selected) {
     .join("");
 }
 
-function renderAxisEntries(entries, selected) {
-  if (!els.categoryEntries || !els.categoryEntriesTitle || !els.openEntriesLink) return;
-
-  const filtered = selected
-    ? entries.filter((entry) => entry[selected.key] === selected.value)
-    : [...entries].sort((a, b) => b.id - a.id).slice(0, 8);
-
-  if (!selected) {
-    els.categoryEntriesTitle.textContent = "分類別の記事";
-    els.openEntriesLink.href = "entries.html";
-  } else {
-    els.categoryEntriesTitle.textContent = `${selected.label}: ${selected.value}`;
-    els.openEntriesLink.href = buildEntriesUrl({ [selected.param]: selected.value });
-  }
-
-  if (!filtered.length) {
-    els.categoryEntries.innerHTML = '<p class="empty-state">該当する記事はありません。</p>';
-    return;
-  }
-
-  els.categoryEntries.innerHTML = filtered
-    .map(
-      (entry) => `
-        <article class="entry-card">
-          <div class="entry-head">
-            <h3 class="entry-title"><a href="${buildTermUrl(entry.id)}">${escapeHtml(entry.itemTitle)}</a></h3>
-            <span class="tag-pill">${escapeHtml(entry.division)}</span>
-          </div>
-          <p class="entry-meta">${escapeHtml(entry.work)} / ${escapeHtml(entry.medium)}</p>
-          <p class="entry-summary">${escapeHtml(entry.judgement)}</p>
-          <a class="button ghost" href="${buildTermUrl(entry.id)}">記事詳細へ</a>
-        </article>
-      `
-    )
-    .join("");
-}
-
 function renderError(message) {
-  if (els.categoryGrid) {
-    els.categoryGrid.innerHTML = `<p class="empty-state">分類データの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
-  }
-  if (els.categoryEntries) {
-    els.categoryEntries.innerHTML = `<p class="empty-state">記事の読み込みに失敗しました: ${escapeHtml(message)}</p>`;
-  }
+  if (!els.categoryGrid) return;
+
+  els.categoryGrid.innerHTML = `<p class="empty-state">分類データの読み込みに失敗しました: ${escapeHtml(message)}</p>`;
 }
 
 async function init() {
@@ -142,7 +97,6 @@ async function init() {
   const selected = getSelectedAxis(options);
 
   renderAxisGrid(entries, selected);
-  renderAxisEntries(entries, selected);
 }
 
 void init();

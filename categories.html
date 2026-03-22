@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/categories.css">
+  <link rel="stylesheet" href="assets/css/categories.css?v=20260322a">
 </head>
 <body>
   <header class="site-header">
     <div class="utility-bar">
       <div class="container utility-inner">
-        <p>架空設定・未回収要素を整理するロアアーカイブ</p>
-        <p>4つの分類から記事の傾向をたどれます</p>
+        <p>語られたのに回収されなかった設定を追うロアアーカイブ</p>
+        <p>4つの分類から気になる切り口をたどれます</p>
       </div>
     </div>
     <div class="container site-head-inner">
@@ -23,7 +23,7 @@
         <p class="brand-kicker">Lore Archive</p>
         <h1 class="brand-title">未回収設定・ロアアーカイブ</h1>
       </a>
-      <p class="head-note">媒体、作品、分別、判別の4つの分類から記事群を横断できます。</p>
+      <p class="head-note">媒体、作品、分別、判別の4つの分類から記事を見つけられます。</p>
     </div>
     <div class="site-nav-wrap">
       <nav class="container site-nav" aria-label="グローバルナビゲーション">
@@ -37,24 +37,14 @@
   <main>
     <div class="container page-stack">
       <div class="page-main">
-          <section>
-            <div class="section-titlebar">
-              <h2>分類一覧</h2>
-            </div>
-            <div id="categoryGrid" class="axis-sections">
-              <p class="empty-state">分類データを読み込み中です...</p>
-            </div>
-          </section>
-
-          <section>
-            <div class="section-titlebar">
-              <h2 id="categoryEntriesTitle">分類別の記事</h2>
-              <a id="openEntriesLink" href="entries.html" class="button ghost">一覧ページで開く</a>
-            </div>
-            <div id="categoryEntries" class="category-entries">
-              <p class="empty-state">分類を選ぶと記事が表示されます。</p>
-            </div>
-          </section>
+        <section>
+          <div class="section-titlebar">
+            <h2>分類一覧</h2>
+          </div>
+          <div id="categoryGrid" class="axis-sections">
+            <p class="empty-state">分類データを読み込み中です...</p>
+          </div>
+        </section>
       </div>
     </div>
   </main>
@@ -72,7 +62,7 @@
     </div>
   </footer>
 
-  <script type="module" src="assets/js/categories.js?v=20260321b"></script>
-  <script type="module" src="assets/js/analytics.js?v=20260321b"></script>
+  <script type="module" src="assets/js/categories.js?v=20260322a"></script>
+  <script type="module" src="assets/js/analytics.js?v=20260322a"></script>
 </body>
 </html>

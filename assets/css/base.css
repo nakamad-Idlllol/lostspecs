@@ -61,25 +61,6 @@ h4 {
   margin: 0 auto;
 }
 
-.utility-bar {
-  border-bottom: 1px solid var(--line);
-  background: linear-gradient(90deg, #a50f0f, #c62828);
-  color: #fff6f6;
-  font-size: 12px;
-}
-
-.utility-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 7px 0;
-  flex-wrap: wrap;
-}
-
-.utility-inner p {
-  margin: 0;
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -92,7 +73,7 @@ h4 {
 .site-head-inner {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   gap: 20px;
   padding: 18px 0 14px;
 }
@@ -106,16 +87,8 @@ h4 {
   text-decoration: none;
 }
 
-.brand-kicker {
-  margin: 0;
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .brand-title {
-  margin: 4px 0 0;
+  margin: 0;
   font-size: 29px;
   line-height: 1.2;
 }
@@ -473,11 +446,6 @@ main {
 }
 
 @media (max-width: 640px) {
-  .utility-inner {
-    flex-direction: column;
-    gap: 4px;
-  }
-
   .entry-head {
     flex-direction: column;
   }

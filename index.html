@@ -7,17 +7,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/base.css?v=20260322b">
+  <link rel="stylesheet" href="assets/css/home.css?v=20260322b">
 </head>
 <body>
   <header class="site-header">
     <div class="container site-head-inner">
       <a class="brand-link" href="index.html">
-        <p class="brand-kicker">Lore Archive</p>
         <h1 class="brand-title">未回収設定・没設定大百科</h1>
       </a>
-      <p class="head-note">作中で提示されたまま回収されなかった設定や、後年補足された空白を一覧化しています。</p>
+      <p class="head-note">作品内で語られたのに回収されなかった設定や、制作事情で外れた設定を一覧できます。</p>
     </div>
     <div class="site-nav-wrap">
       <nav class="container site-nav" aria-label="グローバルナビゲーション">
@@ -36,12 +35,7 @@
           <form class="quick-search" action="entries.html" method="get">
             <label for="quickSearchInput">キーワード検索</label>
             <div class="quick-search-row">
-              <input
-                id="quickSearchInput"
-                name="q"
-                type="search"
-                placeholder=""
-              >
+              <input id="quickSearchInput" name="q" type="search" placeholder="">
               <button type="submit" class="button primary">記事を探す</button>
             </div>
           </form>
@@ -55,17 +49,17 @@
             <a href="entries.html" class="button ghost">記事一覧へ</a>
           </div>
           <ul id="popularList" class="featured-list">
-            <li class="empty-state">項目を読み込み中です...</li>
+            <li class="empty-state">記事を読み込み中です...</li>
           </ul>
         </section>
 
         <section class="home-block">
           <div class="home-titlebar">
-            <h2>最近追加した項目</h2>
+            <h2>最近追加した記事</h2>
             <a href="entries.html" class="button ghost">すべての記事を見る</a>
           </div>
           <ul id="recentList" class="recent-list">
-            <li class="empty-state">項目を読み込み中です...</li>
+            <li class="empty-state">記事を読み込み中です...</li>
           </ul>
         </section>
       </div>
@@ -81,11 +75,11 @@
         更新日:
         <time id="siteUpdatedAt" datetime="">-</time>
       </p>
-      <p>未回収設定・没設定を整理する非公式アーカイブです。</p>
+      <p>未回収設定・没設定大百科を整理するための公開アーカイブです。</p>
     </div>
   </footer>
 
-  <script type="module" src="assets/js/home.js?v=20260321b"></script>
-  <script type="module" src="assets/js/analytics.js?v=20260321b"></script>
+  <script type="module" src="assets/js/home.js?v=20260322b"></script>
+  <script type="module" src="assets/js/analytics.js?v=20260322b"></script>
 </body>
 </html>

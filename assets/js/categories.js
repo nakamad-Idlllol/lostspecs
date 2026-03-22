@@ -57,24 +57,13 @@ function renderAxisGrid(entries, selected) {
   els.categoryGrid.innerHTML = AXES
     .map((axis) => {
       const groups = groupEntries(entries, axis.key);
-      const cards = groups
+      const links = groups
         .map(([value, items]) => {
-          const openThis = `categories.html?${axis.param}=${encodeURIComponent(value)}`;
-          const openEntries = buildEntriesUrl({ [axis.param]: value });
+          const href = `categories.html?${axis.param}=${encodeURIComponent(value)}`;
           const activeClass =
-            selected && selected.param === axis.param && selected.value === value ? " category-card-active" : "";
-          const latest = [...items].sort((a, b) => b.id - a.id)[0];
+            selected && selected.param === axis.param && selected.value === value ? " category-link-active" : "";
 
-          return `
-            <article class="category-card${activeClass}">
-              <h3><a class="category-title-link" href="${openThis}">${escapeHtml(value)}</a></h3>
-              <p class="category-count">${items.length}件</p>
-              <p class="muted">最新: ${escapeHtml(latest?.itemTitle || "-")}</p>
-              <div class="category-actions">
-                <a class="button ghost" href="${openEntries}">この条件で一覧へ</a>
-              </div>
-            </article>
-          `;
+          return `<a class="category-link${activeClass}" href="${href}">${escapeHtml(value)} (${items.length})</a>`;
         })
         .join("");
 
@@ -83,8 +72,8 @@ function renderAxisGrid(entries, selected) {
           <div class="section-titlebar">
             <h3>${escapeHtml(axis.label)}</h3>
           </div>
-          <div class="category-grid axis-card-grid">
-            ${cards || '<p class="empty-state">まだ項目がありません。</p>'}
+          <div class="category-link-list">
+            ${links || '<p class="empty-state">表示できる分類がありません。</p>'}
           </div>
         </section>
       `;
@@ -95,13 +84,15 @@ function renderAxisGrid(entries, selected) {
 function renderAxisEntries(entries, selected) {
   if (!els.categoryEntries || !els.categoryEntriesTitle || !els.openEntriesLink) return;
 
-  const filtered = selected ? entries.filter((entry) => entry[selected.key] === selected.value) : [...entries].sort((a, b) => b.id - a.id).slice(0, 8);
+  const filtered = selected
+    ? entries.filter((entry) => entry[selected.key] === selected.value)
+    : [...entries].sort((a, b) => b.id - a.id).slice(0, 8);
 
   if (!selected) {
     els.categoryEntriesTitle.textContent = "分類別の記事";
     els.openEntriesLink.href = "entries.html";
   } else {
-    els.categoryEntriesTitle.textContent = `${selected.label}別の記事: ${selected.value}`;
+    els.categoryEntriesTitle.textContent = `${selected.label}: ${selected.value}`;
     els.openEntriesLink.href = buildEntriesUrl({ [selected.param]: selected.value });
   }
 

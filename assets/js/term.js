@@ -50,7 +50,7 @@ function renderNotFound() {
   }
 
   renderTocFallback("表示できる目次がありません。");
-  document.title = "記事が見つかりません | 未回収設定・没設定大百科";
+  document.title = "記事が見つかりません | lostspecs";
 }
 
 function buildTocHtml(sections) {
@@ -172,7 +172,7 @@ function renderTerm(entry) {
       .join("")}
   `;
 
-  document.title = `${entry.itemTitle} | 未回収設定・没設定大百科`;
+  document.title = `${entry.itemTitle} | lostspecs`;
 }
 
 function scoreRelated(entry, current) {

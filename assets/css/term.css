@@ -102,6 +102,25 @@
   margin: 0;
 }
 
+.appearance-lead {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg-soft);
+}
+
+.appearance-key {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.appearance-value {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
 .source-list {
   margin: 0;
   padding-left: 20px;

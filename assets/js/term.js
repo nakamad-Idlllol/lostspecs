@@ -98,29 +98,13 @@ function renderTimeline(entry) {
   `;
 }
 
-function trimSentence(text) {
-  return String(text || "").trim().replace(/[。．.!?]+$/u, "");
-}
-
-function renderAppearanceExplanation(entry) {
-  if (!Array.isArray(entry.timeline) || !entry.timeline.length) {
-    return `<p>初出の目安は ${escapeHtml(entry.firstAppearance)} です。登場時期の流れは今後追記予定です。</p>`;
-  }
-
-  const lastIndex = entry.timeline.length - 1;
-  const steps = entry.timeline
-    .map((item, index) => {
-      let prefix = "その後";
-      if (index === 0) prefix = "まず";
-      else if (index === 1) prefix = "次に";
-      else if (index === lastIndex) prefix = "最後に";
-      return `${prefix}「${escapeHtml(item.label)}」には、${escapeHtml(trimSentence(item.detail))}。`;
-    })
-    .join("");
-
+function renderAppearanceSection(entry) {
   return `
-    <p>初出の目安は ${escapeHtml(entry.firstAppearance)} です。記事内では、このあたりを最初の導入地点として整理しています。</p>
-    <p>${steps}</p>
+    <div class="appearance-lead">
+      <p class="appearance-key">最初に表へ出てくる段階</p>
+      <p class="appearance-value">${escapeHtml(entry.firstAppearance)}</p>
+    </div>
+    ${renderTimeline(entry)}
   `;
 }
 
@@ -134,16 +118,15 @@ function buildSections(entry) {
     .join("");
 
   return [
-    { id: "appearance", title: "登場時期の解説", body: renderAppearanceExplanation(entry) },
     { id: "overview", title: "概要", body: `<p>${escapeHtml(entry.overview)}</p>` },
+    { id: "appearance", title: "初出と流れ", body: renderAppearanceSection(entry) },
     { id: "depiction", title: "作中での描写", body: `<p>${escapeHtml(entry.depiction)}</p>` },
     { id: "unresolved", title: "未回収とされるポイント", body: `<p>${escapeHtml(entry.unresolvedPoints)}</p>` },
+    { id: "interpretation", title: "解釈・考察", body: `<p>${escapeHtml(entry.interpretation)}</p>` },
+    { id: "discussion", title: "論点", body: `<p>${escapeHtml(entry.discussionPoints)}</p>` },
     { id: "reception", title: "反応・受け止められ方", body: `<p>${escapeHtml(entry.reception)}</p>` },
     { id: "external", title: "外部資料・補足", body: `<p>${escapeHtml(entry.externalContext)}</p>` },
-    { id: "interpretation", title: "解釈・考察", body: `<p>${escapeHtml(entry.interpretation)}</p>` },
     { id: "future", title: "今後の可能性", body: `<p>${escapeHtml(entry.futurePossibility)}</p>` },
-    { id: "discussion", title: "論点", body: `<p>${escapeHtml(entry.discussionPoints)}</p>` },
-    { id: "timeline", title: "登場時期の流れ", body: renderTimeline(entry) },
     { id: "sources", title: "出典", body: `<ul class="source-list">${sourceHtml || "<li>出典は登録されていません。</li>"}</ul>` }
   ];
 }

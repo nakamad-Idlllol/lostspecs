@@ -98,6 +98,32 @@ function renderTimeline(entry) {
   `;
 }
 
+function trimSentence(text) {
+  return String(text || "").trim().replace(/[。．.!?]+$/u, "");
+}
+
+function renderAppearanceExplanation(entry) {
+  if (!Array.isArray(entry.timeline) || !entry.timeline.length) {
+    return `<p>初出の目安は ${escapeHtml(entry.firstAppearance)} です。登場時期の流れは今後追記予定です。</p>`;
+  }
+
+  const lastIndex = entry.timeline.length - 1;
+  const steps = entry.timeline
+    .map((item, index) => {
+      let prefix = "その後";
+      if (index === 0) prefix = "まず";
+      else if (index === 1) prefix = "次に";
+      else if (index === lastIndex) prefix = "最後に";
+      return `${prefix}「${escapeHtml(item.label)}」には、${escapeHtml(trimSentence(item.detail))}。`;
+    })
+    .join("");
+
+  return `
+    <p>初出の目安は ${escapeHtml(entry.firstAppearance)} です。記事内では、このあたりを最初の導入地点として整理しています。</p>
+    <p>${steps}</p>
+  `;
+}
+
 function buildSections(entry) {
   const sourceHtml = entry.sources
     .map((source) => {
@@ -108,6 +134,7 @@ function buildSections(entry) {
     .join("");
 
   return [
+    { id: "appearance", title: "登場時期の解説", body: renderAppearanceExplanation(entry) },
     { id: "overview", title: "概要", body: `<p>${escapeHtml(entry.overview)}</p>` },
     { id: "depiction", title: "作中での描写", body: `<p>${escapeHtml(entry.depiction)}</p>` },
     { id: "unresolved", title: "未回収とされるポイント", body: `<p>${escapeHtml(entry.unresolvedPoints)}</p>` },
@@ -116,7 +143,7 @@ function buildSections(entry) {
     { id: "interpretation", title: "解釈・考察", body: `<p>${escapeHtml(entry.interpretation)}</p>` },
     { id: "future", title: "今後の可能性", body: `<p>${escapeHtml(entry.futurePossibility)}</p>` },
     { id: "discussion", title: "論点", body: `<p>${escapeHtml(entry.discussionPoints)}</p>` },
-    { id: "timeline", title: "年表", body: renderTimeline(entry) },
+    { id: "timeline", title: "登場時期の流れ", body: renderTimeline(entry) },
     { id: "sources", title: "出典", body: `<ul class="source-list">${sourceHtml || "<li>出典は登録されていません。</li>"}</ul>` }
   ];
 }

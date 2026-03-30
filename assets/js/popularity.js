@@ -35,9 +35,10 @@ export function selectFallbackPopularEntries(entries, limit = POPULAR_ENTRY_LIMI
 
 function getFallbackPopularityScore(entry) {
   let score = 0;
+  const timelineCount = (entry.appearanceTimeline?.length ?? 0) + (entry.outsideTimeline?.length ?? 0);
 
   score += Math.min(entry.sources.length, 3) * 3;
-  score += Math.min(entry.timeline.length, 4) * 2;
+  score += Math.min(timelineCount, 4) * 2;
   score += Math.min(Math.floor((entry.overview || "").length / 80), 3);
 
   if (entry.judgement === "未回収") score += 4;

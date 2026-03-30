@@ -83,6 +83,7 @@ function completeSuggestedEntry(entry) {
     "itemTitle",
     "status",
     "firstAppearance",
+    "firstAppearanceDetail",
     "overview",
     "depiction",
     "unresolvedPoints",
@@ -109,9 +110,16 @@ function completeSuggestedEntry(entry) {
   }
 
   if (
-    !Array.isArray(entry.timeline) ||
-    entry.timeline.length === 0 ||
-    entry.timeline.some((item) => !item || !isNonEmptyString(item.label) || !isNonEmptyString(item.detail))
+    !Array.isArray(entry.appearanceTimeline) ||
+    entry.appearanceTimeline.length === 0 ||
+    entry.appearanceTimeline.some((item) => !item || !isNonEmptyString(item.label) || !isNonEmptyString(item.detail))
+  ) {
+    return false;
+  }
+
+  if (
+    !Array.isArray(entry.outsideTimeline) ||
+    entry.outsideTimeline.some((item) => !item || !isNonEmptyString(item.label) || !isNonEmptyString(item.detail))
   ) {
     return false;
   }

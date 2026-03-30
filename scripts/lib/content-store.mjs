@@ -79,6 +79,7 @@ export function ensureContentSchema(db) {
       item_title TEXT NOT NULL,
       status TEXT NOT NULL,
       first_appearance TEXT NOT NULL,
+      first_appearance_detail TEXT NOT NULL DEFAULT '',
       overview TEXT NOT NULL,
       depiction TEXT NOT NULL,
       unresolved_points TEXT NOT NULL,
@@ -107,6 +108,7 @@ export function ensureContentSchema(db) {
     CREATE TABLE IF NOT EXISTS timelines (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       entry_id INTEGER NOT NULL REFERENCES entries(id) ON DELETE CASCADE,
+      group_key TEXT NOT NULL DEFAULT 'appearance',
       label TEXT NOT NULL,
       detail TEXT NOT NULL,
       sort_order INTEGER NOT NULL
@@ -140,11 +142,20 @@ export function ensureContentSchema(db) {
     CREATE INDEX IF NOT EXISTS idx_entry_sources_source_id ON entry_sources(source_id);
   `);
 
+  ensureColumn(db, "entries", "first_appearance_detail", "TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "timelines", "group_key", "TEXT NOT NULL DEFAULT 'appearance'");
+
   db.prepare(`
     INSERT INTO content_meta(key, value)
-    VALUES ('schema_version', '1')
+    VALUES ('schema_version', '2')
     ON CONFLICT(key) DO UPDATE SET value = excluded.value
   `).run();
+}
+
+function ensureColumn(db, tableName, columnName, definition) {
+  const columns = db.prepare(`PRAGMA table_info(${tableName})`).all();
+  if (columns.some((column) => column.name === columnName)) return;
+  db.exec(`ALTER TABLE ${tableName} ADD COLUMN ${columnName} ${definition}`);
 }
 
 export function closeContentDatabase(db) {
@@ -238,19 +249,19 @@ export function replaceContentFromData(db, { entries, sourceRoot }) {
 
   const insertEntry = db.prepare(`
     INSERT INTO entries(
-      id, work, medium, item_title, status, first_appearance,
+      id, work, medium, item_title, status, first_appearance, first_appearance_detail,
       overview, depiction, unresolved_points, reception, external_context,
       interpretation, future_possibility, discussion_points, created_at, updated_at
     )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
   const insertEntryTag = db.prepare(`
     INSERT INTO entry_tags(entry_id, tag_id, sort_order)
     VALUES (?, ?, ?)
   `);
   const insertTimeline = db.prepare(`
-    INSERT INTO timelines(entry_id, label, detail, sort_order)
-    VALUES (?, ?, ?, ?)
+    INSERT INTO timelines(entry_id, group_key, label, detail, sort_order)
+    VALUES (?, ?, ?, ?, ?)
   `);
   const insertSource = db.prepare(`
     INSERT INTO sources(id, label, url, source_type, priority, enabled, notes, created_at, updated_at)
@@ -289,6 +300,7 @@ export function replaceContentFromData(db, { entries, sourceRoot }) {
         entry.itemTitle,
         entry.status,
         entry.firstAppearance,
+        entry.firstAppearanceDetail,
         entry.overview,
         entry.depiction,
         entry.unresolvedPoints,
@@ -310,8 +322,12 @@ export function replaceContentFromData(db, { entries, sourceRoot }) {
         insertEntryTag.run(entry.id, tagId, index);
       });
 
-      (entry.timeline ?? []).forEach((item, index) => {
-        insertTimeline.run(entry.id, item.label, item.detail, index);
+      (entry.appearanceTimeline ?? []).forEach((item, index) => {
+        insertTimeline.run(entry.id, "appearance", item.label, item.detail, index);
+      });
+
+      (entry.outsideTimeline ?? []).forEach((item, index) => {
+        insertTimeline.run(entry.id, "outside", item.label, item.detail, (entry.appearanceTimeline?.length ?? 0) + index);
       });
 
       let sortOrder = 0;
@@ -396,7 +412,7 @@ export function ensureContentSeededFromJson(db, options = {}) {
 export function exportEntriesFromDb(db) {
   const entries = db.prepare(`
     SELECT
-      id, work, medium, item_title, status, first_appearance,
+      id, work, medium, item_title, status, first_appearance, first_appearance_detail,
       overview, depiction, unresolved_points, reception, external_context,
       interpretation, future_possibility, discussion_points
     FROM entries
@@ -411,7 +427,7 @@ export function exportEntriesFromDb(db) {
     ORDER BY et.sort_order, t.name
   `);
   const timelinesStmt = db.prepare(`
-    SELECT label, detail
+    SELECT group_key, label, detail
     FROM timelines
     WHERE entry_id = ?
     ORDER BY sort_order, id
@@ -424,31 +440,44 @@ export function exportEntriesFromDb(db) {
     ORDER BY es.sort_order, s.id
   `);
 
-  return entries.map((entry) => ({
-    id: entry.id,
-    work: entry.work,
-    medium: entry.medium,
-    itemTitle: entry.item_title,
-    status: entry.status,
-    tags: tagsStmt.all(entry.id).map((row) => row.name),
-    firstAppearance: entry.first_appearance,
-    overview: entry.overview,
-    depiction: entry.depiction,
-    unresolvedPoints: entry.unresolved_points,
-    reception: entry.reception,
-    externalContext: entry.external_context,
-    interpretation: entry.interpretation,
-    futurePossibility: entry.future_possibility,
-    discussionPoints: entry.discussion_points,
-    timeline: timelinesStmt.all(entry.id).map((row) => ({
-      label: row.label,
-      detail: row.detail
-    })),
-    sources: sourcesStmt.all(entry.id).map((row) => ({
-      label: row.label,
-      url: row.url
-    }))
-  }));
+  return entries.map((entry) => {
+    const timelines = timelinesStmt.all(entry.id);
+
+    return {
+      id: entry.id,
+      work: entry.work,
+      medium: entry.medium,
+      itemTitle: entry.item_title,
+      status: entry.status,
+      tags: tagsStmt.all(entry.id).map((row) => row.name),
+      firstAppearance: entry.first_appearance,
+      firstAppearanceDetail: entry.first_appearance_detail,
+      overview: entry.overview,
+      depiction: entry.depiction,
+      unresolvedPoints: entry.unresolved_points,
+      reception: entry.reception,
+      externalContext: entry.external_context,
+      interpretation: entry.interpretation,
+      futurePossibility: entry.future_possibility,
+      discussionPoints: entry.discussion_points,
+      appearanceTimeline: timelines
+        .filter((row) => row.group_key !== "outside")
+        .map((row) => ({
+          label: row.label,
+          detail: row.detail
+        })),
+      outsideTimeline: timelines
+        .filter((row) => row.group_key === "outside")
+        .map((row) => ({
+          label: row.label,
+          detail: row.detail
+        })),
+      sources: sourcesStmt.all(entry.id).map((row) => ({
+        label: row.label,
+        url: row.url
+      }))
+    };
+  });
 }
 
 export function exportSourcesFromDb(db) {

@@ -9,7 +9,7 @@ import {
 
 export const SITE_META = {
   version: "0.5.0",
-  updatedAt: "2026-03-21"
+  updatedAt: "2026-03-30"
 };
 
 const REQUIRED_FIELDS = [
@@ -20,6 +20,7 @@ const REQUIRED_FIELDS = [
   "status",
   "tags",
   "firstAppearance",
+  "firstAppearanceDetail",
   "overview",
   "depiction",
   "unresolvedPoints",
@@ -28,7 +29,8 @@ const REQUIRED_FIELDS = [
   "interpretation",
   "futurePossibility",
   "discussionPoints",
-  "timeline",
+  "appearanceTimeline",
+  "outsideTimeline",
   "sources"
 ];
 
@@ -73,8 +75,12 @@ function validateEntriesShape(data) {
       throw new Error(`entries[${index}].tags は1件以上の配列である必要があります。`);
     }
 
-    if (!Array.isArray(entry.timeline)) {
-      throw new Error(`entries[${index}].timeline は配列である必要があります。`);
+    if (!Array.isArray(entry.appearanceTimeline)) {
+      throw new Error(`entries[${index}].appearanceTimeline は配列である必要があります。`);
+    }
+
+    if (!Array.isArray(entry.outsideTimeline)) {
+      throw new Error(`entries[${index}].outsideTimeline は配列である必要があります。`);
     }
 
     if (!Array.isArray(entry.sources)) {

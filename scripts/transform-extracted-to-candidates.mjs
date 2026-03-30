@@ -174,6 +174,9 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, prim
   const firstAppearance = sourceLinkedExisting
     ? setTemplate("firstAppearance", "既存エントリに関連する補足情報。初出は既存記事を要確認。")
     : setTemplate("firstAppearance", "要確認。出典記事の初出情報を確認して追記。");
+  const firstAppearanceDetail = sourceLinkedExisting
+    ? setTemplate("firstAppearanceDetail", "既存記事のどの場面を初出として扱うか確認し、具体的に追記してください。")
+    : setTemplate("firstAppearanceDetail", "その場面で何が現れ、何が示されるのかを具体的に追記してください。");
 
   const depiction =
     factSeed ||
@@ -195,7 +198,7 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, prim
   const interpretation = setTemplate("interpretation", "解釈・考察は未整理です。複数説がある場合は分けて追記してください。");
   const futurePossibility = setTemplate("futurePossibility", "続編・補足資料・再設定で拾われる余地があるかは未整理です。");
   const discussionPoints = setTemplate("discussionPoints", "論点整理は未着手です。未回収か、演出か、設定変更かを確認してください。");
-  const timeline = [
+  const appearanceTimeline = [
     {
       label: "初期整理",
       detail: sourceLinkedExisting
@@ -203,6 +206,7 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, prim
         : "自動抽出候補として追加。出典本文を見ながら時系列を補う。"
     }
   ];
+  const outsideTimeline = [];
 
   return {
     entry: {
@@ -213,6 +217,7 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, prim
       status,
       tags,
       firstAppearance,
+      firstAppearanceDetail,
       overview,
       depiction,
       unresolvedPoints,
@@ -221,7 +226,8 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, prim
       interpretation,
       futurePossibility,
       discussionPoints,
-      timeline,
+      appearanceTimeline,
+      outsideTimeline,
       sources: [
         {
           label: sourceMeta?.label ?? extracted.url,

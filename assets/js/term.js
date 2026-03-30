@@ -77,14 +77,14 @@ function renderToc(sections) {
   }
 }
 
-function renderTimeline(entry) {
-  if (!Array.isArray(entry.timeline) || !entry.timeline.length) {
-    return "<p>年表情報はまだ整理されていません。</p>";
+function renderTimeline(items, emptyMessage) {
+  if (!Array.isArray(items) || !items.length) {
+    return `<p>${escapeHtml(emptyMessage)}</p>`;
   }
 
   return `
     <ol class="timeline-list">
-      ${entry.timeline
+      ${items
         .map(
           (item) => `
             <li class="timeline-item">
@@ -101,10 +101,24 @@ function renderTimeline(entry) {
 function renderAppearanceSection(entry) {
   return `
     <div class="appearance-lead">
-      <p class="appearance-key">最初に表へ出てくる段階</p>
+      <p class="appearance-key">最初に表へ出てくる地点</p>
       <p class="appearance-value">${escapeHtml(entry.firstAppearance)}</p>
+      <p class="appearance-detail">${escapeHtml(entry.firstAppearanceDetail)}</p>
     </div>
-    ${renderTimeline(entry)}
+    <div class="timeline-block">
+      <h4 class="timeline-heading">登場後の流れ</h4>
+      ${renderTimeline(entry.appearanceTimeline, "登場後の流れはまだ整理されていません。")}
+    </div>
+    ${
+      Array.isArray(entry.outsideTimeline) && entry.outsideTimeline.length
+        ? `
+          <div class="timeline-block">
+            <h4 class="timeline-heading">作品外での補足・受け止められ方</h4>
+            ${renderTimeline(entry.outsideTimeline, "作品外の補足はまだ整理されていません。")}
+          </div>
+        `
+        : ""
+    }
   `;
 }
 

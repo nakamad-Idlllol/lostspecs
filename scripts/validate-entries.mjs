@@ -21,6 +21,7 @@ const requiredFields = [
   "status",
   "tags",
   "firstAppearance",
+  "firstAppearanceDetail",
   "overview",
   "depiction",
   "unresolvedPoints",
@@ -29,7 +30,8 @@ const requiredFields = [
   "interpretation",
   "futurePossibility",
   "discussionPoints",
-  "timeline",
+  "appearanceTimeline",
+  "outsideTimeline",
   "sources"
 ];
 
@@ -104,6 +106,7 @@ entries.forEach((entry, index) => {
     "itemTitle",
     "status",
     "firstAppearance",
+    "firstAppearanceDetail",
     "overview",
     "depiction",
     "unresolvedPoints",
@@ -153,12 +156,34 @@ entries.forEach((entry, index) => {
     }
   }
 
-  if (!Array.isArray(entry.timeline) || entry.timeline.length === 0) {
-    fail(`${label}.timeline は1件以上の配列である必要があります。`);
+  if (!Array.isArray(entry.appearanceTimeline) || entry.appearanceTimeline.length === 0) {
+    fail(`${label}.appearanceTimeline は1件以上の配列である必要があります。`);
     errorCount += 1;
   } else {
-    entry.timeline.forEach((item, itemIndex) => {
-      const itemLabel = `${label}.timeline[${itemIndex}]`;
+    entry.appearanceTimeline.forEach((item, itemIndex) => {
+      const itemLabel = `${label}.appearanceTimeline[${itemIndex}]`;
+      if (!item || typeof item !== "object" || Array.isArray(item)) {
+        fail(`${itemLabel} はオブジェクトである必要があります。`);
+        errorCount += 1;
+        return;
+      }
+      if (!isNonEmptyString(item.label)) {
+        fail(`${itemLabel}.label は空でない文字列である必要があります。`);
+        errorCount += 1;
+      }
+      if (!isNonEmptyString(item.detail)) {
+        fail(`${itemLabel}.detail は空でない文字列である必要があります。`);
+        errorCount += 1;
+      }
+    });
+  }
+
+  if (!Array.isArray(entry.outsideTimeline)) {
+    fail(`${label}.outsideTimeline は配列である必要があります。`);
+    errorCount += 1;
+  } else {
+    entry.outsideTimeline.forEach((item, itemIndex) => {
+      const itemLabel = `${label}.outsideTimeline[${itemIndex}]`;
       if (!item || typeof item !== "object" || Array.isArray(item)) {
         fail(`${itemLabel} はオブジェクトである必要があります。`);
         errorCount += 1;

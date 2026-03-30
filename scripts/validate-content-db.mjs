@@ -9,9 +9,25 @@ import {
   readJson
 } from "./lib/content-store.mjs";
 
+function canonicalize(value) {
+  if (Array.isArray(value)) {
+    return value.map((item) => canonicalize(item));
+  }
+
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.keys(value)
+        .sort()
+        .map((key) => [key, canonicalize(value[key])])
+    );
+  }
+
+  return value;
+}
+
 function assertSame(label, actual, expected) {
-  const actualJson = JSON.stringify(actual);
-  const expectedJson = JSON.stringify(expected);
+  const actualJson = JSON.stringify(canonicalize(actual));
+  const expectedJson = JSON.stringify(canonicalize(expected));
   if (actualJson !== expectedJson) {
     throw new Error(`${label} が content DB と一致しません`);
   }
@@ -21,7 +37,7 @@ function main() {
   const db = openContentDatabase();
 
   try {
-    ensureContentSeededFromJson(db);
+    ensureContentSeededFromJson(db, { force: true });
 
     const dbEntries = exportEntriesFromDb(db);
     const dbSources = exportSourcesFromDb(db);

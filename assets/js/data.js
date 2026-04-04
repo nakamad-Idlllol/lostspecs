@@ -9,7 +9,7 @@ import {
 
 export const SITE_META = {
   version: "0.5.0",
-  updatedAt: "2026-03-30"
+  updatedAt: "2026-04-04"
 };
 
 const REQUIRED_FIELDS = [

@@ -183,8 +183,8 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, prim
     setTemplate("depiction", `出典ページ「${clipText(primaryTitle, 80)}」に関する記述をもとに整理予定。`);
 
   const overview = hasChallengeSignal(extracted)
-    ? setTemplate("overview", "アクセス制限や本文不足があり、一次情報の再確認が必要です。")
-    : setTemplate("overview", `自動抽出候補です。信頼度 ${extracted.confidence ?? "-"} をもとに下書きを生成しています。`);
+    ? setTemplate("overview", "『作品名』には、どこで何が起きる要素なのかを先に書き、未履修でも場面が浮かぶ概要にしてください。")
+    : setTemplate("overview", "『作品名』には、どこで何が起きる要素なのかを先に書き、その後どう扱われるかを短く続けてください。");
 
   const externalContext = description
     ? setTemplate("externalContext", `抽出された説明文: ${clipText(description, 180)}`)
@@ -194,10 +194,10 @@ function buildSuggestedEntry(extracted, sourceMeta, { workRefs, mediumHint, prim
     ? setTemplate("unresolvedPoints", "既存記事に対して、どの論点を補強する情報かを整理してください。")
     : setTemplate("unresolvedPoints", "何が未回収要素として扱えるか、要レビューです。");
 
-  const reception = setTemplate("reception", "反応・受け止められ方は未整理です。必要に応じて追記してください。");
-  const interpretation = setTemplate("interpretation", "解釈・考察は未整理です。複数説がある場合は分けて追記してください。");
-  const futurePossibility = setTemplate("futurePossibility", "続編・補足資料・再設定で拾われる余地があるかは未整理です。");
-  const discussionPoints = setTemplate("discussionPoints", "論点整理は未着手です。未回収か、演出か、設定変更かを確認してください。");
+  const reception = setTemplate("reception", "作品外でどう語られているかを、知名度や語られ方が伝わる形で整理してください。");
+  const interpretation = setTemplate("interpretation", "解釈が割れる場合は立場を分けて書き、本文では断定口調を保ってください。");
+  const futurePossibility = setTemplate("futurePossibility", "今後触れられる余地があるかを、期待だけでなく現実的な見通しで整理してください。");
+  const discussionPoints = setTemplate("discussionPoints", "論点は『何が分からないのか』『どこで見方が分かれるのか』が一目で分かるように書いてください。");
   const appearanceTimeline = [
     {
       label: "初期整理",

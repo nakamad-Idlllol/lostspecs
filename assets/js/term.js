@@ -98,6 +98,19 @@ function renderTimeline(items, emptyMessage) {
   `;
 }
 
+function renderSectionText(text) {
+  const paragraphs = String(text ?? "")
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
+  if (!paragraphs.length) {
+    return "<p></p>";
+  }
+
+  return paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("");
+}
+
 function renderAppearanceSection(entry) {
   return `
     <div class="appearance-lead">
@@ -132,15 +145,15 @@ function buildSections(entry) {
     .join("");
 
   return [
-    { id: "overview", title: "概要", body: `<p>${escapeHtml(entry.overview)}</p>` },
+    { id: "overview", title: "概要", body: renderSectionText(entry.overview) },
     { id: "appearance", title: "初出と流れ", body: renderAppearanceSection(entry) },
-    { id: "depiction", title: "作中での描写", body: `<p>${escapeHtml(entry.depiction)}</p>` },
-    { id: "unresolved", title: "未回収とされるポイント", body: `<p>${escapeHtml(entry.unresolvedPoints)}</p>` },
-    { id: "interpretation", title: "解釈・考察", body: `<p>${escapeHtml(entry.interpretation)}</p>` },
-    { id: "discussion", title: "論点", body: `<p>${escapeHtml(entry.discussionPoints)}</p>` },
-    { id: "reception", title: "反応・受け止められ方", body: `<p>${escapeHtml(entry.reception)}</p>` },
-    { id: "external", title: "外部資料・補足", body: `<p>${escapeHtml(entry.externalContext)}</p>` },
-    { id: "future", title: "今後の可能性", body: `<p>${escapeHtml(entry.futurePossibility)}</p>` },
+    { id: "depiction", title: "作中での描写", body: renderSectionText(entry.depiction) },
+    { id: "unresolved", title: "未回収とされるポイント", body: renderSectionText(entry.unresolvedPoints) },
+    { id: "interpretation", title: "解釈・考察", body: renderSectionText(entry.interpretation) },
+    { id: "discussion", title: "論点", body: renderSectionText(entry.discussionPoints) },
+    { id: "reception", title: "反応・受け止められ方", body: renderSectionText(entry.reception) },
+    { id: "external", title: "外部資料・補足", body: renderSectionText(entry.externalContext) },
+    { id: "future", title: "今後の可能性", body: renderSectionText(entry.futurePossibility) },
     { id: "sources", title: "出典", body: `<ul class="source-list">${sourceHtml || "<li>出典は登録されていません。</li>"}</ul>` }
   ];
 }

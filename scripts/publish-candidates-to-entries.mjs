@@ -10,6 +10,7 @@ import {
   openContentDatabase,
   replaceContentFromData
 } from "./lib/content-store.mjs";
+import { applyEditorialStyleToEntries } from "./lib/editorial-style.mjs";
 import { getPrimaryTag, loadTagCatalog, normalizeTags, sortTags } from "./lib/tag-catalog.mjs";
 
 const CANDIDATES_ROOT = path.resolve(process.cwd(), "data", "candidates");
@@ -270,7 +271,7 @@ function main() {
       }
 
       replaceContentFromData(db, {
-        entries: nextEntries,
+        entries: applyEditorialStyleToEntries(nextEntries),
         sourceRoot: currentSources
       });
       exportPublicJsonFromDb(db);

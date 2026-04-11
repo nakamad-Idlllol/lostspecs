@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-10T19:25:33.878Z",
-  "batch": "20260410-191505",
+  "generatedAt": "2026-04-11T19:18:08.332Z",
+  "batch": "20260411-190741",
   "total": 50,
   "items": [
     {
-      "candidateId": "cand-20260410-191505-src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+      "candidateId": "cand-20260411-190741-src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
       "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/BW023_%28unaired%29",
       "title": "BW023 (unaired)",
@@ -29,7 +29,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+      "candidateId": "cand-20260411-190741-src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
       "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/BW024_%28unaired%29",
       "title": "BW024 (unaired)",
@@ -54,7 +54,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-bulbapedia-bulbagarden-net-wiki-gs-ball",
+      "candidateId": "cand-20260411-190741-src-bulbapedia-bulbagarden-net-wiki-gs-ball",
       "sourceId": "src-bulbapedia-bulbagarden-net-wiki-gs-ball",
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/GS_Ball",
       "title": "GS Ball",
@@ -79,7 +79,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-bulbapedia-bulbagarden-net-wiki-north-boulevard",
+      "candidateId": "cand-20260411-190741-src-bulbapedia-bulbagarden-net-wiki-north-boulevard",
       "sourceId": "src-bulbapedia-bulbagarden-net-wiki-north-boulevard",
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/North_Boulevard",
       "title": "North Boulevard",
@@ -104,7 +104,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-bulbapedia-bulbagarden-net-wiki-power-plant-28kalos-29",
+      "candidateId": "cand-20260411-190741-src-bulbapedia-bulbagarden-net-wiki-power-plant-28kalos-29",
       "sourceId": "src-bulbapedia-bulbagarden-net-wiki-power-plant-28kalos-29",
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Power_Plant_%28Kalos%29",
       "title": "Kalos Power Plant",
@@ -129,32 +129,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-finalfantasy-fandom-com-wiki-final-fantasy-xv-the-dawn-of-the-future",
-      "sourceId": "src-finalfantasy-fandom-com-wiki-final-fantasy-xv-the-dawn-of-the-future",
-      "sourceUrl": "https://finalfantasy.fandom.com/wiki/Final_Fantasy_XV_-The_Dawn_of_the_Future-",
-      "title": "Final Fantasy XV -The Dawn of the Future-",
-      "decision": {
-        "key": "needs_review",
-        "label": "要レビュー"
-      },
-      "confidence": 100,
-      "candidateType": "evidence_update",
-      "autoEligible": false,
-      "templateFilled": true,
-      "duplicateSignals": {
-        "sourceUrlAlreadyUsed": true,
-        "linkedExistingEntries": true
-      },
-      "workRefs": [
-        "FINAL FANTASY XV"
-      ],
-      "entryRefs": [
-        20
-      ],
-      "reviewReasons": []
-    },
-    {
-      "candidateId": "cand-20260410-191505-src-kotaku-com-almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
+      "candidateId": "cand-20260411-190741-src-kotaku-com-almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
       "sourceId": "src-kotaku-com-almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
       "sourceUrl": "https://kotaku.com/almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
       "title": "Almost A Year Later, Pokémon X &#038; Y&#8217;s Ghost Girl Is Still A Mystery",
@@ -179,7 +154,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
+      "candidateId": "cand-20260411-190741-src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
       "sourceId": "src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
       "sourceUrl": "https://www.cbr.com/dbz-what-happened-to-dragon-ball-launch/",
       "title": "A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago",
@@ -204,7 +179,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-www-khwiki-com-black-box",
+      "candidateId": "cand-20260411-190741-src-www-khwiki-com-black-box",
       "sourceId": "src-www-khwiki-com-black-box",
       "sourceUrl": "https://www.khwiki.com/Black_Box",
       "title": "Black Box",
@@ -229,7 +204,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-www-thegamer-com-pokemon-x-y-follow-ups-canceled-plans",
+      "candidateId": "cand-20260411-190741-src-www-thegamer-com-pokemon-x-y-follow-ups-canceled-plans",
       "sourceId": "src-www-thegamer-com-pokemon-x-y-follow-ups-canceled-plans",
       "sourceUrl": "https://www.thegamer.com/pokemon-x-y-follow-ups-canceled-plans/",
       "title": "What Did Game Freak Have Planned For The Canceled Pokémon X & Y Follow-Ups?",
@@ -254,7 +229,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-wikimon-net-dagomon",
+      "candidateId": "cand-20260411-190741-src-wikimon-net-dagomon",
       "sourceId": "src-wikimon-net-dagomon",
       "sourceUrl": "https://wikimon.net/Dagomon",
       "title": "Dagomon",
@@ -279,7 +254,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-wikimon-net-digimon-adventure-02",
+      "candidateId": "cand-20260411-190741-src-wikimon-net-digimon-adventure-02",
       "sourceId": "src-wikimon-net-digimon-adventure-02",
       "sourceUrl": "https://wikimon.net/Digimon_Adventure_02",
       "title": "Digimon Adventure 02",
@@ -304,7 +279,32 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-wikimon-net-digimon-adventure-02-episode-43",
+      "candidateId": "cand-20260411-190741-src-wikimon-net-digimon-adventure-02-episode-13",
+      "sourceId": "src-wikimon-net-digimon-adventure-02-episode-13",
+      "sourceUrl": "https://wikimon.net/Digimon_Adventure_02_-_Episode_13",
+      "title": "Digimon Adventure 02 - Episode 13",
+      "decision": {
+        "key": "needs_review",
+        "label": "要レビュー"
+      },
+      "confidence": 90,
+      "candidateType": "evidence_update",
+      "autoEligible": false,
+      "templateFilled": true,
+      "duplicateSignals": {
+        "sourceUrlAlreadyUsed": true,
+        "linkedExistingEntries": true
+      },
+      "workRefs": [
+        "デジモンアドベンチャー02"
+      ],
+      "entryRefs": [
+        3
+      ],
+      "reviewReasons": []
+    },
+    {
+      "candidateId": "cand-20260411-190741-src-wikimon-net-digimon-adventure-02-episode-43",
       "sourceId": "src-wikimon-net-digimon-adventure-02-episode-43",
       "sourceUrl": "https://wikimon.net/Digimon_Adventure_02_-_Episode_43",
       "title": "Digimon Adventure 02 - Episode 43",
@@ -329,7 +329,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-wikimon-net-digimon-adventure-tri",
+      "candidateId": "cand-20260411-190741-src-wikimon-net-digimon-adventure-tri",
       "sourceId": "src-wikimon-net-digimon-adventure-tri",
       "sourceUrl": "https://wikimon.net/Digimon_Adventure_tri.",
       "title": "Digimon Adventure tri.",
@@ -355,7 +355,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-wikimon-net-mysterious-man",
+      "candidateId": "cand-20260411-190741-src-wikimon-net-mysterious-man",
       "sourceId": "src-wikimon-net-mysterious-man",
       "sourceUrl": "https://wikimon.net/Mysterious_Man",
       "title": "Mysterious Man",
@@ -380,7 +380,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-wikimon-net-world-of-darkness",
+      "candidateId": "cand-20260411-190741-src-wikimon-net-world-of-darkness",
       "sourceId": "src-wikimon-net-world-of-darkness",
       "sourceUrl": "https://wikimon.net/World_of_Darkness",
       "title": "World of Darkness",
@@ -405,7 +405,7 @@
       "reviewReasons": []
     },
     {
-      "candidateId": "cand-20260410-191505-src-attackontitan-fandom-com-wiki-hallucigenia",
+      "candidateId": "cand-20260411-190741-src-attackontitan-fandom-com-wiki-hallucigenia",
       "sourceId": "src-attackontitan-fandom-com-wiki-hallucigenia",
       "sourceUrl": "https://attackontitan.fandom.com/wiki/Hallucigenia",
       "title": "Just a moment...",
@@ -435,7 +435,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-berserk-fandom-com-wiki-gaiseric",
+      "candidateId": "cand-20260411-190741-src-berserk-fandom-com-wiki-gaiseric",
       "sourceId": "src-berserk-fandom-com-wiki-gaiseric",
       "sourceUrl": "https://berserk.fandom.com/wiki/Gaiseric",
       "title": "Just a moment...",
@@ -465,7 +465,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-berserk-fandom-com-wiki-skull-knight",
+      "candidateId": "cand-20260411-190741-src-berserk-fandom-com-wiki-skull-knight",
       "sourceId": "src-berserk-fandom-com-wiki-skull-knight",
       "sourceUrl": "https://berserk.fandom.com/wiki/Skull_Knight",
       "title": "Just a moment...",
@@ -495,7 +495,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-bleach-fandom-com-wiki-bleach-no-breaths-from-hell",
+      "candidateId": "cand-20260411-190741-src-bleach-fandom-com-wiki-bleach-no-breaths-from-hell",
       "sourceId": "src-bleach-fandom-com-wiki-bleach-no-breaths-from-hell",
       "sourceUrl": "https://bleach.fandom.com/wiki/Bleach:_No_Breaths_From_Hell",
       "title": "Just a moment...",
@@ -525,7 +525,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-bleach-fandom-com-wiki-hell",
+      "candidateId": "cand-20260411-190741-src-bleach-fandom-com-wiki-hell",
       "sourceId": "src-bleach-fandom-com-wiki-hell",
       "sourceUrl": "https://bleach.fandom.com/wiki/Hell",
       "title": "Just a moment...",
@@ -555,7 +555,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-bloodborne-fandom-com-wiki-moon-presence",
+      "candidateId": "cand-20260411-190741-src-bloodborne-fandom-com-wiki-moon-presence",
       "sourceId": "src-bloodborne-fandom-com-wiki-moon-presence",
       "sourceUrl": "https://bloodborne.fandom.com/wiki/Moon_Presence",
       "title": "Just a moment...",
@@ -585,7 +585,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-bloodborne-fandom-com-wiki-paleblood",
+      "candidateId": "cand-20260411-190741-src-bloodborne-fandom-com-wiki-paleblood",
       "sourceId": "src-bloodborne-fandom-com-wiki-paleblood",
       "sourceUrl": "https://bloodborne.fandom.com/wiki/Paleblood",
       "title": "Just a moment...",
@@ -615,7 +615,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-darksouls-fandom-com-wiki-sin",
+      "candidateId": "cand-20260411-190741-src-darksouls-fandom-com-wiki-sin",
       "sourceId": "src-darksouls-fandom-com-wiki-sin",
       "sourceUrl": "https://darksouls.fandom.com/wiki/Sin",
       "title": "Just a moment...",
@@ -645,7 +645,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-darksouls-fandom-com-wiki-velka-goddess-of-sin",
+      "candidateId": "cand-20260411-190741-src-darksouls-fandom-com-wiki-velka-goddess-of-sin",
       "sourceId": "src-darksouls-fandom-com-wiki-velka-goddess-of-sin",
       "sourceUrl": "https://darksouls.fandom.com/wiki/Velka,_Goddess_of_Sin",
       "title": "Just a moment...",
@@ -675,7 +675,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-evangelion-fandom-com-wiki-lilith",
+      "candidateId": "cand-20260411-190741-src-evangelion-fandom-com-wiki-lilith",
       "sourceId": "src-evangelion-fandom-com-wiki-lilith",
       "sourceUrl": "https://evangelion.fandom.com/wiki/Lilith",
       "title": "Just a moment...",
@@ -705,7 +705,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-evangelion-fandom-com-wiki-ryoji-kaji",
+      "candidateId": "cand-20260411-190741-src-evangelion-fandom-com-wiki-ryoji-kaji",
       "sourceId": "src-evangelion-fandom-com-wiki-ryoji-kaji",
       "sourceUrl": "https://evangelion.fandom.com/wiki/Ryoji_Kaji",
       "title": "Just a moment...",
@@ -735,7 +735,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-finalfantasy-fandom-com-wiki-episode-lunafreya",
+      "candidateId": "cand-20260411-190741-src-finalfantasy-fandom-com-wiki-episode-lunafreya",
       "sourceId": "src-finalfantasy-fandom-com-wiki-episode-lunafreya",
       "sourceUrl": "https://finalfantasy.fandom.com/wiki/Episode_Lunafreya",
       "title": "Just a moment...",
@@ -765,7 +765,37 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-hollowknight-fandom-com-wiki-lifeblood",
+      "candidateId": "cand-20260411-190741-src-finalfantasy-fandom-com-wiki-final-fantasy-xv-the-dawn-of-the-future",
+      "sourceId": "src-finalfantasy-fandom-com-wiki-final-fantasy-xv-the-dawn-of-the-future",
+      "sourceUrl": "https://finalfantasy.fandom.com/wiki/Final_Fantasy_XV_-The_Dawn_of_the_Future-",
+      "title": "Just a moment...",
+      "decision": {
+        "key": "needs_review",
+        "label": "要レビュー"
+      },
+      "confidence": 0,
+      "candidateType": "evidence_update",
+      "autoEligible": false,
+      "templateFilled": true,
+      "duplicateSignals": {
+        "sourceUrlAlreadyUsed": true,
+        "linkedExistingEntries": true
+      },
+      "workRefs": [
+        "FINAL FANTASY XV"
+      ],
+      "entryRefs": [
+        20
+      ],
+      "reviewReasons": [
+        "fetch_failed",
+        "non_2xx",
+        "short_text",
+        "bot_challenge_or_gate"
+      ]
+    },
+    {
+      "candidateId": "cand-20260411-190741-src-hollowknight-fandom-com-wiki-lifeblood",
       "sourceId": "src-hollowknight-fandom-com-wiki-lifeblood",
       "sourceUrl": "https://hollowknight.fandom.com/wiki/Lifeblood",
       "title": "Just a moment...",
@@ -795,7 +825,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-hollowknight-fandom-com-wiki-lifeblood-creature",
+      "candidateId": "cand-20260411-190741-src-hollowknight-fandom-com-wiki-lifeblood-creature",
       "sourceId": "src-hollowknight-fandom-com-wiki-lifeblood-creature",
       "sourceUrl": "https://hollowknight.fandom.com/wiki/Lifeblood_Creature",
       "title": "Just a moment...",
@@ -825,7 +855,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-hunterxhunter-fandom-com-wiki-gyro",
+      "candidateId": "cand-20260411-190741-src-hunterxhunter-fandom-com-wiki-gyro",
       "sourceId": "src-hunterxhunter-fandom-com-wiki-gyro",
       "sourceUrl": "https://hunterxhunter.fandom.com/wiki/Gyro",
       "title": "Just a moment...",
@@ -855,7 +885,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-inscryption-fandom-com-wiki-old-data",
+      "candidateId": "cand-20260411-190741-src-inscryption-fandom-com-wiki-old-data",
       "sourceId": "src-inscryption-fandom-com-wiki-old-data",
       "sourceUrl": "https://inscryption.fandom.com/wiki/OLD_DATA",
       "title": "Just a moment...",
@@ -885,7 +915,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-jojo-fandom-com-wiki-pannacotta-fugo",
+      "candidateId": "cand-20260411-190741-src-jojo-fandom-com-wiki-pannacotta-fugo",
       "sourceId": "src-jojo-fandom-com-wiki-pannacotta-fugo",
       "sourceUrl": "https://jojo.fandom.com/wiki/Pannacotta_Fugo",
       "title": "Just a moment...",
@@ -915,7 +945,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-jojo-fandom-com-wiki-unnamed-characters",
+      "candidateId": "cand-20260411-190741-src-jojo-fandom-com-wiki-unnamed-characters",
       "sourceId": "src-jojo-fandom-com-wiki-unnamed-characters",
       "sourceUrl": "https://jojo.fandom.com/wiki/Unnamed_Characters",
       "title": "Just a moment...",
@@ -945,7 +975,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-jojowiki-com-jjl-chapter-83",
+      "candidateId": "cand-20260411-190741-src-jojowiki-com-jjl-chapter-83",
       "sourceId": "src-jojowiki-com-jjl-chapter-83",
       "sourceUrl": "https://jojowiki.com/JJL_Chapter_83",
       "title": "JoJo's Bizarre Encyclopedia: JJL Chapter 83",
@@ -976,7 +1006,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-metalgear-fandom-com-wiki-kingdom-of-the-flies",
+      "candidateId": "cand-20260411-190741-src-metalgear-fandom-com-wiki-kingdom-of-the-flies",
       "sourceId": "src-metalgear-fandom-com-wiki-kingdom-of-the-flies",
       "sourceUrl": "https://metalgear.fandom.com/wiki/Kingdom_of_the_Flies",
       "title": "Just a moment...",
@@ -1006,7 +1036,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-metalgear-fandom-com-wiki-phantom-pain-incident",
+      "candidateId": "cand-20260411-190741-src-metalgear-fandom-com-wiki-phantom-pain-incident",
       "sourceId": "src-metalgear-fandom-com-wiki-phantom-pain-incident",
       "sourceUrl": "https://metalgear.fandom.com/wiki/Phantom_Pain_Incident",
       "title": "Just a moment...",
@@ -1036,7 +1066,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-naruto-fandom-com-wiki-tenten",
+      "candidateId": "cand-20260411-190741-src-naruto-fandom-com-wiki-tenten",
       "sourceId": "src-naruto-fandom-com-wiki-tenten",
       "sourceUrl": "https://naruto.fandom.com/wiki/Tenten",
       "title": "Just a moment...",
@@ -1066,7 +1096,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-naruto-fandom-com-wiki-treasured-tools-of-the-sage-of-six-paths",
+      "candidateId": "cand-20260411-190741-src-naruto-fandom-com-wiki-treasured-tools-of-the-sage-of-six-paths",
       "sourceId": "src-naruto-fandom-com-wiki-treasured-tools-of-the-sage-of-six-paths",
       "sourceUrl": "https://naruto.fandom.com/wiki/Treasured_Tools_of_the_Sage_of_Six_Paths",
       "title": "Just a moment...",
@@ -1096,7 +1126,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-onepunchman-fandom-com-wiki-god",
+      "candidateId": "cand-20260411-190741-src-onepunchman-fandom-com-wiki-god",
       "sourceId": "src-onepunchman-fandom-com-wiki-god",
       "sourceUrl": "https://onepunchman.fandom.com/wiki/God",
       "title": "Just a moment...",
@@ -1126,7 +1156,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-onepunchman-fandom-com-wiki-shibabawa",
+      "candidateId": "cand-20260411-190741-src-onepunchman-fandom-com-wiki-shibabawa",
       "sourceId": "src-onepunchman-fandom-com-wiki-shibabawa",
       "sourceUrl": "https://onepunchman.fandom.com/wiki/Shibabawa",
       "title": "Just a moment...",
@@ -1156,7 +1186,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-undertale-fandom-com-wiki-entry-number-seventeen",
+      "candidateId": "cand-20260411-190741-src-undertale-fandom-com-wiki-entry-number-seventeen",
       "sourceId": "src-undertale-fandom-com-wiki-entry-number-seventeen",
       "sourceUrl": "https://undertale.fandom.com/wiki/Entry_Number_Seventeen",
       "title": "Just a moment...",
@@ -1186,7 +1216,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-undertale-fandom-com-wiki-w-d-gaster",
+      "candidateId": "cand-20260411-190741-src-undertale-fandom-com-wiki-w-d-gaster",
       "sourceId": "src-undertale-fandom-com-wiki-w-d-gaster",
       "sourceUrl": "https://undertale.fandom.com/wiki/W._D._Gaster",
       "title": "Just a moment...",
@@ -1216,7 +1246,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-wiki-puella-magi-net-incubator",
+      "candidateId": "cand-20260411-190741-src-wiki-puella-magi-net-incubator",
       "sourceId": "src-wiki-puella-magi-net-incubator",
       "sourceUrl": "https://wiki.puella-magi.net/Incubator",
       "title": "Just a moment...",
@@ -1246,7 +1276,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-wikimon-net-bakumon-28adventure-29",
+      "candidateId": "cand-20260411-190741-src-wikimon-net-bakumon-28adventure-29",
       "sourceId": "src-wikimon-net-bakumon-28adventure-29",
       "sourceUrl": "https://wikimon.net/Bakumon_%28Adventure%29",
       "title": "Just a moment...",
@@ -1276,37 +1306,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-wikimon-net-digimon-adventure-02-episode-13",
-      "sourceId": "src-wikimon-net-digimon-adventure-02-episode-13",
-      "sourceUrl": "https://wikimon.net/Digimon_Adventure_02_-_Episode_13",
-      "title": "Just a moment...",
-      "decision": {
-        "key": "needs_review",
-        "label": "要レビュー"
-      },
-      "confidence": 0,
-      "candidateType": "evidence_update",
-      "autoEligible": false,
-      "templateFilled": true,
-      "duplicateSignals": {
-        "sourceUrlAlreadyUsed": true,
-        "linkedExistingEntries": true
-      },
-      "workRefs": [
-        "デジモンアドベンチャー02"
-      ],
-      "entryRefs": [
-        3
-      ],
-      "reviewReasons": [
-        "fetch_failed",
-        "non_2xx",
-        "short_text",
-        "bot_challenge_or_gate"
-      ]
-    },
-    {
-      "candidateId": "cand-20260410-191505-src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-man",
+      "candidateId": "cand-20260411-190741-src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-man",
       "sourceId": "src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-many-in",
       "sourceUrl": "https://www.pokebeach.com/2008/07/second-pokemon-interview-with-masamitsu-hidaka-many-interesting-points",
       "title": "Just a moment...",
@@ -1336,7 +1336,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-xenoblade-fandom-com-wiki-lifehold",
+      "candidateId": "cand-20260411-190741-src-xenoblade-fandom-com-wiki-lifehold",
       "sourceId": "src-xenoblade-fandom-com-wiki-lifehold",
       "sourceUrl": "https://xenoblade.fandom.com/wiki/Lifehold",
       "title": "Just a moment...",
@@ -1366,7 +1366,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-xenoblade-fandom-com-wiki-mira",
+      "candidateId": "cand-20260411-190741-src-xenoblade-fandom-com-wiki-mira",
       "sourceId": "src-xenoblade-fandom-com-wiki-mira",
       "sourceUrl": "https://xenoblade.fandom.com/wiki/Mira",
       "title": "Just a moment...",
@@ -1396,7 +1396,7 @@
       ]
     },
     {
-      "candidateId": "cand-20260410-191505-src-xenosaga-fandom-com-wiki-xenogears",
+      "candidateId": "cand-20260411-190741-src-xenosaga-fandom-com-wiki-xenogears",
       "sourceId": "src-xenosaga-fandom-com-wiki-xenogears",
       "sourceUrl": "https://xenosaga.fandom.com/wiki/Xenogears",
       "title": "Just a moment...",

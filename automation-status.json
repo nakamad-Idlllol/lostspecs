@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-27T20:02:03.510Z",
+  "generatedAt": "2026-04-28T20:09:18.603Z",
   "site": {
     "version": "0.4.6",
-    "updatedAt": "2026-04-27"
+    "updatedAt": "2026-04-28"
   },
   "deployment": {
     "provider": "vercel",
@@ -25,23 +25,23 @@
     }
   },
   "latest": {
-    "extractedBatch": "20260427-195130",
+    "extractedBatch": "20260428-195844",
     "extractedSummary": {
-      "batch": "20260427-195130",
+      "batch": "20260428-195844",
       "processed": 50,
       "thresholds": {
         "candidateReadyMin": 85,
         "needsReviewMin": 55
       },
-      "holdCount": 17,
-      "candidateReadyCount": 30,
+      "holdCount": 18,
+      "candidateReadyCount": 29,
       "needsReviewCount": 3,
-      "generatedAt": "2026-04-27T20:02:03.368Z"
+      "generatedAt": "2026-04-28T20:09:18.460Z"
     },
-    "candidatesBatch": "20260427-195130",
+    "candidatesBatch": "20260428-195844",
     "candidatesSummary": {
-      "batch": "20260427-195130",
-      "generatedAt": "2026-04-27T20:02:03.425Z",
+      "batch": "20260428-195844",
+      "generatedAt": "2026-04-28T20:09:18.518Z",
       "total": 50,
       "candidateReadyCount": 0,
       "needsReviewCount": 50,
@@ -51,10 +51,10 @@
       "evidenceUpdateCount": 50,
       "newEntryCount": 0
     },
-    "publisherBatch": "20260427-195130",
+    "publisherBatch": "20260428-195844",
     "publisherSummary": {
-      "batch": "20260427-195130",
-      "generatedAt": "2026-04-27T20:02:03.477Z",
+      "batch": "20260428-195844",
+      "generatedAt": "2026-04-28T20:09:18.570Z",
       "requestedApply": true,
       "autoApplyEnabled": true,
       "totalCandidates": 50,
@@ -63,12 +63,12 @@
       "rejectedCount": 50,
       "reasonsHistogram": {
         "decision_not_candidate_ready": 50,
-        "confidence_too_low": 26,
         "candidate_type_not_auto_publishable": 50,
         "source_url_already_used": 50,
         "linked_existing_entry": 50,
         "template_filled_entry_blocked": 50,
-        "entry_source_url_already_exists": 50
+        "entry_source_url_already_exists": 50,
+        "confidence_too_low": 27
       }
     }
   }

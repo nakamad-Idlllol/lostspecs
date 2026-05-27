@@ -1,9 +1,9 @@
 {
-  "batch": "20260526-202811",
-  "path": "data/candidates/20260526-202811",
+  "batch": "20260527-203022",
+  "path": "data/candidates/20260527-203022",
   "summary": {
-    "batch": "20260526-202811",
-    "generatedAt": "2026-05-26T20:38:39.781Z",
+    "batch": "20260527-203022",
+    "generatedAt": "2026-05-27T20:40:49.287Z",
     "total": 50,
     "candidateReadyCount": 0,
     "needsReviewCount": 50,

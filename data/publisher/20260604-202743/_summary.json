@@ -1,0 +1,19 @@
+{
+  "batch": "20260604-202743",
+  "generatedAt": "2026-06-04T20:38:12.358Z",
+  "requestedApply": true,
+  "autoApplyEnabled": true,
+  "totalCandidates": 50,
+  "publishableCount": 0,
+  "appliedCount": 0,
+  "rejectedCount": 50,
+  "reasonsHistogram": {
+    "decision_not_candidate_ready": 50,
+    "confidence_too_low": 41,
+    "candidate_type_not_auto_publishable": 50,
+    "source_url_already_used": 50,
+    "linked_existing_entry": 50,
+    "template_filled_entry_blocked": 50,
+    "entry_source_url_already_exists": 50
+  }
+}

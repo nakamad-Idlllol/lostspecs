@@ -1,0 +1,1093 @@
+[
+  {
+    "candidateId": "cand-20260627-194845-src-attackontitan-fandom-com-wiki-hallucigenia",
+    "sourceId": "src-attackontitan-fandom-com-wiki-hallucigenia",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-berserk-fandom-com-wiki-gaiseric",
+    "sourceId": "src-berserk-fandom-com-wiki-gaiseric",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-berserk-fandom-com-wiki-skull-knight",
+    "sourceId": "src-berserk-fandom-com-wiki-skull-knight",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-bleach-fandom-com-wiki-bleach-no-breaths-from-hell",
+    "sourceId": "src-bleach-fandom-com-wiki-bleach-no-breaths-from-hell",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-bleach-fandom-com-wiki-hell",
+    "sourceId": "src-bleach-fandom-com-wiki-hell",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-bloodborne-fandom-com-wiki-moon-presence",
+    "sourceId": "src-bloodborne-fandom-com-wiki-moon-presence",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-bloodborne-fandom-com-wiki-paleblood",
+    "sourceId": "src-bloodborne-fandom-com-wiki-paleblood",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw023-28unaired-29",
+    "title": "BW023 (unaired)",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-bw024-28unaired-29",
+    "title": "BW024 (unaired)",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-bulbapedia-bulbagarden-net-wiki-gs-ball",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-gs-ball",
+    "title": "GS Ball",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-bulbapedia-bulbagarden-net-wiki-north-boulevard",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-north-boulevard",
+    "title": "North Boulevard",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-bulbapedia-bulbagarden-net-wiki-power-plant-28kalos-29",
+    "sourceId": "src-bulbapedia-bulbagarden-net-wiki-power-plant-28kalos-29",
+    "title": "Kalos Power Plant",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-darksouls-fandom-com-wiki-sin",
+    "sourceId": "src-darksouls-fandom-com-wiki-sin",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-darksouls-fandom-com-wiki-velka-goddess-of-sin",
+    "sourceId": "src-darksouls-fandom-com-wiki-velka-goddess-of-sin",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-evangelion-fandom-com-wiki-lilith",
+    "sourceId": "src-evangelion-fandom-com-wiki-lilith",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-evangelion-fandom-com-wiki-ryoji-kaji",
+    "sourceId": "src-evangelion-fandom-com-wiki-ryoji-kaji",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-finalfantasy-fandom-com-wiki-episode-lunafreya",
+    "sourceId": "src-finalfantasy-fandom-com-wiki-episode-lunafreya",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-finalfantasy-fandom-com-wiki-final-fantasy-xv-the-dawn-of-the-future",
+    "sourceId": "src-finalfantasy-fandom-com-wiki-final-fantasy-xv-the-dawn-of-the-future",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-hollowknight-fandom-com-wiki-lifeblood-creature",
+    "sourceId": "src-hollowknight-fandom-com-wiki-lifeblood-creature",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-hollowknight-fandom-com-wiki-lifeblood",
+    "sourceId": "src-hollowknight-fandom-com-wiki-lifeblood",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-hunterxhunter-fandom-com-wiki-gyro",
+    "sourceId": "src-hunterxhunter-fandom-com-wiki-gyro",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-inscryption-fandom-com-wiki-old-data",
+    "sourceId": "src-inscryption-fandom-com-wiki-old-data",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-jojo-fandom-com-wiki-pannacotta-fugo",
+    "sourceId": "src-jojo-fandom-com-wiki-pannacotta-fugo",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-jojo-fandom-com-wiki-unnamed-characters",
+    "sourceId": "src-jojo-fandom-com-wiki-unnamed-characters",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-jojowiki-com-jjl-chapter-83",
+    "sourceId": "src-jojowiki-com-jjl-chapter-83",
+    "title": "JoJo's Bizarre Encyclopedia: JJL Chapter 83",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-kotaku-com-almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
+    "sourceId": "src-kotaku-com-almost-a-year-later-pokemon-x-ys-ghost-girl-is-still-1646738916",
+    "title": "Almost A Year Later, Pokémon X &#038; Y&#8217;s Ghost Girl Is Still A Mystery",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-metalgear-fandom-com-wiki-kingdom-of-the-flies",
+    "sourceId": "src-metalgear-fandom-com-wiki-kingdom-of-the-flies",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-metalgear-fandom-com-wiki-phantom-pain-incident",
+    "sourceId": "src-metalgear-fandom-com-wiki-phantom-pain-incident",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-naruto-fandom-com-wiki-tenten",
+    "sourceId": "src-naruto-fandom-com-wiki-tenten",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-naruto-fandom-com-wiki-treasured-tools-of-the-sage-of-six-paths",
+    "sourceId": "src-naruto-fandom-com-wiki-treasured-tools-of-the-sage-of-six-paths",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-onepunchman-fandom-com-wiki-god",
+    "sourceId": "src-onepunchman-fandom-com-wiki-god",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-onepunchman-fandom-com-wiki-shibabawa",
+    "sourceId": "src-onepunchman-fandom-com-wiki-shibabawa",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-undertale-fandom-com-wiki-entry-number-seventeen",
+    "sourceId": "src-undertale-fandom-com-wiki-entry-number-seventeen",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-undertale-fandom-com-wiki-w-d-gaster",
+    "sourceId": "src-undertale-fandom-com-wiki-w-d-gaster",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-wiki-puella-magi-net-incubator",
+    "sourceId": "src-wiki-puella-magi-net-incubator",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-wikimon-net-bakumon-28adventure-29",
+    "sourceId": "src-wikimon-net-bakumon-28adventure-29",
+    "title": "Bakumon (Adventure)",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-wikimon-net-dagomon",
+    "sourceId": "src-wikimon-net-dagomon",
+    "title": "Dagomon",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-wikimon-net-digimon-adventure-02-episode-13",
+    "sourceId": "src-wikimon-net-digimon-adventure-02-episode-13",
+    "title": "Digimon Adventure 02 - Episode 13",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-wikimon-net-digimon-adventure-02-episode-43",
+    "sourceId": "src-wikimon-net-digimon-adventure-02-episode-43",
+    "title": "Digimon Adventure 02 - Episode 43",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-wikimon-net-digimon-adventure-02",
+    "sourceId": "src-wikimon-net-digimon-adventure-02",
+    "title": "Digimon Adventure 02",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-wikimon-net-digimon-adventure-tri",
+    "sourceId": "src-wikimon-net-digimon-adventure-tri",
+    "title": "Digimon Adventure tri.",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-wikimon-net-mysterious-man",
+    "sourceId": "src-wikimon-net-mysterious-man",
+    "title": "Mysterious Man",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-wikimon-net-world-of-darkness",
+    "sourceId": "src-wikimon-net-world-of-darkness",
+    "title": "World of Darkness",
+    "confidence": 90,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
+    "sourceId": "src-www-cbr-com-dbz-what-happened-to-dragon-ball-launch",
+    "title": "A Forgotten DBZ Filler Episode Akira Toriyama Helped Write Solved Launch&#039;s Disappearance 36 Years Ago",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-www-khwiki-com-black-box",
+    "sourceId": "src-www-khwiki-com-black-box",
+    "title": "Black Box",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-man",
+    "sourceId": "src-www-pokebeach-com-2008-07-second-pokemon-interview-with-masamitsu-hidaka-many-in",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-www-thegamer-com-pokemon-x-y-follow-ups-canceled-plans",
+    "sourceId": "src-www-thegamer-com-pokemon-x-y-follow-ups-canceled-plans",
+    "title": "What Did Game Freak Have Planned For The Canceled Pokémon X & Y Follow-Ups?",
+    "confidence": 100,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-xenoblade-fandom-com-wiki-lifehold",
+    "sourceId": "src-xenoblade-fandom-com-wiki-lifehold",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-xenoblade-fandom-com-wiki-mira",
+    "sourceId": "src-xenoblade-fandom-com-wiki-mira",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  },
+  {
+    "candidateId": "cand-20260627-194845-src-xenosaga-fandom-com-wiki-xenogears",
+    "sourceId": "src-xenosaga-fandom-com-wiki-xenogears",
+    "title": "Just a moment...",
+    "confidence": 0,
+    "decision": {
+      "key": "needs_review",
+      "label": "要レビュー"
+    },
+    "candidateType": "evidence_update",
+    "templateFilled": true,
+    "publishable": false,
+    "reasons": [
+      "decision_not_candidate_ready",
+      "confidence_too_low",
+      "candidate_type_not_auto_publishable",
+      "source_url_already_used",
+      "linked_existing_entry",
+      "template_filled_entry_blocked",
+      "entry_source_url_already_exists"
+    ]
+  }
+]

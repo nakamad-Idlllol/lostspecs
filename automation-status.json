@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-29T20:28:42.135Z",
+  "generatedAt": "2026-06-30T20:35:18.448Z",
   "site": {
     "version": "0.4.6",
-    "updatedAt": "2026-06-29"
+    "updatedAt": "2026-06-30"
   },
   "deployment": {
     "provider": "vercel",
@@ -25,23 +25,23 @@
     }
   },
   "latest": {
-    "extractedBatch": "20260629-201815",
+    "extractedBatch": "20260630-202436",
     "extractedSummary": {
-      "batch": "20260629-201815",
+      "batch": "20260630-202436",
       "processed": 50,
       "thresholds": {
         "candidateReadyMin": 85,
         "needsReviewMin": 55
       },
-      "holdCount": 33,
-      "candidateReadyCount": 17,
+      "holdCount": 34,
+      "candidateReadyCount": 16,
       "needsReviewCount": 0,
-      "generatedAt": "2026-06-29T20:28:41.997Z"
+      "generatedAt": "2026-06-30T20:35:18.304Z"
     },
-    "candidatesBatch": "20260629-201815",
+    "candidatesBatch": "20260630-202436",
     "candidatesSummary": {
-      "batch": "20260629-201815",
-      "generatedAt": "2026-06-29T20:28:42.049Z",
+      "batch": "20260630-202436",
+      "generatedAt": "2026-06-30T20:35:18.359Z",
       "total": 50,
       "candidateReadyCount": 0,
       "needsReviewCount": 50,
@@ -51,10 +51,10 @@
       "evidenceUpdateCount": 50,
       "newEntryCount": 0
     },
-    "publisherBatch": "20260629-201815",
+    "publisherBatch": "20260630-202436",
     "publisherSummary": {
-      "batch": "20260629-201815",
-      "generatedAt": "2026-06-29T20:28:42.101Z",
+      "batch": "20260630-202436",
+      "generatedAt": "2026-06-30T20:35:18.413Z",
       "requestedApply": true,
       "autoApplyEnabled": true,
       "totalCandidates": 50,

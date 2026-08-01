@@ -1,9 +1,9 @@
 {
-  "batch": "20260731-195814",
-  "path": "data/publisher/20260731-195814",
+  "batch": "20260801-193900",
+  "path": "data/publisher/20260801-193900",
   "summary": {
-    "batch": "20260731-195814",
-    "generatedAt": "2026-07-31T20:08:42.782Z",
+    "batch": "20260801-193900",
+    "generatedAt": "2026-08-01T19:49:29.323Z",
     "requestedApply": true,
     "autoApplyEnabled": true,
     "totalCandidates": 50,

@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-25T19:15:04.166Z",
+  "generatedAt": "2026-08-26T20:25:57.068Z",
   "site": {
     "version": "0.4.6",
-    "updatedAt": "2026-08-25"
+    "updatedAt": "2026-08-26"
   },
   "deployment": {
     "provider": "vercel",
@@ -25,23 +25,23 @@
     }
   },
   "latest": {
-    "extractedBatch": "20260825-190433",
+    "extractedBatch": "20260826-201525",
     "extractedSummary": {
-      "batch": "20260825-190433",
+      "batch": "20260826-201525",
       "processed": 50,
       "thresholds": {
         "candidateReadyMin": 85,
         "needsReviewMin": 55
       },
-      "holdCount": 36,
-      "candidateReadyCount": 14,
+      "holdCount": 34,
+      "candidateReadyCount": 16,
       "needsReviewCount": 0,
-      "generatedAt": "2026-08-25T19:15:04.029Z"
+      "generatedAt": "2026-08-26T20:25:56.977Z"
     },
-    "candidatesBatch": "20260825-190433",
+    "candidatesBatch": "20260826-201525",
     "candidatesSummary": {
-      "batch": "20260825-190433",
-      "generatedAt": "2026-08-25T19:15:04.081Z",
+      "batch": "20260826-201525",
+      "generatedAt": "2026-08-26T20:25:57.011Z",
       "total": 50,
       "candidateReadyCount": 0,
       "needsReviewCount": 50,
@@ -51,10 +51,10 @@
       "evidenceUpdateCount": 50,
       "newEntryCount": 0
     },
-    "publisherBatch": "20260825-190433",
+    "publisherBatch": "20260826-201525",
     "publisherSummary": {
-      "batch": "20260825-190433",
-      "generatedAt": "2026-08-25T19:15:04.133Z",
+      "batch": "20260826-201525",
+      "generatedAt": "2026-08-26T20:25:57.046Z",
       "requestedApply": true,
       "autoApplyEnabled": true,
       "totalCandidates": 50,
@@ -63,7 +63,7 @@
       "rejectedCount": 50,
       "reasonsHistogram": {
         "decision_not_candidate_ready": 50,
-        "confidence_too_low": 43,
+        "confidence_too_low": 41,
         "candidate_type_not_auto_publishable": 50,
         "source_url_already_used": 50,
         "linked_existing_entry": 50,

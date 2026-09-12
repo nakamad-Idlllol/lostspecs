@@ -1,9 +1,9 @@
 {
-  "batch": "20260911-210359",
-  "path": "data/publisher/20260911-210359",
+  "batch": "20260912-204034",
+  "path": "data/publisher/20260912-204034",
   "summary": {
-    "batch": "20260911-210359",
-    "generatedAt": "2026-09-11T21:14:34.080Z",
+    "batch": "20260912-204034",
+    "generatedAt": "2026-09-12T20:50:55.219Z",
     "requestedApply": true,
     "autoApplyEnabled": true,
     "totalCandidates": 50,
@@ -12,7 +12,7 @@
     "rejectedCount": 50,
     "reasonsHistogram": {
       "decision_not_candidate_ready": 50,
-      "confidence_too_low": 47,
+      "confidence_too_low": 46,
       "candidate_type_not_auto_publishable": 50,
       "source_url_already_used": 50,
       "linked_existing_entry": 50,

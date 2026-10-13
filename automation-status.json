@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T01:01:33.914Z",
+  "generatedAt": "2026-10-13T23:06:17.803Z",
   "site": {
     "version": "0.4.6",
     "updatedAt": "2026-10-13"
@@ -25,9 +25,9 @@
     }
   },
   "latest": {
-    "extractedBatch": "20261013-005113",
+    "extractedBatch": "20261013-225601",
     "extractedSummary": {
-      "batch": "20261013-005113",
+      "batch": "20261013-225601",
       "processed": 50,
       "thresholds": {
         "candidateReadyMin": 85,
@@ -36,12 +36,12 @@
       "holdCount": 38,
       "candidateReadyCount": 12,
       "needsReviewCount": 0,
-      "generatedAt": "2026-10-13T01:01:33.772Z"
+      "generatedAt": "2026-10-13T23:06:17.646Z"
     },
-    "candidatesBatch": "20261013-005113",
+    "candidatesBatch": "20261013-225601",
     "candidatesSummary": {
-      "batch": "20261013-005113",
-      "generatedAt": "2026-10-13T01:01:33.825Z",
+      "batch": "20261013-225601",
+      "generatedAt": "2026-10-13T23:06:17.712Z",
       "total": 50,
       "candidateReadyCount": 0,
       "needsReviewCount": 50,
@@ -51,10 +51,10 @@
       "evidenceUpdateCount": 50,
       "newEntryCount": 0
     },
-    "publisherBatch": "20261013-005113",
+    "publisherBatch": "20261013-225601",
     "publisherSummary": {
-      "batch": "20261013-005113",
-      "generatedAt": "2026-10-13T01:01:33.880Z",
+      "batch": "20261013-225601",
+      "generatedAt": "2026-10-13T23:06:17.767Z",
       "requestedApply": true,
       "autoApplyEnabled": true,
       "totalCandidates": 50,

@@ -1,9 +1,9 @@
 {
-  "batch": "20261022-214540",
-  "path": "data/publisher/20261022-214540",
+  "batch": "20261023-213121",
+  "path": "data/publisher/20261023-213121",
   "summary": {
-    "batch": "20261022-214540",
-    "generatedAt": "2026-10-22T21:55:56.882Z",
+    "batch": "20261023-213121",
+    "generatedAt": "2026-10-23T21:41:38.076Z",
     "requestedApply": true,
     "autoApplyEnabled": true,
     "totalCandidates": 50,

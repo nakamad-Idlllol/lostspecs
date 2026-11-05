@@ -1,0 +1,12 @@
+{
+  "batch": "20261105-234320",
+  "generatedAt": "2026-11-05T23:53:38.825Z",
+  "total": 50,
+  "candidateReadyCount": 0,
+  "needsReviewCount": 50,
+  "holdCount": 0,
+  "autoEligibleCount": 0,
+  "templateFilledCount": 50,
+  "evidenceUpdateCount": 50,
+  "newEntryCount": 0
+}

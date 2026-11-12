@@ -1,9 +1,9 @@
 {
-  "batch": "20261112-005136",
-  "path": "data/publisher/20261112-005136",
+  "batch": "20261112-234241",
+  "path": "data/publisher/20261112-234241",
   "summary": {
-    "batch": "20261112-005136",
-    "generatedAt": "2026-11-12T01:01:56.591Z",
+    "batch": "20261112-234241",
+    "generatedAt": "2026-11-12T23:52:59.395Z",
     "requestedApply": true,
     "autoApplyEnabled": true,
     "totalCandidates": 50,
